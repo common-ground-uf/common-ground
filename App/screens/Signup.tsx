@@ -23,7 +23,7 @@ function Signup() {
         onChangeText={setEmail}
         value={email}
         placeholder="Email"
-
+        autoCapitalize='none'
       />
       <TextInput
         style={loginSignupStyles.input}
@@ -31,12 +31,14 @@ function Signup() {
         value={password}
         placeholder="Password"
         autoComplete='password'
+        secureTextEntry={true}
       />
       <TextInput
         style={loginSignupStyles.input}
         onChangeText={setPasswordConfirmation}
         value={passwordConfirmation}
         placeholder="Confirm password"
+        secureTextEntry={true}
       />
       <Text onPress={onPressHaveAccount} style={loginSignupStyles.link}>Already have an account?</Text>
       <View style={loginSignupStyles.loginButtonContainer}>
