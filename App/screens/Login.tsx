@@ -2,12 +2,16 @@ import React from 'react';
 import { Text, View, TextInput, Button  } from 'react-native';
 import {loginSignupStyles} from '../styles/LoginSingup';
 
-function Login() {
+type LoginProps = {
+  navigation: any;
+}
+
+function Login(props: LoginProps) {
   const [email, setEmail] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
   
   const onPressForgotPassword = () => {
-    console.log('forgot password');
+    props.navigation.navigate('Forgor Password 💀');
   };
 
   const onPressLogin = () => {
@@ -15,7 +19,7 @@ function Login() {
   };
 
   const onPressSignUp = () => {
-    console.log('log in');
+    props.navigation.navigate('Signup');
   };
 
   return (
@@ -35,7 +39,7 @@ function Login() {
         placeholder="Password"
         autoComplete='password'
       />
-      <Text onPress={onPressForgotPassword} style={loginSignupStyles.link}>Forgot password?</Text>
+      <Text onPress={onPressForgotPassword} style={loginSignupStyles.link}>Forgor password? 💀</Text>
       <Text onPress={onPressSignUp} style={loginSignupStyles.link}>Sign up</Text>
       <View style={loginSignupStyles.loginButtonContainer}>
         <Button title="Login" onPress={onPressLogin} color="#FEB346"/>

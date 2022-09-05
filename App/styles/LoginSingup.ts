@@ -21,6 +21,7 @@ export const loginSignupStyles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     width: '100%',
+    borderRadius: 4,
   },
   loginButtonContainer: {
     justifyContent: 'center',
