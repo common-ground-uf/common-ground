@@ -2,7 +2,9 @@ import express from "express";
 import compression from "compression";
 import helmet from 'helmet';
 import cors from 'cors';
+import mongoose from 'mongoose';
 import { Routes } from '@interfaces/routes.interface';
+import { MONGODB_URI } from "./config";
 
 class App {
     public app: express.Application;
@@ -14,6 +16,7 @@ class App {
         this.env = 'development';
         this.port = 3000;
 
+        this.initializeMongoDB();
         this.initializeMiddlewares();
         this.initializeRoutes(routes);
     }
@@ -27,6 +30,10 @@ class App {
 
     public getServer() {
         return this.app;
+    }
+
+    private initializeMongoDB() {
+        mongoose.connect(MONGODB_URI!);
     }
 
     private initializeMiddlewares() {
