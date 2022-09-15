@@ -1,14 +1,15 @@
 import { Router, Request, Response, NextFunction} from 'express';
-import UserModel from "@models/user.models";
-import { User } from "@interfaces/user.interface";
+import UserModel from "@/models/users.models";
+import { User } from "@/interfaces/users.interface";
 import IndexController from '@controllers/index.controller';
 import { Routes } from '@interfaces/routes.interface';
-import { passport} from 'passport';
-import { LocalStrategy } from 'passport-local';
-import { bcrypt } from 'bcrypt';
+import passport from 'passport';
+import passportLocal from 'passport-local';
+import bcrypt from 'bcrypt';
 
 const saltRounds : Number = 10;
 
+const LocalStrategy = passportLocal.Strategy;
 
 passport.use(new LocalStrategy(function verify(username : string, password : string, cb : any) {
     UserModel.findOne({ username: username }, function (err: any, user: User) {
@@ -24,10 +25,10 @@ passport.use(new LocalStrategy(function verify(username : string, password : str
 }));
 
 
-passport.serializeUser(function(user: User, cb: any) {
+passport.serializeUser(function(req: Request, user: User, cb: any) {
     cb(null, { _id: user._id, email: user.email });
 });
-  
+
 passport.deserializeUser(function(user: User, cb : any) {
     return cb(null, user);
 });
@@ -39,7 +40,6 @@ export const isAuthenticated = (req: Request, res: Response, next: NextFunction)
 
     res.redirect("/login");
 };
-
 
 Router.post('/auth/signup', function(req: Request, res: Response, next: NextFunction) {
     const { email, password } = req.body;
