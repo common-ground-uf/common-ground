@@ -19,6 +19,7 @@ class App {
         this.initializeMongoDB();
         this.initializeMiddlewares();
         this.initializeRoutes(routes);
+        this.initializePassport();
     }
 
     public listen() {
@@ -34,6 +35,9 @@ class App {
 
     private initializeMongoDB() {
         mongoose.connect(MONGODB_URI!);
+    }
+
+    private initializePassport() {
     }
 
     private initializeMiddlewares() {
