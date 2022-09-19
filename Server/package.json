@@ -16,7 +16,8 @@
     "https": "^1.0.0",
     "mongoose": "^6.5.5",
     "passport": "^0.6.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^7.1.2"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
@@ -28,6 +29,7 @@
     "@types/node": "^18.7.15",
     "@types/passport": "^1.0.11",
     "@types/passport-local": "^1.0.34",
+    "@types/passport-local-mongoose": "^6.1.1",
     "tsc-alias": "^1.7.0",
     "typescript": "^4.8.2"
   },

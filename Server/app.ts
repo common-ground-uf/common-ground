@@ -3,8 +3,10 @@ import compression from "compression";
 import helmet from 'helmet';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import passport from '@middlewares/passport.middleware';
 import { Routes } from '@interfaces/routes.interface';
 import { MONGODB_URI } from "./config";
+import session from 'express-session';
 
 class App {
     public app: express.Application;
@@ -19,7 +21,6 @@ class App {
         this.initializeMongoDB();
         this.initializeMiddlewares();
         this.initializeRoutes(routes);
-        this.initializePassport();
     }
 
     public listen() {
@@ -37,14 +38,19 @@ class App {
         mongoose.connect(MONGODB_URI!);
     }
 
-    private initializePassport() {
-    }
 
     private initializeMiddlewares() {
         this.app.use(helmet());
         this.app.use(compression());
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));
+        this.app.use(session({
+            secret: 'wahatever',
+            resave: false,
+            saveUninitialized: true,
+        }));
+        this.app.use(passport.initialize());
+        this.app.use(passport.session());
     }
 
     private initializeRoutes(routes: Routes[]) {
