@@ -8,6 +8,7 @@ import { RestaurantList } from './screens/RestaurantList';
 import React from 'react';
 import {tacoBell} from './data/dummyData';
 import { Restaurant } from './commonTypes';
+import {Verification} from "./screens/Verification";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,15 +16,16 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
-          name="Restaurant List"
-          component={RestaurantList}
-          initialParams={{restaurantList:Array<Restaurant>(10).fill(tacoBell)}}
-        />
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Forgor Password 💀" component={ForgorPassword} />
+        <Stack.Screen name="Verification" component={Verification} />
         <Stack.Screen name="Restaurant" component={RestaurantScreen} initialParams={{restaurant:tacoBell}}/>
+        <Stack.Screen
+            name="Restaurant List"
+            component={RestaurantList}
+            initialParams={{restaurantList:Array<Restaurant>(10).fill(tacoBell)}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
