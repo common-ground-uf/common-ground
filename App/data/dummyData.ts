@@ -19,3 +19,28 @@ export const tacoBell = {
     }
   ]
 };
+
+export const saulProfile = {
+  name: 'Saul Goodman',
+  profilePic: 'https://external-preview.redd.it/Af65FrXSGlwOobPUnC3MNOI1D3xCCERFWoVFfhzpgio.png?format=pjpg&auto=webp&s=ed7b1feb0f8356ba51ea70f5b26b81c1868bc005',
+  preferences: ['Italian', 'Vegan', '$-$$', 'American'],
+  pastPicks: [
+    'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
+    'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
+    'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
+  ],
+  recentContacts: [
+    {
+      name: 'Mike',
+      pic: 'https://compote.slate.com/images/fb69a16d-7f35-4103-98c1-62d466196b9a.jpg?width=1200',
+    },
+    {
+      name: 'Mike',
+      pic: 'https://compote.slate.com/images/fb69a16d-7f35-4103-98c1-62d466196b9a.jpg?width=1200',
+    },
+    {
+      name: 'Mike',
+      pic: 'https://compote.slate.com/images/fb69a16d-7f35-4103-98c1-62d466196b9a.jpg?width=1200',
+    }
+  ]
+};

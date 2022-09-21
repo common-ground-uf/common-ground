@@ -1,0 +1,72 @@
+import React from 'react';
+import { Image, View, Text, StyleSheet } from 'react-native';
+import { Chip } from '../components/Chip';
+import { ContactBubble } from '../components/ContactBubble';
+import { RestaurantBubble } from '../components/RestaurantBubble';
+import { saulProfile } from '../data/dummyData';
+
+const styles = StyleSheet.create({
+  profile: {
+    padding: 20,
+  },
+  image: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
+  center: {
+    marginTop: 20,
+    marginBottom: 20,
+    justifyContent: 'center',
+  },
+  name: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: 15,
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 24,
+    marginBottom: 12,
+  }
+});
+
+function Profile() {
+  return (
+    <View style={styles.profile}>
+      <View style={styles.center}>
+        <Image source={{ uri: saulProfile.profilePic }} style={styles.image} />
+        <Text style={styles.name}>Saul Goodman</Text>
+      </View>
+      <Text style={styles.sectionTitle}>
+        Your preferences
+      </Text>
+      <View style={styles.row}>
+        {saulProfile.preferences.map((preference, index) => <Chip key={index} text={preference} />)}
+      </View>
+      <Text style={styles.sectionTitle}>
+        Past picks
+      </Text>
+      <View style={styles.row}>
+        {saulProfile.pastPicks.map((restaurant, index) => <RestaurantBubble source={restaurant} key={index} />)}
+      </View>
+      <Text style={styles.sectionTitle}>
+        Your contacts
+      </Text>
+      <View style={styles.row}>
+        {saulProfile.recentContacts.map((contact, index) => <ContactBubble source={contact.pic} key={index} />)}
+      </View>
+    </View>
+  );
+}
+
+export { Profile };
