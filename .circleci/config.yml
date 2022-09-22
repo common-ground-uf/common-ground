@@ -3,26 +3,33 @@ version: 2.1
 orbs:
   node: circleci/node@5.0.2
 jobs:
-  build_and_test: # this can be any name you choose
+  build:
     executor: node/default # use the default executor defined within the orb
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: npm
       - run:
-          command: cd App && npm i && npm run test
-          name: Run frontend tests
+          command: cd App && npm i && npm run build
+          name: Build frontend
       - run:
-          command: cd ../Server && npm i && npm run test
-          name: Run backend tests
+          command: cd ../Server && npm i && npm run build
+          name: Build backend
+  test:
+    executor: node/default # use the default executor defined within the orb
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
       - run:
-          command: npm run build
-          name: Build app
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - .
+          command: cd App && npm run test
+          name: Test frontend
+      - run:
+          command: cd ../Server && npm run test
+          name: Test backend
+
 workflows:
   build_test:
     jobs:
-      - build_and_test
+      - build
+      - test
