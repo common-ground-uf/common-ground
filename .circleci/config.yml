@@ -1,17 +1,15 @@
 version: 2.1
 
 jobs:
-  build:
-    docker:
+  docker:
       - image: circleci/node:10.1.0
-
+  build:
     steps:
       - checkout
 
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
 
       - run: npm install
 
