@@ -40,7 +40,19 @@ const styles = StyleSheet.create({
   }
 });
 
-function Profile() {
+type ProfileProps = {
+  navigation: any,
+}
+
+function Profile(props: ProfileProps) {
+  const onClickRestaurant = () => {
+    props.navigation.navigate('Restaurant');
+  };
+
+  const onClickContact = () => {
+    props.navigation.navigate('Profile');
+  };
+
   return (
     <View style={styles.profile}>
       <View style={styles.center}>
@@ -57,13 +69,17 @@ function Profile() {
         Past picks
       </Text>
       <View style={styles.row}>
-        {saulProfile.pastPicks.map((restaurant, index) => <RestaurantBubble source={restaurant} key={index} />)}
+        {saulProfile.pastPicks.map((restaurant, index) => 
+          <RestaurantBubble {...restaurant} key={index} onClick={onClickRestaurant}/>
+        )}
       </View>
       <Text style={styles.sectionTitle}>
         Your contacts
       </Text>
       <View style={styles.row}>
-        {saulProfile.recentContacts.map((contact, index) => <ContactBubble source={contact.pic} key={index} />)}
+        {saulProfile.recentContacts.map((contact, index) =>
+          <ContactBubble {...contact} key={index} onClick={onClickContact}/>
+        )}
       </View>
     </View>
   );
