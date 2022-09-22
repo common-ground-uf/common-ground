@@ -69,8 +69,8 @@ function Profile(props: ProfileProps) {
         Past picks
       </Text>
       <View style={styles.row}>
-        {saulProfile.pastPicks.map((restaurant, index) => 
-          <RestaurantBubble {...restaurant} key={index} onClick={onClickRestaurant}/>
+        {saulProfile.pastPicks.map((restaurant, index) =>
+          <RestaurantBubble {...restaurant} key={index} onClick={onClickRestaurant} />
         )}
       </View>
       <Text style={styles.sectionTitle}>
@@ -78,7 +78,7 @@ function Profile(props: ProfileProps) {
       </Text>
       <View style={styles.row}>
         {saulProfile.recentContacts.map((contact, index) =>
-          <ContactBubble {...contact} key={index} onClick={onClickContact}/>
+          <ContactBubble {...contact} key={index} onClick={onClickContact} />
         )}
       </View>
     </View>

@@ -22,13 +22,13 @@ const styles = StyleSheet.create({
 type ContactBubbleProps = {
   pic: string,
   name: string,
-  onClick: () => void,
+  onClick?: () => void,
 }
 
 function ContactBubble(props: ContactBubbleProps) {
   return (
     <TouchableOpacity onPress={props.onClick}>
-      <Image style={styles.image} source={{ uri: props.pic}}/>
+      <Image style={styles.image} source={{ uri: props.pic }} />
       <Text style={styles.text}>
         {props.name}
       </Text>

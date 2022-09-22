@@ -6,6 +6,8 @@ import { ForgorPassword } from './screens/ForgorPassword💀';
 import { RestaurantScreen } from './screens/RestaurantScreen';
 import { RestaurantList } from './screens/RestaurantList';
 import { Profile } from './screens/Profile';
+import { Home } from './screens/Home';
+import { GroupDetails } from './screens/GroupDetails';
 import { DebugScreen } from './screens/DebugScreen';
 import React from 'react';
 import {tacoBell} from './data/dummyData';
@@ -25,6 +27,8 @@ export default function App() {
           initialParams={{restaurantList:Array<Restaurant>(10).fill(tacoBell)}}
         />
         <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="GroupDetails" component={GroupDetails} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Forgor Password 💀" component={ForgorPassword} />
         <Stack.Screen name="Restaurant" component={RestaurantScreen} initialParams={{restaurant:tacoBell}}/>
