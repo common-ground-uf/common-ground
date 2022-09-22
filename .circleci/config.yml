@@ -15,10 +15,7 @@ jobs:
       - run:
           command: cd Server && npm i && npm run build
           name: Build backend
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - .
+
   test:
     executor: node/default # use the default executor defined within the orb
     steps:
@@ -31,10 +28,6 @@ jobs:
       - run:
           command: cd Server && npm run test
           name: Test backend
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - .
 
 workflows:
   build_test:
