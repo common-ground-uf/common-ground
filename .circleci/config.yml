@@ -8,7 +8,7 @@ jobs:
   build:
     executor: node/default # use the default executor defined within the orb
     docker:
-      - image: "circleci/node:18.9"
+      - image: "circleci/node:11.10"
     steps:
       - checkout
       - node/install-packages:
@@ -17,11 +17,9 @@ jobs:
           node-version: "18.9.0"
       - node/install-packages
       - run:
-          command: cd App && npm i
-          name: Build frontend
-      - run:
-          command: cd Server && npm i && npm run build
-          name: Build backend
+          command: cd App && npm run test
+          name: Test frontend
+
 
 workflows:
   build_test:
