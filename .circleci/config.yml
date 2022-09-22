@@ -14,7 +14,7 @@ jobs:
       - node/install-packages:
           pkg-manager: npm
       - node/install:
-          node-version: "18.9.0"
+          node-version: "16.17.0"
       - node/install-packages
       - run:
           command: cd App && npm run test
