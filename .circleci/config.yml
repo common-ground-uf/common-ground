@@ -1,24 +1,27 @@
-version: 2.1
 
+
+# CircleCI configuration file
+version: 2.1
+orbs:
+  node: circleci/node@5.0.2
 jobs:
-  docker:
-      - image: circleci/node:10.1.0
   build:
+    executor: node/default # use the default executor defined within the orb
     steps:
       - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          command: cd App && npm i
+          name: Build frontend
+      - run:
+          command: cd Server && npm i && npm run build
+          name: Build backend
 
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-
-      - run: npm install
-
-      - save_cache:
-        paths:
-          - node_modules
-        key: v1-dependencies-{{ checksum "package.json" }}
-
-      - run: npm test 
+workflows:
+  build_test:
+    jobs:
+      - build
 
 # # CircleCI configuration file
 # version: 2.1
