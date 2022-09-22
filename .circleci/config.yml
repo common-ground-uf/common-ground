@@ -6,6 +6,7 @@ orbs:
   node: circleci/node@5.0.2
 jobs:
   build:
+    runs-on: ubuntu-latest
     executor: node/default # use the default executor defined within the orb
     steps:
       - checkout
