@@ -8,7 +8,7 @@ jobs:
   build:
     executor: node/default # use the default executor defined within the orb
     docker:
-      - image: "circleci/node:11.10"
+      - image: "circleci/node:18.9"
     steps:
       - checkout
       - node/install-packages:
