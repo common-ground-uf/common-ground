@@ -1,3 +1,13 @@
 # CircleCI configuration file
 
 version: 2.1
+jobs:
+  build:
+    steps:
+      checkout
+      - run: cd App
+      - run: npm install
+      - run: npm test
+      - run: cd ../Server
+      - run: yarn install
+      - run: yarn test
