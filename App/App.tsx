@@ -12,6 +12,10 @@ import { DebugScreen } from './screens/DebugScreen';
 import React from 'react';
 import {tacoBell} from './data/dummyData';
 import { Restaurant } from './commonTypes';
+import {Settings} from "./screens/Settings";
+import {Notifications} from "./screens/Notifications";
+import {Privacy} from "./screens/Privacy";
+import {Account} from "./screens/Account";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +25,10 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="DebugScreen" component={DebugScreen}/>
         <Stack.Screen name="Profile" component={Profile}/>
+        <Stack.Screen name="Settings" component={Settings}/>
+        <Stack.Screen name="Account" component={Account}/>
+        <Stack.Screen name="Notifications" component={Notifications}/>
+        <Stack.Screen name="Privacy" component={Privacy}/>
         <Stack.Screen
           name="Restaurant List"
           component={RestaurantList}
