@@ -8,6 +8,7 @@ import { RestaurantList } from './screens/RestaurantList';
 import React from 'react';
 import {tacoBell} from './data/dummyData';
 import { Restaurant } from './commonTypes';
+import {Preferences} from "./screens/Preferences";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Preferences" component={Preferences} />
         <Stack.Screen
           name="Restaurant List"
           component={RestaurantList}
