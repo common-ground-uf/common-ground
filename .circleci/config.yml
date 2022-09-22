@@ -11,11 +11,6 @@ jobs:
       - image: "circleci/node:11.10"
     steps:
       - checkout
-      - node/install-packages:
-          pkg-manager: npm
-      - node/install:
-          node-version: "16.17.0"
-      - node/install-packages
       - run:
           command: cd App && npm i && npm run test
           name: Test frontend
