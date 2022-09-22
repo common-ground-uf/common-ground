@@ -17,7 +17,7 @@ jobs:
           node-version: "16.17.0"
       - node/install-packages
       - run:
-          command: cd App && npm run test
+          command: cd App && npm i && npm run test
           name: Test frontend
 
 
