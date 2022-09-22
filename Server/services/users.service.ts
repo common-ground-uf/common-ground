@@ -37,7 +37,7 @@ class UserService {
         const findUser: User = await this.users.findOne({ email: userData.email });
         if (findUser) throw new HttpException(409, `This email ${userData.email} already exists`);
 
-        this.users.register(new userModel({username: userData.email, email: userData.email}), userData.password, (err: Error, user : User) => {
+        this.users.register(new userModel({email: userData.email}), userData.password, (err: Error, user : User) => {
             if(err)
             {
                 throw new HttpException(409, "Your account could not be saved. Error: " + err);

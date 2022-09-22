@@ -5,6 +5,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import passport from '@middlewares/passport.middleware';
 import { Routes } from '@interfaces/routes.interface';
+import bodyparser from 'body-parser';
 import { MONGODB_URI } from "./config";
 import session from 'express-session';
 
@@ -42,8 +43,8 @@ class App {
     private initializeMiddlewares() {
         this.app.use(helmet());
         this.app.use(compression());
+        this.app.use(bodyparser.urlencoded({extended: true}));
         this.app.use(express.json());
-        this.app.use(express.urlencoded({ extended: true }));
         this.app.use(session({
             secret: 'wahatever',
             resave: false,
