@@ -13,6 +13,20 @@ class AuthController {
 
     }
 
+    
+    public logOut = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            req.logOut((err: Error) => {
+                if (err) {
+                    return next(err);
+                }
+                res.redirect('/');
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
+
 
 }
 

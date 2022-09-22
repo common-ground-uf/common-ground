@@ -14,6 +14,7 @@ class AuthRoute implements Routes {
 
     private initializeRoutes() {
         this.router.post(`${this.path}login`, passport.authenticate('local', { successRedirect: '/', failureRedirect:'/users'}));
+        this.router.post(`${this.path}logout`, this.authController.logOut);
     }
 }
 
