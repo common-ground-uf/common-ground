@@ -1,21 +1,54 @@
+
+
 # CircleCI configuration file
 version: 2.1
 orbs:
   node: circleci/node@5.0.2
 jobs:
-  build_and_test: # this can be any name you choose
+  build:
     executor: node/default # use the default executor defined within the orb
+    docker:
+      - image: "circleci/node:11.10"
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: npm
+      - node/install:
+          node-version: "16.17.0"
+      - node/install-packages
       - run:
-          command: npm run test
-          name: Run tests
+          command: cd App && npm i
+          name: Build frontend
       - run:
-          command: npm run build
-          name: Build app
+          command: cd Server && npm i && npm run build
+          name: Build backend
       - persist_to_workspace:
           root: ~/project
-          paths:
-            - .
+          paths: .
+  test:
+    executor: node/default # use the default executor defined within the orb
+    docker:
+      - image: "circleci/node:11.10"
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/project
+      - node/install-packages:
+          pkg-manager: npm
+      - node/install:
+          node-version: "16.17.0"
+      - node/install-packages
+      - run:
+          command: cd App && npm run test
+          name: Test frontend
+      - run:
+          command: cd Server && npm run test
+          name: Test backend
+
+workflows:
+  build_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
