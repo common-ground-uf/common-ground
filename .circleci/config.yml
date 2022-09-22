@@ -18,10 +18,10 @@ jobs:
       - node/install-packages
       - run:
           command: cd App && npm i && npm run test
-          name: Build and test frontend
+          name: Build frontend
       - run:
           command: cd Server && npm i && npm run build && npm run test
-          name: Build and test backend
+          name: Build backend
   test:
     executor: node/default # use the default executor defined within the orb
     docker:
