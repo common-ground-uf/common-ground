@@ -22,12 +22,20 @@ jobs:
       - run:
           command: cd Server && npm i && npm run build && npm run test
           name: Build backend
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
   test:
     executor: node/default # use the default executor defined within the orb
     docker:
       - image: "circleci/node:11.10"
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
       - node/install-packages:
           pkg-manager: npm
       - node/install:
@@ -45,3 +53,5 @@ workflows:
     jobs:
       - build
       - test
+          requires:
+            - build
