@@ -34,6 +34,6 @@
     "build": "tsc && tsc-alias",
     "start": "node dist/index.js",
     "dev": "concurrently \"tsc-alias -w\" \"npm tsc --watch\" \"nodemon -q dist/index.js\"",
-    "test": "jest --config jest.config.js"
+    "test": "jest --ci --runInBand --reporters=default --reporters=jest-junit --config jest.config.js"
   }
 }

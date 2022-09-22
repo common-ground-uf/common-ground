@@ -10,11 +10,15 @@ jobs:
       - node/install-packages:
           pkg-manager: npm
       - run:
-          command: cd App && npm i && npm run build
+          command: cd App && npm i
           name: Build frontend
       - run:
           command: cd ../Server && npm i && npm run build
           name: Build backend
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
   test:
     executor: node/default # use the default executor defined within the orb
     steps:
@@ -27,9 +31,65 @@ jobs:
       - run:
           command: cd ../Server && npm run test
           name: Test backend
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
 
 workflows:
   build_test:
     jobs:
       - build
       - test
+          requires: 
+            - build
+
+# version: 2
+#   jobs:
+#     checkout:
+#       docker:
+#         - image: circleci/node:11.10
+#       working_directory: ~/ci-root
+#     steps:
+#       - checkout
+#       - restore_cache:
+#         key: dependency-cache-{{ checksum “package.json” }}
+#       - run:
+#         name: Install Dependencies
+#         command: npm install
+#       - save_cache:
+#         key: dependency-cache-{{ checksum “package.json” }}
+#       paths:
+#         - ./node_modules
+#         - persist_to_workspace:
+#       root: ~/
+#       paths:
+#         - ci-root
+#       test:
+#   docker:
+#     - image: circleci/node:11.10
+#   working_directory: ~/ci-root
+#   steps:
+#     - attach_workspace:
+#       at: ~/
+#     - run:
+#     name: Install Dependencies
+#     command: npm install
+# - run: # run tests
+# name: Install unit test framework
+# command: npm add --save-dev jest-junit
+# - run:
+# name: Run unit tests
+# command: npm run ~/ci-root/node_modules/jest/bin/jest --ci --runInBand --reporters=default --reporters=jest-junit
+# environment:
+# JEST_JUNIT_OUTPUT: “test-results/jest/results.xml”
+# - store_test_results:
+# path: test-results
+# workflows:
+# version: 2
+# Continuos Integration:
+# jobs:
+# - checkout
+# - test:
+# requires:
+# - checkout
