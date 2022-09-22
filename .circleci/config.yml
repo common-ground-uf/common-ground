@@ -10,10 +10,10 @@ jobs:
       - node/install-packages:
           pkg-manager: npm
       - run:
-          command: cd App && npm run test
+          command: cd App && npm i && npm run test
           name: Run frontend tests
       - run:
-          command: cd ../Server && npm run test
+          command: cd ../Server && npm i && npm run test
           name: Run backend tests
       - run:
           command: npm run build
