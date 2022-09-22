@@ -17,25 +17,22 @@ jobs:
           node-version: "16.17.0"
       - node/install-packages
       - run:
-          command: cd App && npm i && npm run test
+          command: cd App && npm i
           name: Build frontend
       - run:
-          command: cd Server && npm i && npm run build && npm run test
+          command: cd Server && npm i && npm run build
           name: Build backend
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+      - persist_to_workspace:
+          root: ~/project
+          paths: .
   test:
     executor: node/default # use the default executor defined within the orb
     docker:
       - image: "circleci/node:11.10"
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
+      - attach_workspace:
+          at: ~/project
       - node/install-packages:
           pkg-manager: npm
       - node/install:
