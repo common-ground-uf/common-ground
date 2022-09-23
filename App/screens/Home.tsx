@@ -44,8 +44,14 @@ function Home(props: HomeProps) {
     name: 'Los Pollos Hermanos',
     pic: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
   };
-  
-  const onClickRestaurant = () => {};
+
+  const onClickRestaurant = () => {
+    props.navigation.navigate('Restaurant');
+  };
+
+  const onClickGroup = () => {
+    props.navigation.navigate('GroupDetails');
+  };
   const members = [Gus, Walter, Finger];
 
   return (
@@ -59,26 +65,26 @@ function Home(props: HomeProps) {
         </View>
         <Text style={styles.sectionTitle}>Recently Visited</Text>
         <View style={styles.row}>
-          <RestaurantBubble {...restaurant} onClick={onClickRestaurant}/>
-          <RestaurantBubble {...restaurant} onClick={onClickRestaurant}/>
-          <RestaurantBubble {...restaurant} onClick={onClickRestaurant}/>
+          <RestaurantBubble {...restaurant} onClick={onClickRestaurant} />
+          <RestaurantBubble {...restaurant} onClick={onClickRestaurant} />
+          <RestaurantBubble {...restaurant} onClick={onClickRestaurant} />
         </View>
         <Text style={styles.sectionTitle}>Parties</Text>
         <View style={styles.row}>
-          <GroupBubbles members={members} name='The boys' onClick={onClickRestaurant}/>
-          <GroupBubbles members={members} name='Your mom fan club' onClick={onClickRestaurant}/>
-          <GroupBubbles members={members} name='Work' onClick={onClickRestaurant}/>
-          <GroupBubbles members={members} name='Family' onClick={onClickRestaurant}/>
+          <GroupBubbles members={members} name='The boys' onClick={onClickGroup} />
+          <GroupBubbles members={members} name='Your mom fan club' onClick={onClickGroup} />
+          <GroupBubbles members={members} name='Work' onClick={onClickGroup} />
+          <GroupBubbles members={members} name='Family' onClick={onClickGroup} />
         </View>
         <Text style={styles.sectionTitle}>Saved restaurants</Text>
         <View style={styles.row}>
-          <RestaurantBubble {...restaurant} onClick={onClickRestaurant}/>
-          <RestaurantBubble {...restaurant} onClick={onClickRestaurant}/>
-          <RestaurantBubble {...restaurant} onClick={onClickRestaurant}/>
+          <RestaurantBubble {...restaurant} onClick={onClickRestaurant} />
+          <RestaurantBubble {...restaurant} onClick={onClickRestaurant} />
+          <RestaurantBubble {...restaurant} onClick={onClickRestaurant} />
         </View>
       </View>
     </ScrollView>
   );
 }
 
-export {Home};
+export { Home };
