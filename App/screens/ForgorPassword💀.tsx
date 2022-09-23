@@ -18,8 +18,7 @@ function ForgorPassword(props: ForgorPasswordProps) {
   };
 
   const resetPassword = () => {
-    //TODO: check that the code is correct
-    console.log('reset password');
+    props.navigation.navigate('ResetPassword');
   };
 
   return (

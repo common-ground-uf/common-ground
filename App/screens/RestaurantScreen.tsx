@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
   },
   title: {
     marginVertical: 12,
-    fontSize: 24
+    fontSize: 24,
+    fontWeight: 'bold',
   },
   reviews: {
     marginVertical: 12,

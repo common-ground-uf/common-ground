@@ -1,9 +1,9 @@
 import React from 'react';
-import {TouchableOpacity, Image, View, Text, StyleSheet} from 'react-native';
-import {Chip} from '../components/Chip';
-import {ContactBubble} from '../components/ContactBubble';
-import {RestaurantBubble} from '../components/RestaurantBubble';
-import {saulProfile} from '../data/dummyData';
+import { TouchableOpacity, Image, View, Text, StyleSheet } from 'react-native';
+import { Chip } from '../components/Chip';
+import { ContactBubble } from '../components/ContactBubble';
+import { RestaurantBubble } from '../components/RestaurantBubble';
+import { saulProfile } from '../data/dummyData';
 
 const styles = StyleSheet.create({
     profile: {
@@ -66,25 +66,25 @@ function Profile(props: ProfileProps) {
         <View style={styles.profile}>
             <View style={styles.center}>
                 <TouchableOpacity onPress={onClickSettings}>
-                    <Image source={require('../assets/settings.png')} style={styles.settings}/>
+                    <Image source={require('../assets/settings.png')} style={styles.settings} />
                 </TouchableOpacity>
             </View>
             <View style={styles.center}>
-                <Image source={{uri: saulProfile.profilePic}} style={styles.image}/>
+                <Image source={{ uri: saulProfile.profilePic }} style={styles.image} />
                 <Text style={styles.name}>Saul Goodman</Text>
             </View>
             <Text style={styles.sectionTitle}>
                 Your preferences
             </Text>
             <View style={styles.row}>
-                {saulProfile.preferences.map((preference, index) => <Chip key={index} text={preference}/>)}
+                {saulProfile.preferences.map((preference, index) => <Chip key={index} text={preference} />)}
             </View>
             <Text style={styles.sectionTitle}>
                 Past picks
             </Text>
             <View style={styles.row}>
                 {saulProfile.pastPicks.map((restaurant, index) =>
-                    <RestaurantBubble {...restaurant} key={index} onClick={onClickRestaurant}/>
+                    <RestaurantBubble {...restaurant} key={index} onClick={onClickRestaurant} />
                 )}
             </View>
             <Text style={styles.sectionTitle}>
@@ -92,11 +92,11 @@ function Profile(props: ProfileProps) {
             </Text>
             <View style={styles.row}>
                 {saulProfile.recentContacts.map((contact, index) =>
-                    <ContactBubble {...contact} key={index} onClick={onClickContact}/>
+                    <ContactBubble {...contact} key={index} onClick={onClickContact} />
                 )}
             </View>
         </View>
     );
 }
 
-export {Profile};
+export { Profile };
