@@ -18,6 +18,7 @@ import { Privacy } from './screens/Privacy';
 import { Account } from './screens/Account';
 import { Preferences } from './screens/Preferences';
 import { ResetPassword } from './screens/ResetPassword';
+import { StartNewTableScreen } from './screens/StartNewTableScreen';
 import { recentContacts } from './data/dummyData';
 
 const Stack = createNativeStackNavigator();
@@ -45,6 +46,7 @@ export default function App() {
                 <Stack.Screen name="Forgor Password 💀" component={ForgorPassword} />
                 <Stack.Screen name="ResetPassword" component={ResetPassword} />
                 <Stack.Screen name="Restaurant" component={RestaurantScreen} initialParams={{ restaurant: tacoBell }} />
+                <Stack.Screen name="StartNewTableScreen" component={StartNewTableScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
