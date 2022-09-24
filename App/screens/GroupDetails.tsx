@@ -5,6 +5,7 @@ import { Finger, Gus, Walter } from '../data/dummyData';
 const styles = StyleSheet.create({
   groupDetails: {
     padding: 20,
+    backgroundColor: 'white',
   },
   memberContainer: {
     marginTop: 20,
