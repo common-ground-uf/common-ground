@@ -2,8 +2,6 @@ import React from 'react';
 import {
     Text,
     View,
-    TextInput,
-    Button,
     Image,
     FlatList,
     StyleSheet,
@@ -21,23 +19,23 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     memberContainer: {
-        marginTop: 20,
+        marginTop: 15,
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
+        width: '100%',
     },
     image: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
+        width: 24,
+        height: 24,
         marginRight: 12,
     },
     horizontalLine: {
         height: 1,
         width: '100%',
         backgroundColor: 'black',
-        marginTop: 20,
-    }
+        marginTop: 15,
+    },
 });
 
 type SettingsProps = {
@@ -58,12 +56,10 @@ const Setting = (props: SettingProps) => {
 
     return (
         <>
-            <View style={styles.memberContainer}>
-                <TouchableOpacity onPress={onClickSetting}>
+            <TouchableOpacity onPress={onClickSetting} style={styles.memberContainer}>
                 <Image style={styles.image} source={props.image} />
                 <Text>{props.name}</Text>
-                </TouchableOpacity>
-            </View>
+            </TouchableOpacity>
             <View style={styles.horizontalLine} />
         </>
     );
@@ -92,6 +88,7 @@ function Settings(props: SettingsProps) {
             <FlatList
                 data={members}
                 renderItem={(member) => <Setting {...member.item} />}
+                style={{width: '100%'}}
             />
         </View>
     );

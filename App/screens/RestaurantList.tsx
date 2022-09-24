@@ -66,8 +66,8 @@ function RestaurantList(props: RestaurantListProps) {
   return (
     <ScrollView style={styles.restaurantList}>
       {restaurantList.map((restaurant, index) =>
-        <TouchableOpacity onPress={() => props.navigation. navigate("Restaurant")}>
-          <RestaurantCard key={index} {...restaurant}/>
+        <TouchableOpacity key={index} onPress={() => props.navigation. navigate("Restaurant")}>
+          <RestaurantCard {...restaurant}/>
         </TouchableOpacity>
       )}
       <View style={{height: 40}}/>
