@@ -17,6 +17,7 @@ import {Notifications} from "./screens/Notifications";
 import {Privacy} from "./screens/Privacy";
 import {Account} from "./screens/Account";
 import {Preferences} from "./screens/Preferences";
+import {Gallery} from "./screens/Gallery";
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +42,7 @@ export default function App() {
                 <Stack.Screen name="GroupDetails" component={GroupDetails}/>
                 <Stack.Screen name="Login" component={Login}/>
                 <Stack.Screen name="Forgor Password 💀" component={ForgorPassword}/>
+                <Stack.Screen name="Gallery" component={Gallery}/>
                 <Stack.Screen name="Restaurant" component={RestaurantScreen} initialParams={{restaurant: tacoBell}}/>
             </Stack.Navigator>
         </NavigationContainer>

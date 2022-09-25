@@ -5,7 +5,18 @@ const styles = StyleSheet.create({
     container: {
         marginTop: "10%",
         alignItems: "center",
-        justifyContent: "center"
+        width: '100%',
+        paddingRight: 20,
+        paddingLeft: 20,
+    },
+    row: {
+        display: 'flex',
+        flexDirection: 'row',
+        width: '100%',
+        marginTop: 12,
+    },
+    text: {
+        flexGrow: 1
     }
 });
 
@@ -26,53 +37,63 @@ function Notifications(props: NotificationsProps) {
     const [partyInvitesEnabled, setPartyInvitesEnabled] = React.useState(true);
     const togglePartyInvites = () => setPartyInvitesEnabled(previousState => !previousState);
 
+    const trackColor = {false: "#767577", true: "#FEB346"};
+
     return (
         <View style={styles.container}>
-            <Text>
-                Allow all notifications
-            </Text>
-            <Switch
-                trackColor={{false: "#767577", true: "#81b0ff"}}
-                thumbColor={notificationsEnabled ? "#f5dd4b" : "#f4f3f4"}
-                ios_backgroundColor="#3e3e3e"
-                onValueChange={toggleNotifications}
-                value={notificationsEnabled}
-            />
+            <View style={styles.row}>
+                <Text style={styles.text}>
+                    Allow all notifications
+                </Text>
+                <Switch
+                    trackColor={trackColor}
+                    thumbColor={notificationsEnabled ? "white" : "#f4f3f4"}
+                    ios_backgroundColor="#3e3e3e"
+                    onValueChange={toggleNotifications}
+                    value={notificationsEnabled}
+                />
+            </View>
             {!notificationsEnabled ?
-                <View style={styles.container}>
-                    <Text>
+                <View style={{marginTop: 20}}>
+                    <Text style={{fontWeight:'bold'}}>
                         Only allow select notifications:
                     </Text>
-                    <Text>
-                        Recommendations for you
-                    </Text>
-                    <Switch
-                        trackColor={{false: "#767577", true: "#81b0ff"}}
-                        thumbColor={recommendationsEnabled ? "#f5dd4b" : "#f4f3f4"}
-                        ios_backgroundColor="#3e3e3e"
-                        onValueChange={toggleRecommendations}
-                        value={recommendationsEnabled}
-                    />
-                    <Text>
-                        New messages
-                    </Text>
-                    <Switch
-                        trackColor={{false: "#767577", true: "#81b0ff"}}
-                        thumbColor={newMessagesEnabled ? "#f5dd4b" : "#f4f3f4"}
-                        ios_backgroundColor="#3e3e3e"
-                        onValueChange={toggleNewMessages}
-                        value={newMessagesEnabled}
-                    />
-                    <Text>
-                        Party invites
-                    </Text>
-                    <Switch
-                        trackColor={{false: "#767577", true: "#81b0ff"}}
-                        thumbColor={partyInvitesEnabled ? "#f5dd4b" : "#f4f3f4"}
-                        ios_backgroundColor="#3e3e3e"
-                        onValueChange={togglePartyInvites}
-                        value={partyInvitesEnabled}
-                    />
+                    <View style={styles.row}>
+                        <Text style={styles.text}>
+                            Recommendations for you
+                        </Text>
+                        <Switch
+                            trackColor={trackColor}
+                            thumbColor={notificationsEnabled ? "white" : "#f4f3f4"}
+                            ios_backgroundColor="#3e3e3e"
+                            onValueChange={toggleRecommendations}
+                            value={recommendationsEnabled}
+                        />
+                    </View>
+                    <View style={styles.row}>
+                        <Text style={styles.text}>
+                            New messages
+                        </Text>
+                        <Switch
+                            trackColor={trackColor}
+                            thumbColor={notificationsEnabled ? "white" : "#f4f3f4"}
+                            ios_backgroundColor="#3e3e3e"
+                            onValueChange={toggleNewMessages}
+                            value={newMessagesEnabled}
+                        />
+                    </View>
+                    <View style={styles.row}>
+                        <Text style={styles.text}>
+                            Party invites
+                        </Text>
+                        <Switch
+                            trackColor={trackColor}
+                            thumbColor={notificationsEnabled ? "white" : "#f4f3f4"}
+                            ios_backgroundColor="#3e3e3e"
+                            onValueChange={togglePartyInvites}
+                            value={partyInvitesEnabled}
+                        />
+                    </View>
                 </View>
                 : <></>}
 

@@ -24,6 +24,7 @@ function DebugScreen(props: DebugScreenProps) {
             <Button title="Preferences" onPress={() => onClick('Preferences')} color="#FEB346"/>
             <Button title="Home" onPress={() => onClick('Home')} color="#FEB346"/>
             <Button title="GroupDetails" onPress={() => onClick('GroupDetails')} color="#FEB346"/>
+            <Button title="Gallery" onPress={() => onClick('Gallery')} color="#FEB346"/>
         </View>
     );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity, Image, View, Text, StyleSheet} from 'react-native';
+import {TouchableOpacity, Image, View, Text, StyleSheet, Button} from 'react-native';
 import {Chip} from '../components/Chip';
 import {ContactBubble} from '../components/ContactBubble';
 import {RestaurantBubble} from '../components/RestaurantBubble';
@@ -7,12 +7,18 @@ import {saulProfile} from '../data/dummyData';
 
 const styles = StyleSheet.create({
     profile: {
-        padding: 20,
+        paddingLeft: 20,
+        paddingRight: 20,
+        paddingBottom: 20,
+        backgroundColor: 'white',
     },
     settings: {
         width: 50,
         height: 50,
         paddings: '100%',
+        position: 'absolute',
+        top: 0,
+        left: 0,
     },
     image: {
         width: 150,
@@ -36,12 +42,14 @@ const styles = StyleSheet.create({
     row: {
         display: 'flex',
         flexDirection: 'row',
+        alignItems: 'baseline',
     },
     sectionTitle: {
         fontSize: 18,
         fontWeight: 'bold',
         marginTop: 24,
         marginBottom: 12,
+        flexGrow: 1,
     }
 });
 
@@ -62,6 +70,14 @@ function Profile(props: ProfileProps) {
         props.navigation.navigate('Settings');
     };
 
+    const onClickEditPreferences = () => {
+        props.navigation.navigate("Preferences");
+    };
+
+    const onClickSeeAllPicks = () => {
+        props.navigation.navigate("Restaurant List");
+    }
+
     return (
         <View style={styles.profile}>
             <View style={styles.center}>
@@ -73,18 +89,21 @@ function Profile(props: ProfileProps) {
                 <Image source={{uri: saulProfile.profilePic}} style={styles.image}/>
                 <Text style={styles.name}>Saul Goodman</Text>
             </View>
-            <Text style={styles.sectionTitle}>
-                Your preferences
-            </Text>
             <View style={styles.row}>
-                {saulProfile.preferences.map((preference, index) => <Chip key={index} text={preference}/>)}
+                <Text style={styles.sectionTitle}>
+                    Your preferences
+                </Text>
+                <Button onPress={onClickEditPreferences} title="Edit"/>
             </View>
-            <Text style={styles.sectionTitle}>
-                Past picks
-            </Text>
+            <View style={styles.row}>
+                <Text style={styles.sectionTitle}>
+                    Past picks
+                </Text>
+                <Button onPress={onClickSeeAllPicks} title="See all"/>
+            </View>
             <View style={styles.row}>
                 {saulProfile.pastPicks.map((restaurant, index) =>
-                    <RestaurantBubble {...restaurant} key={index} onClick={onClickRestaurant}/>
+                    <RestaurantBubble {...restaurant} key={index} onClick={onClickSeeAllPicks}/>
                 )}
             </View>
             <Text style={styles.sectionTitle}>

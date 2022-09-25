@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text, View, Image, StyleSheet } from 'react-native';
+import { Text, View, Image, StyleSheet, Button } from 'react-native';
 import { Restaurant } from '../commonTypes';
 import {PriceRating} from '../components/PriceRating';
 import {Review} from '../components/Review';
+import {gallery} from '../data/dummyData';
 
 type RestaurantScreenProps = {
   navigation: any,
@@ -20,11 +21,13 @@ const styles = StyleSheet.create({
   },
   title: {
     marginVertical: 12,
-    fontSize: 24
+    fontSize: 24,
+    fontWeight: 'bold',
   },
-  reviews: {
-    marginVertical: 12,
-    fontSize: 20
+  sectionTitle: {
+    fontWeight: 'bold',
+    marginVertical: 10,
+    fontSize: 18
   },
   averageReviewRating: {
     fontSize: 18,
@@ -33,6 +36,16 @@ const styles = StyleSheet.create({
   averageReview: {
     fontSize: 12,
     color: '#444444',
+  },
+  gallery: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  galleryImage: {
+    height: 100,
+    width: 100,
+    borderRadius: 2,
+    marginRight: 10,
   }
 });
 
@@ -42,6 +55,10 @@ function RestaurantScreen(props: RestaurantScreenProps) {
   if (!restaurant) {
     return null;
   }
+
+  const onPressSeeAllGallery = () => {
+    props.navigation.navigate("Gallery");
+  };
 
   return (
     <View>
@@ -63,12 +80,21 @@ function RestaurantScreen(props: RestaurantScreenProps) {
         <Text style={{marginTop: 12}}>
           {restaurant.description}
         </Text>
-        <Text style={styles.reviews}>Reviews</Text>
+        <Text style={styles.sectionTitle}>Reviews</Text>
         <Text style={{display: 'flex'}}>
           <Text style={styles.averageReviewRating}>{restaurant.starRating}⭐</Text>
           <Text style={styles.averageReview}>  average review on Yelp</Text>
         </Text>
         {restaurant.reviews.map((review, index) => <Review key={index} {...review}/>)}
+        <View>
+          <Text style={styles.sectionTitle}>Gallery</Text>
+          <View style={styles.gallery}>
+            {gallery.map((image, index) => 
+              <Image style={styles.galleryImage} source={{uri: image}} key={index} />
+            )}
+          </View>
+          <Button title="See all" onPress={onPressSeeAllGallery}/>
+        </View>
       </View>
     </View>
   );
