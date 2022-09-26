@@ -4,6 +4,7 @@ import { View, FlatList, Image, Text, StyleSheet, TouchableOpacity } from 'react
 const styles = StyleSheet.create({
   groupDetails: {
     padding: 20,
+    backgroundColor: 'white',
   },
   memberContainer: {
     marginTop: 20,
@@ -69,6 +70,7 @@ type GroupDetailsProps = {
   name: string,
   members: any,
   navigation: any;
+  route: any;
 };
 
 function GroupDetails(props: GroupDetailsProps) {

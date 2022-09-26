@@ -1,6 +1,6 @@
 import React from 'react';
 import {Restaurant} from '../commonTypes';
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
   card: {
@@ -8,25 +8,44 @@ const styles = StyleSheet.create({
     backgroundColor: '#DFDFDF',
     padding: 12,
     margin: 8,
-    // boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,  
-    elevation: 5
+    shadowOffset: { width: 1.95, height: 1.95 },
+    shadowOpacity: 0.15,
+    shadowRadius: 2.6 
   },
   restaurantList: {
-    paddingTop: 0,
-    paddingBottom: 20,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 20,
+    backgroundColor: 'white',
+  },
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  name: {
+    fontWeight: 'bold',
+    marginBottom: 6,
+    fontSize: 16,
+  },
+  description: {
+    marginTop: 6,
+  },
+  starRating: {
+    marginLeft: 12,
   }
 });
 
 function RestaurantCard(props: Restaurant) {
   return (
     <View style={styles.card}>
-      <Text>{props.name}</Text>
-      <Text>{props.starRating}⭐</Text>
-      <Text>{props.description}</Text>
+      <View style={styles.row}>
+        <Text style={styles.name}>{props.name}</Text>
+        {props.starRating && 
+          <Text style={styles.starRating}>{props.starRating}⭐</Text>
+        }
+      </View>
+      <Text style={styles.description}>{props.description}</Text>
     </View>
   );
 }
@@ -46,7 +65,12 @@ function RestaurantList(props: RestaurantListProps) {
   
   return (
     <ScrollView style={styles.restaurantList}>
-      {restaurantList.map((restaurant, index) => <RestaurantCard key={index} {...restaurant}/>)}
+      {restaurantList.map((restaurant, index) =>
+        <TouchableOpacity key={index} onPress={() => props.navigation. navigate("Restaurant")}>
+          <RestaurantCard {...restaurant}/>
+        </TouchableOpacity>
+      )}
+      <View style={{height: 40}}/>
     </ScrollView>
   );
 }

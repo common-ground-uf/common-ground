@@ -57,3 +57,9 @@ export const saulProfile = {
   ],
   recentContacts: recentContacts,
 };
+
+export const gallery = [
+  'https://media-cdn.tripadvisor.com/media/photo-s/1a/11/b0/75/how-can-you-possibly.jpg',
+  'https://www.tacobell.com/images/22965_grilled_cheese_burrito_deluxe_box_750x660.jpg',
+  'https://www.thestreet.com/.image/t_share/MTg5MjIwNjA1Nzg1MDI0NDAz/taco-bell.jpg',
+];

@@ -20,6 +20,7 @@ import { Preferences } from './screens/Preferences';
 import { ResetPassword } from './screens/ResetPassword';
 import { StartNewTableScreen } from './screens/StartNewTableScreen';
 import { recentContacts } from './data/dummyData';
+import {Gallery} from "./screens/Gallery";
 
 const Stack = createNativeStackNavigator();
 
@@ -47,6 +48,7 @@ export default function App() {
                 <Stack.Screen name="ResetPassword" component={ResetPassword} />
                 <Stack.Screen name="Restaurant" component={RestaurantScreen} initialParams={{ restaurant: tacoBell }} />
                 <Stack.Screen name="StartNewTableScreen" component={StartNewTableScreen} />
+                <Stack.Screen name="Gallery" component={Gallery}/>
             </Stack.Navigator>
         </NavigationContainer>
     );

@@ -1,18 +1,24 @@
 import React from 'react';
-import { TouchableOpacity, Image, View, Text, StyleSheet } from 'react-native';
-import { Chip } from '../components/Chip';
-import { ContactBubble } from '../components/ContactBubble';
-import { RestaurantBubble } from '../components/RestaurantBubble';
-import { saulProfile } from '../data/dummyData';
+import {TouchableOpacity, Image, View, Text, StyleSheet, Button} from 'react-native';
+import {Chip} from '../components/Chip';
+import {ContactBubble} from '../components/ContactBubble';
+import {RestaurantBubble} from '../components/RestaurantBubble';
+import {saulProfile} from '../data/dummyData';
 
 const styles = StyleSheet.create({
     profile: {
-        padding: 20,
+        paddingLeft: 20,
+        paddingRight: 20,
+        paddingBottom: 20,
+        backgroundColor: 'white',
     },
     settings: {
         width: 50,
         height: 50,
         paddings: '100%',
+        position: 'absolute',
+        top: 0,
+        left: 0,
     },
     image: {
         width: 150,
@@ -36,12 +42,14 @@ const styles = StyleSheet.create({
     row: {
         display: 'flex',
         flexDirection: 'row',
+        alignItems: 'baseline',
     },
     sectionTitle: {
         fontSize: 18,
         fontWeight: 'bold',
         marginTop: 24,
         marginBottom: 12,
+        flexGrow: 1,
     }
 });
 
@@ -50,22 +58,30 @@ type ProfileProps = {
 }
 
 function Profile(props: ProfileProps) {
-    const onClickRestaurant = () => {
+    const onPressRestaurant = () => {
         props.navigation.navigate('Restaurant');
     };
 
-    const onClickContact = () => {
+    const onPressContact = () => {
         props.navigation.navigate('Profile');
     };
 
-    const onClickSettings = () => {
+    const onPressSettings = () => {
         props.navigation.navigate('Settings');
     };
+
+    const onPressEditPreferences = () => {
+        props.navigation.navigate("Preferences");
+    };
+
+    const onPressSeeAllPicks = () => {
+        props.navigation.navigate("Restaurant List");
+    }
 
     return (
         <View style={styles.profile}>
             <View style={styles.center}>
-                <TouchableOpacity onPress={onClickSettings}>
+                <TouchableOpacity onPress={onPressSettings}>
                     <Image source={require('../assets/settings.png')} style={styles.settings} />
                 </TouchableOpacity>
             </View>
@@ -73,18 +89,22 @@ function Profile(props: ProfileProps) {
                 <Image source={{ uri: saulProfile.profilePic }} style={styles.image} />
                 <Text style={styles.name}>Saul Goodman</Text>
             </View>
-            <Text style={styles.sectionTitle}>
-                Your preferences
-            </Text>
             <View style={styles.row}>
-                {saulProfile.preferences.map((preference, index) => <Chip key={index} text={preference} />)}
+                <Text style={styles.sectionTitle}>
+                    Your preferences
+                </Text>
+                <Button onPress={onPressEditPreferences} title="Edit"/>
+                {saulProfile.preferences.map((preference, index) => <Chip text={preference} key={index}/>)}
             </View>
-            <Text style={styles.sectionTitle}>
-                Past picks
-            </Text>
+            <View style={styles.row}>
+                <Text style={styles.sectionTitle}>
+                    Past picks
+                </Text>
+                <Button onPress={onPressSeeAllPicks} title="See all"/>
+            </View>
             <View style={styles.row}>
                 {saulProfile.pastPicks.map((restaurant, index) =>
-                    <RestaurantBubble {...restaurant} key={index} onClick={onClickRestaurant} />
+                    <RestaurantBubble {...restaurant} onPress={onPressRestaurant} key={index}/>
                 )}
             </View>
             <Text style={styles.sectionTitle}>
@@ -92,7 +112,7 @@ function Profile(props: ProfileProps) {
             </Text>
             <View style={styles.row}>
                 {saulProfile.recentContacts.map((contact, index) =>
-                    <ContactBubble {...contact} key={index} onClick={onClickContact} />
+                    <ContactBubble {...contact} onPress={onPressContact} key={index}/>
                 )}
             </View>
         </View>
