@@ -14,3 +14,5 @@ export * from './Settings';
 export * from './Signup';
 export * from './GroupDetails';
 export * from './Login';
+export * from './StartNewTableScreen';
+export * from './ResetPassword';

@@ -3,7 +3,7 @@ export type Restaurant = {
   thumbnail: string,
   address: Address,
   priceRating: number,
-  starRating: number,
+  starRating?: number,
   reviews: ReviewProps[],
   description: string,
 }

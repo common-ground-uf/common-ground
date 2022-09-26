@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {tacoBell} from './data/dummyData';
 import {Restaurant} from './commonTypes';
+import {Finger} from './data/dummyData';
 import * as screens from './screens';
 
 const Stack = createNativeStackNavigator();
@@ -25,12 +26,14 @@ export default function App() {
                 />
                 <Stack.Screen name="Signup" component={screens.Signup}/>
                 <Stack.Screen name="Home" component={screens.Home}/>
-                <Stack.Screen name="GroupDetails" component={screens.GroupDetails}/>
+                <Stack.Screen name="GroupDetails" component={screens.GroupDetails} initialParams={{members:[Finger,Finger,Finger], name:"the boys"}}/>
                 <Stack.Screen name="Login" component={screens.Login}/>
                 <Stack.Screen name="Forgor Password 💀" component={screens.ForgorPassword}/>
                 <Stack.Screen name="Gallery" component={screens.Gallery}/>
-                <Stack.Screen name="Messages" component={screens.MessagesScreen}/>
                 <Stack.Screen name="Restaurant" component={screens.RestaurantScreen} initialParams={{restaurant: tacoBell}}/>
+                <Stack.Screen name="Messages" component={screens.MessagesScreen}/>
+                <Stack.Screen name="StartNewTableScreen" component={screens.StartNewTableScreen}/>
+                <Stack.Screen name="ResetPassword" component={screens.ResetPassword}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
