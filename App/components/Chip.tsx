@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
     height: 30,
     borderRadius: 25,
     backgroundColor: 'pink',
-    width: 80,
     alignItems: 'center',
     padding: 8,
     marginRight: 8,

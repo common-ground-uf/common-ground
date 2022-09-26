@@ -58,52 +58,53 @@ type ProfileProps = {
 }
 
 function Profile(props: ProfileProps) {
-    const onClickRestaurant = () => {
+    const onPressRestaurant = () => {
         props.navigation.navigate('Restaurant');
     };
 
-    const onClickContact = () => {
+    const onPressContact = () => {
         props.navigation.navigate('Profile');
     };
 
-    const onClickSettings = () => {
+    const onPressSettings = () => {
         props.navigation.navigate('Settings');
     };
 
-    const onClickEditPreferences = () => {
+    const onPressEditPreferences = () => {
         props.navigation.navigate("Preferences");
     };
 
-    const onClickSeeAllPicks = () => {
+    const onPressSeeAllPicks = () => {
         props.navigation.navigate("Restaurant List");
     }
 
     return (
         <View style={styles.profile}>
             <View style={styles.center}>
-                <TouchableOpacity onPress={onClickSettings}>
-                    <Image source={require('../assets/settings.png')} style={styles.settings}/>
+                <TouchableOpacity onPress={onPressSettings}>
+                    <Image source={require('../assets/settings.png')} style={styles.settings} />
                 </TouchableOpacity>
             </View>
             <View style={styles.center}>
-                <Image source={{uri: saulProfile.profilePic}} style={styles.image}/>
+                <Image source={{ uri: saulProfile.profilePic }} style={styles.image} />
                 <Text style={styles.name}>Saul Goodman</Text>
             </View>
             <View style={styles.row}>
                 <Text style={styles.sectionTitle}>
                     Your preferences
                 </Text>
-                <Button onPress={onClickEditPreferences} title="Edit"/>
+                <Button onPress={onPressEditPreferences} title="Edit"/>
+                {saulProfile.preferences.map((preference, index) => <Chip text={preference} key={index}/>)}
             </View>
             <View style={styles.row}>
                 <Text style={styles.sectionTitle}>
                     Past picks
                 </Text>
-                <Button onPress={onClickSeeAllPicks} title="See all"/>
+                <Button onPress={onPressSeeAllPicks} title="See all"/>
             </View>
             <View style={styles.row}>
                 {saulProfile.pastPicks.map((restaurant, index) =>
-                    <RestaurantBubble {...restaurant} key={index} onClick={onClickSeeAllPicks}/>
+                    <RestaurantBubble {...restaurant} onPress={onPressRestaurant} key={index}/>
                 )}
             </View>
             <Text style={styles.sectionTitle}>
@@ -111,11 +112,11 @@ function Profile(props: ProfileProps) {
             </Text>
             <View style={styles.row}>
                 {saulProfile.recentContacts.map((contact, index) =>
-                    <ContactBubble {...contact} key={index} onClick={onClickContact}/>
+                    <ContactBubble {...contact} onPress={onPressContact} key={index}/>
                 )}
             </View>
         </View>
     );
 }
 
-export {Profile};
+export { Profile };
