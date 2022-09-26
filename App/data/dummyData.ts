@@ -59,9 +59,14 @@ export const saulProfile = {
 };
 
 export const gallery = [
+  'https://i.redd.it/z1pfmi967vo81.jpg',
   'https://media-cdn.tripadvisor.com/media/photo-s/1a/11/b0/75/how-can-you-possibly.jpg',
   'https://www.tacobell.com/images/22965_grilled_cheese_burrito_deluxe_box_750x660.jpg',
   'https://www.thestreet.com/.image/t_share/MTg5MjIwNjA1Nzg1MDI0NDAz/taco-bell.jpg',
+  'https://snworksceo.imgix.net/ufa/70fcdb5c-2000-4600-a79d-f7f43e55122c.sized-1000x1000.jpg?w=1000',
+  'https://preview.redd.it/v0jc0zl5sli41.jpg?width=3024&format=pjpg&auto=webp&s=76f0c68e71507aa323b6a97c86eb15e1e6b34809',
+  'https://preview.redd.it/s4ikphxi5ag91.jpg?width=640&crop=smart&auto=webp&s=9d835909a42abc9e07453e188e2dfd05c1c9bb1f',
+  'https://pbs.twimg.com/media/Dd3WbgaU8AIwS9U?format=jpg&name=900x900',
 ];
 
 export const messages = [
