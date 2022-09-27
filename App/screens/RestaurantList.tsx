@@ -1,52 +1,62 @@
 import React from 'react';
 import {Restaurant} from '../commonTypes';
-import { Text, View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: 6,
-    backgroundColor: '#DFDFDF',
-    padding: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 6,
     margin: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 1.95, height: 1.95 },
-    shadowOpacity: 0.15,
-    shadowRadius: 2.6 
-  },
-  restaurantList: {
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 20,
-    backgroundColor: 'white',
-  },
-  row: {
     display: 'flex',
     flexDirection: 'row',
+    maxHWidth: '100%',
   },
-  name: {
+  cardRight: {
+    flexGrow: 1,
+    flexShrink: 1,
+  },
+  restaurantList: {
+    paddingTop: 0,
+    paddingBottom: 20,
+  },
+  horizontalLine: {
+    height: 1,
+    width: '100%',
+    backgroundColor: '#888',
+  },
+  thumbnail: {
+    height: 60,
+    width: 60,
+    borderRadius: 4,
+  },
+  cardTitle: {
     fontWeight: 'bold',
-    marginBottom: 6,
     fontSize: 16,
   },
-  description: {
-    marginTop: 6,
-  },
   starRating: {
-    marginLeft: 12,
   }
 });
 
-function RestaurantCard(props: Restaurant) {
+function RestaurantCard(props: Restaurant & {navigation:any}) {
+  const onPress = () => {
+    props.navigation.navigate('Restaurant');
+  };
   return (
-    <View style={styles.card}>
-      <View style={styles.row}>
-        <Text style={styles.name}>{props.name}</Text>
-        {props.starRating && 
-          <Text style={styles.starRating}>{props.starRating}⭐</Text>
-        }
-      </View>
-      <Text style={styles.description}>{props.description}</Text>
-    </View>
+    <>
+      <TouchableOpacity style={styles.card} onPress={onPress}>
+        <Image source={{uri:props.thumbnail}} style={styles.thumbnail}/>
+        <View style={{width:16}}/>
+        <View style={styles.cardRight}>
+          <Text style={{marginBottom: 4}}>
+            <Text style={styles.cardTitle}>{props.name}</Text>&nbsp;
+            <Text style={styles.starRating}>{props.starRating}</Text>
+            <Image style={{height: 16,width:16}} source={require('../assets/star.png')} />
+          </Text>
+          <Text>{props.description}</Text>
+        </View>
+      </TouchableOpacity>
+      <View style={styles.horizontalLine}/>
+    </>
   );
 }
 
@@ -65,12 +75,9 @@ function RestaurantList(props: RestaurantListProps) {
   
   return (
     <ScrollView style={styles.restaurantList}>
-      {restaurantList.map((restaurant, index) =>
-        <TouchableOpacity key={index} onPress={() => props.navigation. navigate("Restaurant")}>
-          <RestaurantCard {...restaurant}/>
-        </TouchableOpacity>
+      {restaurantList.map((restaurant, index) => 
+        <RestaurantCard key={index} {...restaurant} navigation={props.navigation}/>
       )}
-      <View style={{height: 40}}/>
     </ScrollView>
   );
 }

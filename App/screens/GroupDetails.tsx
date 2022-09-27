@@ -74,6 +74,7 @@ type GroupDetailsProps = {
 };
 
 function GroupDetails(props: GroupDetailsProps) {
+  console.log(props);
   const [members, setMembers] = React.useState(props.route.params.members);
   const [editMode, setEditMode] = React.useState(false);
 
@@ -94,10 +95,13 @@ function GroupDetails(props: GroupDetailsProps) {
         </TouchableOpacity>
       </View>
       <Text>{props.route.params.name}</Text>
-      <FlatList
-        data={members}
-        renderItem={(member) => <Member {...member.item} onDelete={() => onDelete(member.index)} editMode={editMode} />}
-      />
+      {members.length === 0 ? 
+        <Text>Group is empty</Text> :
+        <FlatList
+          data={members}
+          renderItem={(member) => <Member {...member.item} onDelete={() => onDelete(member.index)} editMode={editMode} />}
+        />
+      }
     </View>
   );
 }
