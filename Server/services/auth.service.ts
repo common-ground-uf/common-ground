@@ -9,7 +9,6 @@ import userService from './users.service';
 
 class AuthService {
     public users = userModel;
-    public userService = new userService();
 
     // public async login(userData: CreateUserDto): Promise<{findUser: User}> {
         
