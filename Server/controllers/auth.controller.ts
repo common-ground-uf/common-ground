@@ -7,10 +7,13 @@ import userModel from '@/models/users.models';
 class AuthController {
     public authService = new AuthService();
 
-    public logIn = userModel.authenticate();
 
     public logInFailure = async (req: Request, res: Response, next: NextFunction) => {
-
+        try {
+            res.sendStatus(401).json({message:"login failed"});
+        } catch (error) {
+            next(error);
+        }
     }
 
     
