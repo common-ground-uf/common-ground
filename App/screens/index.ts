@@ -16,3 +16,4 @@ export * from './GroupDetails';
 export * from './Login';
 export * from './StartNewTableScreen';
 export * from './ResetPassword';
+export * from './JoinGroup';

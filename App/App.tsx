@@ -34,6 +34,7 @@ export default function App() {
                 <Stack.Screen name="Messages" component={screens.MessagesScreen}/>
                 <Stack.Screen name="StartNewTableScreen" component={screens.StartNewTableScreen}/>
                 <Stack.Screen name="ResetPassword" component={screens.ResetPassword}/>
+                <Stack.Screen name="JoinGroup" component={screens.JoinGroup}/>
             </Stack.Navigator>
         </NavigationContainer>
     );

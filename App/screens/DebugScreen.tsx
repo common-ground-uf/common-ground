@@ -27,7 +27,8 @@ function DebugScreen(props: DebugScreenProps) {
         'ResetPassword',
         'StartNewTableScreen',
         'Gallery',
-        'Messages'
+        'Messages',
+        'Join Group'
     ];
     return (
         <View>
