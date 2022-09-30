@@ -14,3 +14,11 @@ Skeleton code :)
 # Frontend
 
 React Native
+
+# Contributors
+
+Eric Navar
+Ranger Chenore
+Noah Hirschfield
+Calvin Yang
+Jeffrey Shim-Francis
