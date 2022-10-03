@@ -1,33 +1,62 @@
 import React from 'react';
 import {Restaurant} from '../commonTypes';
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: 6,
-    backgroundColor: '#DFDFDF',
-    padding: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 6,
     margin: 8,
-    // boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,  
-    elevation: 5
+    display: 'flex',
+    flexDirection: 'row',
+    maxHWidth: '100%',
+  },
+  cardRight: {
+    flexGrow: 1,
+    flexShrink: 1,
   },
   restaurantList: {
     paddingTop: 0,
     paddingBottom: 20,
+  },
+  horizontalLine: {
+    height: 1,
+    width: '100%',
+    backgroundColor: '#888',
+  },
+  thumbnail: {
+    height: 60,
+    width: 60,
+    borderRadius: 4,
+  },
+  cardTitle: {
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  starRating: {
   }
 });
 
-function RestaurantCard(props: Restaurant) {
+function RestaurantCard(props: Restaurant & {navigation:any}) {
+  const onPress = () => {
+    props.navigation.navigate('Restaurant');
+  };
   return (
-    <View style={styles.card}>
-      <Text>{props.name}</Text>
-      <Text>{props.starRating}⭐</Text>
-      <Text>{props.description}</Text>
-    </View>
+    <>
+      <TouchableOpacity style={styles.card} onPress={onPress}>
+        <Image source={{uri:props.thumbnail}} style={styles.thumbnail}/>
+        <View style={{width:16}}/>
+        <View style={styles.cardRight}>
+          <Text style={{marginBottom: 4}}>
+            <Text style={styles.cardTitle}>{props.name}</Text>&nbsp;
+            <Text style={styles.starRating}>{props.starRating}</Text>
+            <Image style={{height: 16,width:16}} source={require('../assets/star.png')} />
+          </Text>
+          <Text>{props.description}</Text>
+        </View>
+      </TouchableOpacity>
+      <View style={styles.horizontalLine}/>
+    </>
   );
 }
 
@@ -46,7 +75,9 @@ function RestaurantList(props: RestaurantListProps) {
   
   return (
     <ScrollView style={styles.restaurantList}>
-      {restaurantList.map((restaurant, index) => <RestaurantCard key={index} {...restaurant}/>)}
+      {restaurantList.map((restaurant, index) => 
+        <RestaurantCard key={index} {...restaurant} navigation={props.navigation}/>
+      )}
     </ScrollView>
   );
 }

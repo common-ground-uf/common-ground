@@ -1,8 +1,9 @@
 {
+  "scripts": {
+    "start:web": "npm start --prefix App",
+    "start:server": "npm start --prefix Server"
+  },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.36.1",
-    "@typescript-eslint/parser": "^5.36.1",
-    "eslint": "^8.23.0",
     "eslint-plugin-react": "^7.31.6"
   }
 }
