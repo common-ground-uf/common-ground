@@ -13,4 +13,7 @@ export class CreateUserDto {
 
   @IsString()
   public lastname: string;
+
+  @IsString()
+  public role: string;
 }
