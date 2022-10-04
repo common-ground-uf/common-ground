@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 import passport from '@middlewares/passport.middleware';
 import { Routes } from '@interfaces/routes.interface';
 import bodyparser from 'body-parser';
-import { MONGODB_URI } from "./config";
+import { MONGODB_URI, SESSION_SECRET } from "./config";
 import session from 'express-session';
 
 class App {
@@ -46,9 +46,13 @@ class App {
         this.app.use(bodyparser.urlencoded({extended: true}));
         this.app.use(express.json());
         this.app.use(session({
-            secret: 'wahatever',
+            secret: SESSION_SECRET,
             resave: false,
             saveUninitialized: true,
+            cookie : { 
+                //secure: true,
+                maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+            }
         }));
         this.app.use(passport.initialize());
         this.app.use(passport.session());

@@ -34,7 +34,7 @@ class UserService {
     public async createUser(userData: CreateUserDto): Promise<User> {
         if (isEmpty(userData)) throw new HttpException(400, "userData is empty");
 
-        const findUser: User = await this.users.findOne({ email: userData.email });
+        const findUser: User = await this.users.findOne({ email: {$eq: userData.email} });
         if (findUser) throw new HttpException(409, `This email ${userData.email} already exists`);
 
         this.users.register(new userModel({email: userData.email, firstname: userData.firstname, lastname: userData.lastname, role: "user"}), userData.password, (err: Error, user : User) => {
@@ -44,7 +44,7 @@ class UserService {
             }
         });
 
-        const createdUser : User = await this.users.findOne({ email: userData.email });
+        const createdUser : User = await this.users.findOne({ email: {$eq: userData.email} });
         return createdUser;
     }
 
