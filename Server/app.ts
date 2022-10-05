@@ -46,7 +46,7 @@ class App {
         this.app.use(bodyparser.urlencoded({extended: true}));
         this.app.use(express.json());
         this.app.use(session({
-            secret: SESSION_SECRET,
+            secret: SESSION_SECRET!,
             resave: false,
             saveUninitialized: true,
             cookie : { 

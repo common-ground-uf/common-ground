@@ -3,17 +3,17 @@ import { StringExpressionOperatorReturningBoolean } from 'mongoose';
 
 export class CreateUserDto {
   @IsEmail()
-  public email: string;
+  public email!: string;
 
   @IsString()
-  public password: string;
+  public password!: string;
 
   @IsString()
-  public firstname: string;
+  public firstname!: string;
 
   @IsString()
-  public lastname: string;
+  public lastname!: string;
 
   @IsString()
-  public role: string;
+  public role!: string;
 }
