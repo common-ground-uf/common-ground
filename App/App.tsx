@@ -26,13 +26,13 @@ export default function App() {
                 />
                 <Stack.Screen name="Signup" component={screens.Signup}/>
                 <Stack.Screen name="Home" component={screens.Home}/>
-                <Stack.Screen name="GroupDetails" component={screens.GroupDetails} initialParams={{members:[Finger,Finger,Finger], name:"the boys"}}/>
+                <Stack.Screen name="Group Details" component={screens.GroupDetails} initialParams={{members:[Finger,Finger,Finger], name:"the boys"}}/>
                 <Stack.Screen name="Login" component={screens.Login}/>
-                <Stack.Screen name="Forgor Password 💀" component={screens.ForgorPassword}/>
+                <Stack.Screen name="Forgot Password" component={screens.ForgorPassword}/>
                 <Stack.Screen name="Gallery" component={screens.Gallery}/>
                 <Stack.Screen name="Restaurant" component={screens.RestaurantScreen} initialParams={{restaurant: tacoBell}}/>
                 <Stack.Screen name="Messages" component={screens.MessagesScreen}/>
-                <Stack.Screen name="StartNewTableScreen" component={screens.StartNewTableScreen}/>
+                <Stack.Screen name="Start New Table Screen" component={screens.StartNewTableScreen}/>
                 <Stack.Screen name="ResetPassword" component={screens.ResetPassword}/>
             </Stack.Navigator>
         </NavigationContainer>

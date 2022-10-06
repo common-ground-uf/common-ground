@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
   gallery: {
     display: 'flex',
     flexDirection: 'row',
+    marginBottom: 6,
   },
   galleryImage: {
     height: 100,
