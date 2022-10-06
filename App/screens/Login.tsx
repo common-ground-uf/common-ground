@@ -11,7 +11,7 @@ function Login(props: LoginProps) {
   const [password, setPassword] = React.useState<string>('');
   
   const onPressForgotPassword = () => {
-    props.navigation.navigate('Forgor Password 💀');
+    props.navigation.navigate('Forgot Password');
   };
 
   const onPressLogin = () => {
@@ -39,7 +39,7 @@ function Login(props: LoginProps) {
         placeholder="Password"
         autoComplete='password'
       />
-      <Text onPress={onPressForgotPassword} style={loginSignupStyles.link}>Forgor password? 💀</Text>
+      <Text onPress={onPressForgotPassword} style={loginSignupStyles.link}>Forgot password</Text>
       <Text onPress={onPressSignUp} style={loginSignupStyles.link}>Sign up</Text>
       <View style={loginSignupStyles.loginButtonContainer}>
         <Button title="Login" onPress={onPressLogin} color="#FEB346"/>
