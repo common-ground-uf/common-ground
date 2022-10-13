@@ -7,11 +7,13 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "test": "jest --ci --runInBand --reporters=default"
+    "test": "jest --ci --runInBand --reporters=default",
+    "clear_jest": "jest --clearCache"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.12",
     "@react-navigation/native-stack": "^6.8.0",
+    "@types/node": "^18.8.5",
     "@types/react": "~18.0.0",
     "@types/react-native": "~0.69.1",
     "axios": "^0.21.1",
@@ -28,6 +30,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@types/jest": "^29.0.3",
+    "dotenv": "^16.0.3",
     "expo": "^46.0.13",
     "expo-cli": "^6.0.6",
     "expo-updates": "^0.14.6",
