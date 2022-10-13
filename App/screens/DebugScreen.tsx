@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, Button } from 'react-native';
+import { ScrollView, Button, View, StyleSheet, Text } from 'react-native';
+
+const styles = StyleSheet.create({
+    button: {
+        marginVertical: 4,
+        marginHorizontal: 8,
+    }
+});
 
 type DebugScreenProps = {
     navigation: any;
@@ -12,29 +19,32 @@ function DebugScreen(props: DebugScreenProps) {
     const screens = [
         'Login',
         'Signup',
-        'Forgor Password 💀',
-        'Restaurant',
+        'Forgot Password',
+        'Reset Password',
+        'Home',
+        'Preferences',
+        'Start New Table Screen',
         'Restaurant List',
+        'Restaurant',
+        'Gallery',
         'Profile',
-        'Settings',
         'Account',
+        'Settings',
         'Privacy',
         'Settings',
         'Notifications',
-        'Preferences',
-        'Home',
-        'GroupDetails',
-        'ResetPassword',
-        'StartNewTableScreen',
-        'Gallery',
+        'Group Details',
         'Messages'
     ];
     return (
-        <View>
+        <ScrollView>
+            <Text>Select a screen</Text>
             {screens.map((screen, index) => 
-                <Button title={screen} onPress={() => onClick(screen)} key={index}/>
+                <View style={styles.button} key={index}>
+                    <Button title={screen} onPress={() => onClick(screen)} />
+                </View>
             )}
-        </View>
+        </ScrollView>
     );
 }
 

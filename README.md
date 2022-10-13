@@ -7,9 +7,9 @@
 
 - [Figma design and prototype](https://www.figma.com/file/uUb47BjeT1TkdZ9nW5TJjS/Senior-Project?node-id=0%3A1)
 
-# Express + Typescript backend
+# Backend Server
 
-Skeleton code :)
+Express + Typescript with Passport authentication
 
 # Frontend
 

@@ -1,9 +1,9 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import {tacoBell} from './data/dummyData';
+import {tacoBell} from './data/dummyRestaurants';
 import {Restaurant} from './commonTypes';
-import {Finger} from './data/dummyData';
+import {Finger, saulProfile, Walter} from './data/dummyUsers';
 import * as screens from './screens';
 
 const Stack = createNativeStackNavigator();
@@ -13,7 +13,7 @@ export default function App() {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name="DebugScreen" component={screens.DebugScreen}/>
-                <Stack.Screen name="Profile" component={screens.Profile}/>
+                <Stack.Screen name="Profile" component={screens.ProfileScreen} initialParams={{profileData: saulProfile}}/>
                 <Stack.Screen name="Preferences" component={screens.Preferences}/>
                 <Stack.Screen name="Settings" component={screens.Settings}/>
                 <Stack.Screen name="Account" component={screens.Account}/>
@@ -26,14 +26,14 @@ export default function App() {
                 />
                 <Stack.Screen name="Signup" component={screens.Signup}/>
                 <Stack.Screen name="Home" component={screens.Home}/>
-                <Stack.Screen name="GroupDetails" component={screens.GroupDetails} initialParams={{members:[Finger,Finger,Finger], name:"the boys"}}/>
+                <Stack.Screen name="Group Details" component={screens.GroupDetails} initialParams={{members:[Finger,Finger,Finger], name:"the boys"}}/>
                 <Stack.Screen name="Login" component={screens.Login}/>
-                <Stack.Screen name="Forgor Password 💀" component={screens.ForgorPassword}/>
+                <Stack.Screen name="Forgot Password" component={screens.ForgorPassword}/>
                 <Stack.Screen name="Gallery" component={screens.Gallery}/>
                 <Stack.Screen name="Restaurant" component={screens.RestaurantScreen} initialParams={{restaurant: tacoBell}}/>
                 <Stack.Screen name="Messages" component={screens.MessagesScreen}/>
-                <Stack.Screen name="StartNewTableScreen" component={screens.StartNewTableScreen}/>
-                <Stack.Screen name="ResetPassword" component={screens.ResetPassword}/>
+                <Stack.Screen name="Start New Table Screen" component={screens.StartNewTableScreen}/>
+                <Stack.Screen name="Reset Password" component={screens.ResetPassword}/>
             </Stack.Navigator>
         </NavigationContainer>
     );

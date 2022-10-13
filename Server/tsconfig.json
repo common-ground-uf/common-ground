@@ -15,7 +15,7 @@
     "target": "es2016",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
     // "lib": [],                                        /* Specify a set of bundled library declaration files that describe the target runtime environment. */
     // "jsx": "preserve",                                /* Specify what JSX code is generated. */
-    // "experimentalDecorators": true,                   /* Enable experimental support for TC39 stage 2 draft decorators. */
+   "experimentalDecorators": true,                   /* Enable experimental support for TC39 stage 2 draft decorators. */
     // "emitDecoratorMetadata": true,                    /* Emit design-type metadata for decorated declarations in source files. */
     // "jsxFactory": "",                                 /* Specify the JSX factory function used when targeting React JSX emit, e.g. 'React.createElement' or 'h'. */
     // "jsxFragmentFactory": "",                         /* Specify the JSX Fragment reference used for fragments when targeting React JSX emit e.g. 'React.Fragment' or 'Fragment'. */
@@ -44,8 +44,9 @@
       "@utils/*": ["utils/*"]
     },                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
-    // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
-    // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
+    "typeRoots": ["./types", "./node_modules/@types"],                                  /* Specify multiple folders that act like './node_modules/@types'. */
+    //"files": ["./types/index.d.ts"],
+    // "types": ["index.d.ts"],                                      /* Specify type package names to be included without being referenced in a source file. */
     // "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */
     // "moduleSuffixes": [],                             /* List of file name suffixes to search when resolving a module. */
     // "resolveJsonModule": true,                        /* Enable importing .json files. */
@@ -91,10 +92,10 @@
     /* Type Checking */
     "strict": true,                                      /* Enable all strict type-checking options. */
     // "noImplicitAny": true,                            /* Enable error reporting for expressions and declarations with an implied 'any' type. */
-    // "strictNullChecks": true,                         /* When type checking, take into account 'null' and 'undefined'. */
+    "strictNullChecks": true,                         /* When type checking, take into account 'null' and 'undefined'. */
     // "strictFunctionTypes": true,                      /* When assigning functions, check to ensure parameters and the return values are subtype-compatible. */
     // "strictBindCallApply": true,                      /* Check that the arguments for 'bind', 'call', and 'apply' methods match the original function. */
-    // "strictPropertyInitialization": true,             /* Check for class properties that are declared but not set in the constructor. */
+    "strictPropertyInitialization": true,             /* Check for class properties that are declared but not set in the constructor. */
     // "noImplicitThis": true,                           /* Enable error reporting when 'this' is given the type 'any'. */
     // "useUnknownInCatchVariables": true,               /* Default catch clause variables as 'unknown' instead of 'any'. */
     // "alwaysStrict": true,                             /* Ensure 'use strict' is always emitted. */
@@ -112,5 +113,5 @@
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-  }
+  },
 }
