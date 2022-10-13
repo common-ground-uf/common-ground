@@ -9,6 +9,7 @@ type LoginProps = {
 function Login(props: LoginProps) {
   const [email, setEmail] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
+  const [errorState, setErrorState] = React.useState<boolean>(false);
   
   const onPressForgotPassword = () => {
     props.navigation.navigate('Forgot Password');
@@ -24,7 +25,6 @@ function Login(props: LoginProps) {
 
   return (
     <View style={loginSignupStyles.container}>
-      <Text style={loginSignupStyles.title}>Login</Text>
       <TextInput
         style={loginSignupStyles.input}
         onChangeText={setEmail}
@@ -39,6 +39,9 @@ function Login(props: LoginProps) {
         placeholder="Password"
         autoComplete='password'
       />
+      {errorState &&
+        <Text style={loginSignupStyles.errorMessage}>email and password do not match 😭</Text>
+      }
       <Text onPress={onPressForgotPassword} style={loginSignupStyles.link}>Forgot password</Text>
       <Text onPress={onPressSignUp} style={loginSignupStyles.link}>Sign up</Text>
       <View style={loginSignupStyles.loginButtonContainer}>

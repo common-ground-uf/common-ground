@@ -32,6 +32,9 @@ export const loginSignupStyles = StyleSheet.create({
     textDecorationLine: 'underline',
     marginVertical: 12,
     color: '#818181'
-  }
+  },
+  errorMessage: {
+    color: 'red',
+  },
 });
   
