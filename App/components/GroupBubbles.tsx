@@ -57,9 +57,9 @@ function GroupBubbles(props: GroupBubblesProps) {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={props.onClick} style={styles.touchable}>
-        <Image source={{ uri: props.members[0].pic }} style={[styles.image0, styles.image]}/>
-        <Image source={{ uri: props.members[1].pic }} style={[styles.image1, styles.image]}/>
-        <Image source={{ uri: props.members[2].pic }} style={[styles.image2, styles.image]}/>
+        <Image source={{ uri: props.members[0].profilePic }} style={[styles.image0, styles.image]}/>
+        <Image source={{ uri: props.members[1].profilePic }} style={[styles.image1, styles.image]}/>
+        <Image source={{ uri: props.members[2].profilePic }} style={[styles.image2, styles.image]}/>
       </TouchableOpacity>
       <Text style={styles.text}>{props.name}</Text>
     </View>

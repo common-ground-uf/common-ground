@@ -58,7 +58,6 @@ function Gallery() {
     };
 
     const closeModal = () => {
-        console.log('hi');
         setModalVisible(false);
     };
 

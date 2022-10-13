@@ -7,7 +7,7 @@ export * from './MessagesScreen';
 export * from './Notifications';
 export * from './Preferences';
 export * from './Privacy';
-export * from './Profile';
+export * from './ProfileScreen';
 export * from './RestaurantScreen';
 export * from './RestaurantList';
 export * from './Settings';

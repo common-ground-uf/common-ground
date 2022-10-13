@@ -20,7 +20,7 @@ function DebugScreen(props: DebugScreenProps) {
         'Login',
         'Signup',
         'Forgot Password',
-        'ResetPassword',
+        'Reset Password',
         'Home',
         'Preferences',
         'Start New Table Screen',
