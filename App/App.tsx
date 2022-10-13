@@ -13,6 +13,7 @@ export default function App() {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name="DebugScreen" component={screens.DebugScreen}/>
+                <Stack.Screen name="Start" component={screens.Start}/>
                 <Stack.Screen name="Profile" component={screens.Profile}/>
                 <Stack.Screen name="Preferences" component={screens.Preferences}/>
                 <Stack.Screen name="Settings" component={screens.Settings}/>
