@@ -1,9 +1,9 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import {tacoBell, Walter, saulProfile} from './data/dummyData';
+import {tacoBell} from './data/dummyRestaurants';
 import {Restaurant} from './commonTypes';
-import {Finger} from './data/dummyData';
+import {Finger, saulProfile, Walter} from './data/dummyUsers';
 import * as screens from './screens';
 
 const Stack = createNativeStackNavigator();

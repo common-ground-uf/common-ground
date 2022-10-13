@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 });
 
 type RestaurantBubbleProps = {
-  pic: string,
+  thumbnail: string,
   name: string,
   onPress: () => void,
 }
@@ -30,7 +30,7 @@ type RestaurantBubbleProps = {
 function RestaurantBubble(props: RestaurantBubbleProps) {
   return (
     <TouchableOpacity onPress={props.onPress}>
-      <Image style={styles.image} source={{ uri: props.pic}}/>
+      <Image style={styles.image} source={{ uri: props.thumbnail}}/>
       <Text style={styles.text}>
         {props.name}
       </Text>

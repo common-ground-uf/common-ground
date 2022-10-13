@@ -108,7 +108,7 @@ function ProfileScreen(props: ProfilePageProps) {
             }
             <View style={styles.center}>
                 <Image source={{ uri: props.route.params.profileData.profilePic }} style={styles.image} />
-                <Text style={styles.name}>Saul Goodman</Text>
+                <Text style={styles.name}>{props.route.params.profileData.name}</Text>
             </View>
             <View style={styles.row}>
                 <Text style={styles.sectionTitle}>

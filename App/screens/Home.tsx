@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
 import { GroupBubbles } from '../components/GroupBubbles';
 import { RestaurantBubble } from '../components/RestaurantBubble';
-import { Finger, Gus, Walter } from '../data/dummyData';
+import { Finger, Gus, Walter } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -42,7 +42,7 @@ type HomeProps = {
 function Home(props: HomeProps) {
   const restaurant = {
     name: 'Los Pollos Hermanos',
-    pic: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
+    thumbnail: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
   };
 
   const onClickRestaurant = () => {
