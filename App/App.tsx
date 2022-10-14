@@ -13,9 +13,9 @@ export default function App() {
     return (
         <NavigationContainer>
             <Tab.Navigator screenOptions={{headerShown: false}}>
-                <Tab.Screen name="LoginStack" component={LoginStackScreen} />
-                <Tab.Screen name="HomeStack" component={HomeStackScreen}/>
-                <Tab.Screen name="MessagesStack" component={MessagesStackScreen} />
+                <Tab.Screen name="Login" component={LoginStackScreen} />
+                <Tab.Screen name="Home" component={HomeStackScreen}/>
+                <Tab.Screen name="Messages" component={MessagesStackScreen} />
                 <Tab.Screen name="Debug" component={screens.DebugScreen} />
             </Tab.Navigator>
         </NavigationContainer>
@@ -51,8 +51,8 @@ const HomeStack = createNativeStackNavigator();
 
 function HomeStackScreen() {
     return (
-        <HomeStack.Navigator>
-            <HomeStack.Screen name="Home" component={screens.Home} />
+        <HomeStack.Navigator screenOptions={{title:'Home'}}>
+            <HomeStack.Screen name="HomeScreen" component={screens.Home} />
             {mainGroup}
             <HomeStack.Screen name="Login" component={screens.Login} />
             <HomeStack.Screen name="Messages" component={screens.MessagesScreen} />
@@ -62,8 +62,8 @@ function HomeStackScreen() {
 
 function LoginStackScreen() {
     return (
-        <HomeStack.Navigator>
-            <HomeStack.Screen name="Login" component={screens.Login} />
+        <HomeStack.Navigator screenOptions={{title:'Login'}}>
+            <HomeStack.Screen name="LoginScreen" component={screens.Login} />
             {mainGroup}
             <HomeStack.Screen name="Home" component={screens.Home} />
             <HomeStack.Screen name="Messages" component={screens.MessagesScreen} />
@@ -73,8 +73,8 @@ function LoginStackScreen() {
 
 function MessagesStackScreen() {
     return (
-        <HomeStack.Navigator>
-            <HomeStack.Screen name="Messages" component={screens.MessagesScreen} />
+        <HomeStack.Navigator screenOptions={{title:'Messages'}}>
+            <HomeStack.Screen name="MessagesScreen" component={screens.MessagesScreen} />
             {mainGroup}
             <HomeStack.Screen name="Login" component={screens.Login} />
             <HomeStack.Screen name="Home" component={screens.Home} />
