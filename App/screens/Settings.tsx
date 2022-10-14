@@ -8,7 +8,7 @@ import {
     TouchableOpacity,
     ImageSourcePropType
 } from 'react-native';
-import {loginSignupStyles} from "../styles/LoginSingup";
+import {loginSignupStyles} from '../styles/LoginSingup';
 
 import account from '../assets/account.png';
 import privacy from '../assets/privacy.png';
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     horizontalLine: {
         height: 1,
         width: '100%',
-        backgroundColor: 'black',
+        backgroundColor: '#bbb',
         marginTop: 15,
     },
 });
@@ -82,7 +82,7 @@ function Settings(props: SettingsProps) {
         image: notifications,
         navigation: props.navigation
     };
-    const members = [Account, Privacy, Notifications]
+    const members = [Account, Privacy, Notifications];
     return (
         <View style={loginSignupStyles.container}>
             <FlatList

@@ -18,11 +18,12 @@ const styles = StyleSheet.create({
   restaurantList: {
     paddingTop: 0,
     paddingBottom: 20,
+    paddingHorizontal: 10,
   },
   horizontalLine: {
     height: 1,
     width: '100%',
-    backgroundColor: '#888',
+    backgroundColor: '#bbb',
   },
   thumbnail: {
     height: 60,
@@ -33,8 +34,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
   },
-  starRating: {
-  }
+  starIcon: {
+    height: 16,
+    width: 16,
+    marginTop: -2.15,
+    marginRight: 2,
+  },
+  topRow: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    alignContent: 'center',
+    marginBottom: 4,
+  },
 });
 
 function RestaurantCard(props: Restaurant & {navigation:any}) {
@@ -47,10 +58,10 @@ function RestaurantCard(props: Restaurant & {navigation:any}) {
         <Image source={{uri:props.thumbnail}} style={styles.thumbnail}/>
         <View style={{width:16}}/>
         <View style={styles.cardRight}>
-          <Text style={{marginBottom: 4}}>
+          <Text style={styles.topRow}>
             <Text style={styles.cardTitle}>{props.name}</Text>&nbsp;
-            <Text style={styles.starRating}>{props.starRating}</Text>
-            <Image style={{height: 16,width:16}} source={require('../assets/star.png')} />
+            <Text>{props.starRating}</Text>
+            <Image style={styles.starIcon} source={require('../assets/star.png')} />
           </Text>
           <Text>{props.description}</Text>
         </View>
