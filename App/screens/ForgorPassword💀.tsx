@@ -3,7 +3,9 @@ import { Text, View, TextInput, Button } from 'react-native';
 import { loginSignupStyles } from '../styles/LoginSingup';
 
 type ForgorPasswordProps = {
-  navigation: any;
+  navigation: {
+    navigate: any,
+  };
 }
 
 function ForgorPassword(props: ForgorPasswordProps) {

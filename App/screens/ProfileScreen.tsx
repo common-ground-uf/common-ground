@@ -112,7 +112,7 @@ function ProfileScreen(props: ProfilePageProps) {
             </View>
             <View style={styles.row}>
                 <Text style={styles.sectionTitle}>
-                    Your preferences
+                    Preferences
                 </Text>
                 <Button onPress={onPressEditPreferences} title="Edit" />
             </View>

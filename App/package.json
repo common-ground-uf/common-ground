@@ -11,6 +11,7 @@
     "clear_jest": "jest --clearCache"
   },
   "dependencies": {
+    "@react-navigation/bottom-tabs": "^6.4.0",
     "@react-navigation/native": "^6.0.12",
     "@react-navigation/native-stack": "^6.8.0",
     "@types/node": "^18.8.5",
@@ -30,7 +31,11 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@types/jest": "^29.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
     "dotenv": "^16.0.3",
+    "eslint": "^8.25.0",
+    "eslint-plugin-react": "^7.31.10",
     "expo": "^46.0.13",
     "expo-cli": "^6.0.6",
     "expo-updates": "^0.14.6",

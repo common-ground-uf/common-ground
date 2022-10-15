@@ -4,7 +4,9 @@ import {loginSignupStyles} from "../styles/LoginSingup";
 
 
 type AccountProps = {
-    navigation: any,
+    navigation: {
+        navigate: any,
+    };
 };
 
 function Account(props: AccountProps) {

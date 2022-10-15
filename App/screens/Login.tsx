@@ -30,7 +30,6 @@ function Login(props: LoginProps) {
         onChangeText={setEmail}
         value={email}
         placeholder="Email"
-
       />
       <TextInput
         style={loginSignupStyles.input}

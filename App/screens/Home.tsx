@@ -36,7 +36,9 @@ const styles = StyleSheet.create({
 });
 
 type HomeProps = {
-  navigation: any,
+  navigation: {
+    navigate: any,
+  };
 };
 
 function Home(props: HomeProps) {

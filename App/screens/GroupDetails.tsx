@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   memberContainer: {
-    marginTop: 20,
+    marginTop: 15,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     height: 1,
     width: '100%',
     backgroundColor: '#bbb',
-    marginTop: 20,
+    marginTop: 15,
   },
   settings: {
     width: 32,
