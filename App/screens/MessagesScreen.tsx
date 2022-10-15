@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, StyleSheet, Image, Text, TextInput, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Button, Keyboard } from 'react-native';
-import {loginSignupStyles} from '../styles/LoginSingup';
 import {messages} from '../data/dummyData';
 
 const styles = StyleSheet.create({
