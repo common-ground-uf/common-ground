@@ -86,3 +86,25 @@ export const tacoBell = {
         }
     ]
 };
+
+const section1 = {
+    sectionTitle: 'Chicken restaurants (not meth)',
+    contentData: [losPollosHermanos, losPollosHermanos, losPollosHermanos, losPollosHermanos],
+};
+const section2 = {
+    sectionTitle: 'Local favorites',
+    contentData: [losPollosHermanos, losPollosHermanos, losPollosHermanos, losPollosHermanos],
+};
+const section3 = {
+    sectionTitle: 'Late night bites',
+    contentData: [losPollosHermanos, losPollosHermanos, losPollosHermanos, losPollosHermanos],
+};
+const section4 = {
+    sectionTitle: 'American',
+    contentData: [losPollosHermanos, losPollosHermanos, losPollosHermanos, losPollosHermanos],
+};
+const section5 = {
+    sectionTitle: 'Vegetarian (kind of)',
+    contentData: [losPollosHermanos, losPollosHermanos, losPollosHermanos, losPollosHermanos],
+};
+export const exploreSections = [section1, section2, section3, section4, section5];

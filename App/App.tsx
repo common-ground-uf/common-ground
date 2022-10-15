@@ -1,6 +1,6 @@
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React from 'react';
 import { tacoBell } from './data/dummyRestaurants';
 import { Restaurant } from './commonTypes';
 import { Finger, saulProfile } from './data/dummyUsers';
@@ -44,6 +44,8 @@ const mainGroup = (
         <MainStack.Screen name="Start New Table Screen" component={screens.StartNewTableScreen} />
         <MainStack.Screen name="Reset Password" component={screens.ResetPassword} />
         <MainStack.Screen name="Profile" component={screens.ProfileScreen} initialParams={{ profileData: saulProfile }} />
+        <MainStack.Screen name="Explore" component={screens.Explore} />
+        <MainStack.Screen name="Strategic or random" component={screens.StrategicOrRandom} />
     </MainStack.Group>
 );
 

@@ -38,6 +38,8 @@ function DebugScreen(props: DebugScreenProps) {
         'Settings',
         'Notifications',
         'Group Details',
+        'Explore',
+        'Strategic or random',
     ];
     return (
         <ScrollView style={styles.debugScreen}>
