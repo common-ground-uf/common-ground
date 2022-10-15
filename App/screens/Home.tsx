@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
 import { GroupBubbles } from '../components/GroupBubbles';
 import { RestaurantBubble } from '../components/RestaurantBubble';
-import { Finger, Gus, Walter } from '../data/dummyData';
+import { Finger, Gus, Walter } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   startNewTableWrapper: {
-    backgroundColor: '#fdb346',
+    color: 'black',
     marginLeft: 'auto',
     marginRight: 'auto',
     borderRadius: 6,
@@ -36,13 +36,15 @@ const styles = StyleSheet.create({
 });
 
 type HomeProps = {
-  navigation: any,
+  navigation: {
+    navigate: any,
+  };
 };
 
 function Home(props: HomeProps) {
   const restaurant = {
     name: 'Los Pollos Hermanos',
-    pic: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
+    thumbnail: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
   };
 
   const onClickRestaurant = () => {
@@ -50,7 +52,7 @@ function Home(props: HomeProps) {
   };
 
   const onClickGroup = () => {
-    props.navigation.navigate('GroupDetails');
+    props.navigation.navigate('Group Details');
   };
   const members = [Gus, Walter, Finger];
 
@@ -61,13 +63,13 @@ function Home(props: HomeProps) {
           Welcome back, Saul!
         </Text>
         <View style={styles.startNewTableWrapper}>
-          <Button title='Start a new table' color='white' />
+          <Button title='Start a new table' color='#FEB346'/>
         </View>
         <Text style={styles.sectionTitle}>Recently Visited</Text>
         <View style={styles.row}>
-          <RestaurantBubble {...restaurant} onClick={onClickRestaurant} />
-          <RestaurantBubble {...restaurant} onClick={onClickRestaurant} />
-          <RestaurantBubble {...restaurant} onClick={onClickRestaurant} />
+          <RestaurantBubble {...restaurant} onPress={onClickRestaurant} />
+          <RestaurantBubble {...restaurant} onPress={onClickRestaurant} />
+          <RestaurantBubble {...restaurant} onPress={onClickRestaurant} />
         </View>
         <Text style={styles.sectionTitle}>Parties</Text>
         <View style={styles.row}>
@@ -78,9 +80,9 @@ function Home(props: HomeProps) {
         </View>
         <Text style={styles.sectionTitle}>Saved restaurants</Text>
         <View style={styles.row}>
-          <RestaurantBubble {...restaurant} onClick={onClickRestaurant} />
-          <RestaurantBubble {...restaurant} onClick={onClickRestaurant} />
-          <RestaurantBubble {...restaurant} onClick={onClickRestaurant} />
+          <RestaurantBubble {...restaurant} onPress={onClickRestaurant} />
+          <RestaurantBubble {...restaurant} onPress={onClickRestaurant} />
+          <RestaurantBubble {...restaurant} onPress={onClickRestaurant} />
         </View>
       </View>
     </ScrollView>

@@ -20,22 +20,22 @@ const styles = StyleSheet.create({
 
     centeredView: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: 'center',
+        alignItems: 'center',
         marginTop: 22
     },
     modalView: {
-        alignItems: "center",
+        alignItems: 'center',
         width: '90%',
     },
     textStyle: {
-        color: "white",
-        fontWeight: "bold",
-        textAlign: "center"
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center'
     },
     modalText: {
         marginBottom: 15,
-        textAlign: "center"
+        textAlign: 'center'
     },
     expandedImage: {
         width: '95%',
@@ -58,7 +58,6 @@ function Gallery() {
     };
 
     const closeModal = () => {
-        console.log('hi');
         setModalVisible(false);
     };
 
@@ -78,7 +77,7 @@ function Gallery() {
                 transparent={true}
                 visible={modalVisible}
                 onRequestClose={() => {
-                    Alert.alert("Modal has been closed.");
+                    Alert.alert('Modal has been closed.');
                     setModalVisible(!modalVisible);
                 }}
             >

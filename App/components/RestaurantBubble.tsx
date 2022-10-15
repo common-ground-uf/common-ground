@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
   image: {
     width: 85,
     height: 85,
-    borderRadius: 42.5,
-    marginRight: 16
+    borderRadius: 8,
+    marginRight: 16,
   },
   text: {
     marginRight: 'auto',
@@ -18,11 +18,11 @@ const styles = StyleSheet.create({
     marginTop: 8,
     width: 100,
     overflow: 'hidden',
-  }
+  },
 });
 
 type RestaurantBubbleProps = {
-  pic: string,
+  thumbnail: string,
   name: string,
   onPress: () => void,
 }
@@ -30,7 +30,7 @@ type RestaurantBubbleProps = {
 function RestaurantBubble(props: RestaurantBubbleProps) {
   return (
     <TouchableOpacity onPress={props.onPress}>
-      <Image style={styles.image} source={{ uri: props.pic}}/>
+      <Image style={styles.image} source={{ uri: props.thumbnail}}/>
       <Text style={styles.text}>
         {props.name}
       </Text>
