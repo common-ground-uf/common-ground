@@ -66,15 +66,15 @@ function Explore(props: HomeProps) {
                 placeholder="search"
                 style={styles.input}
             />
-            {exploreSections.map((section) => 
-                <>
+            {exploreSections.map((section, index1) => 
+                <View key={index1}>
                     <Text style={styles.sectionTitle}>{section.sectionTitle}</Text>
                     <View style={styles.row}>
-                        {section.contentData.map((restaurant, index) => 
-                            <RestaurantBubble key={index} {...restaurant} onPress={onClickRestaurant} />
+                        {section.contentData.map((restaurant, index2) => 
+                            <RestaurantBubble key={index2} {...restaurant} onPress={onClickRestaurant} />
                         )}
                     </View>
-                </>
+                </View>
             )}
             <View style={styles.verticalSpace}/>
         </ScrollView>
