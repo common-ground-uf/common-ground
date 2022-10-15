@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import {
-    NavigationContainer,
     NavigationContext,
   } from '@react-navigation/native';
 import group from '../assets/group.png';
