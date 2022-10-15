@@ -17,10 +17,10 @@ jobs:
           node-version: "16.17.0"
       - node/install-packages
       - run:
-          command: cd App && npm i
+          command: cd App && YELP_API_KEY=${{ secrets.YELP_API_KEY }} npm i
           name: Build frontend
       - run:
-          command: cd Server && npm i && npm run build
+          command: cd Server && npm i && YELP_API_KEY=${{ secrets.YELP_API_KEY }} npm run build
           name: Build backend
       - persist_to_workspace:
           root: ~/project
@@ -39,10 +39,10 @@ jobs:
           node-version: "16.17.0"
       - node/install-packages
       - run:
-          command: cd App && npm run test
+          command: cd App && YELP_API_KEY=${{ secrets.YELP_API_KEY }} npm run test
           name: Test frontend
       - run:
-          command: cd Server && npm run test
+          command: cd Server && YELP_API_KEY=${{ secrets.YELP_API_KEY }} npm run test
           name: Test backend
 
 workflows:
