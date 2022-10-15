@@ -17,7 +17,7 @@ jobs:
           node-version: "16.17.0"
       - node/install-packages
       - run:
-          command: cd App && YELP_API_KEY=${{ secrets.YELP_API_KEY }} npm i
+          command: cd App && npm i
           name: Build frontend
       - run:
           command: cd Server && npm i && YELP_API_KEY=${{ secrets.YELP_API_KEY }} npm run build
