@@ -11,6 +11,7 @@ import session, {Session} from 'express-session';
 import {Server} from 'socket.io';
 import * as http from 'http';
 import SocketConnection from '@middlewares/socket.middleware';
+import { Socket, SocketReservedEventsMap } from 'socket.io/dist/socket';
 
 
 declare module "http" {
@@ -91,15 +92,10 @@ class App {
     private initializeSockets() {
 
         global.io = new Server(this.server);
-        global.io.use((socket, next)=> {
-            this.sessionMiddleware(socket.request as Request, {} as Response, next as NextFunction)
-        })
-        global.io.use((socket, next)=> {
-            passport.initialize();
-        });
-        global.io.use((socket, next)=> {
-            passport.session();
-        });
+        const wrap = (middleware:any) => (socket: Socket, next: any) => middleware(socket.request, {}, next);
+        global.io.use(wrap(this.sessionMiddleware));
+        global.io.use(wrap(passport.initialize()));
+        global.io.use(wrap(passport.session()));
         global.io.use((socket, next)=> {
             if(socket.request.user) {
                 next();
