@@ -19,11 +19,12 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^7.1.2",
+    "socketio": "^1.0.0",
     "ts-jest": "^29.0.1",
     "ts-node": "^10.9.1"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=16.17.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
@@ -38,6 +39,7 @@
     "@types/passport": "^1.0.11",
     "@types/passport-local": "^1.0.34",
     "@types/passport-local-mongoose": "^6.1.1",
+    "@types/socket.io": "^3.0.2",
     "tsc-alias": "^1.7.0",
     "typescript": "^4.8.4"
   },
