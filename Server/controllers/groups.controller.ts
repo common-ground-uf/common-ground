@@ -16,6 +16,21 @@ class GroupsController {
             next(error);
         }
     };
+
+    public postMessage = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const {roomId} = req.params;
+            const message = {
+                messageText: req.body.messageText,
+            };
+            const currentUser : string = req.user?._id!;
+            const post = await this.groupService.createPostInGroup(roomId, message, currentUser);
+            global.io.sockets.in(roomId).emit('new message', {message: post});
+            return res.status(200).json({success: true, post});
+        } catch (error) {
+            return res.status(500).json({success: false, error: error});
+        }
+    };
 }
 
 export default GroupsController

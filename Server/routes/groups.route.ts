@@ -14,6 +14,10 @@ class GroupsRoute implements Routes {
 
     private initializeRoutes() {
         this.router.post(`${this.path}`, loggedIn, this.groupsController.initiate);
+        //this.router.get(`${this.path}`, loggedIn, this.groupsController.getRecentConversation);
+        //this.router.post(`${this.path}/:roomId`, loggedIn, this.groupsController.getRecentConversationByRoomId);
+        this.router.post(`${this.path}/:roomId/message`, loggedIn, this.groupsController.postMessage);
+        //this.router.put(`${this.path}/:roomId/mark-read`)
     }
 }
 

@@ -6,9 +6,11 @@ import { isEmpty } from '@utils/util';
 import passport from 'passport';
 import userService from './users.service';
 import groupModel from '@models/groups.models';
+import messageModel from '@models/messages.models';
 
 class GroupService {
     public groups = groupModel;
+    public messages = messageModel;
 
     public async initiateGroup(userIds : string[]) : Promise<Group> {
         try {
@@ -25,6 +27,69 @@ class GroupService {
             return newGroup;
         } catch (error) {
             console.log('error on create group', error);
+            throw error;
+        }
+    }
+
+    public async createPostInGroup(groupId : string, message : object, postedByUser : string) {
+        try {
+            const post = await this.messages.create({
+                groupId,
+                message,
+                postedByUser,
+                readByRecipients: {readByUserId: postedByUser}
+            });
+            const aggregate = await this.messages.aggregate([
+                // get post where _id = post._id
+                { $match: { _id: post._id } },
+                // do a join on another table called users, and 
+                // get me a user whose _id = postedByUser
+                {
+                    $lookup: {
+                    from: 'users',
+                    localField: 'postedByUser',
+                    foreignField: '_id',
+                    as: 'postedByUser',
+                    }
+                },
+                { $unwind: '$postedByUser' },
+                {
+                    $lookup: {
+                    from: 'groups',
+                    localField: 'groupId',
+                    foreignField: '_id',
+                    as: 'groupInfo',
+                    }
+                },
+                { $unwind: '$groupInfo' },
+                { $unwind: '$groupInfo.userIds' },
+                {
+                    $lookup: {
+                    from: 'users',
+                    localField: 'groupInfo.userIds',
+                    foreignField: '_id',
+                    as: 'groupInfo.userProfile',
+                    }
+                },
+                { $unwind: '$groupInfo.userProfile' },
+                // group data
+                {
+                    $group: {
+                    _id: '$groupInfo._id',
+                    postId: { $last: '$_id' },
+                    chatRoomId: { $last: '$groupInfo._id' },
+                    message: { $last: '$message' },
+                    type: { $last: '$type' },
+                    postedByUser: { $last: '$postedByUser' },
+                    readByRecipients: { $last: '$readByRecipients' },
+                    chatRoomInfo: { $addToSet: '$groupInfo.userProfile' },
+                    createdAt: { $last: '$createdAt' },
+                    updatedAt: { $last: '$updatedAt' },
+                    }
+                }
+            ]);
+            return aggregate[0];
+        } catch (error) {
             throw error;
         }
     }

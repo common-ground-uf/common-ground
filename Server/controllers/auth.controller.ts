@@ -10,7 +10,7 @@ class AuthController {
 
     public logInFailure = async (req: Request, res: Response, next: NextFunction) => {
         try {
-            res.sendStatus(401).json({message:"login failed"});
+            res.status(401).json({message:"login failed"});
         } catch (error) {
             next(error);
         }
