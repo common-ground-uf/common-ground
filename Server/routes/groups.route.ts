@@ -1,22 +1,19 @@
 import { Router } from 'express';
-import UsersController from '@controllers/users.controller';
+import GroupsController from '@controllers/groups.controller';
 import { Routes } from '@interfaces/routes.interface';
 import { loggedIn, hasRole } from '@middlewares/auth.middleware';
 
 class GroupsRoute implements Routes {
-    public path = '/users';
+    public path = '/groups';
     public router = Router();
-    public usersController = new UsersController();
+    public groupsController = new GroupsController();
 
     constructor() {
         this.initializeRoutes();
     }
 
     private initializeRoutes() {
-        this.router.get(`${this.path}`, loggedIn, this.usersController.getUsers);
-        this.router.get(`${this.path}/:id`, loggedIn, this.usersController.getUserById);
-        this.router.get(`${this.path}/email/:email`, loggedIn, this.usersController.getUserByEmail);
-        this.router.post(`${this.path}`, this.usersController.createUser);
+        this.router.post(`${this.path}`, loggedIn, this.groupsController.initiate);
     }
 }
 
