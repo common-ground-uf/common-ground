@@ -1,8 +1,13 @@
 import { model, Schema, Document } from 'mongoose';
 import { User } from '@interfaces/users.interface'
 import passportLocalMongoose from 'passport-local-mongoose'
+import { v4 as uuidv4} from 'uuid';
 
 const userSchema: Schema = new Schema({
+    _id: {
+        type: String,
+        default: () => uuidv4().replace(/\-/g, ""),
+      },
     email: {
         type: String,
         required: true,

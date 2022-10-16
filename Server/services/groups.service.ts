@@ -7,6 +7,8 @@ import passport from 'passport';
 import userService from './users.service';
 import groupModel from '@models/groups.models';
 import messageModel from '@models/messages.models';
+import { Message } from '@interfaces/messages.interface';
+import mongoose from 'mongoose';
 
 class GroupService {
     public groups = groupModel;
@@ -33,13 +35,14 @@ class GroupService {
 
     public async createPostInGroup(groupId : string, message : object, postedByUser : string) {
         try {
-            const post = await this.messages.create({
+            const post : Message = await this.messages.create({
                 groupId,
                 message,
                 postedByUser,
                 readByRecipients: {readByUserId: postedByUser}
             });
-            const aggregate = await this.messages.aggregate([
+            const ObjectId = mongoose.Types.ObjectId
+            const aggregate : Message[] = await this.messages.aggregate([
                 // get post where _id = post._id
                 { $match: { _id: post._id } },
                 // do a join on another table called users, and 
@@ -52,6 +55,7 @@ class GroupService {
                     as: 'postedByUser',
                     }
                 },
+                { $unset : [ 'postedByUser.salt','postedByUser.hash' ] },
                 { $unwind: '$postedByUser' },
                 {
                     $lookup: {
@@ -71,18 +75,19 @@ class GroupService {
                     as: 'groupInfo.userProfile',
                     }
                 },
+                { $unset : [ 'groupInfo.userProfile.salt','groupInfo.userProfile.hash' ] },
                 { $unwind: '$groupInfo.userProfile' },
                 // group data
                 {
                     $group: {
                     _id: '$groupInfo._id',
                     postId: { $last: '$_id' },
-                    chatRoomId: { $last: '$groupInfo._id' },
+                    groupId: { $last: '$groupInfo._id' },
                     message: { $last: '$message' },
                     type: { $last: '$type' },
                     postedByUser: { $last: '$postedByUser' },
                     readByRecipients: { $last: '$readByRecipients' },
-                    chatRoomInfo: { $addToSet: '$groupInfo.userProfile' },
+                    groupInfo: { $addToSet: '$groupInfo.userProfile' },
                     createdAt: { $last: '$createdAt' },
                     updatedAt: { $last: '$updatedAt' },
                     }
@@ -93,5 +98,39 @@ class GroupService {
             throw error;
         }
     }
+
+    public async getGroupById(groupId : string) : Promise<Group> {
+        try {
+            const group = await this.groups.findOne({_id: groupId})
+            return group;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    public async getConversationById(groupId: string, options: { page: number; limit: number; }) {
+        try {
+            return this.messages.aggregate([
+                { $match: { groupId } },
+                { $sort: { createdAt: -1 } },
+                {
+                    $lookup: {
+                        from: 'users',
+                        localField: 'postedByUser',
+                        foreignField: '_id',
+                        as: 'postedByUser',
+                      }
+                },
+                { $unset : [ 'postedByUser.salt','postedByUser.hash' ] },
+                { $unwind: "$postedByUser" },
+                { $skip: options.page * options.limit },
+                { $limit: options.limit },
+                { $sort: { createdAt: 1 } },
+            ]);
+        } catch (error) {
+            throw error;
+        }
+    }
+
 }
 export default GroupService;

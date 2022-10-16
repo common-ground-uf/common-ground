@@ -55,6 +55,15 @@ class UserService {
         return deleteUserById;
     }
 
+    public async getUserByIds(ids: string | string[]) : Promise<User[]> {
+        try {
+            const users = await this.users.find({_id: {$in: ids}});
+            return users;
+        } catch(error) {
+            throw error;
+        }
+    }
+
 }
 
 export default UserService;

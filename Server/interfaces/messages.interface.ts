@@ -1,8 +1,8 @@
 export interface Message {
-    _id: String,
-    groupId: String,
-    message: String,
-    type: String,
-    postedByUser : String,
+    _id: string,
+    groupId: string,
+    message: string,
+    type: string,
+    postedByUser : string,
     readByRecipients: Array<any>
 }

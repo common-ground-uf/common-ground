@@ -1,7 +1,12 @@
 import { model, Schema, Document } from 'mongoose';
 import { Group } from '@interfaces/groups.interface';
+import {v4 as uuidv4} from 'uuid';
 
 const groupSchema : Schema = new Schema({
+    _id: {
+        type: String,
+        default: () => uuidv4().replace(/\-/g, ""),
+      },
     userIds: Array
 });
 
