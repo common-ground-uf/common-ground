@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, StyleSheet, Button } from 'react-native';
+import { Text, View, Image, StyleSheet, Button, ScrollView } from 'react-native';
 import { Restaurant } from '../commonTypes';
 import {PriceRating} from '../components/PriceRating';
 import {Review} from '../components/Review';
@@ -41,12 +41,13 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     marginBottom: 6,
+    marginHorizontal: -20,
   },
   galleryImage: {
     height: 100,
     width: 100,
     borderRadius: 2,
-    marginRight: 10,
+    marginLeft: 20,
   }
 });
 
@@ -58,7 +59,7 @@ function RestaurantScreen(props: RestaurantScreenProps) {
   }
 
   const onPressSeeAllGallery = () => {
-    props.navigation.navigate("Gallery");
+    props.navigation.navigate('Gallery');
   };
 
   return (
@@ -89,11 +90,11 @@ function RestaurantScreen(props: RestaurantScreenProps) {
         {restaurant.reviews.map((review, index) => <Review key={index} {...review}/>)}
         <View>
           <Text style={styles.sectionTitle}>Gallery</Text>
-          <View style={styles.gallery}>
+          <ScrollView style={styles.gallery} horizontal={true}>
             {gallery.map((image, index) => 
               <Image style={styles.galleryImage} source={{uri: image}} key={index} />
             )}
-          </View>
+          </ScrollView>
           <Button title="See all" onPress={onPressSeeAllGallery}/>
         </View>
       </View>

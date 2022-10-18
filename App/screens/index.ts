@@ -18,3 +18,4 @@ export * from './StartNewTableScreen';
 export * from './ResetPassword';
 export * from './Explore';
 export * from './StrategicOrRandom';
+export * from './RandomRestaurantScreen';
