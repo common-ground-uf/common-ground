@@ -7,6 +7,7 @@ import { Finger, saulProfile } from './data/dummyUsers';
 import * as screens from './screens';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet, Image } from 'react-native';
+import ImagePicker from './screens/ImagePicker';
 
 const Tab = createBottomTabNavigator();
 
@@ -70,6 +71,7 @@ const mainGroup = (
         <MainStack.Screen name="Profile" component={screens.ProfileScreen} initialParams={{ profileData: saulProfile }} />
         <MainStack.Screen name="Strategic or random" component={screens.StrategicOrRandom} />
         <MainStack.Screen name="Random Restaurant" component={screens.RandomRestaurantScreen} />
+        <MainStack.Screen name="Image picker" component={ImagePicker} />
     </MainStack.Group>
 );
 

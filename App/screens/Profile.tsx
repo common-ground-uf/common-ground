@@ -79,7 +79,7 @@ function Profile(props: ProfileProps) {
     };
 
     return (
-        <View style={styles.profile}>
+        <ScrollView style={styles.profile}>
             <View style={styles.center}>
                 <TouchableOpacity onPress={onPressSettings}>
                     <Image source={require('../assets/settings.png')} style={styles.settings} />
@@ -115,7 +115,7 @@ function Profile(props: ProfileProps) {
                     <ContactBubble {...contact} onPress={onPressContact} key={index}/>
                 )}
             </View>
-        </View>
+        </ScrollView>
     );
 }
 
