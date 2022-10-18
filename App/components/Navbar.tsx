@@ -64,5 +64,3 @@ export function Navbar() {
         </View>
     );
 }
-
-{/* <Image style={styles.image} source={{uri: item.image}}/> */}

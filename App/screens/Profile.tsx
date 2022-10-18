@@ -1,9 +1,9 @@
 import React from 'react';
-import {TouchableOpacity, Image, View, Text, StyleSheet, Button} from 'react-native';
+import {TouchableOpacity, Image, View, Text, StyleSheet, Button, ScrollView} from 'react-native';
 import {Chip} from '../components/Chip';
 import {ContactBubble} from '../components/ContactBubble';
 import {RestaurantBubble} from '../components/RestaurantBubble';
-import {saulProfile} from '../data/dummyData';
+import {saulProfile} from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
     profile: {
@@ -71,12 +71,12 @@ function Profile(props: ProfileProps) {
     };
 
     const onPressEditPreferences = () => {
-        props.navigation.navigate("Preferences");
+        props.navigation.navigate('Preferences');
     };
 
     const onPressSeeAllPicks = () => {
-        props.navigation.navigate("Restaurant List");
-    }
+        props.navigation.navigate('Restaurant List');
+    };
 
     return (
         <View style={styles.profile}>
@@ -102,11 +102,11 @@ function Profile(props: ProfileProps) {
                 </Text>
                 <Button onPress={onPressSeeAllPicks} title="See all"/>
             </View>
-            <View style={styles.row}>
+            <ScrollView style={styles.row} horizontal={true}>
                 {saulProfile.pastPicks.map((restaurant, index) =>
                     <RestaurantBubble {...restaurant} onPress={onPressRestaurant} key={index}/>
                 )}
-            </View>
+            </ScrollView>
             <Text style={styles.sectionTitle}>
                 Your contacts
             </Text>
