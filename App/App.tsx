@@ -69,6 +69,7 @@ const mainGroup = (
         <MainStack.Screen name="Reset Password" component={screens.ResetPassword} />
         <MainStack.Screen name="Profile" component={screens.ProfileScreen} initialParams={{ profileData: saulProfile }} />
         <MainStack.Screen name="Strategic or random" component={screens.StrategicOrRandom} />
+        <MainStack.Screen name="Random Restaurant" component={screens.RandomRestaurantScreen} />
     </MainStack.Group>
 );
 
