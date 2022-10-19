@@ -13,6 +13,11 @@ class UserService {
         return users;
     }
 
+    /**
+     * 
+     * @param {String} userId - id of user
+     * @returns {User} found user object
+     */
     public async findUserById(userId: string): Promise<User> {
         if (isEmpty(userId)) throw new HttpException(400, "UserId is empty");
 
@@ -22,6 +27,11 @@ class UserService {
         return findUser;
     }
     
+    /**
+     * 
+     * @param {String} userEmail - email of user
+     * @returns {User} found user object
+     */
     public async findUserByEmail(userEmail: string): Promise<User> {
         if (isEmpty(userEmail)) throw new HttpException(400, "UserEmail is empty");
 
@@ -31,6 +41,11 @@ class UserService {
         return findUser;
     }
 
+    /**
+     * 
+     * @param {CreateUserDto} userData - data to create user
+     * @returns {User} created user object 
+     */
     public async createUser(userData: CreateUserDto): Promise<User> {
         if (isEmpty(userData)) throw new HttpException(400, "userData is empty");
 
@@ -48,6 +63,11 @@ class UserService {
         return createdUser;
     }
 
+    /**
+     * 
+     * @param {String} userId - id of user 
+     * @returns deleted user
+     */
     public async deleteUser(userId: string): Promise<User> {
         const deleteUserById: User = await this.users.findByIdAndDelete(userId);
         if (!deleteUserById) throw new HttpException(409, "User doesn't exist");
@@ -55,6 +75,11 @@ class UserService {
         return deleteUserById;
     }
 
+    /**
+     * 
+     * @param {String[]} ids - list or single user ids
+     * @returns {Array} array of user ids which matches
+     */
     public async getUserByIds(ids: string | string[]) : Promise<User[]> {
         try {
             const users = await this.users.find({_id: {$in: ids}});
