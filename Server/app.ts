@@ -1,17 +1,15 @@
 import express, { NextFunction, Request, Response } from 'express';
 import compression from "compression";
-import helmet from 'helmet';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import passport from '@middlewares/passport.middleware';
 import { Routes } from '@interfaces/routes.interface';
-import bodyParser from 'body-parser';
 import { MONGODB_URI, SESSION_SECRET } from "./config";
 import session, {Session} from 'express-session';
 import {Server} from 'socket.io';
 import * as http from 'http';
 import SocketConnection from '@middlewares/socket.middleware';
-import { Socket, SocketReservedEventsMap } from 'socket.io/dist/socket';
+import { Socket } from 'socket.io/dist/socket';
 
 
 declare module "http" {
@@ -74,7 +72,7 @@ class App {
 
 
     private initializeMiddlewares() {
-        this.app.use(helmet());
+        this.app.use(cors({origin:'*'}));
         this.app.use(compression());
         this.app.use(express.json());
         this.app.use(express.urlencoded({extended: false}));
