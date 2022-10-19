@@ -59,7 +59,23 @@ class GroupsController {
         } catch (error) {
             return res.status(500).json({success: false, error});
         }
-    }   
+    };
+
+    public getRecentConversation = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const currentUser : string = req.user?._id!;
+            const options = {
+                page: parseInt(req.query.page as any) || 0,
+                limit: parseInt(req.query.limit as any) || 10,
+            };
+            const groups : Group[] = await this.groupService.getGroupsByUserId(currentUser);
+            const groupIds = groups.map(group => group._id);
+            const recentConversation = await this.groupService.getRecentConversation(groupIds, options, currentUser);
+            return res.status(200).json({success: true, conversation: recentConversation});
+        } catch(error) {
+            return res.status(500).json({success: false, error: error});
+        }
+    };
 }
 
 export default GroupsController
