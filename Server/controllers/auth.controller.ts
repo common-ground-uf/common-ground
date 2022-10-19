@@ -30,6 +30,14 @@ class AuthController {
         }
     }
 
+    public authUser = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            res.status(200).json({message:"login success", userData : req.user});
+        } catch (error) {
+            next(error);
+        }
+    }
+
 
 }
 
