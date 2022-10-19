@@ -1,16 +1,9 @@
 import React from 'react';
-import { Text, View, TextInput, Button } from 'react-native';
-import {loginSignupStyles} from "../styles/LoginSingup";
+import { View } from 'react-native';
+import {loginSignupStyles} from '../styles/LoginSingup';
 import DropDownPicker from 'react-native-dropdown-picker';
 
-
-type VerificationProps = {
-    navigation: any;
-}
-
-function Preferences(props: VerificationProps) {
-    const [code, setCode] = React.useState<string>('');
-
+function Preferences() {
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState(['mexican', '$-$$']);
     const [items, setItems] = React.useState([
@@ -36,10 +29,10 @@ function Preferences(props: VerificationProps) {
                 setOpen={setOpen}
                 setValue={setValue}
                 setItems={setItems}
-                theme="DARK"
+                theme="LIGHT"
                 multiple={true}
                 mode="BADGE"
-                badgeDotColors={["#e76f51", "#00b4d8", "#e9c46a", "#e76f51", "#8ac926", "#00b4d8", "#e9c46a"]}
+                badgeDotColors={['#e76f51', '#00b4d8', '#e9c46a', '#e76f51', '#8ac926', '#00b4d8', '#e9c46a']}
             />
         </View>
     );

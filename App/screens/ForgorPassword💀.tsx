@@ -13,7 +13,9 @@ const styles = StyleSheet.create({
 });
 
 type ForgorPasswordProps = {
-  navigation: any;
+  navigation: {
+    navigate: any,
+  };
 }
 
 function ForgorPassword(props: ForgorPasswordProps) {

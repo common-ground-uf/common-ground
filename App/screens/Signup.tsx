@@ -21,9 +21,32 @@ function Signup(props: SignupProps) {
     const [email, setEmail] = React.useState<string>('');
     const [password, setPassword] = React.useState<string>('');
     const [passwordConfirmation, setPasswordConfirmation] = React.useState<string>('');
+    const [errorState, setErrorState] = React.useState<boolean>(false);
+    const [errorMessage, setErrorMessage] = React.useState<string>('');
 
     const onPressSignup = () => {
-        console.log('sign up');
+        if (!firstName || !lastName || !email || !password || !passwordConfirmation) {
+            setErrorMessage('All fields are required.');
+            setErrorState(true);
+        } else if (!validateEmail(email)) {
+            setErrorMessage('Invalid email.');
+            setErrorState(true);
+        } else if (password !== passwordConfirmation) {
+            setErrorMessage('Passwords do not match.');
+            setErrorState(true);
+        } else {
+            setErrorState(false);
+            console.log('sign up');
+        }
+    };
+
+    // https://stackoverflow.com/questions/46155/how-can-i-validate-an-email-address-in-javascript
+    const validateEmail = (email) => {
+        return String(email)
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
     };
 
     const onPressHaveAccount = () => {
@@ -33,7 +56,6 @@ function Signup(props: SignupProps) {
     return (
         <View style={loginSignupStyles.container}>
             <Image style={styles.image} source={login}/>
-            <Text style={loginSignupStyles.title}>Sign up</Text>
             <TextInput
                 style={loginSignupStyles.input}
                 onChangeText={setFirstName}
@@ -70,6 +92,9 @@ function Signup(props: SignupProps) {
                 placeholder="Confirm password"
                 secureTextEntry={true}
             />
+            {errorState &&
+            <Text style={loginSignupStyles.errorMessage}>{errorMessage}</Text>
+            }
             <Text onPress={onPressHaveAccount} style={loginSignupStyles.link}>Already have an account?</Text>
             <View style={loginSignupStyles.loginButtonContainer}>
                 <Button title="Sign up" onPress={onPressSignup} color="#FEB346"/>

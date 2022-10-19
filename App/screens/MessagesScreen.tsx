@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, StyleSheet, Image, Text, TextInput, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Button, Keyboard } from 'react-native';
-import {loginSignupStyles} from '../styles/LoginSingup';
 import {messages} from '../data/dummyData';
 
 const styles = StyleSheet.create({
@@ -21,7 +20,7 @@ const styles = StyleSheet.create({
   messageBubble: {
     borderRadius: 25,
     padding: 10,
-    backgroundColor: '#ff6666',
+    backgroundColor: '#444',
   },
   profilePic: {
     width: 30,
@@ -40,24 +39,28 @@ const styles = StyleSheet.create({
     marginTop: 'auto',
   },
   selfMessageBubble: {
-    backgroundColor: 'blue',
+    backgroundColor: '#ff6666',
   },
   container: {
     flex: 1,
-    marginBottom: 65,
+    marginBottom: 0,
   },
   inner: {
     flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   textInputContainer: {
     flexGrow: 1,
+    flexBasis: 1,
     borderWidth: 1,
     borderRadius: 20,
     marginBottom: 80,
+    paddingLeft: 4,
   },
   textInput: {
     minHeight: 40,
-    borderColor: "#000000",
+    borderColor: '#000000',
     padding: 10,
   },
   btnContainer: {
@@ -66,13 +69,16 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     borderWidth: 1,
     marginLeft: 10,
+    flexShrink: 0,
   },
   row: {
     display: 'flex',
     flexDirection: 'row',
-    marginTop: 'auto',
-    maxWidth: '90%',
-    width: '90%',
+    flexWrap: 'nowrap',
+    minWidth: 0,
+    width: '100%',
+    maxWidth: '100%',
+    boxSizing: 'border-box',
   }
 });
 
@@ -91,8 +97,8 @@ function Message(props: MessageProps) {
         <Text style={styles.content}>{props.content}</Text>
       </View>
     </View>
-    )
-};
+    );
+}
 
 type MessagesScreenProps = {
 
@@ -105,7 +111,7 @@ function MessagesScreen(props: MessagesScreenProps) {
 
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>

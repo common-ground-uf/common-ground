@@ -2,8 +2,5 @@
   "scripts": {
     "start:web": "npm start --prefix App",
     "start:server": "npm start --prefix Server"
-  },
-  "devDependencies": {
-    "eslint-plugin-react": "^7.31.6"
   }
 }

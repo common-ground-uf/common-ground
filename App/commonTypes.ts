@@ -17,3 +17,15 @@ export type ReviewProps = {
   starRating: number,
   bodyText: string,
 }
+
+export type Contact = {
+  id: string,
+  name: string,
+  profilePic: string,
+}
+
+export type Profile = Contact & {
+  preferences: string[],
+  pastPicks: Restaurant[],
+  recentContacts: Contact[],
+}

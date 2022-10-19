@@ -1,13 +1,16 @@
 import React from 'react';
 import { View, FlatList, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Contact } from '../commonTypes';
+import { mapContactToProfile } from '../utils';
 
 const styles = StyleSheet.create({
   groupDetails: {
     padding: 20,
     backgroundColor: 'white',
+    height: '100%',
   },
   memberContainer: {
-    marginTop: 20,
+    marginTop: 15,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -21,47 +24,61 @@ const styles = StyleSheet.create({
   horizontalLine: {
     height: 1,
     width: '100%',
-    backgroundColor: 'black',
-    marginTop: 20,
+    backgroundColor: '#bbb',
+    marginTop: 15,
   },
   settings: {
-    width: 50,
-    height: 50,
+    width: 32,
+    height: 32,
     paddings: '100%',
+    opacity: .6,
   },
-  center: {
+  topRow: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
     marginTop: 20,
     marginBottom: 20,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   closeIcon: {
     width: 32,
     height: 32,
+  },
+  groupName: {
+    fontSize: 20,
   }
 });
 
 type ContactProps = {
-  name: string,
-  pic: string,
+  memberData: Contact,
   editMode: boolean,
   onDelete: () => void,
+  navigate: (string, Contact) => void,
 };
 
-const Member = (props: ContactProps) => {
-
+const Member = (props: ContactProps & {last:boolean}) => {
+  const navigate = () => {
+    props.navigate('Profile', {
+      profileData: mapContactToProfile(props.memberData),
+    })
+  }
 
   return (
     <>
       <View style={styles.memberContainer}>
-        <Image style={styles.image} source={{ uri: props.pic }} />
-        <Text>{props.name}</Text>
+        <TouchableOpacity onPress={navigate}>
+          <Image style={styles.image} source={{ uri: props.memberData.profilePic }} />
+        </TouchableOpacity>
+        <Text>{props.memberData.name}</Text>
         {props.editMode ?
           <TouchableOpacity onPress={props.onDelete}>
             <Image style={styles.closeIcon} source={{ uri: 'https://cdn.iconscout.com/icon/free/png-256/close-1912235-1617704.png' }} />
           </TouchableOpacity>
           : null}
       </View>
-      <View style={styles.horizontalLine} />
+      {!props.last && <View style={styles.horizontalLine} />}
     </>
   );
 };
@@ -74,7 +91,6 @@ type GroupDetailsProps = {
 };
 
 function GroupDetails(props: GroupDetailsProps) {
-  console.log(props);
   const [members, setMembers] = React.useState(props.route.params.members);
   const [editMode, setEditMode] = React.useState(false);
 
@@ -89,17 +105,23 @@ function GroupDetails(props: GroupDetailsProps) {
 
   return (
     <View style={styles.groupDetails}>
-      <View style={styles.center}>
+      <View style={styles.topRow}>
+        <Text style={styles.groupName}>{props.route.params.name}</Text>
         <TouchableOpacity onPress={onClickSettings}>
           <Image source={require('../assets/settings.png')} style={styles.settings} />
         </TouchableOpacity>
       </View>
-      <Text>{props.route.params.name}</Text>
       {members.length === 0 ? 
         <Text>Group is empty</Text> :
         <FlatList
           data={members}
-          renderItem={(member) => <Member {...member.item} onDelete={() => onDelete(member.index)} editMode={editMode} />}
+          renderItem={(member) => (
+            <Member
+              memberData={member.item}
+              onDelete={() => onDelete(member.index)} editMode={editMode} last={member.index === members.length - 1}
+              navigate={props.navigation.navigate}
+            />
+          )}
         />
       }
     </View>
