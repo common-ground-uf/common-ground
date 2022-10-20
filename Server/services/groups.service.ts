@@ -150,7 +150,7 @@ class GroupService {
                     $group: {
                       _id: '$groupId',
                       messageId: { $last: '$_id' },
-                      chatRoomId: { $last: '$groupId' },
+                      groupId: { $last: '$groupId' },
                       message: { $last: '$message' },
                       type: { $last: '$type' },
                       postedByUser: { $last: '$postedByUser' },
