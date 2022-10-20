@@ -1,15 +1,24 @@
 import React from 'react';
-import { ScrollView, Button, View, StyleSheet, Text } from 'react-native';
+import { ScrollView, Button, View, StyleSheet, Text, Linking } from 'react-native';
 
 const styles = StyleSheet.create({
     button: {
         marginVertical: 4,
         marginHorizontal: 8,
-    }
+    },
+    debugScreen: {
+        paddingHorizontal: 20,
+        marginVertical: 20,
+    },
+    verticalSpace: {
+        height: 40,
+    },
 });
 
 type DebugScreenProps = {
-    navigation: any;
+    navigation: {
+        navigate: any,
+    }
 }
 
 function DebugScreen(props: DebugScreenProps) {
@@ -17,11 +26,9 @@ function DebugScreen(props: DebugScreenProps) {
         props.navigation.navigate(screen);
     };
     const screens = [
-        'Login',
         'Signup',
         'Forgot Password',
-        'ResetPassword',
-        'Home',
+        'Reset Password',
         'Preferences',
         'Start New Table Screen',
         'Restaurant List',
@@ -34,11 +41,21 @@ function DebugScreen(props: DebugScreenProps) {
         'Settings',
         'Notifications',
         'Group Details',
-        'Messages'
+        'Explore',
+        'Strategic or random',
+        'Random Restaurant',
     ];
+    const onPressBreakinBadWithCommentarySeason1Episode1_Pilot_wWalterJesseSkylerHankMarieWJ = () => {
+        Linking.openURL('https://www.youtube.com/watch?v=gf0xPOS1Bdg');
+    };
     return (
-        <ScrollView>
+        <ScrollView style={styles.debugScreen}>
+            <View style={styles.verticalSpace}/>
             <Text>Select a screen</Text>
+            <Button
+                title='Breaking Bad With Commentary Season 1 Episode 1 - Pilot | w/Walter, Jesse, Skyler, Hank, Marie & WJ'
+                onPress={onPressBreakinBadWithCommentarySeason1Episode1_Pilot_wWalterJesseSkylerHankMarieWJ}
+            />
             {screens.map((screen, index) => 
                 <View style={styles.button} key={index}>
                     <Button title={screen} onPress={() => onClick(screen)} />

@@ -1,9 +1,12 @@
-import React from "react";
+import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import { ContactBubble } from '../components/ContactBubble';
-import { Finger } from '../data/dummyData';
+import { Finger } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
+    startNewTable: {
+        marginHorizontal: 4,
+    },
     row: {
         display: 'flex',
         flexDirection: 'row',
@@ -24,10 +27,8 @@ function StartNewTableScreen() {
         setSelected(newSelected);
     };
 
-    console.log(selected);
-
     return (
-        <View>
+        <View style={styles.startNewTable}>
             <Text>
                 Start a new table
             </Text>

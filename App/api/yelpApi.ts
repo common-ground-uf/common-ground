@@ -1,5 +1,40 @@
 import axios from 'axios';
+import 'dotenv/config';
 
+// Surface level info about a business
+export interface Business {
+    rating: number;
+    price: string;
+    phone: string;
+    id: string;
+    alias: string;
+    is_closed: boolean;
+    categories: Array<{
+        alias: string;
+        title: string;
+    }>;
+    review_count: number;
+    name: string;
+    url: string;
+    coordinates: {
+        latitude: number;
+        longitude: number;
+    };
+    image_url: string;
+    location: {
+        city: string;
+        country: string;
+        address2: string;
+        address3: string;
+        state: string;
+        address1: string;
+        zip_code: string;
+    };
+    distance: number;
+    transactions: Array<string>;
+}
+
+// More detailed info about a business
 export interface BusinessDetails {
     id: string;
     alias: string;
@@ -44,7 +79,7 @@ export interface BusinessDetails {
         is_open_now: boolean;
     }>;
     transactions: Array<string>;
-    special_hours: Array<{
+    special_hours?: Array<{
         date: string;
         is_closed: boolean;
         start: string;
@@ -53,50 +88,7 @@ export interface BusinessDetails {
     }>;
 }
 
-export interface Business {
-    rating: number;
-    price: string;
-    phone: string;
-    id: string;
-    alias: string;
-    is_closed: boolean;
-    categories: Array<{
-        alias: string;
-        title: string;
-    }>;
-    review_count: number;
-    name: string;
-    url: string;
-    coordinates: {
-        latitude: number;
-        longitude: number;
-    };
-    image_url: string;
-    location: {
-        city: string;
-        country: string;
-        address2: string;
-        address3: string;
-        state: string;
-        address1: string;
-        zip_code: string;
-    };
-    distance: number;
-    transactions: Array<string>;
-}
-
-export interface BusinessDetailsResponse {
-    businesses: Array<BusinessDetails>;
-    total: number;
-    region: {
-        center: {
-            latitude: number;
-            longitude: number;
-        };
-    };
-}
-
-export interface BusinessSearchResponse {
+interface BusinessSearchResponse {
     total: number;
     businesses: Array<Business>;
     region: {
@@ -114,27 +106,28 @@ const yelp = axios.create({
     }
 });
 
-export const getBusinessesByLocation = (location: string): Promise<BusinessSearchResponse> => {
-    return yelp.get('/search', {
+export async function getBusinessesByLocation (location: string): Promise<Business[]> {
+    console.log("API KEY: " + JSON.stringify(process.env.YELP_API_KEY));
+
+    return ((await (yelp.get('/search', {
         params: {
             term: 'food',
-            location: location,
-            limit: 100
+            location: location
         }
-    }) as Promise<BusinessSearchResponse>;
+    }))).data as BusinessSearchResponse).businesses;
 };
 
-export const getBusinessesByLocationRange = (location: string, range: number): Promise<BusinessSearchResponse> => {
-    return yelp.get('/search', {
+export async function getBusinessesByLocationRange (location: string, range: number): Promise<Business[]> {
+    return ((await (yelp.get('/search', {
         params: {
             term: 'food',
             location: location,
-            limit: 100,
             radius: range
         }
-    }) as Promise<BusinessSearchResponse>;
+    }))).data as BusinessSearchResponse).businesses;
+
 };
 
-export const getBusinessDetails = (id: string): Promise<BusinessDetailsResponse> => {
-    return yelp.get(`/${id}`) as Promise<BusinessDetailsResponse>;
+export async function getBusinessDetails (id: string): Promise<BusinessDetails> {
+    return ((await (yelp.get(`/${id}`))).data as BusinessDetails);
 };
