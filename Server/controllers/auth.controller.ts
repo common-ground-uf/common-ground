@@ -10,7 +10,7 @@ class AuthController {
 
     public logInFailure = async (req: Request, res: Response, next: NextFunction) => {
         try {
-            res.sendStatus(401).json({message:"login failed"});
+            res.status(401).json({message:"login failed"});
         } catch (error) {
             next(error);
         }
@@ -25,6 +25,14 @@ class AuthController {
                 }
                 res.redirect('/');
             });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    public authUser = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            res.status(200).json({message:"login success", userData : req.user});
         } catch (error) {
             next(error);
         }
