@@ -1,6 +1,16 @@
 import React from 'react';
-import { Text, View, TextInput, Button } from 'react-native';
+import { Text, View, TextInput, Button, StyleSheet, Image } from 'react-native';
 import { loginSignupStyles } from '../styles/LoginSingup';
+import forgot from '../assets/forgot.png';
+
+const styles = StyleSheet.create({
+  image: {
+    width: '50%',
+    height: '10%',
+    alignSelf: 'center',
+    marginBottom: '5%'
+  },
+});
 
 type ForgorPasswordProps = {
   navigation: {
@@ -24,7 +34,9 @@ function ForgorPassword(props: ForgorPasswordProps) {
   };
 
   return (
+
     <View style={loginSignupStyles.container}>
+      <Image style={styles.image} source={forgot}/>
       {expectingEmail ?
         <>
           <Text style={loginSignupStyles.title}>Reset password</Text>

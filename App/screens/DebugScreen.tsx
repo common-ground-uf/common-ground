@@ -26,6 +26,8 @@ function DebugScreen(props: DebugScreenProps) {
         props.navigation.navigate(screen);
     };
     const screens = [
+        'Start',
+        'Login',
         'Signup',
         'Forgot Password',
         'Reset Password',

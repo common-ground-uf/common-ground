@@ -1,6 +1,16 @@
 import React from 'react';
-import {Text, View, TextInput, Button} from 'react-native';
+import {Text, View, TextInput, Button, StyleSheet, Image} from 'react-native';
 import {loginSignupStyles} from '../styles/LoginSingup';
+import login from '../assets/login.png';
+
+const styles = StyleSheet.create({
+    image: {
+        width: '50%',
+        height: '10%',
+        alignSelf: 'center',
+        marginBottom: '5%'
+    },
+});
 
 const axios = require('axios');
 
@@ -72,7 +82,6 @@ function Login(props: LoginProps) {
                 onChangeText={setEmail}
                 value={email}
                 placeholder="Email"
-
             />
             <TextInput
                 style={loginSignupStyles.input}
@@ -81,6 +90,9 @@ function Login(props: LoginProps) {
                 placeholder="Password"
                 autoComplete='password'
             />
+            {errorState &&
+            <Text style={loginSignupStyles.errorMessage}>email and password do not match 😭</Text>
+            }
             <Text onPress={onPressForgotPassword} style={loginSignupStyles.link}>Forgot password</Text>
             <Text onPress={onPressSignUp} style={loginSignupStyles.link}>Sign up</Text>
             <View style={loginSignupStyles.loginButtonContainer}>
