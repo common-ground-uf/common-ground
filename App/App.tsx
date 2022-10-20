@@ -50,6 +50,7 @@ const MainStack = createNativeStackNavigator();
 
 const mainGroup = (
     <MainStack.Group>
+        <MainStack.Screen name="Start" component={screens.Start}/>
         <MainStack.Screen name="Preferences" component={screens.Preferences} />
         <MainStack.Screen name="Settings" component={screens.Settings} />
         <MainStack.Screen name="Account" component={screens.Account} />
