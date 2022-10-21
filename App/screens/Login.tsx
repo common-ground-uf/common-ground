@@ -26,7 +26,7 @@ type requestLoginProps = {
 function Login(props: LoginProps) {
     const [email, setEmail] = React.useState<string>('');
     const [password, setPassword] = React.useState<string>('');
-
+    const [errorState, setErrorState] = React.useState<boolean>(false);
 
     const onPressForgotPassword = () => {
         props.navigation.navigate('Forgot Password');

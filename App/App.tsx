@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { tacoBell } from './data/dummyRestaurants';
+import { losPollosHermanos } from './data/dummyRestaurants';
 import { Restaurant } from './commonTypes';
 import { Finger, saulProfile } from './data/dummyUsers';
 import * as screens from './screens';
@@ -59,13 +59,13 @@ const mainGroup = (
         <MainStack.Screen
             name="Restaurant List"
             component={screens.RestaurantList}
-            initialParams={{ restaurantList: Array<Restaurant>(10).fill(tacoBell) }}
+            initialParams={{ restaurantList: Array<Restaurant>(10).fill(losPollosHermanos) }}
         />
         <MainStack.Screen name="Signup" component={screens.Signup} />
         <MainStack.Screen name="Group Details" component={screens.GroupDetails} initialParams={{ members: [Finger, Finger, Finger], name: 'the boys' }} />
         <MainStack.Screen name="Forgot Password" component={screens.ForgorPassword} />
         <MainStack.Screen name="Gallery" component={screens.Gallery} />
-        <MainStack.Screen name="Restaurant" component={screens.RestaurantScreen} initialParams={{ restaurant: tacoBell }} />
+        <MainStack.Screen name="Restaurant" component={screens.RestaurantScreen} initialParams={{ restaurant: losPollosHermanos }} />
         <MainStack.Screen name="Start New Table Screen" component={screens.StartNewTableScreen} />
         <MainStack.Screen name="Reset Password" component={screens.ResetPassword} />
         <MainStack.Screen name="Profile" component={screens.ProfileScreen} initialParams={{ profileData: saulProfile }} />
