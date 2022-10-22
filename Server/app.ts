@@ -8,7 +8,6 @@ import { MONGODB_URI, SESSION_SECRET } from "./config";
 import session, {Session} from 'express-session';
 import {Server} from 'socket.io';
 import * as http from 'http';
-import bodyparser from 'body-parser';
 import SocketConnection from '@middlewares/socket.middleware';
 import { Socket } from 'socket.io/dist/socket';
 
@@ -75,7 +74,6 @@ class App {
     private initializeMiddlewares() {
         this.app.use(cors({origin:'*'}));
         this.app.use(compression());
-        this.app.use(bodyparser.urlencoded({extended: true}));
         this.app.use(express.json());
         this.app.use(express.urlencoded({extended: false}));
         this.app.use(this.sessionMiddleware);
