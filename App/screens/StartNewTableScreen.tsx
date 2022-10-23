@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
 
 type StartNewTableScreenProps = {
     navigation: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         navigate: any,
     },
 }

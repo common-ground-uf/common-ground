@@ -13,9 +13,11 @@ const styles = StyleSheet.create({
 
 type RestaurantListProps = {
   navigation: {
-    navigate: any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    navigate: any;
   };
-  route: any,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  route: any;
   restaurantList: Restaurant[],
 }
 

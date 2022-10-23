@@ -41,9 +41,9 @@ const styles = StyleSheet.create({
         height: 40,
         marginBottom: 10,
         borderWidth: 1,
-        padding: 10,
-        width: '100%',
+        width: '95%',
         borderRadius: 20,
+        marginHorizontal: '2.5%',
     },
     bubble: {
         marginLeft: 20,
@@ -52,7 +52,8 @@ const styles = StyleSheet.create({
 
 type HomeProps = {
     navigation: {
-        navigate: any,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        navigate: any;
     };
 };
 

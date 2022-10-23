@@ -46,6 +46,7 @@ function DebugScreen(props: DebugScreenProps) {
         'Explore',
         'Strategic or random',
         'Random Restaurant',
+        'All Contacts',
     ];
     const onPressBreakinBadWithCommentarySeason1Episode1_Pilot_wWalterJesseSkylerHankMarieWJ = () => {
         Linking.openURL('https://www.youtube.com/watch?v=gf0xPOS1Bdg');

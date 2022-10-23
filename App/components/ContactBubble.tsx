@@ -25,11 +25,11 @@ const styles = StyleSheet.create({
 });
 
 type ContactBubbleProps = {
-  profilePic: string,
-  firstName: string,
-  lastName: string,
-  onPress?: () => void,
-  selected?: boolean,
+  profilePic: string;
+  firstName: string;
+  lastName: string;
+  onPress?: () => void;
+  selected?: boolean;
 }
 
 function ContactBubble(props: ContactBubbleProps) {

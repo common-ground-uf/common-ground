@@ -92,12 +92,16 @@ function ProfileScreen(props: ProfilePageProps) {
     };
 
     const onPressEditPreferences = () => {
-        props.navigation.navigate("Preferences");
+        props.navigation.navigate('Preferences');
     };
 
     const onPressSeeAllPicks = () => {
-        props.navigation.navigate("Restaurant List");
-    }
+        props.navigation.navigate('Restaurant List');
+    };
+
+    const onPressSeeAllContacts = () => {
+        props.navigation.navigate('All Contacts');
+    };
 
     if (!props.route.params.profileData)
         return <></>;
@@ -137,9 +141,12 @@ function ProfileScreen(props: ProfilePageProps) {
             </View>
             {myProfile &&
                 <>
-                    <Text style={styles.sectionTitle}>
-                        Your contacts
-                    </Text>
+                    <View style={styles.row}>
+                        <Text style={styles.sectionTitle}>
+                            Your contacts
+                        </Text>
+                        <Button onPress={onPressSeeAllContacts} title="See all" />
+                    </View>
                     <View style={styles.row}>
                         {props.route.params.profileData.recentContacts.map((contact, index) =>
                             <ContactBubble {...contact} onPress={() => onPressContact(contact)} key={index} />

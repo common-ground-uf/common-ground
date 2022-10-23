@@ -101,11 +101,7 @@ function Message(props: MessageProps) {
     );
 }
 
-type MessagesScreenProps = {
-
-};
-
-function MessagesScreen(props: MessagesScreenProps) {
+function MessagesScreen() {
   const self = 'Saul';
 
   const [messageInput, setMessageInput] = React.useState('');

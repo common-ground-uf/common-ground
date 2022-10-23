@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 type StrategicOrRandomProps = {
     navigation: {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        navigate: any
+        navigate: any;
     }
 }
 

@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { losPollosHermanos } from './data/dummyRestaurants';
 import { Restaurant } from './commonTypes';
-import { Finger, saulProfile, Walter } from './data/dummyUsers';
+import { Finger, saulProfile, SkylerProfile, stanEdgar, Walter } from './data/dummyUsers';
 import * as screens from './screens';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet, Image } from 'react-native';
@@ -51,7 +51,7 @@ const MainStack = createNativeStackNavigator();
 
 const mainGroup = (
     <MainStack.Group>
-        <MainStack.Screen name="Start" component={screens.Start}/>
+        <MainStack.Screen name="Start" component={screens.Start} />
         <MainStack.Screen name="Preferences" component={screens.Preferences} />
         <MainStack.Screen name="Settings" component={screens.Settings} />
         <MainStack.Screen name="Account" component={screens.Account} />
@@ -64,6 +64,7 @@ const mainGroup = (
         />
         <MainStack.Screen name="Signup" component={screens.Signup} />
         <MainStack.Screen name="Group Details" component={screens.GroupDetails} initialParams={{ members: [Finger, Walter, saulProfile], name: 'the boys' }} />
+        <MainStack.Screen name="All Contacts" component={screens.AllContactsScreen} initialParams={{ members: [Finger, Walter, saulProfile, stanEdgar, SkylerProfile] }} />
         <MainStack.Screen name="Forgot Password" component={screens.ForgorPassword} />
         <MainStack.Screen name="Gallery" component={screens.Gallery} />
         <MainStack.Screen name="Restaurant" component={screens.RestaurantScreen} initialParams={{ restaurant: losPollosHermanos }} />

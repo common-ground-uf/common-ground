@@ -1,12 +1,12 @@
 import React from 'react';
-import {Text, View, TextInput, Button, StyleSheet, Image} from 'react-native';
+import {Text, View, TextInput, Button, Image} from 'react-native';
 import {loginSignupStyles as styles} from '../styles/LoginSingup';
 import login from '../assets/login.png';
 
 type SignupProps = {
     navigation: {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        navigate: any
+        navigate: any;
     };
 }
 
