@@ -44,6 +44,9 @@ const styles = StyleSheet.create({
         width: '100%',
         borderRadius: 20,
     },
+    bubble: {
+        marginRight: 10,
+    },
 });
 
 type HomeProps = {
@@ -69,11 +72,11 @@ function Explore(props: HomeProps) {
             {exploreSections.map((section, index1) => 
                 <View key={index1}>
                     <Text style={styles.sectionTitle}>{section.sectionTitle}</Text>
-                    <View style={styles.row}>
-                        {section.contentData.map((restaurant, index2) => 
-                            <RestaurantBubble key={index2} {...restaurant} onPress={onClickRestaurant} />
+                    <ScrollView style={styles.row} horizontal={true}>
+                        {section.contentData.map((restaurant, index2) =>
+                            <RestaurantBubble key={index2} {...restaurant} onPress={onClickRestaurant} style={styles.bubble}/>
                         )}
-                    </View>
+                    </ScrollView>
                 </View>
             )}
             <View style={styles.verticalSpace}/>

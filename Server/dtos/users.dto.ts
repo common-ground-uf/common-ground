@@ -1,5 +1,4 @@
 import { IsEmail, IsString } from 'class-validator';
-import { StringExpressionOperatorReturningBoolean } from 'mongoose';
 
 export class CreateUserDto {
   @IsEmail()
