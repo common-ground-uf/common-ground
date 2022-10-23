@@ -1,34 +1,34 @@
 export type Restaurant = {
-  name: string,
-  thumbnail: string,
-  address: Address,
-  priceRating: number,
-  starRating?: number,
-  reviews: ReviewProps[],
-  description: string,
+  name: string;
+  thumbnail: string;
+  address: Address;
+  priceRating: number;
+  starRating?: number;
+  reviews: ReviewProps[];
+  description: string;
 }
 
 type Address = {
-  line1: string,
-  line2: string,
+  line1: string;
+  line2: string;
 }
 
 export type ReviewProps = {
-  starRating: number,
-  bodyText: string,
+  starRating: number;
+  bodyText: string;
 }
 
 export type Contact = {
-  id: string,
-  firstName: string,
-  lastName: string,
-  profilePic: string,
+  id: string;
+  firstName: string;
+  lastName: string;
+  profilePic: string;
 }
 
 export type Profile = Contact & {
-  preferences: string[],
-  pastPicks: Restaurant[],
-  recentContacts: Contact[],
-  email: string,
-  location: string,
+  preferences: string[];
+  pastPicks: Restaurant[];
+  recentContacts: Contact[];
+  email: string;
+  location: string;
 }

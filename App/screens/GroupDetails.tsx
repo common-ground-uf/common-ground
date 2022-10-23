@@ -2,6 +2,7 @@ import React from 'react';
 import { View, FlatList, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Contact, Profile } from '../commonTypes';
 import { mapContactToProfile } from '../utils';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const styles = StyleSheet.create({
   groupDetails: {
@@ -45,6 +46,7 @@ const styles = StyleSheet.create({
   closeIcon: {
     width: 32,
     height: 32,
+    marginLeft: 'auto',
   },
   groupName: {
     fontSize: 20,
@@ -58,7 +60,7 @@ type ContactProps = {
   navigate: (string, Contact) => void,
 };
 
-const Member = (props: ContactProps & {last:boolean}) => {
+const Member = (props: ContactProps & { last: boolean }) => {
   const navigate = () => {
     props.navigate('Profile', {
       profileData: mapContactToProfile(props.memberData),
@@ -67,28 +69,28 @@ const Member = (props: ContactProps & {last:boolean}) => {
 
   return (
     <>
-      <View style={styles.memberContainer}>
-        <TouchableOpacity onPress={navigate}>
-          <Image style={styles.image} source={{ uri: props.memberData.profilePic }} />
-        </TouchableOpacity>
+      <TouchableOpacity style={styles.memberContainer} onPress={navigate}>
+        <Image style={styles.image} source={{ uri: props.memberData.profilePic }} />
         <Text>{props.memberData.firstName} {props.memberData.lastName}</Text>
         {props.editMode ?
-          <TouchableOpacity onPress={props.onDelete}>
-            <Image style={styles.closeIcon} source={{ uri: 'https://cdn.iconscout.com/icon/free/png-256/close-1912235-1617704.png' }} />
+          <TouchableOpacity onPress={props.onDelete} style={styles.closeIcon}>
+            <Icon size={24} name="close" />
           </TouchableOpacity>
           : null}
-      </View>
+      </TouchableOpacity>
       {!props.last && <View style={styles.horizontalLine} />}
     </>
   );
 };
 
 type GroupDetailsProps = {
-  name: string,
-  members: any,
+  name: string;
+  members: Contact[];
   navigation: {
-    navigate: any
-  };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    navigate: any;
+  },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   route: any;
 };
 
@@ -113,7 +115,7 @@ function GroupDetails(props: GroupDetailsProps) {
           <Image source={require('../assets/settings.png')} style={styles.settings} />
         </TouchableOpacity>
       </View>
-      {members.length === 0 ? 
+      {members.length === 0 ?
         <Text>Group is empty</Text> :
         <FlatList
           data={members}

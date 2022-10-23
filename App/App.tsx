@@ -37,11 +37,11 @@ export default function App() {
                 tabBarActiveTintColor: 'tomato',
                 tabBarInactiveTintColor: 'gray',
             })}>
-                <Tab.Screen name="Login" component={LoginStackScreen} />
                 <Tab.Screen name="Home" component={HomeStackScreen} />
                 <Tab.Screen name="Messages" component={MessagesStackScreen} />
                 <Tab.Screen name="Explore" component={ExploreStackScreen} />
                 <Tab.Screen name="Debug" component={screens.DebugScreen} />
+                <Tab.Screen name="Login" component={LoginStackScreen} />
             </Tab.Navigator>
         </NavigationContainer>
     );
@@ -79,8 +79,8 @@ const HomeStack = createNativeStackNavigator();
 
 function HomeStackScreen() {
     return (
-        <HomeStack.Navigator screenOptions={{ title: 'Home' }}>
-            <HomeStack.Screen name="HomeScreen" component={screens.Home} />
+        <HomeStack.Navigator >
+            <HomeStack.Screen options={{ title: 'Home' }} name="HomeScreen" component={screens.Home} />
             {mainGroup}
             <HomeStack.Screen name="Login" component={screens.Login} />
             <HomeStack.Screen name="Messages" component={screens.MessagesScreen} />
@@ -107,8 +107,8 @@ const MessagesStack = createNativeStackNavigator();
 
 function MessagesStackScreen() {
     return (
-        <MessagesStack.Navigator screenOptions={{ title: 'Messages' }}>
-            <MessagesStack.Screen name="MessagesScreen" component={screens.MessagesScreen} />
+        <MessagesStack.Navigator>
+            <MessagesStack.Screen options={{ title: 'Messages' }} name="MessagesScreen" component={screens.MessagesScreen} />
             {mainGroup}
             <MessagesStack.Screen name="Login" component={screens.Login} />
             <MessagesStack.Screen name="Home" component={screens.Home} />
@@ -119,8 +119,8 @@ function MessagesStackScreen() {
 
 function ExploreStackScreen() {
     return (
-        <HomeStack.Navigator screenOptions={{ title: 'Messages' }}>
-            <HomeStack.Screen name="Explore" component={screens.Explore} />
+        <HomeStack.Navigator >
+            <HomeStack.Screen options={{ title: 'Explore' }} name="Explore" component={screens.Explore} />
             {mainGroup}
             <HomeStack.Screen name="MessagesScreen" component={screens.MessagesScreen} />
             <HomeStack.Screen name="Login" component={screens.Login} />
