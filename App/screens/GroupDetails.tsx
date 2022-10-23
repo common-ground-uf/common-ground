@@ -71,7 +71,7 @@ const Member = (props: ContactProps & {last:boolean}) => {
         <TouchableOpacity onPress={navigate}>
           <Image style={styles.image} source={{ uri: props.memberData.profilePic }} />
         </TouchableOpacity>
-        <Text>{props.memberData.name}</Text>
+        <Text>{props.memberData.firstName} {props.memberData.lastName}</Text>
         {props.editMode ?
           <TouchableOpacity onPress={props.onDelete}>
             <Image style={styles.closeIcon} source={{ uri: 'https://cdn.iconscout.com/icon/free/png-256/close-1912235-1617704.png' }} />

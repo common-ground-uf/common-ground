@@ -38,7 +38,6 @@ function DebugScreen(props: DebugScreenProps) {
         'Gallery',
         'Profile',
         'Account',
-        'Settings',
         'Privacy',
         'Settings',
         'Notifications',

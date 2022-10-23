@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
 
 type ContactBubbleProps = {
   profilePic: string,
-  name: string,
+  firstName: string,
+  lastName: string,
   onPress?: () => void,
   selected?: boolean,
 }
@@ -36,7 +37,7 @@ function ContactBubble(props: ContactBubbleProps) {
     <TouchableOpacity onPress={props.onPress}>
       <Image style={[styles.image, props.selected ? styles.selected : null]} source={{ uri: props.profilePic }} />
       <Text style={styles.text}>
-        {props.name}
+        {props.firstName} {props.lastName}
       </Text>
     </TouchableOpacity>
   );

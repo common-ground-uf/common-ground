@@ -20,7 +20,8 @@ export type ReviewProps = {
 
 export type Contact = {
   id: string,
-  name: string,
+  firstName: string,
+  lastName: string,
   profilePic: string,
 }
 
@@ -28,4 +29,6 @@ export type Profile = Contact & {
   preferences: string[],
   pastPicks: Restaurant[],
   recentContacts: Contact[],
+  email: string,
+  location: string,
 }

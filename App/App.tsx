@@ -7,6 +7,7 @@ import { Finger, saulProfile, Walter } from './data/dummyUsers';
 import * as screens from './screens';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,11 +19,11 @@ const styles = StyleSheet.create({
 });
 
 const icons = {
-    Login: require('./assets/group.png'),
-    Home: require('./assets/person.png'),
-    Messages: require('./assets/search.png'),
-    Debug: require('./assets/saul.gif'),
-    Explore: require('./assets/saul.gif'),
+    Login: 'user-circle-o',
+    Home: 'home',
+    Messages: 'comment',
+    Debug: 'bug',
+    Explore: 'search',
 };
 
 export default function App() {
@@ -31,7 +32,7 @@ export default function App() {
             <Tab.Navigator screenOptions={({ route }) => ({
                 headerShown: false,
                 tabBarIcon: ({ focused, color, size }) => {
-                    return <Image source={icons[route.name]} style={styles.icon} />;
+                    return <Icon name={icons[route.name]} size={16} color="#FF6D6E" />;
                 },
                 tabBarActiveTintColor: 'tomato',
                 tabBarInactiveTintColor: 'gray',

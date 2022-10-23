@@ -1,6 +1,7 @@
 import React from 'react';
 import { ReviewProps } from '../commonTypes';
 import { Text, View, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const styles = StyleSheet.create({
   grid: {
@@ -27,7 +28,7 @@ function Review(props: ReviewProps) {
   return (
     <View style={styles.grid}>
       <View style={[styles.gridItem, styles.rating]}>
-        <Text>{props.starRating}⭐</Text>
+        <Text>{props.starRating}<Icon name="star" size={16} color="orange" /></Text>
       </View>
       <View style={[styles.gridItem, styles.text]}>
         <Text>{props.bodyText}</Text>

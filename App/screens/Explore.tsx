@@ -5,7 +5,7 @@ import {exploreSections} from '../data/dummyRestaurants';
 
 const styles = StyleSheet.create({
     scrollView: {
-        padding: 20,
+        paddingVertical: 20,
     },
     welcome: {
         fontSize: 28,
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 12,
         marginTop: 20,
+        marginLeft: 20,
     },
     row: {
         display: 'flex',
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     bubble: {
-        marginRight: 10,
+        marginLeft: 20,
     },
 });
 
