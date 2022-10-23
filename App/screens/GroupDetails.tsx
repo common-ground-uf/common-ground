@@ -44,8 +44,6 @@ function GroupDetails(props: GroupDetailsProps) {
   const [members, setMembers] = React.useState<Array<Profile>>(props.route.params.members);
   const [editMode, setEditMode] = React.useState(false);
 
-  console.log(props.route.params);
-
   const onClickSettings = () => {
     setEditMode(!editMode);
   };

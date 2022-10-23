@@ -48,8 +48,6 @@ const navbarItems = [
 export function Navbar() {
     const [selected, setSelected] = React.useState<number>(0);
     const navigation = React.useContext(NavigationContext);
-    console.log(NavigationContext);
-    console.log(navigation);
     const onPress = (index: number) => {
         navigation.navigate(navbarItems[index].screen);
         setSelected(index);
