@@ -7,13 +7,13 @@ const axios = require('axios');
 type LoginProps = {
     navigation: {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        navigate: any
+        navigate: any;
     };
 }
 
 type requestLoginProps = {
-    email: string,
-    password: string
+    email: string;
+    password: string;
 }
 
 function Login(props: LoginProps) {

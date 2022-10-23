@@ -54,10 +54,10 @@ const styles = StyleSheet.create({
 });
 
 type ContactProps = {
-  memberData: Contact,
-  editMode: boolean,
-  onDelete: () => void,
-  navigate: (string, Contact) => void,
+  memberData: Contact;
+  editMode: boolean;
+  onDelete: () => void;
+  navigate: (string, Contact) => void;
 };
 
 const Member = (props: ContactProps & { last: boolean }) => {

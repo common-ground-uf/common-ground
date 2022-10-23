@@ -9,10 +9,11 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 type RestaurantScreenProps = {
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    navigate: any
+    navigate: any;
   };
-  route: any,
-  restaurant: Restaurant,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  route: any;
+  restaurant: Restaurant;
 }
 
 const styles = StyleSheet.create({

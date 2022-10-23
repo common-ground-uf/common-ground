@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
 
 type DebugScreenProps = {
     navigation: {
-        navigate: any,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        navigate: any;
     }
 }
 

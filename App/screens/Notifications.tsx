@@ -1,10 +1,10 @@
 import React from 'react';
-import {Switch, View, StyleSheet, Text} from "react-native";
+import {Switch, View, StyleSheet, Text} from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: "10%",
-        alignItems: "center",
+        marginTop: '10%',
+        alignItems: 'center',
         width: '100%',
         paddingRight: 20,
         paddingLeft: 20,
@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
 
 type NotificationsProps = {
     navigation: {
-        navigate: any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        navigate: any;
     };
 };
 

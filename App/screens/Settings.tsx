@@ -40,13 +40,15 @@ const styles = StyleSheet.create({
 
 type SettingsProps = {
     navigation: {
-        navigate: any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        navigate: any;
     };
 }
 
 type SettingProps = {
     navigation: {
-        navigate: any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        navigate: any;
     };
     name: string,
     image: ImageSourcePropType

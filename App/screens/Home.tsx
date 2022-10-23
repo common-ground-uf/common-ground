@@ -3,7 +3,6 @@ import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
 import { GroupBubbles } from '../components/GroupBubbles';
 import { RestaurantBubble } from '../components/RestaurantBubble';
 import { parties, saulProfile} from '../data/dummyUsers';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 const styles = StyleSheet.create({
   welcome: {
@@ -45,7 +44,7 @@ const styles = StyleSheet.create({
 type HomeProps = {
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    navigate: any,
+    navigate: any;
   };
 };
 

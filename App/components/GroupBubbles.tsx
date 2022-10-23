@@ -49,10 +49,11 @@ const styles = StyleSheet.create({
 });
 
 type GroupBubblesProps = {
-  members: Contact[],
-  name: string,
-  onClick: () => void,
-  style?: any,
+  members: Contact[];
+  name: string;
+  onClick: () => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  style?: any;
 }
 
 function GroupBubbles(props: GroupBubblesProps) {
