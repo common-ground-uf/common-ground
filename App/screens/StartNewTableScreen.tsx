@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, ScrollView, StyleSheet, Button } from 'react-native';
 import { ContactBubble } from '../components/ContactBubble';
 import { Finger } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
     startNewTable: {
-        marginHorizontal: 4,
+        marginHorizontal: 10,
+        marginTop: 10,
     },
     row: {
         display: 'flex',
@@ -13,7 +14,13 @@ const styles = StyleSheet.create({
     },
 });
 
-function StartNewTableScreen() {
+type StartNewTableScreenProps = {
+    navigation: {
+        navigate: any,
+    },
+}
+
+function StartNewTableScreen(props: StartNewTableScreenProps) {
     const contactList = [Finger, Finger, Finger];
     const [selected, setSelected] = React.useState([false, false, false]);
 
@@ -27,18 +34,19 @@ function StartNewTableScreen() {
         setSelected(newSelected);
     };
 
+    const onPressNext = () => {
+        props.navigation.navigate('Strategic or random');
+    };
+
     return (
-        <View style={styles.startNewTable}>
-            <Text>
-                Start a new table
-            </Text>
+        <ScrollView style={styles.startNewTable}>
             <View style={styles.row}>
                 {contactList.map((contact, index) =>
                     <ContactBubble key={index} {...contact} onPress={() => onPressContact(index)} selected={selected[index]} />
                 )}
             </View>
-            <Button title='Next' />
-        </View>
+            <Button title='Next' onPress={onPressNext}/>
+        </ScrollView>
     );
 }
 

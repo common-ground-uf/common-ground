@@ -21,7 +21,9 @@ const styles = StyleSheet.create({
 });
 
 type NotificationsProps = {
-    navigation: any,
+    navigation: {
+        navigate: any
+    };
 };
 
 function Notifications(props: NotificationsProps) {

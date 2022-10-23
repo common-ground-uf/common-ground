@@ -39,11 +39,15 @@ const styles = StyleSheet.create({
 });
 
 type SettingsProps = {
-    navigation: any;
+    navigation: {
+        navigate: any
+    };
 }
 
 type SettingProps = {
-    navigation: any,
+    navigation: {
+        navigate: any
+    };
     name: string,
     image: ImageSourcePropType
 }

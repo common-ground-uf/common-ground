@@ -12,7 +12,9 @@ const styles = StyleSheet.create({
 });
 
 type RestaurantListProps = {
-  navigation: any,
+  navigation: {
+    navigate: any
+  };
   route: any,
   restaurantList: Restaurant[],
 }

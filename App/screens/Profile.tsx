@@ -54,7 +54,9 @@ const styles = StyleSheet.create({
 });
 
 type ProfileProps = {
-    navigation: any,
+    navigation: {
+        navigate: any
+    };
 }
 
 function Profile(props: ProfileProps) {

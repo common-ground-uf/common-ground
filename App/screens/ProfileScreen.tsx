@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Image, View, Text, StyleSheet, Button } from 'react-native';
+import { ScrollView, TouchableOpacity, Image, View, Text, StyleSheet, Button } from 'react-native';
 import { Contact, Profile } from '../commonTypes';
 import { Chip } from '../components/Chip';
 import { ContactBubble } from '../components/ContactBubble';
@@ -58,10 +58,15 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
 
     },
+    bubble: {
+        marginRight: 10,
+    },
 });
 
 type ProfilePageProps = {
-    navigation: any,
+    navigation: {
+        navigate: any,
+    },
     profileData: Profile,
     route: any,
 }
@@ -98,7 +103,7 @@ function ProfileScreen(props: ProfilePageProps) {
         return <></>;
 
     return (
-        <View style={styles.profile}>
+        <ScrollView style={styles.profile}>
             {myProfile &&
                 <View style={styles.center}>
                     <TouchableOpacity onPress={onPressSettings}>
@@ -127,7 +132,7 @@ function ProfileScreen(props: ProfilePageProps) {
             </View>
             <View style={styles.row}>
                 {props.route.params.profileData.pastPicks.map((restaurant, index) =>
-                    <RestaurantBubble {...restaurant} onPress={onPressRestaurant} key={index} />
+                    <RestaurantBubble {...restaurant} onPress={onPressRestaurant} key={index} style={styles.bubble}/>
                 )}
             </View>
             {myProfile &&
@@ -142,7 +147,8 @@ function ProfileScreen(props: ProfilePageProps) {
                     </View>
                 </>
             }
-        </View>
+            <View style={{height: 20}} />
+        </ScrollView>
     );
 }
 

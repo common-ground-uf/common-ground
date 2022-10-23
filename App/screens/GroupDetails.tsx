@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, FlatList, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { Contact } from '../commonTypes';
+import { Contact, Profile } from '../commonTypes';
 import { mapContactToProfile } from '../utils';
 
 const styles = StyleSheet.create({
@@ -62,8 +62,8 @@ const Member = (props: ContactProps & {last:boolean}) => {
   const navigate = () => {
     props.navigate('Profile', {
       profileData: mapContactToProfile(props.memberData),
-    })
-  }
+    });
+  };
 
   return (
     <>
@@ -86,12 +86,14 @@ const Member = (props: ContactProps & {last:boolean}) => {
 type GroupDetailsProps = {
   name: string,
   members: any,
-  navigation: any;
+  navigation: {
+    navigate: any
+  };
   route: any;
 };
 
 function GroupDetails(props: GroupDetailsProps) {
-  const [members, setMembers] = React.useState(props.route.params.members);
+  const [members, setMembers] = React.useState<Array<Profile>>(props.route.params.members);
   const [editMode, setEditMode] = React.useState(false);
 
   const onClickSettings = () => {

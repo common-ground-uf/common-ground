@@ -1,6 +1,5 @@
 import React from 'react';
-import {Button, Text, TextInput, View, StyleSheet, Image} from "react-native";
-import {loginSignupStyles} from "../styles/LoginSingup";
+import {View, StyleSheet, Image} from "react-native";
 import CommonGround from '../assets/CommonGround.png';
 
 const styles = StyleSheet.create({
@@ -11,11 +10,7 @@ const styles = StyleSheet.create({
     },
 });
 
-type StartProps = {
-    navigation: any,
-};
-
-function Start(props: StartProps) {
+function Start() {
     return (
         <View>
             <Image style={styles.image} source={CommonGround} />

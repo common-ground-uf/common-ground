@@ -1,18 +1,13 @@
 import React from 'react';
 import {Text, View, TextInput, Button, StyleSheet, Image} from 'react-native';
-import {loginSignupStyles} from '../styles/LoginSingup';
+import {loginSignupStyles as styles} from '../styles/LoginSingup';
 import login from '../assets/login.png';
 
-const styles = StyleSheet.create({
-    image: {
-        width: '50%',
-        height: '10%',
-        alignSelf: 'center',
-        marginBottom: '5%'
-    },
-});
 type SignupProps = {
-    navigation: any;
+    navigation: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        navigate: any
+    };
 }
 
 function Signup(props: SignupProps) {
@@ -54,31 +49,31 @@ function Signup(props: SignupProps) {
     };
 
     return (
-        <View style={loginSignupStyles.container}>
-            <Image style={styles.image} source={login}/>
+        <View style={styles.container}>
+            <Image style={styles.logo} source={login}/>
             <TextInput
-                style={loginSignupStyles.input}
+                style={styles.input}
                 onChangeText={setFirstName}
                 value={firstName}
                 placeholder="First name"
                 autoCapitalize='words'
             />
             <TextInput
-                style={loginSignupStyles.input}
+                style={styles.input}
                 onChangeText={setLastName}
                 value={lastName}
                 placeholder="LastName"
                 autoCapitalize='words'
             />
             <TextInput
-                style={loginSignupStyles.input}
+                style={styles.input}
                 onChangeText={setEmail}
                 value={email}
                 placeholder="Email"
                 autoCapitalize='none'
             />
             <TextInput
-                style={loginSignupStyles.input}
+                style={styles.input}
                 onChangeText={setPassword}
                 value={password}
                 placeholder="Password"
@@ -86,18 +81,18 @@ function Signup(props: SignupProps) {
                 secureTextEntry={true}
             />
             <TextInput
-                style={loginSignupStyles.input}
+                style={styles.input}
                 onChangeText={setPasswordConfirmation}
                 value={passwordConfirmation}
                 placeholder="Confirm password"
                 secureTextEntry={true}
             />
             {errorState &&
-            <Text style={loginSignupStyles.errorMessage}>{errorMessage}</Text>
+            <Text style={styles.errorMessage}>{errorMessage}</Text>
             }
-            <Text onPress={onPressHaveAccount} style={loginSignupStyles.link}>Already have an account?</Text>
-            <View style={loginSignupStyles.loginButtonContainer}>
-                <Button title="Sign up" onPress={onPressSignup} color="#FEB346"/>
+            <Text onPress={onPressHaveAccount} style={styles.link}>Already have an account?</Text>
+            <View style={styles.loginButtonContainer}>
+                <Button title="Sign up" onPress={onPressSignup} color="#FF6D6E"/>
             </View>
         </View>
     );

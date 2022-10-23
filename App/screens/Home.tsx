@@ -82,6 +82,10 @@ function Home(props: HomeProps) {
   ];
 
   const recentlyVisited = [restaurant, restaurant, restaurant];
+  
+  const onPressStartANewTable = () => {
+    props.navigation.navigate('Start New Table');
+  };
 
   return (
     <ScrollView>
@@ -89,7 +93,7 @@ function Home(props: HomeProps) {
           Welcome back, Saul!
         </Text>
         <View style={styles.startNewTableWrapper}>
-          <Button title='Start a new table' color='#FEB346'/>
+          <Button title='Start a new table' color='#FF6D6E' onPress={onPressStartANewTable}/>
         </View>
         <Text style={styles.sectionTitle}>Recently Visited</Text>
         <ScrollView style={styles.row} horizontal={true}>

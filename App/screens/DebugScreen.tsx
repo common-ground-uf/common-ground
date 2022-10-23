@@ -32,7 +32,7 @@ function DebugScreen(props: DebugScreenProps) {
         'Forgot Password',
         'Reset Password',
         'Preferences',
-        'Start New Table Screen',
+        'Start New Table',
         'Restaurant List',
         'Restaurant',
         'Gallery',

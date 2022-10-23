@@ -6,7 +6,9 @@ import {Review} from '../components/Review';
 import {gallery} from '../data/dummyData';
 
 type RestaurantScreenProps = {
-  navigation: any,
+  navigation: {
+    navigate: any
+  };
   route: any,
   restaurant: Restaurant,
 }
