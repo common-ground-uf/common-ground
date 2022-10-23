@@ -1,22 +1,13 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { losPollosHermanos } from './data/dummyRestaurants';
-import { Restaurant } from './commonTypes';
-import { Finger, saulProfile, SkylerProfile, stanEdgar, Walter } from './data/dummyUsers';
+import { allRestaurants, losPollosHermanos } from './data/dummyRestaurants';
+import { allUsers, parties, saulProfile } from './data/dummyUsers';
 import * as screens from './screens';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StyleSheet, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Tab = createBottomTabNavigator();
-
-const styles = StyleSheet.create({
-    icon: {
-        height: 24,
-        width: 24,
-    },
-});
 
 const icons = {
     Login: 'user-circle-o',
@@ -28,22 +19,24 @@ const icons = {
 
 export default function App() {
     return (
-        <NavigationContainer>
-            <Tab.Navigator screenOptions={({ route }) => ({
-                headerShown: false,
-                tabBarIcon: ({ focused, color, size }) => {
-                    return <Icon name={icons[route.name]} size={16} color="#FF6D6E" />;
-                },
-                tabBarActiveTintColor: 'tomato',
-                tabBarInactiveTintColor: 'gray',
-            })}>
-                <Tab.Screen name="Home" component={HomeStackScreen} />
-                <Tab.Screen name="Messages" component={MessagesStackScreen} />
-                <Tab.Screen name="Explore" component={ExploreStackScreen} />
-                <Tab.Screen name="Debug" component={screens.DebugScreen} />
-                <Tab.Screen name="Login" component={LoginStackScreen} />
-            </Tab.Navigator>
-        </NavigationContainer>
+        <React.StrictMode>
+            <NavigationContainer>
+                <Tab.Navigator screenOptions={({ route }) => ({
+                    headerShown: false,
+                    tabBarIcon: ({ focused, color, size }) => {
+                        return <Icon name={icons[route.name]} size={16} color="#FF6D6E" />;
+                    },
+                    tabBarActiveTintColor: 'tomato',
+                    tabBarInactiveTintColor: 'gray',
+                })}>
+                    <Tab.Screen name="Home" component={HomeStackScreen} />
+                    <Tab.Screen name="Messages" component={MessagesStackScreen} />
+                    <Tab.Screen name="Explore" component={ExploreStackScreen} />
+                    <Tab.Screen name="Debug" component={screens.DebugScreen} />
+                    <Tab.Screen name="Login" component={LoginStackScreen} />
+                </Tab.Navigator>
+            </NavigationContainer>
+        </React.StrictMode>
     );
 }
 
@@ -60,11 +53,11 @@ const mainGroup = (
         <MainStack.Screen
             name="Restaurant List"
             component={screens.RestaurantList}
-            initialParams={{ restaurantList: Array<Restaurant>(10).fill(losPollosHermanos) }}
+            initialParams={{ restaurantList: allRestaurants }}
         />
         <MainStack.Screen name="Signup" component={screens.Signup} />
-        <MainStack.Screen name="Group Details" component={screens.GroupDetails} initialParams={{ members: [Finger, Walter, saulProfile], name: 'the boys' }} />
-        <MainStack.Screen name="All Contacts" component={screens.AllContactsScreen} initialParams={{ members: [Finger, Walter, saulProfile, stanEdgar, SkylerProfile] }} />
+        <MainStack.Screen name="Group Details" component={screens.GroupDetails} initialParams={parties[0]} />
+        <MainStack.Screen name="All Contacts" component={screens.AllContactsScreen} initialParams={{ members: allUsers }} />
         <MainStack.Screen name="Forgot Password" component={screens.ForgorPassword} />
         <MainStack.Screen name="Gallery" component={screens.Gallery} />
         <MainStack.Screen name="Restaurant" component={screens.RestaurantScreen} initialParams={{ restaurant: losPollosHermanos }} />

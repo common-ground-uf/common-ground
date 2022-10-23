@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ScrollView, StyleSheet, Button } from 'react-native';
 import { ContactBubble } from '../components/ContactBubble';
-import { Finger } from '../data/dummyUsers';
+import { allUsers } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
     startNewTable: {
@@ -22,7 +22,7 @@ type StartNewTableScreenProps = {
 }
 
 function StartNewTableScreen(props: StartNewTableScreenProps) {
-    const contactList = [Finger, Finger, Finger];
+    const contactList = allUsers;
     const [selected, setSelected] = React.useState([false, false, false]);
 
     const onPressContact = (clickedIndex) => {
