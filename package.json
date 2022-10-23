@@ -2,8 +2,5 @@
   "scripts": {
     "start:web": "npm start --prefix App",
     "start:server": "npm start --prefix Server"
-  },
-  "dependencies": {
-    "react-native-vector-icons": "^9.2.0"
   }
 }
