@@ -1,0 +1,6 @@
+**/build
+**/node_modules
+**/__generated__
+
+*.js
+.vscode

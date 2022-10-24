@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Image, Text, TextInput, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Button, Keyboard, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Image, Text, TextInput, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native';
 import {messages} from '../data/dummyData';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -118,7 +118,13 @@ function MessagesScreen() {
           </View>
           <View style={styles.row}>
             <View style={styles.textInputContainer}>
-              <TextInput placeholder="Send a message" style={styles.textInput} multiline={true}/>
+              <TextInput
+                placeholder="Send a message"
+                style={styles.textInput}
+                multiline={true}
+                value={messageInput}
+                onChange={setMessageInput}
+              />
             </View>
             <View style={styles.btnContainer}>
               <TouchableOpacity >

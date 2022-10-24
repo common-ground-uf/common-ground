@@ -107,7 +107,7 @@ const yelp = axios.create({
 });
 
 export async function getBusinessesByLocation (location: string): Promise<Business[]> {
-    console.log("API KEY: " + JSON.stringify(process.env.YELP_API_KEY));
+    console.log('API KEY: ' + JSON.stringify(process.env.YELP_API_KEY));
 
     return ((await (yelp.get('/search', {
         params: {
@@ -115,7 +115,7 @@ export async function getBusinessesByLocation (location: string): Promise<Busine
             location: location
         }
     }))).data as BusinessSearchResponse).businesses;
-};
+}
 
 export async function getBusinessesByLocationRange (location: string, range: number): Promise<Business[]> {
     return ((await (yelp.get('/search', {
@@ -126,8 +126,8 @@ export async function getBusinessesByLocationRange (location: string, range: num
         }
     }))).data as BusinessSearchResponse).businesses;
 
-};
+}
 
 export async function getBusinessDetails (id: string): Promise<BusinessDetails> {
     return ((await (yelp.get(`/${id}`))).data as BusinessDetails);
-};
+}

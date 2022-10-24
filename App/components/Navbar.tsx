@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import {
     NavigationContext,
   } from '@react-navigation/native';
@@ -46,6 +46,7 @@ const navbarItems = [
 ];
 
 export function Navbar() {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [selected, setSelected] = React.useState<number>(0);
     const navigation = React.useContext(NavigationContext);
     const onPress = (index: number) => {

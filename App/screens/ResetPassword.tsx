@@ -2,13 +2,7 @@ import React from 'react';
 import { Text, View, TextInput, Button } from 'react-native';
 import { loginSignupStyles } from '../styles/LoginSingup';
 
-type ResetPasswordProps = {
-  navigation: {
-    navigate: any
-  };
-}
-
-function ResetPassword(props: ResetPasswordProps) {
+function ResetPassword() {
   const [newPassword, setNewPassword] = React.useState<string>('');
   const [newPasswordConfirmation, setNewPasswordConfirmation] = React.useState<string>('');
   const [errorExists, setErrorExists] = React.useState(false);
