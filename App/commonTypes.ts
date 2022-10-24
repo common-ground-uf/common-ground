@@ -3,7 +3,7 @@ export type Restaurant = {
   thumbnail: string,
   address: Address,
   priceRating: number,
-  starRating: number,
+  starRating?: number,
   reviews: ReviewProps[],
   description: string,
 }
@@ -16,4 +16,16 @@ type Address = {
 export type ReviewProps = {
   starRating: number,
   bodyText: string,
+}
+
+export type Contact = {
+  id: string,
+  name: string,
+  profilePic: string,
+}
+
+export type Profile = Contact & {
+  preferences: string[],
+  pastPicks: Restaurant[],
+  recentContacts: Contact[],
 }

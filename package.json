@@ -1,3 +1,6 @@
 {
-  "devDependencies": {}
+  "scripts": {
+    "start:web": "npm start --prefix App",
+    "start:server": "npm start --prefix Server"
+  }
 }
