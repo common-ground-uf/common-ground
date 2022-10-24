@@ -20,3 +20,4 @@ export * from './Start';
 export * from './Explore';
 export * from './StrategicOrRandom';
 export * from './RandomRestaurantScreen';
+export * from './AllContactsScreen';

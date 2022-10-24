@@ -36,5 +36,11 @@ export const loginSignupStyles = StyleSheet.create({
   errorMessage: {
     color: 'red',
   },
+  logo: {
+    width: 300,
+    height: 179,
+    alignSelf: 'center',
+    marginBottom: '5%'
+  }
 });
   

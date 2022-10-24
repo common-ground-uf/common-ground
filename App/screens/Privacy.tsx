@@ -4,7 +4,9 @@ import {loginSignupStyles} from "../styles/LoginSingup";
 
 
 type PrivacyProps = {
-    navigation: any,
+    navigation: {
+        navigate: any
+    };
 };
 
 function Privacy(props: PrivacyProps) {
@@ -17,7 +19,6 @@ function Privacy(props: PrivacyProps) {
 
     return (
         <View style={loginSignupStyles.container}>
-            <Text style={loginSignupStyles.title}>Privacy</Text>
             <TextInput
                 style={loginSignupStyles.input}
                 onChangeText={setLocation}

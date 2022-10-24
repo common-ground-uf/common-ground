@@ -5,7 +5,7 @@ import {exploreSections} from '../data/dummyRestaurants';
 
 const styles = StyleSheet.create({
     scrollView: {
-        padding: 20,
+        paddingVertical: 20,
     },
     welcome: {
         fontSize: 28,
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 12,
         marginTop: 20,
+        marginLeft: 20,
     },
     row: {
         display: 'flex',
@@ -40,18 +41,19 @@ const styles = StyleSheet.create({
         height: 40,
         marginBottom: 10,
         borderWidth: 1,
-        padding: 10,
-        width: '100%',
+        width: '95%',
         borderRadius: 20,
+        marginHorizontal: '2.5%',
     },
     bubble: {
-        marginRight: 10,
+        marginLeft: 20,
     },
 });
 
 type HomeProps = {
     navigation: {
-        navigate: any,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        navigate: any;
     };
 };
 

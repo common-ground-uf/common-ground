@@ -3,7 +3,9 @@ import { Text, View, TextInput, Button } from 'react-native';
 import { loginSignupStyles } from '../styles/LoginSingup';
 
 type ResetPasswordProps = {
-  navigation: any;
+  navigation: {
+    navigate: any
+  };
 }
 
 function ResetPassword(props: ResetPasswordProps) {
@@ -42,7 +44,7 @@ function ResetPassword(props: ResetPasswordProps) {
         </Text>
       }
       <View style={loginSignupStyles.loginButtonContainer}>
-        <Button title="Reset password" color="#FEB346" onPress={onPress}/>
+        <Button title="Reset password" color="#FF6D6E" onPress={onPress}/>
       </View>
     </View>
   );

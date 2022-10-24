@@ -1,26 +1,19 @@
 import React from 'react';
-import {Text, View, TextInput, Button, StyleSheet, Image} from 'react-native';
-import {loginSignupStyles} from '../styles/LoginSingup';
-import login from '../assets/login.png';
-
-const styles = StyleSheet.create({
-    image: {
-        width: '50%',
-        height: '10%',
-        alignSelf: 'center',
-        marginBottom: '5%'
-    },
-});
+import {Text, View, TextInput, Button} from 'react-native';
+import {loginSignupStyles as styles} from '../styles/LoginSingup';
 
 const axios = require('axios');
 
 type LoginProps = {
-    navigation: any;
+    navigation: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        navigate: any;
+    };
 }
 
 type requestLoginProps = {
-    email: string,
-    password: string
+    email: string;
+    password: string;
 }
 
 function Login(props: LoginProps) {
@@ -43,7 +36,7 @@ function Login(props: LoginProps) {
                         firstname: response.data.userData.firstname,
                         lastname: response.data.userData.lastname,
                         role: response.data.userData.role,
-                    }
+                    };
                     console.log(userData);
                 }
             })
@@ -52,7 +45,7 @@ function Login(props: LoginProps) {
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
                     if(error.response.data.message === "login failed")
-                        console.log("login unsuccessful")
+                        console.log("login unsuccessful");
                     else {
                         console.log(error.response.data);
                         console.log(error.response.status);
@@ -67,7 +60,7 @@ function Login(props: LoginProps) {
                     // Something happened in setting up the request that triggered an Error
                     console.log('Error', error.message);
                 }
-            })
+            });
     };
 
     const onPressSignUp = () => {
@@ -75,28 +68,27 @@ function Login(props: LoginProps) {
     };
 
     return (
-        <View style={loginSignupStyles.container}>
-            <Text style={loginSignupStyles.title}>Login</Text>
+        <View style={styles.container}>
             <TextInput
-                style={loginSignupStyles.input}
+                style={styles.input}
                 onChangeText={setEmail}
                 value={email}
                 placeholder="Email"
             />
             <TextInput
-                style={loginSignupStyles.input}
+                style={styles.input}
                 onChangeText={setPassword}
                 value={password}
                 placeholder="Password"
                 autoComplete='password'
             />
             {errorState &&
-            <Text style={loginSignupStyles.errorMessage}>email and password do not match 😭</Text>
+            <Text style={styles.errorMessage}>email and password do not match 😭</Text>
             }
-            <Text onPress={onPressForgotPassword} style={loginSignupStyles.link}>Forgot password</Text>
-            <Text onPress={onPressSignUp} style={loginSignupStyles.link}>Sign up</Text>
-            <View style={loginSignupStyles.loginButtonContainer}>
-                <Button title="Login" onPress={onPressLogin} color="#FEB346"/>
+            <Text onPress={onPressForgotPassword} style={styles.link}>Forgot password</Text>
+            <Text onPress={onPressSignUp} style={styles.link}>Sign up</Text>
+            <View style={styles.loginButtonContainer}>
+                <Button title="Login" onPress={onPressLogin} color="#FF6D6E"/>
             </View>
         </View>
     );

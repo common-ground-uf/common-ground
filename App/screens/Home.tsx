@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
 import { GroupBubbles } from '../components/GroupBubbles';
 import { RestaurantBubble } from '../components/RestaurantBubble';
-import { Finger, Gus, Walter } from '../data/dummyUsers';
+import { parties, saulProfile} from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
   welcome: {
@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
 
 type HomeProps = {
   navigation: {
-    navigate: any,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    navigate: any;
   };
 };
 
@@ -60,36 +61,20 @@ function Home(props: HomeProps) {
   const onClickGroup = () => {
     props.navigation.navigate('Group Details');
   };
-  const members = [Gus, Walter, Finger];
-
-  const parties = [
-    {
-      name: 'The boys',
-      members: members,
-    },
-    {
-      name: 'SSDrink&Drive',
-      members: members,
-    },
-    {
-      name: 'My bitch family',
-      members: members,
-    },
-    {
-      name: 'Whiskey Wednesday Gang',
-      members: members,
-    },
-  ];
 
   const recentlyVisited = [restaurant, restaurant, restaurant];
+  
+  const onPressStartANewTable = () => {
+    props.navigation.navigate('Start New Table');
+  };
 
   return (
     <ScrollView>
         <Text style={styles.welcome}>
-          Welcome back, Saul!
+          Welcome back, {saulProfile.firstName}!
         </Text>
         <View style={styles.startNewTableWrapper}>
-          <Button title='Start a new table' color='#FEB346'/>
+          <Button title='Start a new table' color='#FF6D6E' onPress={onPressStartANewTable}/>
         </View>
         <Text style={styles.sectionTitle}>Recently Visited</Text>
         <ScrollView style={styles.row} horizontal={true}>

@@ -2,17 +2,13 @@ import React from 'react';
 import {
     Text,
     View,
-    Image,
     FlatList,
     StyleSheet,
     TouchableOpacity,
     ImageSourcePropType
 } from 'react-native';
 import {loginSignupStyles} from '../styles/LoginSingup';
-
-import account from '../assets/account.png';
-import privacy from '../assets/privacy.png';
-import notifications from '../assets/notifications.png';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const styles = StyleSheet.create({
     groupDetails: {
@@ -27,7 +23,6 @@ const styles = StyleSheet.create({
     },
     image: {
         width: 24,
-        height: 24,
         marginRight: 12,
     },
     horizontalLine: {
@@ -39,13 +34,19 @@ const styles = StyleSheet.create({
 });
 
 type SettingsProps = {
-    navigation: any;
+    navigation: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        navigate: any;
+    };
 }
 
 type SettingProps = {
-    navigation: any,
-    name: string,
-    image: ImageSourcePropType
+    navigation: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        navigate: any;
+    };
+    name: string;
+    image: ImageSourcePropType;
 }
 
 const Setting = (props: SettingProps) => {
@@ -57,7 +58,7 @@ const Setting = (props: SettingProps) => {
     return (
         <>
             <TouchableOpacity onPress={onClickSetting} style={styles.memberContainer}>
-                <Image style={styles.image} source={props.image} />
+                <Icon size={24} name={props.image} style={styles.image}/>
                 <Text>{props.name}</Text>
             </TouchableOpacity>
             <View style={styles.horizontalLine} />
@@ -69,17 +70,17 @@ function Settings(props: SettingsProps) {
 
     const Account = {
         name: 'Account',
-        image: account,
+        image: 'user',
         navigation: props.navigation
     };
     const Privacy = {
         name: 'Privacy',
-        image: privacy,
+        image: 'shield',
         navigation: props.navigation
     };
     const Notifications = {
         name: 'Notifications',
-        image: notifications,
+        image: 'bell',
         navigation: props.navigation
     };
     const members = [Account, Privacy, Notifications];
