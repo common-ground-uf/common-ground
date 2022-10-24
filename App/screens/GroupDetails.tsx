@@ -62,8 +62,8 @@ const Member = (props: ContactProps & {last:boolean}) => {
   const navigate = () => {
     props.navigate('Profile', {
       profileData: mapContactToProfile(props.memberData),
-    })
-  }
+    });
+  };
 
   return (
     <>

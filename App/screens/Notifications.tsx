@@ -1,10 +1,10 @@
 import React from 'react';
-import {Switch, View, StyleSheet, Text} from "react-native";
+import {Switch, View, StyleSheet, Text} from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: "10%",
-        alignItems: "center",
+        marginTop: '10%',
+        alignItems: 'center',
         width: '100%',
         paddingRight: 20,
         paddingLeft: 20,
@@ -37,7 +37,7 @@ function Notifications(props: NotificationsProps) {
     const [partyInvitesEnabled, setPartyInvitesEnabled] = React.useState(true);
     const togglePartyInvites = () => setPartyInvitesEnabled(previousState => !previousState);
 
-    const trackColor = {false: "#767577", true: "#FEB346"};
+    const trackColor = {false: '#767577', true: '#FEB346'};
 
     return (
         <View style={styles.container}>
@@ -47,7 +47,7 @@ function Notifications(props: NotificationsProps) {
                 </Text>
                 <Switch
                     trackColor={trackColor}
-                    thumbColor={notificationsEnabled ? "white" : "#f4f3f4"}
+                    thumbColor={notificationsEnabled ? 'white' : '#f4f3f4'}
                     ios_backgroundColor="#3e3e3e"
                     onValueChange={toggleNotifications}
                     value={notificationsEnabled}
@@ -64,7 +64,7 @@ function Notifications(props: NotificationsProps) {
                         </Text>
                         <Switch
                             trackColor={trackColor}
-                            thumbColor={notificationsEnabled ? "white" : "#f4f3f4"}
+                            thumbColor={notificationsEnabled ? 'white' : '#f4f3f4'}
                             ios_backgroundColor="#3e3e3e"
                             onValueChange={toggleRecommendations}
                             value={recommendationsEnabled}
@@ -76,7 +76,7 @@ function Notifications(props: NotificationsProps) {
                         </Text>
                         <Switch
                             trackColor={trackColor}
-                            thumbColor={notificationsEnabled ? "white" : "#f4f3f4"}
+                            thumbColor={notificationsEnabled ? 'white' : '#f4f3f4'}
                             ios_backgroundColor="#3e3e3e"
                             onValueChange={toggleNewMessages}
                             value={newMessagesEnabled}
@@ -88,7 +88,7 @@ function Notifications(props: NotificationsProps) {
                         </Text>
                         <Switch
                             trackColor={trackColor}
-                            thumbColor={notificationsEnabled ? "white" : "#f4f3f4"}
+                            thumbColor={notificationsEnabled ? 'white' : '#f4f3f4'}
                             ios_backgroundColor="#3e3e3e"
                             onValueChange={togglePartyInvites}
                             value={partyInvitesEnabled}
@@ -98,7 +98,7 @@ function Notifications(props: NotificationsProps) {
                 : <></>}
 
         </View>
-    )
+    );
 }
 
 export {Notifications};

@@ -1,6 +1,6 @@
 import React from 'react';
-import {Button, Text, TextInput, View, StyleSheet, Image} from "react-native";
-import {loginSignupStyles} from "../styles/LoginSingup";
+import {Button, Text, TextInput, View, StyleSheet, Image} from 'react-native';
+import {loginSignupStyles} from '../styles/LoginSingup';
 import CommonGround from '../assets/CommonGround.png';
 
 const styles = StyleSheet.create({

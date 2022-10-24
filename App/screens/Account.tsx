@@ -1,6 +1,6 @@
 import React from 'react';
-import {Button, Text, TextInput, View} from "react-native";
-import {loginSignupStyles} from "../styles/LoginSingup";
+import {Button, Text, TextInput, View} from 'react-native';
+import {loginSignupStyles} from '../styles/LoginSingup';
 
 
 type AccountProps = {

@@ -79,7 +79,7 @@ function ProfileScreen(props: ProfilePageProps) {
     const onPressContact = (contact: Contact) => {
         props.navigation.navigate('Profile', {
             profileData: mapContactToProfile(contact),
-        })
+        });
     };
 
     const onPressSettings = () => {
@@ -87,12 +87,12 @@ function ProfileScreen(props: ProfilePageProps) {
     };
 
     const onPressEditPreferences = () => {
-        props.navigation.navigate("Preferences");
+        props.navigation.navigate('Preferences');
     };
 
     const onPressSeeAllPicks = () => {
-        props.navigation.navigate("Restaurant List");
-    }
+        props.navigation.navigate('Restaurant List');
+    };
 
     if (!props.route.params.profileData)
         return <></>;

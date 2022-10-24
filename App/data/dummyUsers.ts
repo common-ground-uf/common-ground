@@ -1,4 +1,4 @@
-import { Contact, Profile } from "../commonTypes";
+import { Contact, Profile } from '../commonTypes';
 import {losPollosHermanos, tacoSal, loyolasFamilyRestaurant} from './dummyRestaurants';
 
 export const Finger: Profile = {
@@ -53,7 +53,7 @@ export const stanEdgar = {
     preferences: ['BBQ', '$-$$', 'American', 'Mexican'],
     pastPicks: [losPollosHermanos, tacoSal, loyolasFamilyRestaurant],
     recentContacts: [GusContact],
-}
+};
 
 export const recentContacts = [FingerContact, GusContact, WalterContact, stanEdgar];
 

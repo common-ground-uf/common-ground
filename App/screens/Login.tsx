@@ -35,15 +35,15 @@ function Login(props: LoginProps) {
     const onPressLogin = () => {
         axios.post('http://192.168.86.93:3000/login', {username: email, password: password})
             .then(response => {
-                if(response.data.message === "login success") {
-                    console.log("login successful");
+                if(response.data.message === 'login success') {
+                    console.log('login successful');
                     // User Data object to be processed locally and saved as current login data (cleared after logout)
                     const userData = {
                         email: response.data.userData.email,
                         firstname: response.data.userData.firstname,
                         lastname: response.data.userData.lastname,
                         role: response.data.userData.role,
-                    }
+                    };
                     console.log(userData);
                 }
             })
@@ -51,8 +51,8 @@ function Login(props: LoginProps) {
                 if (error.response) {
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
-                    if(error.response.data.message === "login failed")
-                        console.log("login unsuccessful")
+                    if(error.response.data.message === 'login failed')
+                        console.log('login unsuccessful');
                     else {
                         console.log(error.response.data);
                         console.log(error.response.status);
@@ -67,7 +67,7 @@ function Login(props: LoginProps) {
                     // Something happened in setting up the request that triggered an Error
                     console.log('Error', error.message);
                 }
-            })
+            });
     };
 
     const onPressSignUp = () => {
