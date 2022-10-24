@@ -52,7 +52,7 @@ class UserService {
         const findUser: User = await this.users.findOne({ email: {$eq: userData.email} });
         if (findUser) throw new HttpException(409, `This email ${userData.email} already exists`);
 
-        this.users.register(new userModel({email: userData.email, firstname: userData.firstname, lastname: userData.lastname, role: "user"}), userData.password, (err: Error, user : User) => {
+        this.users.register(new userModel({ email: userData.email, firstname: userData.firstname, lastname: userData.lastname, profilePic: userData.profilePic, pastPicks: userData.pastPicks, recentContacts: userData.recentContacts, role: "user"}), userData.password, (err: Error, user : User) => {
             if(err)
             {
                 throw new HttpException(409, "Your account could not be saved. Error: " + err);
@@ -87,6 +87,22 @@ class UserService {
         } catch(error) {
             throw error;
         }
+    }
+
+    /**
+     * 
+     * @param userId - id of user
+     * @param userData 
+     */
+    public async updateUser(userId: string, userData: CreateUserDto): Promise<User> {
+        if (isEmpty(userData)) throw new HttpException(400, "userData is empty");
+
+        const user: User = await this.findUserById(userId);
+        if (!user) throw new HttpException(409, `There is no user with id: ${userId}`);
+
+        const updateUserData: User = await this.users.findByIdAndUpdate(userId, { $set: { email: userData.email, firstname: userData.firstname, lastname: userData.lastname, profilePic: userData.profilePic, pastPicks: userData.pastPicks, recentContacts: userData.recentContacts} });
+
+        return this.findUserById(userId);
     }
 
 }

@@ -17,6 +17,7 @@ class UsersRoute implements Routes {
         this.router.get(`${this.path}/:id`, loggedIn, this.usersController.getUserById);
         this.router.get(`${this.path}/email/:email`, loggedIn, this.usersController.getUserByEmail);
         this.router.post(`${this.path}`, this.usersController.createUser);
+        this.router.put(`${this.path}/:id`, loggedIn, this.usersController.updateUser);
     }
 }
 
