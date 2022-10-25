@@ -44,7 +44,14 @@ const styles = StyleSheet.create({
     },
 });
 
-export function RestaurantCard(props: Restaurant & {navigation:any}) {
+type RestaurantCardProps = Restaurant & {
+  navigation: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    navigate: any;
+  };
+}
+
+export function RestaurantCard(props: RestaurantCardProps) {
     const onPress = () => {
       props.navigation.navigate('Restaurant');
     };

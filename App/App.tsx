@@ -23,7 +23,7 @@ export default function App() {
             <NavigationContainer>
                 <Tab.Navigator screenOptions={({ route }) => ({
                     headerShown: false,
-                    tabBarIcon: ({ focused, color, size }) => {
+                    tabBarIcon: () => {
                         return <Icon name={icons[route.name]} size={16} color="#FF6D6E" />;
                     },
                     tabBarActiveTintColor: 'tomato',

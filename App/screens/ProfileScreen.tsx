@@ -65,9 +65,11 @@ const styles = StyleSheet.create({
 
 type ProfilePageProps = {
     navigation: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         navigate: any,
     },
     profileData: Profile,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     route: any,
 }
 
@@ -84,7 +86,7 @@ function ProfileScreen(props: ProfilePageProps) {
     const onPressContact = (contact: Contact) => {
         props.navigation.navigate('Profile', {
             profileData: mapContactToProfile(contact),
-        })
+        });
     };
 
     const onPressSettings = () => {

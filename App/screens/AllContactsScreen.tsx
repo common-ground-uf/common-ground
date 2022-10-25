@@ -40,6 +40,7 @@ type AllContactsScreenProps = {
 };
 
 function AllContactsScreen(props: AllContactsScreenProps) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [members, setMembers] = React.useState<Array<Profile>>(props.route.params.members);
 
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Alert, Image, ScrollView, StyleSheet, Modal, TouchableOpacity, Text, Pressable } from 'react-native';
+import { View, Alert, Image, ScrollView, StyleSheet, Modal, TouchableOpacity } from 'react-native';
 import { gallery } from '../data/dummyData';
 
 const styles = StyleSheet.create({
