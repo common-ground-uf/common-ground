@@ -35,6 +35,7 @@ function DebugScreen(props: DebugScreenProps) {
         'Reset Password',
         'Preferences',
         'Start New Table',
+        'Join Group',
         'Restaurant List',
         'Restaurant',
         'Gallery',

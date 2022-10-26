@@ -58,6 +58,7 @@ const mainGroup = (
         />
         <MainStack.Screen name="Signup" component={screens.Signup} />
         <MainStack.Screen name="Group Details" component={screens.GroupDetails} initialParams={parties[0]} />
+        <MainStack.Screen name="Join Group" component={screens.JoinGroup} />
         <MainStack.Screen name="All Contacts" component={screens.AllContactsScreen} initialParams={{ members: allUsers }} />
         <MainStack.Screen name="Forgot Password" component={screens.ForgorPassword} />
         <MainStack.Screen name="Gallery" component={screens.Gallery} />

@@ -22,3 +22,4 @@ export * from './StrategicOrRandom';
 export * from './RandomRestaurantScreen';
 export * from './AllContactsScreen';
 export * from './Logout';
+export * from './JoinGroup';
