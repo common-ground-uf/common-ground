@@ -25,6 +25,7 @@ function Logout(props: LogoutProps) {
                 if(response.data === 'OK') {
                     console.log('logout successful');
                 }
+                props.navigation.navigate('Login');
             })
             .catch((error)=> {
                 if (error.response) {

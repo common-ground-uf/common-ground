@@ -40,6 +40,7 @@ function Login(props: LoginProps) {
                         role: response.data.userData.role,
                     };
                     console.log(userData);
+                    props.navigation.navigate('Home');
                 }
             })
             .catch((error)=> {
