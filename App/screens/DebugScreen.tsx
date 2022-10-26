@@ -29,6 +29,7 @@ function DebugScreen(props: DebugScreenProps) {
     const screens = [
         'Start',
         'Login',
+        'Logout',
         'Signup',
         'Forgot Password',
         'Reset Password',

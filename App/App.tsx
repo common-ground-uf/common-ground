@@ -48,6 +48,7 @@ const mainGroup = (
         <MainStack.Screen name="Preferences" component={screens.Preferences} />
         <MainStack.Screen name="Settings" component={screens.Settings} />
         <MainStack.Screen name="Account" component={screens.Account} />
+        <MainStack.Screen name="Logout" component={screens.Logout} />
         <MainStack.Screen name="Notifications" component={screens.Notifications} />
         <MainStack.Screen name="Privacy" component={screens.Privacy} />
         <MainStack.Screen
