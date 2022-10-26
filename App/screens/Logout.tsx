@@ -1,9 +1,9 @@
 import React from 'react';
 import {Text, View, TextInput, Button} from 'react-native';
 import {loginSignupStyles as styles} from '../styles/LoginSingup';
+import axios from 'axios';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const axios = require('axios');
 
 type LogoutProps = {
     navigation: {
