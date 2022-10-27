@@ -33,9 +33,9 @@ export default function App() {
                     <Tab.Screen name="Home" component={HomeStackScreen} />
                     <Tab.Screen name="Messages" component={MessagesStackScreen} />
                     <Tab.Screen name="Explore" component={ExploreStackScreen} />
-                    <Tab.Screen name="Debug" component={screens.DebugScreen} />
                     <Tab.Screen name="Login" component={LoginStackScreen} />
                     <Tab.Screen name="Settings" component={SettingsStackScreen} />
+                    <Tab.Screen name="Debug" component={screens.DebugScreen} />
                 </Tab.Navigator>
             </NavigationContainer>
         </React.StrictMode>
@@ -93,10 +93,8 @@ function LoginStackScreen() {
     return (
         <LoginStack.Navigator>
             <LoginStack.Screen options={{ title: 'Login' }} name="LoginScreen" component={screens.Login} />
-            {mainGroup}
-            <LoginStack.Screen name="Home" component={screens.Home} />
-            <LoginStack.Screen name="Messages" component={screens.MessagesScreen} />
-            <LoginStack.Screen name="Explore" component={screens.Explore} />
+            <LoginStack.Screen name="Forgot Password" component={screens.ForgorPassword} />
+            <LoginStack.Screen name="Signup" component={screens.Signup} />
         </LoginStack.Navigator>
     );
 }
