@@ -15,6 +15,7 @@ const icons = {
     Messages: 'comment',
     Debug: 'bug',
     Explore: 'search',
+    Settings: 'gear'
 };
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
                     <Tab.Screen name="Explore" component={ExploreStackScreen} />
                     <Tab.Screen name="Debug" component={screens.DebugScreen} />
                     <Tab.Screen name="Login" component={LoginStackScreen} />
+                    <Tab.Screen name="Settings" component={SettingsStackScreen} />
                 </Tab.Navigator>
             </NavigationContainer>
         </React.StrictMode>
@@ -89,8 +91,8 @@ const LoginStack = createNativeStackNavigator();
 
 function LoginStackScreen() {
     return (
-        <LoginStack.Navigator screenOptions={{ title: 'Login' }}>
-            <LoginStack.Screen name="LoginScreen" component={screens.Login} />
+        <LoginStack.Navigator>
+            <LoginStack.Screen options={{ title: 'Login' }} name="LoginScreen" component={screens.Login} />
             {mainGroup}
             <LoginStack.Screen name="Home" component={screens.Home} />
             <LoginStack.Screen name="Messages" component={screens.MessagesScreen} />
@@ -113,14 +115,29 @@ function MessagesStackScreen() {
     );
 }
 
+const ExploreStack = createNativeStackNavigator();
+
 function ExploreStackScreen() {
     return (
-        <HomeStack.Navigator >
-            <HomeStack.Screen options={{ title: 'Explore' }} name="Explore" component={screens.Explore} />
+        <ExploreStack.Navigator >
+            <ExploreStack.Screen options={{ title: 'Explore' }} name="Explore" component={screens.Explore} />
             {mainGroup}
-            <HomeStack.Screen name="MessagesScreen" component={screens.MessagesScreen} />
-            <HomeStack.Screen name="Login" component={screens.Login} />
-            <HomeStack.Screen name="Home" component={screens.Home} />
-        </HomeStack.Navigator>
+            <ExploreStack.Screen name="Messages" component={screens.MessagesScreen} />
+            <ExploreStack.Screen name="Login" component={screens.Login} />
+            <ExploreStack.Screen name="Home" component={screens.Home} />
+        </ExploreStack.Navigator>
+    );
+}
+
+const SettingsStack = createNativeStackNavigator();
+
+function SettingsStackScreen() {
+    return (
+        <SettingsStack.Navigator >
+            <SettingsStack.Screen options={{ title: 'Settings' }} name="Settings" component={screens.Settings} />
+            <SettingsStack.Screen name="Account" component={screens.Account} />
+            <SettingsStack.Screen name="Privacy" component={screens.Privacy} />
+            <SettingsStack.Screen name="Notifications" component={screens.Notifications} />
+        </SettingsStack.Navigator>
     );
 }
