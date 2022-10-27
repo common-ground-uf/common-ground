@@ -90,7 +90,7 @@ function Settings(props: SettingsProps) {
     }
     const Logout = {
         name: 'Logout',
-        image: 'right-from-bracket',
+        image: 'power-off',
         navigation: props.navigation
     }
     const members = [Account, Privacy, Notifications, Preferences, Logout];
