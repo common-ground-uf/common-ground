@@ -136,6 +136,8 @@ function SettingsStackScreen() {
             <SettingsStack.Screen name="Account" component={screens.Account} />
             <SettingsStack.Screen name="Privacy" component={screens.Privacy} />
             <SettingsStack.Screen name="Notifications" component={screens.Notifications} />
+            <SettingsStack.Screen name="Preferences" component={screens.Preferences} />
+            <SettingsStack.Screen name="Logout" component={screens.Logout} />
         </SettingsStack.Navigator>
     );
 }
