@@ -1,0 +1,1151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileScreen Renders user's own profile correctly 1`] = `
+<RCTScrollView
+  style={
+    {
+      "backgroundColor": "white",
+      "height": "100%",
+      "paddingBottom": 20,
+      "paddingLeft": 20,
+      "paddingRight": 20,
+    }
+  }
+>
+  <View>
+    <View
+      style={
+        {
+          "justifyContent": "center",
+          "marginBottom": 20,
+          "marginTop": 20,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={
+            {
+              "testUri": "../../../assets/settings.png",
+            }
+          }
+          style={
+            {
+              "height": 32,
+              "paddings": "100%",
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+              "width": 32,
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "justifyContent": "center",
+          "marginBottom": 20,
+          "marginTop": 20,
+        }
+      }
+    >
+      <Image
+        source={
+          {
+            "uri": "https://external-preview.redd.it/Af65FrXSGlwOobPUnC3MNOI1D3xCCERFWoVFfhzpgio.png?format=pjpg&auto=webp&s=ed7b1feb0f8356ba51ea70f5b26b81c1868bc005",
+          }
+        }
+        style={
+          {
+            "borderRadius": 75,
+            "height": 150,
+            "marginLeft": "auto",
+            "marginRight": "auto",
+            "width": 150,
+          }
+        }
+      />
+      <Text
+        style={
+          {
+            "fontSize": 24,
+            "fontWeight": "bold",
+            "marginLeft": "auto",
+            "marginRight": "auto",
+            "marginTop": 15,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        {
+          "alignItems": "baseline",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "marginBottom": 12,
+            "marginRight": "auto",
+            "marginTop": 30,
+          }
+        }
+      >
+        Preferences
+      </Text>
+      <View
+        accessibilityRole="button"
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {},
+            ]
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#007AFF",
+                  "fontSize": 18,
+                  "margin": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Edit
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "pink",
+            "borderRadius": 25,
+            "height": 30,
+            "marginRight": 8,
+            "padding": 8,
+          }
+        }
+      >
+        <Text
+          style={{}}
+        >
+          BBQ
+        </Text>
+      </View>
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "pink",
+            "borderRadius": 25,
+            "height": 30,
+            "marginRight": 8,
+            "padding": 8,
+          }
+        }
+      >
+        <Text
+          style={{}}
+        >
+          $-$$
+        </Text>
+      </View>
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "pink",
+            "borderRadius": 25,
+            "height": 30,
+            "marginRight": 8,
+            "padding": 8,
+          }
+        }
+      >
+        <Text
+          style={{}}
+        >
+          American
+        </Text>
+      </View>
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "pink",
+            "borderRadius": 25,
+            "height": 30,
+            "marginRight": 8,
+            "padding": 8,
+          }
+        }
+      >
+        <Text
+          style={{}}
+        >
+          Mexican
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "alignItems": "baseline",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "marginBottom": 12,
+            "marginRight": "auto",
+            "marginTop": 30,
+          }
+        }
+      >
+        Past picks
+      </Text>
+      <View
+        accessibilityRole="button"
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {},
+            ]
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#007AFF",
+                  "fontSize": 18,
+                  "margin": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            See all
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "alignItems": "baseline",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "marginRight": 10,
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={
+            {
+              "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+            }
+          }
+          style={
+            {
+              "borderRadius": 8,
+              "height": 100,
+              "width": 100,
+            }
+          }
+        />
+        <Text
+          style={
+            {
+              "marginLeft": "auto",
+              "marginRight": "auto",
+              "marginTop": 8,
+              "overflow": "hidden",
+              "width": 100,
+            }
+          }
+        >
+          Los Pollos Hermanos
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "marginRight": 10,
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={
+            {
+              "uri": "https://static.wikia.nocookie.net/breakingbad/images/c/c0/TacoSal.png/revision/latest?cb=20191120130106",
+            }
+          }
+          style={
+            {
+              "borderRadius": 8,
+              "height": 100,
+              "width": 100,
+            }
+          }
+        />
+        <Text
+          style={
+            {
+              "marginLeft": "auto",
+              "marginRight": "auto",
+              "marginTop": 8,
+              "overflow": "hidden",
+              "width": 100,
+            }
+          }
+        >
+          Taco Sal
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "marginRight": 10,
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={
+            {
+              "uri": "https://www.breakingbad-locations.com/wp-content/uploads/2014/09/E06-Cornered.mkv_000921613.jpg",
+            }
+          }
+          style={
+            {
+              "borderRadius": 8,
+              "height": 100,
+              "width": 100,
+            }
+          }
+        />
+        <Text
+          style={
+            {
+              "marginLeft": "auto",
+              "marginRight": "auto",
+              "marginTop": 8,
+              "overflow": "hidden",
+              "width": 100,
+            }
+          }
+        >
+          Loyola's Family Restaurant
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "alignItems": "baseline",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "marginBottom": 12,
+            "marginRight": "auto",
+            "marginTop": 30,
+          }
+        }
+      >
+        Your contacts
+      </Text>
+      <View
+        accessibilityRole="button"
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {},
+            ]
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#007AFF",
+                  "fontSize": 18,
+                  "margin": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            See all
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "alignItems": "baseline",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={
+            {
+              "uri": "https://compote.slate.com/images/fb69a16d-7f35-4103-98c1-62d466196b9a.jpg?width=1200",
+            }
+          }
+          style={
+            [
+              {
+                "borderRadius": 42.5,
+                "height": 85,
+                "marginRight": 16,
+                "width": 85,
+              },
+              null,
+            ]
+          }
+        />
+        <Text
+          style={
+            {
+              "marginLeft": "auto",
+              "marginRight": "auto",
+              "marginTop": 8,
+            }
+          }
+        >
+          Finger
+           
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={
+            {
+              "uri": "https://static.wikia.nocookie.net/breakingbad/images/5/54/BCS_S3_GusFring.jpg/revision/latest?cb=20170327185354",
+            }
+          }
+          style={
+            [
+              {
+                "borderRadius": 42.5,
+                "height": 85,
+                "marginRight": 16,
+                "width": 85,
+              },
+              null,
+            ]
+          }
+        />
+        <Text
+          style={
+            {
+              "marginLeft": "auto",
+              "marginRight": "auto",
+              "marginTop": 8,
+            }
+          }
+        >
+          Gus
+           
+          Fring
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={
+            {
+              "uri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS7_zsiM5wfE2uac1B7Xk-jdVGpCKzrQqEwOaK9ak60O1iI4Don3BcWR_sOsumMQetlSw&usqp=CAU",
+            }
+          }
+          style={
+            [
+              {
+                "borderRadius": 42.5,
+                "height": 85,
+                "marginRight": 16,
+                "width": 85,
+              },
+              null,
+            ]
+          }
+        />
+        <Text
+          style={
+            {
+              "marginLeft": "auto",
+              "marginRight": "auto",
+              "marginTop": 8,
+            }
+          }
+        >
+          Walter
+           
+          White
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={
+            {
+              "uri": "https://static.wikia.nocookie.net/villains/images/3/38/740full-stan-edgar.jpg/revision/latest/scale-to-width-down/250?cb=20190925225050",
+            }
+          }
+          style={
+            [
+              {
+                "borderRadius": 42.5,
+                "height": 85,
+                "marginRight": 16,
+                "width": 85,
+              },
+              null,
+            ]
+          }
+        />
+        <Text
+          style={
+            {
+              "marginLeft": "auto",
+              "marginRight": "auto",
+              "marginTop": 8,
+            }
+          }
+        >
+          Stan
+           
+          Edgar
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "height": 20,
+        }
+      }
+    />
+  </View>
+</RCTScrollView>
+`;
+
+exports[`ProfileScreen Renders user's own profile correctly 2`] = `
+<RCTScrollView
+  style={
+    {
+      "backgroundColor": "white",
+      "height": "100%",
+      "paddingBottom": 20,
+      "paddingLeft": 20,
+      "paddingRight": 20,
+    }
+  }
+>
+  <View>
+    <View
+      style={
+        {
+          "justifyContent": "center",
+          "marginBottom": 20,
+          "marginTop": 20,
+        }
+      }
+    >
+      <Image
+        source={
+          {
+            "uri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS7_zsiM5wfE2uac1B7Xk-jdVGpCKzrQqEwOaK9ak60O1iI4Don3BcWR_sOsumMQetlSw&usqp=CAU",
+          }
+        }
+        style={
+          {
+            "borderRadius": 75,
+            "height": 150,
+            "marginLeft": "auto",
+            "marginRight": "auto",
+            "width": 150,
+          }
+        }
+      />
+      <Text
+        style={
+          {
+            "fontSize": 24,
+            "fontWeight": "bold",
+            "marginLeft": "auto",
+            "marginRight": "auto",
+            "marginTop": 15,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        {
+          "alignItems": "baseline",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "marginBottom": 12,
+            "marginRight": "auto",
+            "marginTop": 30,
+          }
+        }
+      >
+        Preferences
+      </Text>
+      <View
+        accessibilityRole="button"
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {},
+            ]
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#007AFF",
+                  "fontSize": 18,
+                  "margin": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Edit
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "pink",
+            "borderRadius": 25,
+            "height": 30,
+            "marginRight": 8,
+            "padding": 8,
+          }
+        }
+      >
+        <Text
+          style={{}}
+        >
+          BBQ
+        </Text>
+      </View>
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "pink",
+            "borderRadius": 25,
+            "height": 30,
+            "marginRight": 8,
+            "padding": 8,
+          }
+        }
+      >
+        <Text
+          style={{}}
+        >
+          $-$$
+        </Text>
+      </View>
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "pink",
+            "borderRadius": 25,
+            "height": 30,
+            "marginRight": 8,
+            "padding": 8,
+          }
+        }
+      >
+        <Text
+          style={{}}
+        >
+          American
+        </Text>
+      </View>
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "pink",
+            "borderRadius": 25,
+            "height": 30,
+            "marginRight": 8,
+            "padding": 8,
+          }
+        }
+      >
+        <Text
+          style={{}}
+        >
+          Mexican
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "alignItems": "baseline",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "marginBottom": 12,
+            "marginRight": "auto",
+            "marginTop": 30,
+          }
+        }
+      >
+        Past picks
+      </Text>
+      <View
+        accessibilityRole="button"
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {},
+            ]
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#007AFF",
+                  "fontSize": 18,
+                  "margin": 8,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            See all
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "alignItems": "baseline",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "marginRight": 10,
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={
+            {
+              "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+            }
+          }
+          style={
+            {
+              "borderRadius": 8,
+              "height": 100,
+              "width": 100,
+            }
+          }
+        />
+        <Text
+          style={
+            {
+              "marginLeft": "auto",
+              "marginRight": "auto",
+              "marginTop": 8,
+              "overflow": "hidden",
+              "width": 100,
+            }
+          }
+        >
+          Los Pollos Hermanos
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "marginRight": 10,
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={
+            {
+              "uri": "https://static.wikia.nocookie.net/breakingbad/images/c/c0/TacoSal.png/revision/latest?cb=20191120130106",
+            }
+          }
+          style={
+            {
+              "borderRadius": 8,
+              "height": 100,
+              "width": 100,
+            }
+          }
+        />
+        <Text
+          style={
+            {
+              "marginLeft": "auto",
+              "marginRight": "auto",
+              "marginTop": 8,
+              "overflow": "hidden",
+              "width": 100,
+            }
+          }
+        >
+          Taco Sal
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "marginRight": 10,
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={
+            {
+              "uri": "https://www.breakingbad-locations.com/wp-content/uploads/2014/09/E06-Cornered.mkv_000921613.jpg",
+            }
+          }
+          style={
+            {
+              "borderRadius": 8,
+              "height": 100,
+              "width": 100,
+            }
+          }
+        />
+        <Text
+          style={
+            {
+              "marginLeft": "auto",
+              "marginRight": "auto",
+              "marginTop": 8,
+              "overflow": "hidden",
+              "width": 100,
+            }
+          }
+        >
+          Loyola's Family Restaurant
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "height": 20,
+        }
+      }
+    />
+  </View>
+</RCTScrollView>
+`;

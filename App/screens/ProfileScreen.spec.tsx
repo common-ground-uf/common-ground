@@ -9,13 +9,23 @@ describe('ProfileScreen', () => {
     };
 
     it('Renders user\'s own profile correctly', () => {
-        const result = render(<ProfileScreen profileData={saulProfile} navigation={dummyNavigation} route='' />);
+        const route = {
+            params: {
+                profileData: saulProfile,
+            },
+        };
+        const result = render(<ProfileScreen profileData={saulProfile} navigation={dummyNavigation} route={route} />);
 
         expect(result.toJSON()).toMatchSnapshot();
     });
 
     it('Renders user\'s own profile correctly', () => {
-        const result = render(<ProfileScreen profileData={walterProfile} navigation={dummyNavigation} route='' />);
+        const route = {
+            params: {
+                profileData: walterProfile,
+            },
+        };
+        const result = render(<ProfileScreen profileData={walterProfile} navigation={dummyNavigation} route={route} />);
 
         expect(result.toJSON()).toMatchSnapshot();
     });

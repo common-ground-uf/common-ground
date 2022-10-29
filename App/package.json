@@ -11,7 +11,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --ci --runInBand --reporters=default --config=jest.config.js",
-    "clear_jest": "jest --clearCache"
+    "clear_jest": "jest --clearCache",
+    "update-snapshot": "npm test -- -u"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.4.0",
@@ -30,7 +31,6 @@
     "react-native-screens": "~3.15.0",
     "react-native-vector-icons": "^9.2.0",
     "ts-jest": "^29.0.1",
-    "react-native-vector-icons": "^9.2.0",
     "react-test-renderer": "^18.2.0",
     "typescript": "^4.6.3"
   },
