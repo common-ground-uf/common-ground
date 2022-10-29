@@ -21,10 +21,11 @@ const styles = StyleSheet.create({
 });
 
 type RestaurantBubbleProps = {
-  thumbnail: string,
-  name: string,
-  onPress: () => void,
-  style?: any,
+  thumbnail: string;
+  name: string;
+  onPress: () => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  style?: any;
 }
 
 function RestaurantBubble(props: RestaurantBubbleProps) {

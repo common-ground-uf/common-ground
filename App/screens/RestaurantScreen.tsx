@@ -4,11 +4,16 @@ import { Restaurant } from '../commonTypes';
 import {PriceRating} from '../components/PriceRating';
 import {Review} from '../components/Review';
 import {gallery} from '../data/dummyData';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 type RestaurantScreenProps = {
-  navigation: any,
-  route: any,
-  restaurant: Restaurant,
+  navigation: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    navigate: any;
+  };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  route: any;
+  restaurant: Restaurant;
 }
 
 const styles = StyleSheet.create({
@@ -84,7 +89,7 @@ function RestaurantScreen(props: RestaurantScreenProps) {
         </Text>
         <Text style={styles.sectionTitle}>Reviews</Text>
         <Text style={{display: 'flex'}}>
-          <Text style={styles.averageReviewRating}>{restaurant.starRating}⭐</Text>
+          <Text style={styles.averageReviewRating}>{restaurant.starRating}<Icon name="star" size={16} color="orange" /></Text>
           <Text style={styles.averageReview}>  average review on Yelp</Text>
         </Text>
         {restaurant.reviews.map((review, index) => <Review key={index} {...review}/>)}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Restaurant } from '../commonTypes';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const styles = StyleSheet.create({
     card: {
@@ -43,7 +44,14 @@ const styles = StyleSheet.create({
     },
 });
 
-export function RestaurantCard(props: Restaurant & {navigation:any}) {
+type RestaurantCardProps = Restaurant & {
+  navigation: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    navigate: any;
+  };
+}
+
+export function RestaurantCard(props: RestaurantCardProps) {
     const onPress = () => {
       props.navigation.navigate('Restaurant');
     };
@@ -56,7 +64,7 @@ export function RestaurantCard(props: Restaurant & {navigation:any}) {
             <Text style={styles.topRow}>
               <Text style={styles.cardTitle}>{props.name}</Text>&nbsp;
               <Text>{props.starRating}</Text>
-              <Image style={styles.starIcon} source={require('../assets/star.png')} />
+              <Icon name='star' size={16} color="orange"/>
             </Text>
             <Text>{props.description}</Text>
           </View>
@@ -64,4 +72,4 @@ export function RestaurantCard(props: Restaurant & {navigation:any}) {
         <View style={styles.horizontalLine}/>
       </>
     );
-  }
+}

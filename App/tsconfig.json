@@ -5,6 +5,8 @@
       "jsx": "react",
       // "moduleResolution": "node",
       "esModuleInterop": true,
+      "noImplicitAny": true,
+      "strictNullChecks": true
   },
   "extends": "expo/tsconfig.base",
   "include": ["src/**/*"],

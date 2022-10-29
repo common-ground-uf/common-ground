@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
 
 type DebugScreenProps = {
     navigation: {
-        navigate: any,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        navigate: any;
     }
 }
 
@@ -32,13 +33,12 @@ function DebugScreen(props: DebugScreenProps) {
         'Forgot Password',
         'Reset Password',
         'Preferences',
-        'Start New Table Screen',
+        'Start New Table',
         'Restaurant List',
         'Restaurant',
         'Gallery',
         'Profile',
         'Account',
-        'Settings',
         'Privacy',
         'Settings',
         'Notifications',
@@ -46,6 +46,7 @@ function DebugScreen(props: DebugScreenProps) {
         'Explore',
         'Strategic or random',
         'Random Restaurant',
+        'All Contacts',
     ];
     const onPressBreakinBadWithCommentarySeason1Episode1_Pilot_wWalterJesseSkylerHankMarieWJ = () => {
         Linking.openURL('https://www.youtube.com/watch?v=gf0xPOS1Bdg');

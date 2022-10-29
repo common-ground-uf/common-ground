@@ -1,48 +1,42 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { losPollosHermanos } from './data/dummyRestaurants';
-import { Restaurant } from './commonTypes';
-import { Finger, saulProfile } from './data/dummyUsers';
+import { allRestaurants, losPollosHermanos } from './data/dummyRestaurants';
+import { allUsers, parties, saulProfile } from './data/dummyUsers';
 import * as screens from './screens';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StyleSheet, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Tab = createBottomTabNavigator();
 
-const styles = StyleSheet.create({
-    icon: {
-        height: 24,
-        width: 24,
-    },
-});
-
 const icons = {
-    Login: require('./assets/group.png'),
-    Home: require('./assets/person.png'),
-    Messages: require('./assets/search.png'),
-    Debug: require('./assets/saul.gif'),
-    Explore: require('./assets/saul.gif'),
+    Login: 'user-circle-o',
+    Home: 'home',
+    Messages: 'comment',
+    Debug: 'bug',
+    Explore: 'search',
 };
 
 export default function App() {
     return (
-        <NavigationContainer>
-            <Tab.Navigator screenOptions={({ route }) => ({
-                headerShown: false,
-                tabBarIcon: ({ focused, color, size }) => {
-                    return <Image source={icons[route.name]} style={styles.icon} />;
-                },
-                tabBarActiveTintColor: 'tomato',
-                tabBarInactiveTintColor: 'gray',
-            })}>
-                <Tab.Screen name="Login" component={LoginStackScreen} />
-                <Tab.Screen name="Home" component={HomeStackScreen} />
-                <Tab.Screen name="Messages" component={MessagesStackScreen} />
-                <Tab.Screen name="Explore" component={ExploreStackScreen} />
-                <Tab.Screen name="Debug" component={screens.DebugScreen} />
-            </Tab.Navigator>
-        </NavigationContainer>
+        <React.StrictMode>
+            <NavigationContainer>
+                <Tab.Navigator screenOptions={({ route }) => ({
+                    headerShown: false,
+                    tabBarIcon: () => {
+                        return <Icon name={icons[route.name]} size={16} color="#FF6D6E" />;
+                    },
+                    tabBarActiveTintColor: 'tomato',
+                    tabBarInactiveTintColor: 'gray',
+                })}>
+                    <Tab.Screen name="Home" component={HomeStackScreen} />
+                    <Tab.Screen name="Messages" component={MessagesStackScreen} />
+                    <Tab.Screen name="Explore" component={ExploreStackScreen} />
+                    <Tab.Screen name="Debug" component={screens.DebugScreen} />
+                    <Tab.Screen name="Login" component={LoginStackScreen} />
+                </Tab.Navigator>
+            </NavigationContainer>
+        </React.StrictMode>
     );
 }
 
@@ -50,7 +44,7 @@ const MainStack = createNativeStackNavigator();
 
 const mainGroup = (
     <MainStack.Group>
-        <MainStack.Screen name="Start" component={screens.Start}/>
+        <MainStack.Screen name="Start" component={screens.Start} />
         <MainStack.Screen name="Preferences" component={screens.Preferences} />
         <MainStack.Screen name="Settings" component={screens.Settings} />
         <MainStack.Screen name="Account" component={screens.Account} />
@@ -59,14 +53,15 @@ const mainGroup = (
         <MainStack.Screen
             name="Restaurant List"
             component={screens.RestaurantList}
-            initialParams={{ restaurantList: Array<Restaurant>(10).fill(losPollosHermanos) }}
+            initialParams={{ restaurantList: allRestaurants }}
         />
         <MainStack.Screen name="Signup" component={screens.Signup} />
-        <MainStack.Screen name="Group Details" component={screens.GroupDetails} initialParams={{ members: [Finger, Finger, Finger], name: 'the boys' }} />
+        <MainStack.Screen name="Group Details" component={screens.GroupDetails} initialParams={parties[0]} />
+        <MainStack.Screen name="All Contacts" component={screens.AllContactsScreen} initialParams={{ members: allUsers }} />
         <MainStack.Screen name="Forgot Password" component={screens.ForgorPassword} />
         <MainStack.Screen name="Gallery" component={screens.Gallery} />
         <MainStack.Screen name="Restaurant" component={screens.RestaurantScreen} initialParams={{ restaurant: losPollosHermanos }} />
-        <MainStack.Screen name="Start New Table Screen" component={screens.StartNewTableScreen} />
+        <MainStack.Screen name="Start New Table" component={screens.StartNewTableScreen} />
         <MainStack.Screen name="Reset Password" component={screens.ResetPassword} />
         <MainStack.Screen name="Profile" component={screens.ProfileScreen} initialParams={{ profileData: saulProfile }} />
         <MainStack.Screen name="Strategic or random" component={screens.StrategicOrRandom} />
@@ -78,8 +73,8 @@ const HomeStack = createNativeStackNavigator();
 
 function HomeStackScreen() {
     return (
-        <HomeStack.Navigator screenOptions={{ title: 'Home' }}>
-            <HomeStack.Screen name="HomeScreen" component={screens.Home} />
+        <HomeStack.Navigator >
+            <HomeStack.Screen options={{ title: 'Home' }} name="HomeScreen" component={screens.Home} />
             {mainGroup}
             <HomeStack.Screen name="Login" component={screens.Login} />
             <HomeStack.Screen name="Messages" component={screens.MessagesScreen} />
@@ -106,8 +101,8 @@ const MessagesStack = createNativeStackNavigator();
 
 function MessagesStackScreen() {
     return (
-        <MessagesStack.Navigator screenOptions={{ title: 'Messages' }}>
-            <MessagesStack.Screen name="MessagesScreen" component={screens.MessagesScreen} />
+        <MessagesStack.Navigator>
+            <MessagesStack.Screen options={{ title: 'Messages' }} name="MessagesScreen" component={screens.MessagesScreen} />
             {mainGroup}
             <MessagesStack.Screen name="Login" component={screens.Login} />
             <MessagesStack.Screen name="Home" component={screens.Home} />
@@ -118,8 +113,8 @@ function MessagesStackScreen() {
 
 function ExploreStackScreen() {
     return (
-        <HomeStack.Navigator screenOptions={{ title: 'Messages' }}>
-            <HomeStack.Screen name="Explore" component={screens.Explore} />
+        <HomeStack.Navigator >
+            <HomeStack.Screen options={{ title: 'Explore' }} name="Explore" component={screens.Explore} />
             {mainGroup}
             <HomeStack.Screen name="MessagesScreen" component={screens.MessagesScreen} />
             <HomeStack.Screen name="Login" component={screens.Login} />

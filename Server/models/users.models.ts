@@ -23,6 +23,21 @@ const userSchema: Schema = new Schema({
         required: true,
         unique: false
     },
+    profilePic: {
+        type: String,
+        required: false,
+        unique: false
+    },
+    pastPicks: {
+        type: [String],
+        required: false,
+        unique: false
+    },
+    recentContacts: {
+        type: [String],
+        required: false,
+        unique: false
+    },
     role: {
         type: String,
         required: true,

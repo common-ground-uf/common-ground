@@ -1,21 +1,16 @@
 import React from 'react';
-import {Button, Text, TextInput, View} from "react-native";
-import {loginSignupStyles} from "../styles/LoginSingup";
+import {Button, TextInput, View} from 'react-native';
+import {loginSignupStyles} from '../styles/LoginSingup';
+import {saulProfile} from '../data/dummyUsers';
 
+function Account() {
+    // used to give initial values to the text fields
+    const profile = saulProfile;
 
-type AccountProps = {
-    navigation: {
-        navigate: any,
-    };
-};
-
-function Account(props: AccountProps) {
-    const [firstName, setFirstName] = React.useState<string>('');
-    const [lastName, setLastName] = React.useState<string>('');
-    const [birthday, setBirthday] = React.useState<string>('');
-    const [email, setEmail] = React.useState<string>('');
-    const [phone, setPhone] = React.useState<string>('');
-    const [location, setLocation] = React.useState<string>('');
+    const [firstName, setFirstName] = React.useState<string>(profile.firstName);
+    const [lastName, setLastName] = React.useState<string>(profile.lastName);
+    const [email, setEmail] = React.useState<string>(profile.email);
+    const [location, setLocation] = React.useState<string>(profile.location);
 
     const onPressSave = () => {
         console.log('saved');
@@ -23,7 +18,6 @@ function Account(props: AccountProps) {
 
     return (
         <View style={loginSignupStyles.container}>
-            <Text style={loginSignupStyles.title}>Account</Text>
             <TextInput
                 style={loginSignupStyles.input}
                 onChangeText={setFirstName}
@@ -40,23 +34,10 @@ function Account(props: AccountProps) {
             />
             <TextInput
                 style={loginSignupStyles.input}
-                onChangeText={setBirthday}
-                value={birthday}
-                placeholder="Birthday"
-                autoCapitalize='none'
-            />
-            <TextInput
-                style={loginSignupStyles.input}
                 onChangeText={setEmail}
                 value={email}
                 placeholder="Email"
                 autoCapitalize='none'
-            />
-            <TextInput
-                style={loginSignupStyles.input}
-                onChangeText={setPhone}
-                value={phone}
-                placeholder="Phone Number"
             />
             <TextInput
                 style={loginSignupStyles.input}
@@ -65,7 +46,7 @@ function Account(props: AccountProps) {
                 placeholder="Location"
             />
             <View style={loginSignupStyles.loginButtonContainer}>
-                <Button title="Save" onPress={onPressSave} color="#FEB346"/>
+                <Button title="Save" onPress={onPressSave} color="#FF6D6E"/>
             </View>
         </View>
     );

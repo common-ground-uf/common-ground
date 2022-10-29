@@ -1,13 +1,8 @@
 import React from 'react';
-import {Button, Text, TextInput, View} from "react-native";
-import {loginSignupStyles} from "../styles/LoginSingup";
+import {Button, TextInput, View} from 'react-native';
+import {loginSignupStyles} from '../styles/LoginSingup';
 
-
-type PrivacyProps = {
-    navigation: any,
-};
-
-function Privacy(props: PrivacyProps) {
+function Privacy() {
     const [password, setPassword] = React.useState<string>('');
     const [location, setLocation] = React.useState<string>('');
 
@@ -17,7 +12,6 @@ function Privacy(props: PrivacyProps) {
 
     return (
         <View style={loginSignupStyles.container}>
-            <Text style={loginSignupStyles.title}>Privacy</Text>
             <TextInput
                 style={loginSignupStyles.input}
                 onChangeText={setLocation}

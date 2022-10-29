@@ -1,4 +1,4 @@
-import { IsEmail, IsString } from 'class-validator';
+import { IsEmail, IsString, IsArray } from 'class-validator';
 
 export class CreateUserDto {
   @IsEmail()
@@ -15,4 +15,13 @@ export class CreateUserDto {
 
   @IsString()
   public role!: string;
+
+  @IsString()
+  public profilePic?: string;
+
+  @IsArray()
+  public pastPicks?: string[];
+
+  @IsArray()
+  public recentContacts?: string[];
 }
