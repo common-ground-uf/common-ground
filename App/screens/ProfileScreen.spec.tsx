@@ -1,12 +1,7 @@
 import { saulProfile, walterProfile } from '../data/dummyUsers';
-const {ProfileScreen} = require('./ProfileScreen');
-const {render} = require('@testing-library/react-native');
-const React = require('react');
-
-// const {render} = require('@testing-library/react-native');
-// const React = require('react');
-// const {ProfileScreen} = require('./ProfileScreen');
-// const { saulProfile, walterProfile } = require('../data/dummyUsers');
+import {ProfileScreen} from './ProfileScreen';
+import {render} from '@testing-library/react-native';
+import React from 'react';
 
 describe('ProfileScreen', () => {
     const dummyNavigation = {
