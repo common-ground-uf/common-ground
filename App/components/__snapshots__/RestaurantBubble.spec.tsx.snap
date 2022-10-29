@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RestaurantBubble Renders a RestaurantBubble correctly 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "opacity": 1,
+    }
+  }
+>
+  <Image
+    source={
+      {
+        "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+      }
+    }
+    style={
+      {
+        "borderRadius": 8,
+        "height": 100,
+        "width": 100,
+      }
+    }
+  />
+  <Text
+    style={
+      {
+        "marginLeft": "auto",
+        "marginRight": "auto",
+        "marginTop": 8,
+        "overflow": "hidden",
+        "width": 100,
+      }
+    }
+  >
+    Los Pollos Hermanos
+  </Text>
+</View>
+`;
+
+exports[`RestaurantBubble Renders a RestaurantBubble correctly with an addd style prop 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "display": "flex",
+      "marginHorizontal": 50,
+      "opacity": 1,
+    }
+  }
+>
+  <Image
+    source={
+      {
+        "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+      }
+    }
+    style={
+      {
+        "borderRadius": 8,
+        "height": 100,
+        "width": 100,
+      }
+    }
+  />
+  <Text
+    style={
+      {
+        "marginLeft": "auto",
+        "marginRight": "auto",
+        "marginTop": 8,
+        "overflow": "hidden",
+        "width": 100,
+      }
+    }
+  >
+    Los Pollos Hermanos
+  </Text>
+</View>
+`;

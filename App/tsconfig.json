@@ -6,7 +6,9 @@
       // "moduleResolution": "node",
       "esModuleInterop": true,
       "noImplicitAny": true,
-      "strictNullChecks": true
+      "strictNullChecks": true,
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
   },
   "extends": "expo/tsconfig.base",
   "include": ["src/**/*"],

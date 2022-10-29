@@ -1,7 +1,14 @@
-import {describe, expect, test} from '@jest/globals';
+import {PriceRating} from './PriceRating';
+import {render} from '@testing-library/react-native';
+import React from 'react';
+import { losPollosHermanos } from '../data/dummyRestaurants';
 
-describe('Test test', () => {
-  test('ADD ACTUAL TESTS FOR PriceRating.tsx HERE', () => {
-    expect(true).toBe(true);
-  });
+describe('PriceRating', () => {
+    it('Renders a Review correctly', () => {
+        const result = render(
+            <PriceRating rating={losPollosHermanos.priceRating}/>
+        );
+
+        expect(result.toJSON()).toMatchSnapshot();
+    });
 });

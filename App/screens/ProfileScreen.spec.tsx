@@ -19,7 +19,7 @@ describe('ProfileScreen', () => {
         expect(result.toJSON()).toMatchSnapshot();
     });
 
-    it('Renders user\'s own profile correctly', () => {
+    it('Renders someone else\'s profile correctly', () => {
         const route = {
             params: {
                 profileData: walterProfile,

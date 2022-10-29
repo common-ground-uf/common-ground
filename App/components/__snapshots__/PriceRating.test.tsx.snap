@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PriceRating Renders a Review correctly 1`] = `
+<View
+  style={
+    {
+      "alignItems": "flex-start",
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "flex-start",
+    }
+  }
+>
+  <Text>
+    $
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#818181",
+      }
+    }
+  >
+    $
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#818181",
+      }
+    }
+  >
+    $
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#818181",
+      }
+    }
+  >
+    $
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#818181",
+      }
+    }
+  >
+    $
+  </Text>
+</View>
+`;
