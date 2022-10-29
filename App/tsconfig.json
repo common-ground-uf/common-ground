@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs",
       "jsx": "react",
+      // "moduleResolution": "node",
       "esModuleInterop": true,
   },
-  "extends": "expo/tsconfig.base"
+  "extends": "expo/tsconfig.base",
+  "include": ["src/**/*"],
 }

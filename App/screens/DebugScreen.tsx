@@ -58,7 +58,7 @@ function DebugScreen(props: DebugScreenProps) {
                 title='Breaking Bad With Commentary Season 1 Episode 1 - Pilot | w/Walter, Jesse, Skyler, Hank, Marie & WJ'
                 onPress={onPressBreakinBadWithCommentarySeason1Episode1_Pilot_wWalterJesseSkylerHankMarieWJ}
             />
-            {screens.map((screen, index) => 
+            {screens.map((screen, index:number) => 
                 <View style={styles.button} key={index}>
                     <Button title={screen} onPress={() => onClick(screen)} />
                 </View>

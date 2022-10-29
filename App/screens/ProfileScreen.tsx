@@ -1,6 +1,6 @@
 import React from 'react';
-import { TouchableOpacity, Image, View, Text, StyleSheet, Button } from 'react-native';
-import { Contact, Profile } from '../commonTypes';
+import { ScrollView, TouchableOpacity, Image, View, Text, StyleSheet, Button } from 'react-native';
+import { Contact, Profile, Restaurant } from '../commonTypes';
 import { Chip } from '../components/Chip';
 import { ContactBubble } from '../components/ContactBubble';
 import { RestaurantBubble } from '../components/RestaurantBubble';
@@ -117,7 +117,7 @@ function ProfileScreen(props: ProfilePageProps) {
                 <Button onPress={onPressEditPreferences} title="Edit" />
             </View>
             <View style={styles.chipContainer}>
-                {props.route.params.profileData.preferences.map((preference, index) => <Chip text={preference} key={index} />)}
+                {props.route.params.profileData.preferences.map((preference:string, index:number) => <Chip text={preference} key={index} />)}
             </View>
             <View style={styles.row}>
                 <Text style={styles.sectionTitle}>
@@ -126,8 +126,8 @@ function ProfileScreen(props: ProfilePageProps) {
                 <Button onPress={onPressSeeAllPicks} title="See all" />
             </View>
             <View style={styles.row}>
-                {props.route.params.profileData.pastPicks.map((restaurant, index) =>
-                    <RestaurantBubble {...restaurant} onPress={onPressRestaurant} key={index} />
+                {props.route.params.profileData.pastPicks.map((restaurant: Restaurant, index: number) =>
+                    <RestaurantBubble {...restaurant} onPress={onPressRestaurant} key={index} style={styles.bubble}/>
                 )}
             </View>
             {myProfile &&
@@ -136,7 +136,7 @@ function ProfileScreen(props: ProfilePageProps) {
                         Your contacts
                     </Text>
                     <View style={styles.row}>
-                        {props.route.params.profileData.recentContacts.map((contact, index) =>
+                        {props.route.params.profileData.recentContacts.map((contact: Contact, index: number) =>
                             <ContactBubble {...contact} onPress={() => onPressContact(contact)} key={index} />
                         )}
                     </View>

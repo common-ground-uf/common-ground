@@ -69,11 +69,11 @@ function Explore(props: HomeProps) {
                 placeholder="search"
                 style={styles.input}
             />
-            {exploreSections.map((section, index1) => 
+            {exploreSections.map((section, index1: number) => 
                 <View key={index1}>
                     <Text style={styles.sectionTitle}>{section.sectionTitle}</Text>
                     <ScrollView style={styles.row} horizontal={true}>
-                        {section.contentData.map((restaurant, index2) =>
+                        {section.contentData.map((restaurant, index2: number) =>
                             <RestaurantBubble key={index2} {...restaurant} onPress={onClickRestaurant} style={styles.bubble}/>
                         )}
                     </ScrollView>

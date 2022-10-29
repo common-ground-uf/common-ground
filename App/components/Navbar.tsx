@@ -56,7 +56,7 @@ export function Navbar() {
     };
     return (
         <View style={styles.navbar}>
-            {navbarItems.map((item, index) =>
+            {navbarItems.map((item, index:number) =>
                 <TouchableOpacity key={index} onPress={()=>onPress(index)}>
                      <View style={styles.image} />
                 </TouchableOpacity>
