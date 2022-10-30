@@ -40,7 +40,5 @@ jobs:
         run: |
           cd App
           npx eslint .
-            --ext .js,.jsx,.ts,.tsx
-            --format @microsoft/eslint-formatter-sarif 
-            --output-file eslint-results.sarif
+          npx eslint . --config .eslintrc.js --ext .js,.jsx,.ts,.tsx
         continue-on-error: false
