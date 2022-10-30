@@ -1,14 +1,14 @@
-import { saulProfile, walterProfile } from "../data/dummyUsers";
-import { ProfileScreen } from "./ProfileScreen";
-import { render } from "@testing-library/react-native";
-import React from "react";
+import { saulProfile, walterProfile } from '../data/dummyUsers';
+import { ProfileScreen } from './ProfileScreen';
+import { render } from '@testing-library/react-native';
+import React from 'react';
 
-describe("ProfileScreen", () => {
+describe('ProfileScreen', () => {
   const dummyNavigation = {
-    navigate: "",
+    navigate: '',
   };
 
-  it("Renders user's own profile correctly", () => {
+  it('Renders user\'s own profile correctly', () => {
     const route = {
       params: {
         profileData: saulProfile,
@@ -25,7 +25,7 @@ describe("ProfileScreen", () => {
     expect(result.toJSON()).toMatchSnapshot();
   });
 
-  it("Renders someone else's profile correctly", () => {
+  it('Renders someone else\'s profile correctly', () => {
     const route = {
       params: {
         profileData: walterProfile,
