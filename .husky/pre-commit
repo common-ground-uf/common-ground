@@ -3,3 +3,4 @@
 
 cd App
 npx pretty-quick --staged
+npx -p prettier@latest -p pretty-quick pretty-quick

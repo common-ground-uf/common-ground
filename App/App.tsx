@@ -1,20 +1,20 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { allRestaurants, losPollosHermanos } from './data/dummyRestaurants';
-import { allUsers, parties, saulProfile } from './data/dummyUsers';
-import * as screens from './screens';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { allRestaurants, losPollosHermanos } from "./data/dummyRestaurants";
+import { allUsers, parties, saulProfile } from "./data/dummyUsers";
+import * as screens from "./screens";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 const Tab = createBottomTabNavigator();
 
-const icons = {
-  Login: 'user-circle-o',
-  Home: 'home',
-  Messages: 'comment',
-  Debug: 'bug',
-  Explore: 'search',
+const icons: Record<string, string> = {
+  Login: "user-circle-o",
+  Home: "home",
+  Messages: "comment",
+  Debug: "bug",
+  Explore: "search",
 };
 
 export default function App() {
@@ -29,8 +29,8 @@ export default function App() {
                 <Icon name={icons[route.name]} size={16} color="#FF6D6E" />
               );
             },
-            tabBarActiveTintColor: 'tomato',
-            tabBarInactiveTintColor: 'gray',
+            tabBarActiveTintColor: "tomato",
+            tabBarInactiveTintColor: "gray",
           })}
         >
           <Tab.Screen name="Home" component={HomeStackScreen} />
@@ -107,7 +107,7 @@ function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
-        options={{ title: 'Home' }}
+        options={{ title: "Home" }}
         name="HomeScreen"
         component={screens.Home}
       />
@@ -123,7 +123,7 @@ const LoginStack = createNativeStackNavigator();
 
 function LoginStackScreen() {
   return (
-    <LoginStack.Navigator screenOptions={{ title: 'Login' }}>
+    <LoginStack.Navigator screenOptions={{ title: "Login" }}>
       <LoginStack.Screen name="LoginScreen" component={screens.Login} />
       {mainGroup}
       <LoginStack.Screen name="Home" component={screens.Home} />
@@ -139,7 +139,7 @@ function MessagesStackScreen() {
   return (
     <MessagesStack.Navigator>
       <MessagesStack.Screen
-        options={{ title: 'Messages' }}
+        options={{ title: "Messages" }}
         name="MessagesScreen"
         component={screens.MessagesScreen}
       />
@@ -155,7 +155,7 @@ function ExploreStackScreen() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
-        options={{ title: 'Explore' }}
+        options={{ title: "Explore" }}
         name="Explore"
         component={screens.Explore}
       />
