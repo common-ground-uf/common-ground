@@ -3,4 +3,3 @@
 
 cd App
 npx eslint-staged --fix
-npx -p prettier@latest -p pretty-quick pretty-quick
