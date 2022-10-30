@@ -8,7 +8,7 @@ type SignupProps = {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         navigate: any;
     };
-}
+};
 
 function Signup(props: SignupProps) {
     const [firstName, setFirstName] = React.useState<string>('');
@@ -36,11 +36,11 @@ function Signup(props: SignupProps) {
     };
 
     // https://stackoverflow.com/questions/46155/how-can-i-validate-an-email-address-in-javascript
-    const validateEmail = (email) => {
+    const validateEmail = email => {
         return String(email)
             .toLowerCase()
             .match(
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
             );
     };
 
@@ -50,34 +50,34 @@ function Signup(props: SignupProps) {
 
     return (
         <View style={styles.container}>
-            <Image style={styles.logo} source={login}/>
+            <Image style={styles.logo} source={login} />
             <TextInput
                 style={styles.input}
                 onChangeText={setFirstName}
                 value={firstName}
                 placeholder="First name"
-                autoCapitalize='words'
+                autoCapitalize="words"
             />
             <TextInput
                 style={styles.input}
                 onChangeText={setLastName}
                 value={lastName}
                 placeholder="LastName"
-                autoCapitalize='words'
+                autoCapitalize="words"
             />
             <TextInput
                 style={styles.input}
                 onChangeText={setEmail}
                 value={email}
                 placeholder="Email"
-                autoCapitalize='none'
+                autoCapitalize="none"
             />
             <TextInput
                 style={styles.input}
                 onChangeText={setPassword}
                 value={password}
                 placeholder="Password"
-                autoComplete='password'
+                autoComplete="password"
                 secureTextEntry={true}
             />
             <TextInput
@@ -87,12 +87,12 @@ function Signup(props: SignupProps) {
                 placeholder="Confirm password"
                 secureTextEntry={true}
             />
-            {errorState &&
-            <Text style={styles.errorMessage}>{errorMessage}</Text>
-            }
-            <Text onPress={onPressHaveAccount} style={styles.link}>Already have an account?</Text>
+            {errorState && <Text style={styles.errorMessage}>{errorMessage}</Text>}
+            <Text onPress={onPressHaveAccount} style={styles.link}>
+                Already have an account?
+            </Text>
             <View style={styles.loginButtonContainer}>
-                <Button title="Sign up" onPress={onPressSignup} color="#FF6D6E"/>
+                <Button title="Sign up" onPress={onPressSignup} color="#FF6D6E" />
             </View>
         </View>
     );

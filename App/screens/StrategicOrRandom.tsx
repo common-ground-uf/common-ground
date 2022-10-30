@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 const styles = StyleSheet.create({
     button: {
@@ -22,8 +22,8 @@ type StrategicOrRandomProps = {
     navigation: {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         navigate: any;
-    }
-}
+    };
+};
 
 export function StrategicOrRandom(props: StrategicOrRandomProps) {
     const onPressStrategic = () => {
@@ -37,14 +37,10 @@ export function StrategicOrRandom(props: StrategicOrRandomProps) {
     return (
         <View style={styles.strategicOrRandom}>
             <TouchableOpacity style={styles.button} onPress={onPressStrategic}>
-                <Text style={styles.text}>
-                    Strategic
-                </Text>
+                <Text style={styles.text}>Strategic</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={onPressRandom}>
-                <Text style={styles.text}>
-                    Random
-                </Text>
+                <Text style={styles.text}>Random</Text>
             </TouchableOpacity>
         </View>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, ScrollView, StyleSheet, Button } from 'react-native';
-import { ContactBubble } from '../components/ContactBubble';
-import { allUsers } from '../data/dummyUsers';
+import {View, ScrollView, StyleSheet, Button} from 'react-native';
+import {ContactBubble} from '../components/ContactBubble';
+import {allUsers} from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
     startNewTable: {
@@ -17,15 +17,15 @@ const styles = StyleSheet.create({
 type StartNewTableScreenProps = {
     navigation: {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        navigate: any,
-    },
-}
+        navigate: any;
+    };
+};
 
 function StartNewTableScreen(props: StartNewTableScreenProps) {
     const contactList = allUsers;
     const [selected, setSelected] = React.useState([false, false, false]);
 
-    const onPressContact = (clickedIndex) => {
+    const onPressContact = clickedIndex => {
         const newSelected = selected.map((contact, index) => {
             if (index === clickedIndex) {
                 return !contact;
@@ -42,13 +42,18 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
     return (
         <ScrollView style={styles.startNewTable}>
             <View style={styles.row}>
-                {contactList.map((contact, index) =>
-                    <ContactBubble key={index} {...contact} onPress={() => onPressContact(index)} selected={selected[index]} />
-                )}
+                {contactList.map((contact, index) => (
+                    <ContactBubble
+                        key={index}
+                        {...contact}
+                        onPress={() => onPressContact(index)}
+                        selected={selected[index]}
+                    />
+                ))}
             </View>
-            <Button title='Next' onPress={onPressNext}/>
+            <Button title="Next" onPress={onPressNext} />
         </ScrollView>
     );
 }
 
-export { StartNewTableScreen };
+export {StartNewTableScreen};

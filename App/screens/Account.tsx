@@ -23,21 +23,21 @@ function Account() {
                 onChangeText={setFirstName}
                 value={firstName}
                 placeholder="First name"
-                autoCapitalize='words'
+                autoCapitalize="words"
             />
             <TextInput
                 style={loginSignupStyles.input}
                 onChangeText={setLastName}
                 value={lastName}
                 placeholder="Last Name"
-                autoCapitalize='words'
+                autoCapitalize="words"
             />
             <TextInput
                 style={loginSignupStyles.input}
                 onChangeText={setEmail}
                 value={email}
                 placeholder="Email"
-                autoCapitalize='none'
+                autoCapitalize="none"
             />
             <TextInput
                 style={loginSignupStyles.input}
@@ -46,10 +46,10 @@ function Account() {
                 placeholder="Location"
             />
             <View style={loginSignupStyles.loginButtonContainer}>
-                <Button title="Save" onPress={onPressSave} color="#FF6D6E"/>
+                <Button title="Save" onPress={onPressSave} color="#FF6D6E" />
             </View>
         </View>
     );
 }
 
-export { Account };
+export {Account};

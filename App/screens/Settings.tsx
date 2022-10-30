@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-    Text,
-    View,
-    FlatList,
-    StyleSheet,
-    TouchableOpacity,
-    ImageSourcePropType
-} from 'react-native';
+import {Text, View, FlatList, StyleSheet, TouchableOpacity, ImageSourcePropType} from 'react-native';
 import {loginSignupStyles} from '../styles/LoginSingup';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -38,7 +31,7 @@ type SettingsProps = {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         navigate: any;
     };
-}
+};
 
 type SettingProps = {
     navigation: {
@@ -47,10 +40,9 @@ type SettingProps = {
     };
     name: string;
     image: ImageSourcePropType;
-}
+};
 
 const Setting = (props: SettingProps) => {
-
     const onClickSetting = () => {
         props.navigation.navigate(props.name);
     };
@@ -58,7 +50,7 @@ const Setting = (props: SettingProps) => {
     return (
         <>
             <TouchableOpacity onPress={onClickSetting} style={styles.memberContainer}>
-                <Icon size={24} name={props.image} style={styles.image}/>
+                <Icon size={24} name={props.image} style={styles.image} />
                 <Text>{props.name}</Text>
             </TouchableOpacity>
             <View style={styles.horizontalLine} />
@@ -67,32 +59,27 @@ const Setting = (props: SettingProps) => {
 };
 
 function Settings(props: SettingsProps) {
-
     const Account = {
         name: 'Account',
         image: 'user',
-        navigation: props.navigation
+        navigation: props.navigation,
     };
     const Privacy = {
         name: 'Privacy',
         image: 'shield',
-        navigation: props.navigation
+        navigation: props.navigation,
     };
     const Notifications = {
         name: 'Notifications',
         image: 'bell',
-        navigation: props.navigation
+        navigation: props.navigation,
     };
     const members = [Account, Privacy, Notifications];
     return (
         <View style={loginSignupStyles.container}>
-            <FlatList
-                data={members}
-                renderItem={(member) => <Setting {...member.item} />}
-                style={{width: '100%'}}
-            />
+            <FlatList data={members} renderItem={member => <Setting {...member.item} />} style={{width: '100%'}} />
         </View>
     );
 }
 
-export { Settings };
+export {Settings};

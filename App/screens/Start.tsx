@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     image: {
         width: '100%',
         height: 250,
-        alignSelf: 'center'
+        alignSelf: 'center',
     },
 });
 
@@ -18,4 +18,4 @@ function Start() {
     );
 }
 
-export { Start };
+export {Start};

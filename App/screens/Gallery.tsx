@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Alert, Image, ScrollView, StyleSheet, Modal, TouchableOpacity } from 'react-native';
-import { gallery } from '../data/dummyData';
+import {View, Alert, Image, ScrollView, StyleSheet, Modal, TouchableOpacity} from 'react-native';
+import {gallery} from '../data/dummyData';
 
 const styles = StyleSheet.create({
     gallery: {
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 22
+        marginTop: 22,
     },
     modalView: {
         alignItems: 'center',
@@ -31,11 +31,11 @@ const styles = StyleSheet.create({
     textStyle: {
         color: 'white',
         fontWeight: 'bold',
-        textAlign: 'center'
+        textAlign: 'center',
     },
     modalText: {
         marginBottom: 15,
-        textAlign: 'center'
+        textAlign: 'center',
     },
     expandedImage: {
         width: '95%',
@@ -46,13 +46,13 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         backgroundColor: 'rgba(0,0,0,.6)',
-    }
+    },
 });
 
 function Gallery() {
     const [modalVisible, setModalVisible] = React.useState(false);
     const [expandedImage, setExpandedImage] = React.useState('');
-    const onPressThumbnail = (image) => {
+    const onPressThumbnail = image => {
         setModalVisible(true);
         setExpandedImage(image);
     };
@@ -65,11 +65,15 @@ function Gallery() {
         <>
             <ScrollView>
                 <View style={styles.gallery}>
-                    {gallery.map((image, index) =>
-                        <TouchableOpacity onPress={() => onPressThumbnail(image)} key={index} style={styles.touchableOpacity}>
-                            <Image style={styles.galleryImage} source={{ uri: image }} />
+                    {gallery.map((image, index) => (
+                        <TouchableOpacity
+                            onPress={() => onPressThumbnail(image)}
+                            key={index}
+                            style={styles.touchableOpacity}
+                        >
+                            <Image style={styles.galleryImage} source={{uri: image}} />
                         </TouchableOpacity>
-                    )}
+                    ))}
                 </View>
             </ScrollView>
             <Modal
@@ -83,13 +87,13 @@ function Gallery() {
             >
                 <TouchableOpacity style={styles.centeredView} onPress={closeModal}>
                     <View style={styles.modalView}>
-                        <Image style={styles.expandedImage} source={{uri: expandedImage}} resizeMode="contain"/>
+                        <Image style={styles.expandedImage} source={{uri: expandedImage}} resizeMode="contain" />
                     </View>
                 </TouchableOpacity>
             </Modal>
-            {modalVisible && <TouchableOpacity style={styles.overlay} onPress={closeModal}/>}
+            {modalVisible && <TouchableOpacity style={styles.overlay} onPress={closeModal} />}
         </>
     );
 }
 
-export { Gallery };
+export {Gallery};

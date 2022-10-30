@@ -23,13 +23,13 @@ function Privacy() {
                 onChangeText={setPassword}
                 value={password}
                 placeholder="Password"
-                autoComplete='password'
+                autoComplete="password"
             />
             <View style={loginSignupStyles.loginButtonContainer}>
-                <Button title="Save" onPress={onPressSave} color="#FEB346"/>
+                <Button title="Save" onPress={onPressSave} color="#FEB346" />
             </View>
         </View>
     );
 }
 
-export { Privacy };
+export {Privacy};

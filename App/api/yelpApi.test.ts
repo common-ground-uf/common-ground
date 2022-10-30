@@ -9,11 +9,10 @@ I'll make this work later by configuring circle-ci to use a yelp api key that I'
 import {describe, expect, test} from '@jest/globals';
 
 describe('Test test', () => {
-  test('ADD ACTUAL TESTS FOR PriceRating.tsx HERE', () => {
-    expect(true).toBe(true);
-  });
+    test('ADD ACTUAL TESTS FOR PriceRating.tsx HERE', () => {
+        expect(true).toBe(true);
+    });
 });
-
 
 // import { describe, expect, test } from '@jest/globals';
 // import { getBusinessDetails, getBusinessesByLocation, Business, BusinessDetails } from './yelpApi';
@@ -22,7 +21,7 @@ describe('Test test', () => {
 // let businessDetailExample: BusinessDetails = null;
 
 // beforeAll(async () => {
-    
+
 //     let val0 = await getBusinessDetails('M_Df54iwfPrQhWqAUBf5Kw');
 //     businessDetailExample = val0;
 

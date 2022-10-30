@@ -10,7 +10,7 @@ type LoginProps = {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         navigate: any;
     };
-}
+};
 
 // type requestLoginProps = {
 //     email: string;
@@ -27,12 +27,14 @@ function Login(props: LoginProps) {
         props.navigation.navigate('Forgot Password');
     };
 
-
-
     const onPressLogin = () => {
-        axios.post('http://192.168.86.93:3000/login', {username: email, password: password})
+        axios
+            .post('http://192.168.86.93:3000/login', {
+                username: email,
+                password: password,
+            })
             .then(response => {
-                if(response.data.message === 'login success') {
+                if (response.data.message === 'login success') {
                     console.log('login successful');
                     // User Data object to be processed locally and saved as current login data (cleared after logout)
                     const userData = {
@@ -44,12 +46,11 @@ function Login(props: LoginProps) {
                     console.log(userData);
                 }
             })
-            .catch((error)=> {
+            .catch(error => {
                 if (error.response) {
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
-                    if(error.response.data.message === 'login failed')
-                        console.log('login unsuccessful');
+                    if (error.response.data.message === 'login failed') console.log('login unsuccessful');
                     else {
                         console.log(error.response.data);
                         console.log(error.response.status);
@@ -73,26 +74,23 @@ function Login(props: LoginProps) {
 
     return (
         <View style={styles.container}>
-            <TextInput
-                style={styles.input}
-                onChangeText={setEmail}
-                value={email}
-                placeholder="Email"
-            />
+            <TextInput style={styles.input} onChangeText={setEmail} value={email} placeholder="Email" />
             <TextInput
                 style={styles.input}
                 onChangeText={setPassword}
                 value={password}
                 placeholder="Password"
-                autoComplete='password'
+                autoComplete="password"
             />
-            {errorState &&
-            <Text style={styles.errorMessage}>email and password do not match 😭</Text>
-            }
-            <Text onPress={onPressForgotPassword} style={styles.link}>Forgot password</Text>
-            <Text onPress={onPressSignUp} style={styles.link}>Sign up</Text>
+            {errorState && <Text style={styles.errorMessage}>email and password do not match 😭</Text>}
+            <Text onPress={onPressForgotPassword} style={styles.link}>
+                Forgot password
+            </Text>
+            <Text onPress={onPressSignUp} style={styles.link}>
+                Sign up
+            </Text>
             <View style={styles.loginButtonContainer}>
-                <Button title="Login" onPress={onPressLogin} color="#FF6D6E"/>
+                <Button title="Login" onPress={onPressLogin} color="#FF6D6E" />
             </View>
         </View>
     );

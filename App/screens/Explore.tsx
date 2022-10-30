@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text, View, StyleSheet, ScrollView, TextInput } from 'react-native';
-import { RestaurantBubble } from '../components/RestaurantBubble';
+import {Text, View, StyleSheet, ScrollView, TextInput} from 'react-native';
+import {RestaurantBubble} from '../components/RestaurantBubble';
 import {exploreSections} from '../data/dummyRestaurants';
 
 const styles = StyleSheet.create({
@@ -65,25 +65,25 @@ function Explore(props: HomeProps) {
 
     return (
         <ScrollView style={styles.scrollView}>
-            <TextInput
-                value={search}
-                onChangeText={setSearch}
-                placeholder="search"
-                style={styles.input}
-            />
-            {exploreSections.map((section, index1: number) => 
+            <TextInput value={search} onChangeText={setSearch} placeholder="search" style={styles.input} />
+            {exploreSections.map((section, index1: number) => (
                 <View key={index1}>
                     <Text style={styles.sectionTitle}>{section.sectionTitle}</Text>
                     <ScrollView style={styles.row} horizontal={true}>
-                        {section.contentData.map((restaurant, index2: number) =>
-                            <RestaurantBubble key={index2} {...restaurant} onPress={onClickRestaurant} style={styles.bubble}/>
-                        )}
+                        {section.contentData.map((restaurant, index2: number) => (
+                            <RestaurantBubble
+                                key={index2}
+                                {...restaurant}
+                                onPress={onClickRestaurant}
+                                style={styles.bubble}
+                            />
+                        ))}
                     </ScrollView>
                 </View>
-            )}
-            <View style={styles.verticalSpace}/>
+            ))}
+            <View style={styles.verticalSpace} />
         </ScrollView>
     );
 }
 
-export { Explore };
+export {Explore};

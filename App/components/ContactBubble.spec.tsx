@@ -1,7 +1,7 @@
 import {ContactBubble} from './ContactBubble';
 import {render} from '@testing-library/react-native';
 import React from 'react';
-import { saulProfile } from '../data/dummyUsers';
+import {saulProfile} from '../data/dummyUsers';
 
 describe('ContactBubble', () => {
     it('Renders a ContactBubble correctly', () => {
@@ -10,8 +10,8 @@ describe('ContactBubble', () => {
                 profilePic={saulProfile.profilePic}
                 firstName={saulProfile.firstName}
                 lastName={saulProfile.lastName}
-                onPress={()=>{}}
-            />
+                onPress={() => {}}
+            />,
         );
 
         expect(result.toJSON()).toMatchSnapshot();
@@ -23,9 +23,9 @@ describe('ContactBubble', () => {
                 profilePic={saulProfile.profilePic}
                 firstName={saulProfile.firstName}
                 lastName={saulProfile.lastName}
-                onPress={()=>{}}
+                onPress={() => {}}
                 selected={true}
-            />
+            />,
         );
 
         expect(result.toJSON()).toMatchSnapshot();

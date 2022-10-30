@@ -1,8 +1,8 @@
 import {RestaurantBubble} from './RestaurantBubble';
 import {render} from '@testing-library/react-native';
 import React from 'react';
-import { losPollosHermanos } from '../data/dummyRestaurants';
-import { StyleSheet } from 'react-native';
+import {losPollosHermanos} from '../data/dummyRestaurants';
+import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
     bubble: {
@@ -17,8 +17,8 @@ describe('RestaurantBubble', () => {
             <RestaurantBubble
                 thumbnail={losPollosHermanos.thumbnail}
                 name={losPollosHermanos.name}
-                onPress={()=>{}}
-            />
+                onPress={() => {}}
+            />,
         );
 
         expect(result.toJSON()).toMatchSnapshot();
@@ -29,9 +29,9 @@ describe('RestaurantBubble', () => {
             <RestaurantBubble
                 thumbnail={losPollosHermanos.thumbnail}
                 name={losPollosHermanos.name}
-                onPress={()=>{}}
+                onPress={() => {}}
                 style={styles.bubble}
-            />
+            />,
         );
 
         expect(result.toJSON()).toMatchSnapshot();

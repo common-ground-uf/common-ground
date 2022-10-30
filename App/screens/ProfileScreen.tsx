@@ -1,10 +1,10 @@
 import React from 'react';
-import { ScrollView, TouchableOpacity, Image, View, Text, StyleSheet, Button } from 'react-native';
-import { Contact, Profile, Restaurant } from '../commonTypes';
-import { Chip } from '../components/Chip';
-import { ContactBubble } from '../components/ContactBubble';
-import { RestaurantBubble } from '../components/RestaurantBubble';
-import { mapContactToProfile } from '../utils';
+import {ScrollView, TouchableOpacity, Image, View, Text, StyleSheet, Button} from 'react-native';
+import {Contact, Profile} from '../commonTypes';
+import {Chip} from '../components/Chip';
+import {ContactBubble} from '../components/ContactBubble';
+import {RestaurantBubble} from '../components/RestaurantBubble';
+import {mapContactToProfile} from '../utils';
 
 const styles = StyleSheet.create({
     profile: {
@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
     chipContainer: {
         display: 'flex',
         flexDirection: 'row',
-
     },
     bubble: {
         marginRight: 10,
@@ -66,12 +65,12 @@ const styles = StyleSheet.create({
 type ProfilePageProps = {
     navigation: {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        navigate: any,
-    },
-    profileData: Profile,
+        navigate: any;
+    };
+    profileData: Profile;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    route: any,
-}
+    route: any;
+};
 
 function ProfileScreen(props: ProfilePageProps) {
     const selfId = '4';
@@ -105,60 +104,60 @@ function ProfileScreen(props: ProfilePageProps) {
         props.navigation.navigate('All Contacts');
     };
 
+    let profileData: Profile;
+
     if (!props.route.params.profileData)
         return <></>;
+    else
+        profileData = props.route.params.profileData;
 
     return (
         <ScrollView style={styles.profile}>
-            {myProfile &&
+            {myProfile && (
                 <View style={styles.center}>
                     <TouchableOpacity onPress={onPressSettings}>
-                        <Image source={require('../assets/settings.png')} style={styles.settings} />
+                        {/*<Image source={require('../assets/settings.png')} style={styles.settings} />*/}
                     </TouchableOpacity>
                 </View>
-            }
+            )}
             <View style={styles.center}>
-                <Image source={{ uri: props.route.params.profileData.profilePic }} style={styles.image} />
-                <Text style={styles.name}>{props.route.params.profileData.name}</Text>
+                <Image source={{uri: profileData.profilePic}} style={styles.image} />
+                <Text>{profileData.firstName} {profileData.lastName}</Text>
             </View>
             <View style={styles.row}>
-                <Text style={styles.sectionTitle}>
-                    Preferences
-                </Text>
+                <Text style={styles.sectionTitle}>Preferences</Text>
                 <Button onPress={onPressEditPreferences} title="Edit" />
             </View>
             <View style={styles.chipContainer}>
-                {props.route.params.profileData.preferences.map((preference:string, index:number) => <Chip text={preference} key={index} />)}
+                {profileData.preferences.map((preference: string, index: number) => (
+                    <Chip text={preference} key={index} />
+                ))}
             </View>
             <View style={styles.row}>
-                <Text style={styles.sectionTitle}>
-                    Past picks
-                </Text>
+                <Text style={styles.sectionTitle}>Past picks</Text>
                 <Button onPress={onPressSeeAllPicks} title="See all" />
             </View>
             <View style={styles.row}>
-                {props.route.params.profileData.pastPicks.map((restaurant, index) =>
-                    <RestaurantBubble {...restaurant} onPress={onPressRestaurant} key={index} style={styles.bubble}/>
-                )}
+                {props.route.params.profileData.pastPicks.map((restaurant, index) => (
+                    <RestaurantBubble {...restaurant} onPress={onPressRestaurant} key={index} style={styles.bubble} />
+                ))}
             </View>
-            {myProfile &&
+            {myProfile && (
                 <>
                     <View style={styles.row}>
-                        <Text style={styles.sectionTitle}>
-                            Your contacts
-                        </Text>
+                        <Text style={styles.sectionTitle}>Your contacts</Text>
                         <Button onPress={onPressSeeAllContacts} title="See all" />
                     </View>
                     <View style={styles.row}>
-                        {props.route.params.profileData.recentContacts.map((contact: Contact, index: number) =>
+                        {props.route.params.profileData.recentContacts.map((contact: Contact, index: number) => (
                             <ContactBubble {...contact} onPress={() => onPressContact(contact)} key={index} />
-                        )}
+                        ))}
                     </View>
                 </>
-            }
+            )}
             <View style={{height: 20}} />
         </ScrollView>
     );
 }
 
-export { ProfileScreen };
+export {ProfileScreen};

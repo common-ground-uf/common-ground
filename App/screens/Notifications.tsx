@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
         marginTop: 12,
     },
     text: {
-        flexGrow: 1
-    }
+        flexGrow: 1,
+    },
 });
 
 function Notifications() {
@@ -38,9 +38,7 @@ function Notifications() {
     return (
         <View style={styles.container}>
             <View style={styles.row}>
-                <Text style={styles.text}>
-                    Allow all notifications
-                </Text>
+                <Text style={styles.text}>Allow all notifications</Text>
                 <Switch
                     trackColor={trackColor}
                     thumbColor={notificationsEnabled ? 'white' : '#f4f3f4'}
@@ -49,15 +47,11 @@ function Notifications() {
                     value={notificationsEnabled}
                 />
             </View>
-            {!notificationsEnabled ?
+            {!notificationsEnabled ? (
                 <View style={{marginTop: 20}}>
-                    <Text style={{fontWeight:'bold'}}>
-                        Only allow select notifications:
-                    </Text>
+                    <Text style={{fontWeight: 'bold'}}>Only allow select notifications:</Text>
                     <View style={styles.row}>
-                        <Text style={styles.text}>
-                            Recommendations for you
-                        </Text>
+                        <Text style={styles.text}>Recommendations for you</Text>
                         <Switch
                             trackColor={trackColor}
                             thumbColor={notificationsEnabled ? 'white' : '#f4f3f4'}
@@ -67,9 +61,7 @@ function Notifications() {
                         />
                     </View>
                     <View style={styles.row}>
-                        <Text style={styles.text}>
-                            New messages
-                        </Text>
+                        <Text style={styles.text}>New messages</Text>
                         <Switch
                             trackColor={trackColor}
                             thumbColor={notificationsEnabled ? 'white' : '#f4f3f4'}
@@ -79,9 +71,7 @@ function Notifications() {
                         />
                     </View>
                     <View style={styles.row}>
-                        <Text style={styles.text}>
-                            Party invites
-                        </Text>
+                        <Text style={styles.text}>Party invites</Text>
                         <Switch
                             trackColor={trackColor}
                             thumbColor={notificationsEnabled ? 'white' : '#f4f3f4'}
@@ -91,8 +81,9 @@ function Notifications() {
                         />
                     </View>
                 </View>
-                : <></>}
-
+            ) : (
+                <></>
+            )}
         </View>
     );
 }

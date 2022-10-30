@@ -1,15 +1,20 @@
 {
-  "compilerOptions": {
-      "target": "es6",
-      "module": "commonjs",
-      "jsx": "react",
-      // "moduleResolution": "node",
-      "esModuleInterop": true,
-      "noImplicitAny": true,
-      "strictNullChecks": true,
-      "allowUnreachableCode": false,
-      "allowUnusedLabels": false,
-  },
-  "extends": "expo/tsconfig.base",
-  "include": ["src/**/*"],
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "jsx": "react",
+        // "esModuleInterop": true,
+        // "noImplicitAny": true,
+        // "strictNullChecks": true,
+        // "allowUnreachableCode": false,
+        // "allowUnusedLabels": false,
+        // "noUnusedLocals": true,
+        // "noUncheckedIndexedAccess": true,
+        // "noImplicitReturns": true,
+        // "exactOptionalPropertyTypes": true,
+        // "strictFunctionTypes": true,
+        // "alwaysStrict": true,
+    },
+    "extends": "expo/tsconfig.base",
+    "include": ["src/**/*"]
 }

@@ -1,8 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
-import {
-    NavigationContext,
-  } from '@react-navigation/native';
+import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import {NavigationContext} from '@react-navigation/native';
 import group from '../assets/group.png';
 import person from '../assets/person.png';
 import search from '../assets/search.png';
@@ -20,14 +18,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
-    item: {
-
-    },
+    item: {},
     image: {
         height: 20,
         width: 20,
         borderWidth: 1,
-    }
+    },
 });
 
 const navbarItems = [
@@ -55,11 +51,11 @@ export function Navbar() {
     };
     return (
         <View style={styles.navbar}>
-            {navbarItems.map((item, index:number) =>
-                <TouchableOpacity key={index} onPress={()=>onPress(index)}>
-                     <View style={styles.image} />
+            {navbarItems.map((item, index: number) => (
+                <TouchableOpacity key={index} onPress={() => onPress(index)}>
+                    <View style={styles.image} />
                 </TouchableOpacity>
-            )}
+            ))}
         </View>
     );
 }

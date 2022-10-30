@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import {View} from 'react-native';
 import {loginSignupStyles} from '../styles/LoginSingup';
 import DropDownPicker from 'react-native-dropdown-picker';
 
@@ -38,4 +38,4 @@ function Preferences() {
     );
 }
 
-export { Preferences };
+export {Preferences};
