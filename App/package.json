@@ -13,8 +13,7 @@
     "test": "jest --ci --runInBand --reporters=default --config=jest.config.js",
     "clear_jest": "jest --clearCache",
     "update-snapshot": "npm test -- -u",
-    "prettier": "npx prettier --write .",
-    "prepare": "husky install"
+    "prettier": "npx prettier --write ."
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.4.0",
