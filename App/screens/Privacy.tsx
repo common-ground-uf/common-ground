@@ -1,13 +1,13 @@
-import React from "react";
-import { Button, TextInput, View } from "react-native";
-import { loginSignupStyles } from "../styles/LoginSingup";
+import React from 'react';
+import { Button, TextInput, View } from 'react-native';
+import { loginSignupStyles } from '../styles/LoginSingup';
 
 function Privacy() {
-  const [password, setPassword] = React.useState<string>("");
-  const [location, setLocation] = React.useState<string>("");
+  const [password, setPassword] = React.useState<string>('');
+  const [location, setLocation] = React.useState<string>('');
 
   const onPressSave = () => {
-    console.log("saved");
+    console.log('saved');
   };
 
   return (

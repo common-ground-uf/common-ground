@@ -1,16 +1,16 @@
-import React from "react";
-import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
-import { Restaurant } from "../commonTypes";
-import Icon from "react-native-vector-icons/FontAwesome";
+import React from 'react';
+import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { Restaurant } from '../commonTypes';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const styles = StyleSheet.create({
   card: {
     paddingVertical: 12,
     paddingHorizontal: 6,
     margin: 8,
-    display: "flex",
-    flexDirection: "row",
-    maxHWidth: "100%",
+    display: 'flex',
+    flexDirection: 'row',
+    maxHWidth: '100%',
   },
   cardRight: {
     flexGrow: 1,
@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
   },
   horizontalLine: {
     height: 1,
-    width: "100%",
-    backgroundColor: "#bbb",
+    width: '100%',
+    backgroundColor: '#bbb',
   },
   thumbnail: {
     height: 60,
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   cardTitle: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 16,
   },
   starIcon: {
@@ -37,9 +37,9 @@ const styles = StyleSheet.create({
     marginRight: 2,
   },
   topRow: {
-    display: "flex",
-    alignItems: "flex-start",
-    alignContent: "center",
+    display: 'flex',
+    alignItems: 'flex-start',
+    alignContent: 'center',
     marginBottom: 4,
   },
 });
@@ -53,7 +53,7 @@ type RestaurantCardProps = Restaurant & {
 
 export function RestaurantCard(props: RestaurantCardProps) {
   const onPress = () => {
-    props.navigation.navigate("Restaurant");
+    props.navigation.navigate('Restaurant');
   };
   return (
     <>

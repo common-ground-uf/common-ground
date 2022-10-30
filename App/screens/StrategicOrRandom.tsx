@@ -1,5 +1,5 @@
-import React from "react";
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import React from 'react';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
   button: {
@@ -7,14 +7,14 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     padding: 50,
     margin: 20,
-    borderColor: "#FF6D6E",
+    borderColor: '#FF6D6E',
   },
   strategicOrRandom: {
-    display: "flex",
-    flexDirection: "column",
+    display: 'flex',
+    flexDirection: 'column',
   },
   text: {
-    textAlign: "center",
+    textAlign: 'center',
   },
 });
 
@@ -27,11 +27,11 @@ type StrategicOrRandomProps = {
 
 export function StrategicOrRandom(props: StrategicOrRandomProps) {
   const onPressStrategic = () => {
-    props.navigation.navigate("Restaurant List");
+    props.navigation.navigate('Restaurant List');
   };
 
   const onPressRandom = () => {
-    props.navigation.navigate("Random Restaurant");
+    props.navigation.navigate('Random Restaurant');
   };
 
   return (

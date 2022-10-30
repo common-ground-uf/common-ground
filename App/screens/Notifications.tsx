@@ -1,18 +1,18 @@
-import React from "react";
-import { Switch, View, StyleSheet, Text } from "react-native";
+import React from 'react';
+import { Switch, View, StyleSheet, Text } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: "10%",
-    alignItems: "center",
-    width: "100%",
+    marginTop: '10%',
+    alignItems: 'center',
+    width: '100%',
     paddingRight: 20,
     paddingLeft: 20,
   },
   row: {
-    display: "flex",
-    flexDirection: "row",
-    width: "100%",
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
     marginTop: 12,
   },
   text: {
@@ -38,7 +38,7 @@ function Notifications() {
   const togglePartyInvites = () =>
     setPartyInvitesEnabled((previousState) => !previousState);
 
-  const trackColor = { false: "#767577", true: "#FEB346" };
+  const trackColor = { false: '#767577', true: '#FEB346' };
 
   return (
     <View style={styles.container}>
@@ -46,7 +46,7 @@ function Notifications() {
         <Text style={styles.text}>Allow all notifications</Text>
         <Switch
           trackColor={trackColor}
-          thumbColor={notificationsEnabled ? "white" : "#f4f3f4"}
+          thumbColor={notificationsEnabled ? 'white' : '#f4f3f4'}
           ios_backgroundColor="#3e3e3e"
           onValueChange={toggleNotifications}
           value={notificationsEnabled}
@@ -54,14 +54,14 @@ function Notifications() {
       </View>
       {!notificationsEnabled ? (
         <View style={{ marginTop: 20 }}>
-          <Text style={{ fontWeight: "bold" }}>
+          <Text style={{ fontWeight: 'bold' }}>
             Only allow select notifications:
           </Text>
           <View style={styles.row}>
             <Text style={styles.text}>Recommendations for you</Text>
             <Switch
               trackColor={trackColor}
-              thumbColor={notificationsEnabled ? "white" : "#f4f3f4"}
+              thumbColor={notificationsEnabled ? 'white' : '#f4f3f4'}
               ios_backgroundColor="#3e3e3e"
               onValueChange={toggleRecommendations}
               value={recommendationsEnabled}
@@ -71,7 +71,7 @@ function Notifications() {
             <Text style={styles.text}>New messages</Text>
             <Switch
               trackColor={trackColor}
-              thumbColor={notificationsEnabled ? "white" : "#f4f3f4"}
+              thumbColor={notificationsEnabled ? 'white' : '#f4f3f4'}
               ios_backgroundColor="#3e3e3e"
               onValueChange={toggleNewMessages}
               value={newMessagesEnabled}
@@ -81,7 +81,7 @@ function Notifications() {
             <Text style={styles.text}>Party invites</Text>
             <Switch
               trackColor={trackColor}
-              thumbColor={notificationsEnabled ? "white" : "#f4f3f4"}
+              thumbColor={notificationsEnabled ? 'white' : '#f4f3f4'}
               ios_backgroundColor="#3e3e3e"
               onValueChange={togglePartyInvites}
               value={partyInvitesEnabled}

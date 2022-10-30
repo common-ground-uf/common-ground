@@ -1,30 +1,30 @@
-import React from "react";
-import { TouchableOpacity, StyleSheet, Text, Image, View } from "react-native";
-import { Contact } from "../commonTypes";
+import React from 'react';
+import { TouchableOpacity, StyleSheet, Text, Image, View } from 'react-native';
+import { Contact } from '../commonTypes';
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   text: {
-    marginRight: "auto",
-    marginLeft: "auto",
+    marginRight: 'auto',
+    marginLeft: 'auto',
     width: 100,
   },
   touchable: {
     width: 100,
     height: 100,
     borderRadius: 50,
-    backgroundColor: "#ddd",
-    position: "relative",
+    backgroundColor: '#ddd',
+    position: 'relative',
     padding: 20,
     marginBottom: 10,
   },
   image: {
-    position: "absolute",
-    borderStyle: "solid",
+    position: 'absolute',
+    borderStyle: 'solid',
     borderWidth: 3,
-    borderColor: "#ddd",
+    borderColor: '#ddd',
   },
   image0: {
     width: 65,

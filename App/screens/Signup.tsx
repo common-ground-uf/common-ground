@@ -1,7 +1,7 @@
-import React from "react";
-import { Text, View, TextInput, Button, Image } from "react-native";
-import { loginSignupStyles as styles } from "../styles/LoginSingup";
-import login from "../assets/login.png";
+import React from 'react';
+import { Text, View, TextInput, Button, Image } from 'react-native';
+import { loginSignupStyles as styles } from '../styles/LoginSingup';
+import login from '../assets/login.png';
 
 type SignupProps = {
   navigation: {
@@ -11,14 +11,14 @@ type SignupProps = {
 };
 
 function Signup(props: SignupProps) {
-  const [firstName, setFirstName] = React.useState<string>("");
-  const [lastName, setLastName] = React.useState<string>("");
-  const [email, setEmail] = React.useState<string>("");
-  const [password, setPassword] = React.useState<string>("");
+  const [firstName, setFirstName] = React.useState<string>('');
+  const [lastName, setLastName] = React.useState<string>('');
+  const [email, setEmail] = React.useState<string>('');
+  const [password, setPassword] = React.useState<string>('');
   const [passwordConfirmation, setPasswordConfirmation] =
-    React.useState<string>("");
+    React.useState<string>('');
   const [errorState, setErrorState] = React.useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = React.useState<string>("");
+  const [errorMessage, setErrorMessage] = React.useState<string>('');
 
   const onPressSignup = () => {
     if (
@@ -28,17 +28,17 @@ function Signup(props: SignupProps) {
       !password ||
       !passwordConfirmation
     ) {
-      setErrorMessage("All fields are required.");
+      setErrorMessage('All fields are required.');
       setErrorState(true);
     } else if (!validateEmail(email)) {
-      setErrorMessage("Invalid email.");
+      setErrorMessage('Invalid email.');
       setErrorState(true);
     } else if (password !== passwordConfirmation) {
-      setErrorMessage("Passwords do not match.");
+      setErrorMessage('Passwords do not match.');
       setErrorState(true);
     } else {
       setErrorState(false);
-      console.log("sign up");
+      console.log('sign up');
     }
   };
 
@@ -52,7 +52,7 @@ function Signup(props: SignupProps) {
   };
 
   const onPressHaveAccount = () => {
-    props.navigation.navigate("Login");
+    props.navigation.navigate('Login');
   };
 
   return (

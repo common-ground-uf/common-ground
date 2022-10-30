@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   View,
   Alert,
@@ -7,59 +7,59 @@ import {
   StyleSheet,
   Modal,
   TouchableOpacity,
-} from "react-native";
-import { gallery } from "../data/dummyData";
+} from 'react-native';
+import { gallery } from '../data/dummyData';
 
 const styles = StyleSheet.create({
   gallery: {
-    display: "flex",
-    flexDirection: "row",
-    width: "100%",
-    flexWrap: "wrap",
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
+    flexWrap: 'wrap',
   },
   galleryImage: {
-    width: "100%",
+    width: '100%',
     height: 100,
   },
   touchableOpacity: {
-    width: "25%",
+    width: '25%',
     minHeight: 100,
   },
 
   centeredView: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: 22,
   },
   modalView: {
-    alignItems: "center",
-    width: "90%",
+    alignItems: 'center',
+    width: '90%',
   },
   textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center",
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   modalText: {
     marginBottom: 15,
-    textAlign: "center",
+    textAlign: 'center',
   },
   expandedImage: {
-    width: "95%",
-    height: "95%",
+    width: '95%',
+    height: '95%',
   },
   overlay: {
-    position: "absolute",
-    width: "100%",
-    height: "100%",
-    backgroundColor: "rgba(0,0,0,.6)",
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(0,0,0,.6)',
   },
 });
 
 function Gallery() {
   const [modalVisible, setModalVisible] = React.useState(false);
-  const [expandedImage, setExpandedImage] = React.useState("");
+  const [expandedImage, setExpandedImage] = React.useState('');
   const onPressThumbnail = (image) => {
     setModalVisible(true);
     setExpandedImage(image);
@@ -89,7 +89,7 @@ function Gallery() {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
+          Alert.alert('Modal has been closed.');
           setModalVisible(!modalVisible);
         }}
       >

@@ -1,16 +1,16 @@
-import React from "react";
-import { Text, View, TextInput, Button } from "react-native";
-import { loginSignupStyles } from "../styles/LoginSingup";
+import React from 'react';
+import { Text, View, TextInput, Button } from 'react-native';
+import { loginSignupStyles } from '../styles/LoginSingup';
 
 function ResetPassword() {
-  const [newPassword, setNewPassword] = React.useState<string>("");
+  const [newPassword, setNewPassword] = React.useState<string>('');
   const [newPasswordConfirmation, setNewPasswordConfirmation] =
-    React.useState<string>("");
+    React.useState<string>('');
   const [errorExists, setErrorExists] = React.useState(false);
 
   const onPress = () => {
     if (newPassword === newPasswordConfirmation) {
-      console.log("reset password");
+      console.log('reset password');
       setErrorExists(false);
     } else {
       setErrorExists(true);

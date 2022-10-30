@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   ScrollView,
   Button,
@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Text,
   Linking,
-} from "react-native";
+} from 'react-native';
 
 const styles = StyleSheet.create({
   button: {
@@ -34,30 +34,30 @@ function DebugScreen(props: DebugScreenProps) {
     props.navigation.navigate(screen);
   };
   const screens = [
-    "Start",
-    "Login",
-    "Signup",
-    "Forgot Password",
-    "Reset Password",
-    "Preferences",
-    "Start New Table",
-    "Restaurant List",
-    "Restaurant",
-    "Gallery",
-    "Profile",
-    "Account",
-    "Privacy",
-    "Settings",
-    "Notifications",
-    "Group Details",
-    "Explore",
-    "Strategic or random",
-    "Random Restaurant",
-    "All Contacts",
+    'Start',
+    'Login',
+    'Signup',
+    'Forgot Password',
+    'Reset Password',
+    'Preferences',
+    'Start New Table',
+    'Restaurant List',
+    'Restaurant',
+    'Gallery',
+    'Profile',
+    'Account',
+    'Privacy',
+    'Settings',
+    'Notifications',
+    'Group Details',
+    'Explore',
+    'Strategic or random',
+    'Random Restaurant',
+    'All Contacts',
   ];
   const onPressBreakinBadWithCommentarySeason1Episode1_Pilot_wWalterJesseSkylerHankMarieWJ =
     () => {
-      Linking.openURL("https://www.youtube.com/watch?v=gf0xPOS1Bdg");
+      Linking.openURL('https://www.youtube.com/watch?v=gf0xPOS1Bdg');
     };
   return (
     <ScrollView style={styles.debugScreen}>

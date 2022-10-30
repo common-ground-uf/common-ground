@@ -1,7 +1,7 @@
-import React from "react";
-import { Restaurant } from "../commonTypes";
-import { StyleSheet, ScrollView } from "react-native";
-import { RestaurantCard } from "../components/RestaurantCard";
+import React from 'react';
+import { Restaurant } from '../commonTypes';
+import { StyleSheet, ScrollView } from 'react-native';
+import { RestaurantCard } from '../components/RestaurantCard';
 
 const styles = StyleSheet.create({
   restaurantList: {

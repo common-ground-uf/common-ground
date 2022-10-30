@@ -1,7 +1,7 @@
-import React from "react";
-import { Text, View, TextInput, Button, Image } from "react-native";
-import { loginSignupStyles as styles } from "../styles/LoginSingup";
-import forgot from "../assets/forgot.png";
+import React from 'react';
+import { Text, View, TextInput, Button, Image } from 'react-native';
+import { loginSignupStyles as styles } from '../styles/LoginSingup';
+import forgot from '../assets/forgot.png';
 
 type ForgorPasswordProps = {
   navigation: {
@@ -11,19 +11,19 @@ type ForgorPasswordProps = {
 };
 
 function ForgorPassword(props: ForgorPasswordProps) {
-  const [email, setEmail] = React.useState<string>("");
-  const [code, setCode] = React.useState<string>("");
+  const [email, setEmail] = React.useState<string>('');
+  const [code, setCode] = React.useState<string>('');
   const [expectingEmail, setExpectingEmail] = React.useState<boolean>(true);
 
   const sendEmail = () => {
-    if (email !== "") {
+    if (email !== '') {
       // TODO: check that it's a valid email
       setExpectingEmail(false);
     }
   };
 
   const resetPassword = () => {
-    props.navigation.navigate("ResetPassword");
+    props.navigation.navigate('ResetPassword');
   };
 
   return (

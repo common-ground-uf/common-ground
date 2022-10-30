@@ -1,7 +1,7 @@
-import React from "react";
-import { Button, TextInput, View } from "react-native";
-import { loginSignupStyles } from "../styles/LoginSingup";
-import { saulProfile } from "../data/dummyUsers";
+import React from 'react';
+import { Button, TextInput, View } from 'react-native';
+import { loginSignupStyles } from '../styles/LoginSingup';
+import { saulProfile } from '../data/dummyUsers';
 
 function Account() {
   // used to give initial values to the text fields
@@ -13,7 +13,7 @@ function Account() {
   const [location, setLocation] = React.useState<string>(profile.location);
 
   const onPressSave = () => {
-    console.log("saved");
+    console.log('saved');
   };
 
   return (

@@ -1,22 +1,22 @@
-import React from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
-import { NavigationContext } from "@react-navigation/native";
-import group from "../assets/group.png";
-import person from "../assets/person.png";
-import search from "../assets/search.png";
+import React from 'react';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { NavigationContext } from '@react-navigation/native';
+import group from '../assets/group.png';
+import person from '../assets/person.png';
+import search from '../assets/search.png';
 
 const styles = StyleSheet.create({
   navbar: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 20,
-    width: "90%",
-    backgroundColor: "#FFF9E2",
-    marginHorizontal: "5%",
+    width: '90%',
+    backgroundColor: '#FFF9E2',
+    marginHorizontal: '5%',
     padding: 20,
     borderRadius: 28.5,
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   item: {},
   image: {
@@ -29,15 +29,15 @@ const styles = StyleSheet.create({
 const navbarItems = [
   {
     image: group,
-    screen: "Home",
+    screen: 'Home',
   },
   {
     image: person,
-    screen: "Profile",
+    screen: 'Profile',
   },
   {
     image: search,
-    screen: "Home",
+    screen: 'Home',
   },
 ];
 

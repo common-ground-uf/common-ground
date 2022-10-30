@@ -1,7 +1,7 @@
-import React from "react";
-import { View, ScrollView, StyleSheet, Button } from "react-native";
-import { ContactBubble } from "../components/ContactBubble";
-import { allUsers } from "../data/dummyUsers";
+import React from 'react';
+import { View, ScrollView, StyleSheet, Button } from 'react-native';
+import { ContactBubble } from '../components/ContactBubble';
+import { allUsers } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
   startNewTable: {
@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   row: {
-    display: "flex",
-    flexDirection: "row",
+    display: 'flex',
+    flexDirection: 'row',
   },
 });
 
@@ -36,7 +36,7 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
   };
 
   const onPressNext = () => {
-    props.navigation.navigate("Strategic or random");
+    props.navigation.navigate('Strategic or random');
   };
 
   return (

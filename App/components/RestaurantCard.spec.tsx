@@ -1,19 +1,19 @@
-import { RestaurantCard } from "./RestaurantCard";
-import { render } from "@testing-library/react-native";
-import React from "react";
-import { elCamino, losPollosHermanos } from "../data/dummyRestaurants";
+import { RestaurantCard } from './RestaurantCard';
+import { render } from '@testing-library/react-native';
+import React from 'react';
+import { elCamino, losPollosHermanos } from '../data/dummyRestaurants';
 
 jest.mock(
-  "react-native-vector-icons/FontAwesome",
-  () => "MockedFontAwesomeIcons"
+  'react-native-vector-icons/FontAwesome',
+  () => 'MockedFontAwesomeIcons'
 );
 
-describe("RestaurantCard", () => {
+describe('RestaurantCard', () => {
   const dummyNavigation = {
-    navigate: "",
+    navigate: '',
   };
 
-  it("Renders a RestaurantCard correctly", () => {
+  it('Renders a RestaurantCard correctly', () => {
     const result = render(
       <RestaurantCard navigation={dummyNavigation} {...losPollosHermanos} />
     );
@@ -21,7 +21,7 @@ describe("RestaurantCard", () => {
     expect(result.toJSON()).toMatchSnapshot();
   });
 
-  it("Renders another RestaurantCard correctly", () => {
+  it('Renders another RestaurantCard correctly', () => {
     const result = render(
       <RestaurantCard navigation={dummyNavigation} {...elCamino} />
     );

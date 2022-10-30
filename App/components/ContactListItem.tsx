@@ -1,15 +1,15 @@
-import React from "react";
-import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { Contact } from "../commonTypes";
-import { mapContactToProfile } from "../utils";
-import Icon from "react-native-vector-icons/FontAwesome";
+import React from 'react';
+import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Contact } from '../commonTypes';
+import { mapContactToProfile } from '../utils';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const styles = StyleSheet.create({
   memberContainer: {
     marginTop: 15,
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   image: {
     width: 50,
@@ -19,14 +19,14 @@ const styles = StyleSheet.create({
   },
   horizontalLine: {
     height: 1,
-    width: "100%",
-    backgroundColor: "#bbb",
+    width: '100%',
+    backgroundColor: '#bbb',
     marginTop: 15,
   },
   closeIcon: {
     width: 32,
     height: 32,
-    marginLeft: "auto",
+    marginLeft: 'auto',
   },
 });
 
@@ -40,7 +40,7 @@ type ContactListItemProps = {
 
 export const ContactListItem = (props: ContactListItemProps) => {
   const navigate = () => {
-    props.navigate("Profile", {
+    props.navigate('Profile', {
       profileData: mapContactToProfile(props.memberData),
     });
   };

@@ -1,5 +1,5 @@
-import axios from "axios";
-import "dotenv/config";
+import axios from 'axios';
+import 'dotenv/config';
 
 // Surface level info about a business
 export interface Business {
@@ -100,22 +100,22 @@ interface BusinessSearchResponse {
 }
 
 const yelp = axios.create({
-  baseURL: "https://api.yelp.com/v3/businesses",
+  baseURL: 'https://api.yelp.com/v3/businesses',
   headers: {
-    Authorization: "Bearer " + process.env.YELP_API_KEY,
+    Authorization: 'Bearer ' + process.env.YELP_API_KEY,
   },
 });
 
 export async function getBusinessesByLocation(
   location: string
 ): Promise<Business[]> {
-  console.log("API KEY: " + JSON.stringify(process.env.YELP_API_KEY));
+  console.log('API KEY: ' + JSON.stringify(process.env.YELP_API_KEY));
 
   return (
     (
-      await yelp.get("/search", {
+      await yelp.get('/search', {
         params: {
-          term: "food",
+          term: 'food',
           location: location,
         },
       })
@@ -129,9 +129,9 @@ export async function getBusinessesByLocationRange(
 ): Promise<Business[]> {
   return (
     (
-      await yelp.get("/search", {
+      await yelp.get('/search', {
         params: {
-          term: "food",
+          term: 'food',
           location: location,
           radius: range,
         },

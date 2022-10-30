@@ -1,10 +1,10 @@
-import React from "react";
-import { TouchableOpacity, Image, StyleSheet, Text } from "react-native";
+import React from 'react';
+import { TouchableOpacity, Image, StyleSheet, Text } from 'react-native';
 
 const styles = StyleSheet.create({
   contactMain: {
-    justifyContent: "center",
-    textAlign: "center",
+    justifyContent: 'center',
+    textAlign: 'center',
   },
   image: {
     width: 85,
@@ -13,13 +13,13 @@ const styles = StyleSheet.create({
     marginRight: 16,
   },
   text: {
-    marginRight: "auto",
-    marginLeft: "auto",
+    marginRight: 'auto',
+    marginLeft: 'auto',
     marginTop: 8,
   },
   selected: {
-    borderStyle: "solid",
-    borderColor: "#fdb346",
+    borderStyle: 'solid',
+    borderColor: '#fdb346',
     borderWidth: 4,
   },
 });

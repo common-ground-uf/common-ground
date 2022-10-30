@@ -1,12 +1,12 @@
-import React from "react";
-import { View, StyleSheet, Image } from "react-native";
-import CommonGround from "../assets/CommonGround.png";
+import React from 'react';
+import { View, StyleSheet, Image } from 'react-native';
+import CommonGround from '../assets/CommonGround.png';
 
 const styles = StyleSheet.create({
   image: {
-    width: "100%",
+    width: '100%',
     height: 250,
-    alignSelf: "center",
+    alignSelf: 'center',
   },
 });
 

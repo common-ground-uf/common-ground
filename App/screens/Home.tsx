@@ -1,37 +1,37 @@
-import React from "react";
-import { Text, View, StyleSheet, ScrollView, Button } from "react-native";
-import { GroupBubbles } from "../components/GroupBubbles";
-import { RestaurantBubble } from "../components/RestaurantBubble";
-import { parties, saulProfile } from "../data/dummyUsers";
+import React from 'react';
+import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
+import { GroupBubbles } from '../components/GroupBubbles';
+import { RestaurantBubble } from '../components/RestaurantBubble';
+import { parties, saulProfile } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
   welcome: {
     fontSize: 28,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20,
     paddingHorizontal: 20,
     paddingTop: 20,
   },
   startNewTableWrapper: {
-    color: "black",
-    marginLeft: "auto",
-    marginRight: "auto",
+    color: 'black',
+    marginLeft: 'auto',
+    marginRight: 'auto',
     borderRadius: 6,
     marginTop: 8,
     marginBottom: 20,
   },
   sectionTitle: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 12,
     marginTop: 20,
     paddingHorizontal: 20,
   },
   row: {
-    display: "flex",
-    flexDirection: "row",
-    overflowX: "scroll",
-    flexWrap: "nowrap",
+    display: 'flex',
+    flexDirection: 'row',
+    overflowX: 'scroll',
+    flexWrap: 'nowrap',
   },
   restaurantBubble: {
     marginLeft: 20,
@@ -50,23 +50,23 @@ type HomeProps = {
 
 function Home(props: HomeProps) {
   const restaurant = {
-    name: "Los Pollos Hermanos",
+    name: 'Los Pollos Hermanos',
     thumbnail:
-      "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+      'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
   };
 
   const onClickRestaurant = () => {
-    props.navigation.navigate("Restaurant");
+    props.navigation.navigate('Restaurant');
   };
 
   const onClickGroup = () => {
-    props.navigation.navigate("Group Details");
+    props.navigation.navigate('Group Details');
   };
 
   const recentlyVisited = [restaurant, restaurant, restaurant];
 
   const onPressStartANewTable = () => {
-    props.navigation.navigate("Start New Table");
+    props.navigation.navigate('Start New Table');
   };
 
   return (
@@ -105,7 +105,7 @@ function Home(props: HomeProps) {
         {parties.map((party, index) => (
           <GroupBubbles
             members={party.members}
-            name={party["name"]}
+            name={party['name']}
             onClick={onClickGroup}
             style={styles.restaurantBubble}
             key={index}

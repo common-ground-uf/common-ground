@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   ScrollView,
   TouchableOpacity,
@@ -7,26 +7,26 @@ import {
   Text,
   StyleSheet,
   Button,
-} from "react-native";
-import { Contact, Profile } from "../commonTypes";
-import { Chip } from "../components/Chip";
-import { ContactBubble } from "../components/ContactBubble";
-import { RestaurantBubble } from "../components/RestaurantBubble";
-import { mapContactToProfile } from "../utils";
+} from 'react-native';
+import { Contact, Profile } from '../commonTypes';
+import { Chip } from '../components/Chip';
+import { ContactBubble } from '../components/ContactBubble';
+import { RestaurantBubble } from '../components/RestaurantBubble';
+import { mapContactToProfile } from '../utils';
 
 const styles = StyleSheet.create({
   profile: {
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 20,
-    backgroundColor: "white",
-    height: "100%",
+    backgroundColor: 'white',
+    height: '100%',
   },
   settings: {
     width: 32,
     height: 32,
-    paddings: "100%",
-    position: "absolute",
+    paddings: '100%',
+    position: 'absolute',
     top: 0,
     right: 0,
   },
@@ -34,36 +34,36 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     borderRadius: 75,
-    marginLeft: "auto",
-    marginRight: "auto",
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   center: {
     marginTop: 20,
     marginBottom: 20,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   name: {
-    marginLeft: "auto",
-    marginRight: "auto",
+    marginLeft: 'auto',
+    marginRight: 'auto',
     marginTop: 15,
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   row: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "baseline",
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'baseline',
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginTop: 30,
     marginBottom: 12,
-    marginRight: "auto",
+    marginRight: 'auto',
   },
   chipContainer: {
-    display: "flex",
-    flexDirection: "row",
+    display: 'flex',
+    flexDirection: 'row',
   },
   bubble: {
     marginRight: 10,
@@ -81,35 +81,35 @@ type ProfilePageProps = {
 };
 
 function ProfileScreen(props: ProfilePageProps) {
-  const selfId = "4";
+  const selfId = '4';
 
   // this is true if the user is looking at their own profile
   const myProfile = props.route.params.profileData.id === selfId;
 
   const onPressRestaurant = () => {
-    props.navigation.navigate("Restaurant");
+    props.navigation.navigate('Restaurant');
   };
 
   const onPressContact = (contact: Contact) => {
-    props.navigation.navigate("Profile", {
+    props.navigation.navigate('Profile', {
       profileData: mapContactToProfile(contact),
     });
   };
 
   const onPressSettings = () => {
-    props.navigation.navigate("Settings");
+    props.navigation.navigate('Settings');
   };
 
   const onPressEditPreferences = () => {
-    props.navigation.navigate("Preferences");
+    props.navigation.navigate('Preferences');
   };
 
   const onPressSeeAllPicks = () => {
-    props.navigation.navigate("Restaurant List");
+    props.navigation.navigate('Restaurant List');
   };
 
   const onPressSeeAllContacts = () => {
-    props.navigation.navigate("All Contacts");
+    props.navigation.navigate('All Contacts');
   };
 
   if (!props.route.params.profileData) return <></>;
@@ -120,7 +120,7 @@ function ProfileScreen(props: ProfilePageProps) {
         <View style={styles.center}>
           <TouchableOpacity onPress={onPressSettings}>
             <Image
-              source={require("../assets/settings.png")}
+              source={require('../assets/settings.png')}
               style={styles.settings}
             />
           </TouchableOpacity>

@@ -1,14 +1,14 @@
-import React from "react";
-import { ReviewProps } from "../commonTypes";
-import { Text, View, StyleSheet } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import React from 'react';
+import { ReviewProps } from '../commonTypes';
+import { Text, View, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const styles = StyleSheet.create({
   grid: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "100%",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
   },
   gridItem: {
     padding: 10,

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   View,
   FlatList,
@@ -6,30 +6,30 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-} from "react-native";
-import { Contact, Profile } from "../commonTypes";
-import { ContactListItem } from "../components/ContactListItem";
+} from 'react-native';
+import { Contact, Profile } from '../commonTypes';
+import { ContactListItem } from '../components/ContactListItem';
 
 const styles = StyleSheet.create({
   groupDetails: {
     padding: 20,
-    backgroundColor: "white",
-    height: "100%",
+    backgroundColor: 'white',
+    height: '100%',
   },
   settings: {
     width: 32,
     height: 32,
-    paddings: "100%",
+    paddings: '100%',
     opacity: 0.6,
   },
   topRow: {
-    display: "flex",
-    flexDirection: "row",
-    width: "100%",
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
     marginTop: 20,
     marginBottom: 20,
-    justifyContent: "space-between",
-    alignItems: "center",
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   groupName: {
     fontSize: 20,
@@ -70,7 +70,7 @@ function GroupDetails(props: GroupDetailsProps) {
         <Text style={styles.groupName}>{groupName}</Text>
         <TouchableOpacity onPress={onClickSettings}>
           <Image
-            source={require("../assets/settings.png")}
+            source={require('../assets/settings.png')}
             style={styles.settings}
           />
         </TouchableOpacity>

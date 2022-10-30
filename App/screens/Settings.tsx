@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Text,
   View,
@@ -6,9 +6,9 @@ import {
   StyleSheet,
   TouchableOpacity,
   ImageSourcePropType,
-} from "react-native";
-import { loginSignupStyles } from "../styles/LoginSingup";
-import Icon from "react-native-vector-icons/FontAwesome";
+} from 'react-native';
+import { loginSignupStyles } from '../styles/LoginSingup';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const styles = StyleSheet.create({
   groupDetails: {
@@ -16,10 +16,10 @@ const styles = StyleSheet.create({
   },
   memberContainer: {
     marginTop: 15,
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    width: "100%",
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
   },
   image: {
     width: 24,
@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
   },
   horizontalLine: {
     height: 1,
-    width: "100%",
-    backgroundColor: "#bbb",
+    width: '100%',
+    backgroundColor: '#bbb',
     marginTop: 15,
   },
 });
@@ -67,18 +67,18 @@ const Setting = (props: SettingProps) => {
 
 function Settings(props: SettingsProps) {
   const Account = {
-    name: "Account",
-    image: "user",
+    name: 'Account',
+    image: 'user',
     navigation: props.navigation,
   };
   const Privacy = {
-    name: "Privacy",
-    image: "shield",
+    name: 'Privacy',
+    image: 'shield',
     navigation: props.navigation,
   };
   const Notifications = {
-    name: "Notifications",
-    image: "bell",
+    name: 'Notifications',
+    image: 'bell',
     navigation: props.navigation,
   };
   const members = [Account, Privacy, Notifications];
@@ -87,7 +87,7 @@ function Settings(props: SettingsProps) {
       <FlatList
         data={members}
         renderItem={(member) => <Setting {...member.item} />}
-        style={{ width: "100%" }}
+        style={{ width: '100%' }}
       />
     </View>
   );

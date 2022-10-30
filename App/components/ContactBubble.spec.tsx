@@ -3,6 +3,9 @@ import { render } from '@testing-library/react-native';
 import React from 'react';
 import { saulProfile } from '../data/dummyUsers';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const noop = () => {};
+
 describe('ContactBubble', () => {
   it('Renders a ContactBubble correctly', () => {
     const result = render(
@@ -10,7 +13,7 @@ describe('ContactBubble', () => {
         profilePic={saulProfile.profilePic}
         firstName={saulProfile.firstName}
         lastName={saulProfile.lastName}
-        onPress={() => {}}
+        onPress={noop}
       />
     );
 
@@ -23,7 +26,7 @@ describe('ContactBubble', () => {
         profilePic={saulProfile.profilePic}
         firstName={saulProfile.firstName}
         lastName={saulProfile.lastName}
-        onPress={() => {}}
+        onPress={noop}
         selected={true}
       />
     );

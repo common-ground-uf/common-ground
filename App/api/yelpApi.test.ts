@@ -6,10 +6,10 @@ I'll make this work later by configuring circle-ci to use a yelp api key that I'
 
 */
 
-import { describe, expect, test } from "@jest/globals";
+import { describe, expect, test } from '@jest/globals';
 
-describe("Test test", () => {
-  test("ADD ACTUAL TESTS FOR PriceRating.tsx HERE", () => {
+describe('Test test', () => {
+  test('ADD ACTUAL TESTS FOR PriceRating.tsx HERE', () => {
     expect(true).toBe(true);
   });
 });

@@ -1,7 +1,7 @@
-import React from "react";
-import { Text, View, StyleSheet, ScrollView, TextInput } from "react-native";
-import { RestaurantBubble } from "../components/RestaurantBubble";
-import { exploreSections } from "../data/dummyRestaurants";
+import React from 'react';
+import { Text, View, StyleSheet, ScrollView, TextInput } from 'react-native';
+import { RestaurantBubble } from '../components/RestaurantBubble';
+import { exploreSections } from '../data/dummyRestaurants';
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -9,41 +9,41 @@ const styles = StyleSheet.create({
   },
   welcome: {
     fontSize: 28,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20,
   },
   startNewTableWrapper: {
-    color: "black",
-    marginLeft: "auto",
-    marginRight: "auto",
+    color: 'black',
+    marginLeft: 'auto',
+    marginRight: 'auto',
     borderRadius: 6,
     marginTop: 8,
     marginBottom: 20,
   },
   sectionTitle: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 12,
     marginTop: 20,
     marginLeft: 20,
   },
   row: {
-    display: "flex",
-    flexDirection: "row",
-    overflowX: "scroll",
-    flexWrap: "nowrap",
+    display: 'flex',
+    flexDirection: 'row',
+    overflowX: 'scroll',
+    flexWrap: 'nowrap',
   },
   verticalSpace: {
-    width: "100%",
+    width: '100%',
     height: 50,
   },
   input: {
     height: 40,
     marginBottom: 10,
     borderWidth: 1,
-    width: "95%",
+    width: '95%',
     borderRadius: 20,
-    marginHorizontal: "2.5%",
+    marginHorizontal: '2.5%',
   },
   bubble: {
     marginLeft: 20,
@@ -58,9 +58,9 @@ type HomeProps = {
 };
 
 function Explore(props: HomeProps) {
-  const [search, setSearch] = React.useState("");
+  const [search, setSearch] = React.useState('');
   const onClickRestaurant = () => {
-    props.navigation.navigate("Restaurant");
+    props.navigation.navigate('Restaurant');
   };
 
   return (
