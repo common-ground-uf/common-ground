@@ -14,8 +14,6 @@
     "clear_jest": "jest --clearCache",
     "update-snapshot": "npm test -- -u",
     "prettier": "npx prettier --write .",
-    "i": "npm install --legacy-peer-deps",
-    "install": "npm install --legacy-peer-deps"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.4.0",
