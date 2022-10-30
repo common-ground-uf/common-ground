@@ -1,27 +1,37 @@
-import React from 'react';
-import { View, StyleSheet, Image, Text, TextInput, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native';
-import {messages} from '../data/dummyData';
-import Icon from 'react-native-vector-icons/Ionicons';
+import React from "react";
+import {
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  TextInput,
+  KeyboardAvoidingView,
+  Platform,
+  TouchableWithoutFeedback,
+  Keyboard,
+  TouchableOpacity,
+} from "react-native";
+import { messages } from "../data/dummyData";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const styles = StyleSheet.create({
   messagesScreen: {
-    height: '100%',
+    height: "100%",
   },
-  messagesContainer: {
-  },
+  messagesContainer: {},
   selfMessageContainer: {
-    flexDirection: 'row-reverse'
+    flexDirection: "row-reverse",
   },
   messageContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'flex-start',
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-start",
     marginTop: 10,
   },
   messageBubble: {
     borderRadius: 25,
     padding: 10,
-    backgroundColor: '#444',
+    backgroundColor: "#444",
   },
   profilePic: {
     width: 30,
@@ -30,17 +40,17 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   content: {
-    color: 'white',
+    color: "white",
     fontSize: 16,
   },
   textField: {
     borderWidth: 1,
-    width: '100%',
-    backgroundColor: '#aaa',
-    marginTop: 'auto',
+    width: "100%",
+    backgroundColor: "#aaa",
+    marginTop: "auto",
   },
   selfMessageBubble: {
-    backgroundColor: '#ff6666',
+    backgroundColor: "#ff6666",
   },
   container: {
     flex: 1,
@@ -48,8 +58,8 @@ const styles = StyleSheet.create({
   },
   inner: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   textInputContainer: {
     flexGrow: 1,
@@ -61,7 +71,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     minHeight: 40,
-    borderColor: '#000000',
+    borderColor: "#000000",
     padding: 10,
   },
   btnContainer: {
@@ -73,14 +83,14 @@ const styles = StyleSheet.create({
     flexShrink: 0,
   },
   row: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'nowrap',
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
     minWidth: 0,
-    width: '100%',
-    maxWidth: '100%',
-    boxSizing: 'border-box',
-  }
+    width: "100%",
+    maxWidth: "100%",
+    boxSizing: "border-box",
+  },
 });
 
 type MessageProps = {
@@ -92,29 +102,45 @@ type MessageProps = {
 
 function Message(props: MessageProps) {
   return (
-    <View style={[styles.messageContainer,props.self?styles.selfMessageContainer:null]}>
-      <Image source={{uri:props.profilePic}} style={styles.profilePic}/>
-      <View style={[styles.messageBubble, props.self?styles.selfMessageBubble:null]}>
+    <View
+      style={[
+        styles.messageContainer,
+        props.self ? styles.selfMessageContainer : null,
+      ]}
+    >
+      <Image source={{ uri: props.profilePic }} style={styles.profilePic} />
+      <View
+        style={[
+          styles.messageBubble,
+          props.self ? styles.selfMessageBubble : null,
+        ]}
+      >
         <Text style={styles.content}>{props.content}</Text>
       </View>
     </View>
-    );
+  );
 }
 
 function MessagesScreen() {
-  const self = 'Saul';
+  const self = "Saul";
 
-  const [messageInput, setMessageInput] = React.useState('');
+  const [messageInput, setMessageInput] = React.useState("");
 
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
           <View style={styles.messagesContainer}>
-            {messages.map((message, index) => <Message key={index} {...message} self={self===message.author}/>)}
+            {messages.map((message, index) => (
+              <Message
+                key={index}
+                {...message}
+                self={self === message.author}
+              />
+            ))}
           </View>
           <View style={styles.row}>
             <View style={styles.textInputContainer}>
@@ -127,8 +153,8 @@ function MessagesScreen() {
               />
             </View>
             <View style={styles.btnContainer}>
-              <TouchableOpacity >
-                <Icon name='send' size={24} onPress={() => null} />
+              <TouchableOpacity>
+                <Icon name="send" size={24} onPress={() => null} />
               </TouchableOpacity>
             </View>
           </View>

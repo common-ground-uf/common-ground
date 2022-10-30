@@ -1,32 +1,32 @@
-import React from 'react';
-import { View, FlatList, Text, StyleSheet } from 'react-native';
-import { Contact, Profile } from '../commonTypes';
-import { ContactListItem } from '../components/ContactListItem';
+import React from "react";
+import { View, FlatList, Text, StyleSheet } from "react-native";
+import { Contact, Profile } from "../commonTypes";
+import { ContactListItem } from "../components/ContactListItem";
 
 const styles = StyleSheet.create({
   groupDetails: {
     padding: 20,
-    backgroundColor: 'white',
-    height: '100%',
+    backgroundColor: "white",
+    height: "100%",
   },
   settings: {
     width: 32,
     height: 32,
-    paddings: '100%',
-    opacity: .6,
+    paddings: "100%",
+    opacity: 0.6,
   },
   topRow: {
-    display: 'flex',
-    flexDirection: 'row',
-    width: '100%',
+    display: "flex",
+    flexDirection: "row",
+    width: "100%",
     marginTop: 20,
     marginBottom: 20,
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   groupName: {
     fontSize: 20,
-  }
+  },
 });
 
 type AllContactsScreenProps = {
@@ -34,19 +34,22 @@ type AllContactsScreenProps = {
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     navigate: any;
-  },
+  };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   route: any;
 };
 
 function AllContactsScreen(props: AllContactsScreenProps) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [members, setMembers] = React.useState<Array<Profile>>(props.route.params.members);
+  const [members, setMembers] = React.useState<Array<Profile>>(
+    props.route.params.members
+  );
 
   return (
     <View style={styles.groupDetails}>
-      {members.length === 0 ?
-        <Text>Group is empty</Text> :
+      {members.length === 0 ? (
+        <Text>Group is empty</Text>
+      ) : (
         <FlatList
           data={members}
           renderItem={(member) => (
@@ -57,7 +60,7 @@ function AllContactsScreen(props: AllContactsScreenProps) {
             />
           )}
         />
-      }
+      )}
     </View>
   );
 }

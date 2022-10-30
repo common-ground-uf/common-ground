@@ -1,10 +1,10 @@
-import React from 'react';
-import { TouchableOpacity, Image, StyleSheet, Text } from 'react-native';
+import React from "react";
+import { TouchableOpacity, Image, StyleSheet, Text } from "react-native";
 
 const styles = StyleSheet.create({
   restaurantMain: {
-    justifyContent: 'center',
-    textAlign: 'center',
+    justifyContent: "center",
+    textAlign: "center",
   },
   image: {
     width: 100,
@@ -12,11 +12,11 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   text: {
-    marginRight: 'auto',
-    marginLeft: 'auto',
+    marginRight: "auto",
+    marginLeft: "auto",
     marginTop: 8,
     width: 100,
-    overflow: 'hidden',
+    overflow: "hidden",
   },
 });
 
@@ -26,15 +26,13 @@ type RestaurantBubbleProps = {
   onPress: () => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   style?: any;
-}
+};
 
 function RestaurantBubble(props: RestaurantBubbleProps) {
   return (
     <TouchableOpacity onPress={props.onPress} style={props.style}>
-      <Image style={styles.image} source={{ uri: props.thumbnail}}/>
-      <Text style={styles.text}>
-        {props.name}
-      </Text>
+      <Image style={styles.image} source={{ uri: props.thumbnail }} />
+      <Text style={styles.text}>{props["name"]}</Text>
     </TouchableOpacity>
   );
 }
