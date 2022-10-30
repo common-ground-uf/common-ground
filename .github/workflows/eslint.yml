@@ -39,7 +39,5 @@ jobs:
       - name: Run ESLint
         run: |
           cd App
-          npx eslint .
-            --config .eslintrc.js
-            --ext .js,.jsx,.ts,.tsx
+          npx eslint . --config .eslintrc.js --ext .js,.jsx,.ts,.tsx
         continue-on-error: false
