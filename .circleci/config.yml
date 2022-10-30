@@ -17,7 +17,7 @@ jobs:
           node-version: "16.17.0"
       - node/install-packages
       - run:
-          command: cd App && npm i
+          command: cd App && npm install --legacy-peer-deps
           name: Build frontend
       - run:
           command: cd Server && npm i && npm run build
