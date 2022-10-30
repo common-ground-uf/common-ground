@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start:web": "npm start --prefix App",
-    "start:server": "npm start --prefix Server",
+    "start:server": "npm start --prefix Server"
   },
   "devDependencies": {
     "husky": "^8.0.0"
