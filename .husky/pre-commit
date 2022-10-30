@@ -2,5 +2,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 cd App
-npx pretty-quick --staged
+npx eslint-staged --fix
 npx -p prettier@latest -p pretty-quick pretty-quick
