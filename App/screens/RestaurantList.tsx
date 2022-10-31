@@ -16,13 +16,16 @@ type RestaurantListProps = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     navigate: any;
   };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  route: any;
+  route: {
+    params: {
+      restaurantList: Restaurant[];
+    }
+  };
   restaurantList: Restaurant[];
 };
 
 function RestaurantList(props: RestaurantListProps) {
-  const restaurantList = props.route.params.restaurantList;
+  const restaurantList: Restaurant[] = props.route.params.restaurantList;
 
   if (!restaurantList || restaurantList.length === 0) {
     return null;

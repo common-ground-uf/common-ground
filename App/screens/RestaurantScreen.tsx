@@ -13,16 +13,6 @@ import { Review } from '../components/Review';
 import { gallery } from '../data/dummyData';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-type RestaurantScreenProps = {
-  navigation: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    navigate: any;
-  };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  route: any;
-  restaurant: Restaurant;
-};
-
 const styles = StyleSheet.create({
   image: {
     width: '100%',
@@ -62,6 +52,20 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
 });
+
+type RestaurantScreenProps = {
+  navigation: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    navigate: any;
+  };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  route: {
+    params: {
+      restaurant: Restaurant;
+    }
+  };
+  restaurant: Restaurant;
+};
 
 function RestaurantScreen(props: RestaurantScreenProps) {
   const restaurant = props.route.params.restaurant;

@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
 function Gallery() {
   const [modalVisible, setModalVisible] = React.useState(false);
   const [expandedImage, setExpandedImage] = React.useState('');
-  const onPressThumbnail = (image) => {
+  const onPressThumbnail = (image:string) => {
     setModalVisible(true);
     setExpandedImage(image);
   };

@@ -126,6 +126,11 @@ function MessagesScreen() {
 
   const [messageInput, setMessageInput] = React.useState('');
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleTextInputChange = (e:any) => {
+    setMessageInput(e.target.value);
+  };
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -149,7 +154,7 @@ function MessagesScreen() {
                 style={styles.textInput}
                 multiline={true}
                 value={messageInput}
-                onChange={setMessageInput}
+                onChange={handleTextInputChange}
               />
             </View>
             <View style={styles.btnContainer}>

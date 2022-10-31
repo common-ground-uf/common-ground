@@ -1,0 +1,2203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileScreen Renders Explore screen correctly 1`] = `
+<RCTScrollView
+  style={
+    {
+      "paddingVertical": 20,
+    }
+  }
+>
+  <View>
+    <TextInput
+      onChangeText={[Function]}
+      placeholder="search"
+      style={
+        {
+          "borderRadius": 20,
+          "borderWidth": 1,
+          "height": 40,
+          "marginBottom": 10,
+          "marginHorizontal": "2.5%",
+          "width": "95%",
+        }
+      }
+      value=""
+    />
+    <View>
+      <Text
+        style={
+          {
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginBottom": 12,
+            "marginLeft": 20,
+            "marginTop": 20,
+          }
+        }
+      >
+        Chicken restaurants (not meth)
+      </Text>
+      <RCTScrollView
+        horizontal={true}
+        style={
+          {
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "nowrap",
+            "overflowX": "scroll",
+          }
+        }
+      >
+        <View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+    <View>
+      <Text
+        style={
+          {
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginBottom": 12,
+            "marginLeft": 20,
+            "marginTop": 20,
+          }
+        }
+      >
+        Local favorites
+      </Text>
+      <RCTScrollView
+        horizontal={true}
+        style={
+          {
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "nowrap",
+            "overflowX": "scroll",
+          }
+        }
+      >
+        <View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+    <View>
+      <Text
+        style={
+          {
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginBottom": 12,
+            "marginLeft": 20,
+            "marginTop": 20,
+          }
+        }
+      >
+        Late night bites
+      </Text>
+      <RCTScrollView
+        horizontal={true}
+        style={
+          {
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "nowrap",
+            "overflowX": "scroll",
+          }
+        }
+      >
+        <View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+    <View>
+      <Text
+        style={
+          {
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginBottom": 12,
+            "marginLeft": 20,
+            "marginTop": 20,
+          }
+        }
+      >
+        American
+      </Text>
+      <RCTScrollView
+        horizontal={true}
+        style={
+          {
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "nowrap",
+            "overflowX": "scroll",
+          }
+        }
+      >
+        <View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+    <View>
+      <Text
+        style={
+          {
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginBottom": 12,
+            "marginLeft": 20,
+            "marginTop": 20,
+          }
+        }
+      >
+        Vegetarian (kind of)
+      </Text>
+      <RCTScrollView
+        horizontal={true}
+        style={
+          {
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "nowrap",
+            "overflowX": "scroll",
+          }
+        }
+      >
+        <View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+    <View
+      style={
+        {
+          "height": 50,
+          "width": "100%",
+        }
+      }
+    />
+  </View>
+</RCTScrollView>
+`;
+
+exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
+<RCTScrollView
+  style={
+    {
+      "paddingVertical": 20,
+    }
+  }
+>
+  <View>
+    <TextInput
+      onChangeText={[Function]}
+      placeholder="search"
+      style={
+        {
+          "borderRadius": 20,
+          "borderWidth": 1,
+          "height": 40,
+          "marginBottom": 10,
+          "marginHorizontal": "2.5%",
+          "width": "95%",
+        }
+      }
+      value=""
+    />
+    <View>
+      <Text
+        style={
+          {
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginBottom": 12,
+            "marginLeft": 20,
+            "marginTop": 20,
+          }
+        }
+      >
+        Chicken restaurants (not meth)
+      </Text>
+      <RCTScrollView
+        horizontal={true}
+        style={
+          {
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "nowrap",
+            "overflowX": "scroll",
+          }
+        }
+      >
+        <View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+    <View>
+      <Text
+        style={
+          {
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginBottom": 12,
+            "marginLeft": 20,
+            "marginTop": 20,
+          }
+        }
+      >
+        Local favorites
+      </Text>
+      <RCTScrollView
+        horizontal={true}
+        style={
+          {
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "nowrap",
+            "overflowX": "scroll",
+          }
+        }
+      >
+        <View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+    <View>
+      <Text
+        style={
+          {
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginBottom": 12,
+            "marginLeft": 20,
+            "marginTop": 20,
+          }
+        }
+      >
+        Late night bites
+      </Text>
+      <RCTScrollView
+        horizontal={true}
+        style={
+          {
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "nowrap",
+            "overflowX": "scroll",
+          }
+        }
+      >
+        <View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+    <View>
+      <Text
+        style={
+          {
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginBottom": 12,
+            "marginLeft": 20,
+            "marginTop": 20,
+          }
+        }
+      >
+        American
+      </Text>
+      <RCTScrollView
+        horizontal={true}
+        style={
+          {
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "nowrap",
+            "overflowX": "scroll",
+          }
+        }
+      >
+        <View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+    <View>
+      <Text
+        style={
+          {
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginBottom": 12,
+            "marginLeft": 20,
+            "marginTop": 20,
+          }
+        }
+      >
+        Vegetarian (kind of)
+      </Text>
+      <RCTScrollView
+        horizontal={true}
+        style={
+          {
+            "display": "flex",
+            "flexDirection": "row",
+            "flexWrap": "nowrap",
+            "overflowX": "scroll",
+          }
+        }
+      >
+        <View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "marginLeft": 20,
+                "opacity": 1,
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+                }
+              }
+              style={
+                {
+                  "borderRadius": 8,
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
+                  "marginTop": 8,
+                  "overflow": "hidden",
+                  "width": 100,
+                }
+              }
+            >
+              Los Pollos Hermanos
+            </Text>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+    <View
+      style={
+        {
+          "height": 50,
+          "width": "100%",
+        }
+      }
+    />
+  </View>
+</RCTScrollView>
+`;

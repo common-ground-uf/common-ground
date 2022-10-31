@@ -77,14 +77,19 @@ type ProfilePageProps = {
   };
   profileData: Profile;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  route: any;
+  route: {
+    params: {
+      profileData: Profile;
+    }
+  }
 };
 
 function ProfileScreen(props: ProfilePageProps) {
   const selfId = '4';
 
   // this is true if the user is looking at their own profile
-  const myProfile = props.route.params.profileData.id === selfId;
+  const isMyProfile = props.route.params.profileData.id === selfId;
+  const profileData = props.route.params.profileData;
 
   const onPressRestaurant = () => {
     props.navigation.navigate('Restaurant');
@@ -112,11 +117,11 @@ function ProfileScreen(props: ProfilePageProps) {
     props.navigation.navigate('All Contacts');
   };
 
-  if (!props.route.params.profileData) return <></>;
+  if (!profileData) return <></>;
 
   return (
     <ScrollView style={styles.profile}>
-      {myProfile && (
+      {isMyProfile && (
         <View style={styles.center}>
           <TouchableOpacity onPress={onPressSettings}>
             <Image
@@ -131,14 +136,14 @@ function ProfileScreen(props: ProfilePageProps) {
           source={{ uri: props.route.params.profileData.profilePic }}
           style={styles.image}
         />
-        <Text style={styles.name}>{props.route.params.profileData.name}</Text>
+        <Text style={styles.name}>{profileData.firstName} {profileData.lastName}</Text>
       </View>
       <View style={styles.row}>
         <Text style={styles.sectionTitle}>Preferences</Text>
         <Button onPress={onPressEditPreferences} title="Edit" />
       </View>
       <View style={styles.chipContainer}>
-        {props.route.params.profileData.preferences.map((preference, index) => (
+        {profileData.preferences.map((preference, index) => (
           <Chip text={preference} key={index} />
         ))}
       </View>
@@ -147,7 +152,7 @@ function ProfileScreen(props: ProfilePageProps) {
         <Button onPress={onPressSeeAllPicks} title="See all" />
       </View>
       <View style={styles.row}>
-        {props.route.params.profileData.pastPicks.map((restaurant, index) => (
+        {profileData.pastPicks.map((restaurant, index) => (
           <RestaurantBubble
             {...restaurant}
             onPress={onPressRestaurant}
@@ -156,7 +161,7 @@ function ProfileScreen(props: ProfilePageProps) {
           />
         ))}
       </View>
-      {myProfile && (
+      {isMyProfile && (
         <>
           <View style={styles.row}>
             <Text style={styles.sectionTitle}>Your contacts</Text>

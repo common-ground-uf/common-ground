@@ -1,0 +1,498 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RestaurantList Handles when there are no restaurants 1`] = `null`;
+
+exports[`RestaurantList Renders RestaurantListPage correctly 1`] = `
+<RCTScrollView
+  style={
+    {
+      "paddingBottom": 20,
+      "paddingHorizontal": 10,
+      "paddingTop": 0,
+    }
+  }
+>
+  <View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+          "margin": 8,
+          "maxHWidth": "100%",
+          "opacity": 1,
+          "paddingHorizontal": 6,
+          "paddingVertical": 12,
+        }
+      }
+    >
+      <Image
+        source={
+          {
+            "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+          }
+        }
+        style={
+          {
+            "borderRadius": 4,
+            "height": 60,
+            "width": 60,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "width": 16,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flexGrow": 1,
+            "flexShrink": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "alignContent": "center",
+              "alignItems": "flex-start",
+              "display": "flex",
+              "marginBottom": 4,
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "fontSize": 16,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Los Pollos Hermanos
+          </Text>
+           
+          <Text>
+            3
+          </Text>
+          <MockedFontAwesomeicons
+            color="orange"
+            name="star"
+            size={16}
+          />
+        </Text>
+        <Text>
+          Fast-food chain serving Mexican-inspired fare such as tacos, quesadillas & nachos.
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "backgroundColor": "#bbb",
+          "height": 1,
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+          "margin": 8,
+          "maxHWidth": "100%",
+          "opacity": 1,
+          "paddingHorizontal": 6,
+          "paddingVertical": 12,
+        }
+      }
+    >
+      <Image
+        source={
+          {
+            "uri": "https://static.wikia.nocookie.net/breakingbad/images/c/c0/TacoSal.png/revision/latest?cb=20191120130106",
+          }
+        }
+        style={
+          {
+            "borderRadius": 4,
+            "height": 60,
+            "width": 60,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "width": 16,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flexGrow": 1,
+            "flexShrink": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "alignContent": "center",
+              "alignItems": "flex-start",
+              "display": "flex",
+              "marginBottom": 4,
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "fontSize": 16,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Taco Sal
+          </Text>
+           
+          <Text>
+            3
+          </Text>
+          <MockedFontAwesomeicons
+            color="orange"
+            name="star"
+            size={16}
+          />
+        </Text>
+        <Text>
+          Fast-food chain serving Mexican-inspired fare such as tacos, quesadillas & nachos.
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "backgroundColor": "#bbb",
+          "height": 1,
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+          "margin": 8,
+          "maxHWidth": "100%",
+          "opacity": 1,
+          "paddingHorizontal": 6,
+          "paddingVertical": 12,
+        }
+      }
+    >
+      <Image
+        source={
+          {
+            "uri": "https://www.breakingbad-locations.com/wp-content/uploads/2014/09/E06-Cornered.mkv_000921613.jpg",
+          }
+        }
+        style={
+          {
+            "borderRadius": 4,
+            "height": 60,
+            "width": 60,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "width": 16,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flexGrow": 1,
+            "flexShrink": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "alignContent": "center",
+              "alignItems": "flex-start",
+              "display": "flex",
+              "marginBottom": 4,
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "fontSize": 16,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Loyola's Family Restaurant
+          </Text>
+           
+          <Text>
+            3
+          </Text>
+          <MockedFontAwesomeicons
+            color="orange"
+            name="star"
+            size={16}
+          />
+        </Text>
+        <Text>
+          Fast-food chain serving Mexican-inspired fare such as tacos, quesadillas & nachos.
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "backgroundColor": "#bbb",
+          "height": 1,
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+          "margin": 8,
+          "maxHWidth": "100%",
+          "opacity": 1,
+          "paddingHorizontal": 6,
+          "paddingVertical": 12,
+        }
+      }
+    >
+      <Image
+        source={
+          {
+            "uri": "https://static.wikia.nocookie.net/breakingbad/images/c/cc/ElCamino.JPG/revision/latest?cb=20220503235617",
+          }
+        }
+        style={
+          {
+            "borderRadius": 4,
+            "height": 60,
+            "width": 60,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "width": 16,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flexGrow": 1,
+            "flexShrink": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "alignContent": "center",
+              "alignItems": "flex-start",
+              "display": "flex",
+              "marginBottom": 4,
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "fontSize": 16,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            El Camino
+          </Text>
+           
+          <Text>
+            3
+          </Text>
+          <MockedFontAwesomeicons
+            color="orange"
+            name="star"
+            size={16}
+          />
+        </Text>
+        <Text>
+          Fast-food chain serving Mexican-inspired fare such as tacos, quesadillas & nachos.
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "backgroundColor": "#bbb",
+          "height": 1,
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "display": "flex",
+          "flexDirection": "row",
+          "margin": 8,
+          "maxHWidth": "100%",
+          "opacity": 1,
+          "paddingHorizontal": 6,
+          "paddingVertical": 12,
+        }
+      }
+    >
+      <Image
+        source={
+          {
+            "uri": "https://www.tacobell.com/medias/blog-2019-new-menu-header.jpg?context=bWFzdGVyfGltYWdlc3wxNjYyNzd8aW1hZ2UvanBlZ3xpbWFnZXMvaDFhL2g5OC84OTI4NTEyMTE0NzE4LmpwZ3xjMjA5YzZjNTQyMmM0MWM1ZWE5N2Q1OGQ0NDJjYWVkMzdiNTE0MjMyMjRhMzhmMTZjNGEwYTc4YmMwOGYwOWYx",
+          }
+        }
+        style={
+          {
+            "borderRadius": 4,
+            "height": 60,
+            "width": 60,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "width": 16,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flexGrow": 1,
+            "flexShrink": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "alignContent": "center",
+              "alignItems": "flex-start",
+              "display": "flex",
+              "marginBottom": 4,
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "fontSize": 16,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Taco Bell
+          </Text>
+           
+          <Text>
+            3
+          </Text>
+          <MockedFontAwesomeicons
+            color="orange"
+            name="star"
+            size={16}
+          />
+        </Text>
+        <Text>
+          Fast-food chain serving Mexican-inspired fare such as tacos, quesadillas & nachos.
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        {
+          "backgroundColor": "#bbb",
+          "height": 1,
+          "width": "100%",
+        }
+      }
+    />
+  </View>
+</RCTScrollView>
+`;
