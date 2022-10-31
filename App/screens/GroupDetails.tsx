@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, FlatList, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  View,
+  FlatList,
+  Image,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import { Contact, Profile } from '../commonTypes';
 import { ContactListItem } from '../components/ContactListItem';
 
@@ -13,7 +20,7 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     paddings: '100%',
-    opacity: .6,
+    opacity: 0.6,
   },
   topRow: {
     display: 'flex',
@@ -26,7 +33,7 @@ const styles = StyleSheet.create({
   },
   groupName: {
     fontSize: 20,
-  }
+  },
 });
 
 type GroupDetailsProps = {
@@ -35,13 +42,15 @@ type GroupDetailsProps = {
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     navigate: any;
-  },
+  };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   route: any;
 };
 
 function GroupDetails(props: GroupDetailsProps) {
-  const [members, setMembers] = React.useState<Array<Profile>>(props.route.params.members);
+  const [members, setMembers] = React.useState<Array<Profile>>(
+    props.route.params.members
+  );
   const [editMode, setEditMode] = React.useState(false);
 
   const onClickSettings = () => {
@@ -53,16 +62,22 @@ function GroupDetails(props: GroupDetailsProps) {
     setMembers(newMembers);
   };
 
+  const groupName = props.route.params.name;
+
   return (
     <View style={styles.groupDetails}>
       <View style={styles.topRow}>
-        <Text style={styles.groupName}>{props.route.params.name}</Text>
+        <Text style={styles.groupName}>{groupName}</Text>
         <TouchableOpacity onPress={onClickSettings}>
-          <Image source={require('../assets/settings.png')} style={styles.settings} />
+          <Image
+            source={require('../assets/settings.png')}
+            style={styles.settings}
+          />
         </TouchableOpacity>
       </View>
-      {members.length === 0 ?
-        <Text>Group is empty</Text> :
+      {members.length === 0 ? (
+        <Text>Group is empty</Text>
+      ) : (
         <FlatList
           data={members}
           renderItem={(member) => (
@@ -75,7 +90,7 @@ function GroupDetails(props: GroupDetailsProps) {
             />
           )}
         />
-      }
+      )}
     </View>
   );
 }

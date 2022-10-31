@@ -26,15 +26,13 @@ type RestaurantBubbleProps = {
   onPress: () => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   style?: any;
-}
+};
 
 function RestaurantBubble(props: RestaurantBubbleProps) {
   return (
     <TouchableOpacity onPress={props.onPress} style={props.style}>
-      <Image style={styles.image} source={{ uri: props.thumbnail}}/>
-      <Text style={styles.text}>
-        {props.name}
-      </Text>
+      <Image style={styles.image} source={{ uri: props.thumbnail }} />
+      <Text style={styles.text}>{props['name']}</Text>
     </TouchableOpacity>
   );
 }

@@ -10,20 +10,17 @@ const styles = StyleSheet.create({
     padding: 8,
     marginRight: 8,
   },
-  text: {
-  }
+  text: {},
 });
 
 type ChipProps = {
   text: string;
-}
+};
 
 function Chip(props: ChipProps) {
   return (
     <View style={styles.chip}>
-      <Text style={styles.text}>
-        {props.text}
-      </Text>
+      <Text style={styles.text}>{props.text}</Text>
     </View>
   );
 }

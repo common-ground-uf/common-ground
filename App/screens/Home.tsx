@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
 import { GroupBubbles } from '../components/GroupBubbles';
 import { RestaurantBubble } from '../components/RestaurantBubble';
-import { parties, saulProfile} from '../data/dummyUsers';
+import { parties, saulProfile } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
   welcome: {
@@ -51,7 +51,8 @@ type HomeProps = {
 function Home(props: HomeProps) {
   const restaurant = {
     name: 'Los Pollos Hermanos',
-    thumbnail: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
+    thumbnail:
+      'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
   };
 
   const onClickRestaurant = () => {
@@ -63,56 +64,66 @@ function Home(props: HomeProps) {
   };
 
   const recentlyVisited = [restaurant, restaurant, restaurant];
-  
+
   const onPressStartANewTable = () => {
     props.navigation.navigate('Start New Table');
   };
 
   return (
     <ScrollView>
-        <Text style={styles.welcome}>
-          Welcome back, {saulProfile.firstName}!
-        </Text>
-        <View style={styles.startNewTableWrapper}>
-          <Button title='Start a new table' color='#FF6D6E' onPress={onPressStartANewTable}/>
-        </View>
-        <Text style={styles.sectionTitle}>Recently Visited</Text>
-        <ScrollView style={styles.row} horizontal={true}>
-          {recentlyVisited.map((restaurant, index) => 
-            <RestaurantBubble
-              key={index}
-              {...restaurant}
-              onPress={onClickRestaurant}
-              style={styles.restaurantBubble}
-            />
-          )}
-          <RestaurantBubble {...restaurant} onPress={onClickRestaurant} style={styles.restaurantBubble}/>
-          <RestaurantBubble {...restaurant} onPress={onClickRestaurant} style={styles.restaurantBubble}/>
-        </ScrollView>
-        <Text style={styles.sectionTitle}>Parties</Text>
-        <ScrollView style={styles.row} horizontal={true}>
-          {parties.map((party, index) => 
-            <GroupBubbles
-              members={party.members}
-              name={party.name}
-              onClick={onClickGroup}
-              style={styles.restaurantBubble}
-              key={index}
-            />
-          )}
-        </ScrollView>
-        <Text style={styles.sectionTitle}>Saved restaurants</Text>
-        <ScrollView style={styles.row} horizontal={true}>
-          {recentlyVisited.map((restaurant, index) => 
-            <RestaurantBubble
-              key={index}
-              {...restaurant}
-              onPress={onClickRestaurant}
-              style={styles.restaurantBubble}
-            />
-          )}
-        </ScrollView>
-        <View style={styles.verticalSpace}/>
+      <Text style={styles.welcome}>Welcome back, {saulProfile.firstName}!</Text>
+      <View style={styles.startNewTableWrapper}>
+        <Button
+          title="Start a new table"
+          color="#FF6D6E"
+          onPress={onPressStartANewTable}
+        />
+      </View>
+      <Text style={styles.sectionTitle}>Recently Visited</Text>
+      <ScrollView style={styles.row} horizontal={true}>
+        {recentlyVisited.map((restaurant, index) => (
+          <RestaurantBubble
+            key={index}
+            {...restaurant}
+            onPress={onClickRestaurant}
+            style={styles.restaurantBubble}
+          />
+        ))}
+        <RestaurantBubble
+          {...restaurant}
+          onPress={onClickRestaurant}
+          style={styles.restaurantBubble}
+        />
+        <RestaurantBubble
+          {...restaurant}
+          onPress={onClickRestaurant}
+          style={styles.restaurantBubble}
+        />
+      </ScrollView>
+      <Text style={styles.sectionTitle}>Parties</Text>
+      <ScrollView style={styles.row} horizontal={true}>
+        {parties.map((party, index) => (
+          <GroupBubbles
+            members={party.members}
+            name={party['name']}
+            onClick={onClickGroup}
+            style={styles.restaurantBubble}
+            key={index}
+          />
+        ))}
+      </ScrollView>
+      <Text style={styles.sectionTitle}>Saved restaurants</Text>
+      <ScrollView style={styles.row} horizontal={true}>
+        {recentlyVisited.map((restaurant, index) => (
+          <RestaurantBubble
+            key={index}
+            {...restaurant}
+            onPress={onClickRestaurant}
+            style={styles.restaurantBubble}
+          />
+        ))}
+      </ScrollView>
+      <View style={styles.verticalSpace} />
     </ScrollView>
   );
 }

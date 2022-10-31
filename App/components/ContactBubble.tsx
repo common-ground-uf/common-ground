@@ -10,18 +10,18 @@ const styles = StyleSheet.create({
     width: 85,
     height: 85,
     borderRadius: 42.5,
-    marginRight: 16
+    marginRight: 16,
   },
   text: {
     marginRight: 'auto',
     marginLeft: 'auto',
-    marginTop: 8
+    marginTop: 8,
   },
   selected: {
     borderStyle: 'solid',
     borderColor: '#fdb346',
     borderWidth: 4,
-  }
+  },
 });
 
 type ContactBubbleProps = {
@@ -30,12 +30,15 @@ type ContactBubbleProps = {
   lastName: string;
   onPress?: () => void;
   selected?: boolean;
-}
+};
 
 function ContactBubble(props: ContactBubbleProps) {
   return (
     <TouchableOpacity onPress={props.onPress}>
-      <Image style={[styles.image, props.selected ? styles.selected : null]} source={{ uri: props.profilePic }} />
+      <Image
+        style={[styles.image, props.selected ? styles.selected : null]}
+        source={{ uri: props.profilePic }}
+      />
       <Text style={styles.text}>
         {props.firstName} {props.lastName}
       </Text>
