@@ -8,12 +8,14 @@ import userService from './users.service';
 import groupModel from '@models/groups.models';
 import messageModel from '@models/messages.models';
 import { Message } from '@interfaces/messages.interface';
-import mongoose from 'mongoose';
-import { groupCollapsed } from 'console';
+import mongoose, { Document } from 'mongoose';
+import preferencesModel from '@models/preferences.models';
+import { Preferences } from '@/interfaces/preferences.interface';
 
 class GroupService {
     public groups = groupModel;
     public messages = messageModel;
+    public preferences = preferencesModel;
 
     public async initiateGroup(userIds : string[]) : Promise<Group> {
         try {
@@ -221,6 +223,113 @@ class GroupService {
                 { $limit: options.limit },
             ]);
         } catch (error) {
+            throw error;
+        }
+    }
+
+    public async addPreference(currentUserId: string, groupId: string, prefs : string[]) {
+        try {
+            const validGroup = await this.groups.exists({
+                groupId: groupId,
+                userIds: currentUserId,
+            });
+            if(validGroup) {
+                // const pref : Document = await this.preferences.exists({
+                //     groupId: groupId,
+                //     userId: currentUserId
+                // });
+                // if (pref) {
+                    
+                // }
+                // else {
+                //     // const newPref = await this.preferences.create({
+                //     //     groupId: groupId,
+                //     //     userId: currentUserId,
+                //     //     preferences: prefs
+                //     // });
+                //     // return newPref;
+                // }
+                const pref = await this.preferences.findOneAndUpdate(
+                    {groupId: groupId, userId: currentUserId},
+                    {$addToSet: {preferences: prefs}},
+                    {upsert: true, new:true}
+                );
+                return pref;
+            }
+            else {
+                throw new HttpException(400, "Bad Request");
+            }
+        } catch(error) {
+            throw error;
+        }
+    }
+
+    public async removePreference(currentUserId: string, groupId: string, prefs : string[]) {
+        try {
+            const validGroup = await this.groups.exists({
+                groupId: groupId,
+                userIds: currentUserId,
+            });
+            if(validGroup) {
+                const pref : Document = await this.preferences.exists({
+                    groupId: groupId,
+                    userId: currentUserId
+                });
+                if (pref) {
+                    const dpref = await this.preferences.findOneAndUpdate(
+                        {groupId: groupId, userId: currentUserId},
+                        {$pull: {preferences: { $in: prefs}}},
+                        {new:true}
+                    );
+                    return dpref;
+                }
+                else {
+                    throw new HttpException(400, "No prefs to remove");
+                }
+            }
+            else {
+                throw new HttpException(400, "Invalid group/user combo");
+            }
+        } catch(error) {
+            throw error;
+        }
+    }
+
+    public async getPreference(currentUserId: string, groupId: string) {
+        try {
+            const validGroup = await this.groups.exists({
+                groupId: groupId,
+                userIds: currentUserId,
+            });
+            if(validGroup) {
+                const pref : Preferences = await this.preferences.findOne({
+                    groupId: groupId,
+                    userId: currentUserId
+                });
+                if (pref) {
+                    return pref;
+                }
+                else {
+                    throw new HttpException(400, "No prefs to get");
+                }
+            }
+            else {
+                throw new HttpException(400, "Invalid group/user combo");
+            }
+        } catch(error) {
+            throw error;
+        }
+    }
+
+    public async getGroupPrefs(groupId: string) {
+        try {
+            return this.preferences.aggregate([
+                { $match: { groupId: groupId } },
+                { $unwind: "$preferences" },
+                { $group: {_id: null, prefs: { $push: "$preferences"}} },
+                { $project: {_id:0, groupPrefs: "$prefs"}}
+            ]);
+        } catch(error) {
             throw error;
         }
     }
