@@ -76,7 +76,7 @@ exports[`RestaurantCard Renders a RestaurantCard correctly 1`] = `
         </Text>
          
         <Text>
-          3
+          4
         </Text>
         <MockedFontAwesomeIcons
           color="orange"
@@ -177,7 +177,7 @@ exports[`RestaurantCard Renders another RestaurantCard correctly 1`] = `
         </Text>
          
         <Text>
-          3
+          5
         </Text>
         <MockedFontAwesomeIcons
           color="orange"

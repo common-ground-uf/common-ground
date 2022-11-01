@@ -13,6 +13,127 @@ exports[`RestaurantList Renders RestaurantListPage correctly 1`] = `
   }
 >
   <View>
+    <TextInput
+      autoCapitalize="words"
+      onChangeText={[Function]}
+      placeholder="Search"
+      style={
+        {
+          "borderRadius": 12,
+          "borderWidth": 1,
+          "marginTop": 20,
+          "padding": 8,
+        }
+      }
+      value=""
+    />
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+          "marginTop": 8,
+        }
+      }
+    >
+      <Text>
+        Sort by:
+      </Text>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "backgroundColor": "blue",
+            "borderRadius": 24,
+            "marginLeft": 10,
+            "opacity": 1,
+            "padding": 12,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "white",
+            }
+          }
+        >
+          Price
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "backgroundColor": "blue",
+            "borderRadius": 24,
+            "marginLeft": 10,
+            "opacity": 1,
+            "padding": 12,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "white",
+            }
+          }
+        >
+          Rating
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "backgroundColor": "blue",
+            "borderRadius": 24,
+            "marginLeft": 10,
+            "opacity": 1,
+            "padding": 12,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "color": "white",
+            }
+          }
+        >
+          Distance
+        </Text>
+      </View>
+    </View>
     <View
       accessible={true}
       collapsable={false}
@@ -87,7 +208,7 @@ exports[`RestaurantList Renders RestaurantListPage correctly 1`] = `
           </Text>
            
           <Text>
-            3
+            4
           </Text>
           <MockedFontAwesomeicons
             color="orange"
@@ -279,7 +400,7 @@ exports[`RestaurantList Renders RestaurantListPage correctly 1`] = `
           </Text>
            
           <Text>
-            3
+            4
           </Text>
           <MockedFontAwesomeicons
             color="orange"
@@ -375,7 +496,7 @@ exports[`RestaurantList Renders RestaurantListPage correctly 1`] = `
           </Text>
            
           <Text>
-            3
+            5
           </Text>
           <MockedFontAwesomeicons
             color="orange"
@@ -471,7 +592,7 @@ exports[`RestaurantList Renders RestaurantListPage correctly 1`] = `
           </Text>
            
           <Text>
-            3
+            1
           </Text>
           <MockedFontAwesomeicons
             color="orange"
