@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, TextInput, Button} from 'react-native';
+import {View, Button} from 'react-native';
 import {loginSignupStyles as styles} from '../styles/LoginSingup';
 import axios from 'axios';
 

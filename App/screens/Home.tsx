@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from 'axios';
 import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';

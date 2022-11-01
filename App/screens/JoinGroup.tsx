@@ -2,11 +2,7 @@ import React from 'react';
 import { Text, View, TextInput, Button  } from 'react-native';
 import {loginSignupStyles} from '../styles/LoginSingup';
 
-type JoinGroupProps = {
-    navigation: any;
-}
-
-function JoinGroup(props: JoinGroupProps) {
+function JoinGroup() {
     const [inviteCode, setInviteCode] = React.useState('');
 
     const onPressJoinGroup = () => {

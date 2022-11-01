@@ -4,14 +4,7 @@ import {loginSignupStyles} from '../styles/LoginSingup';
 import {saulProfile} from '../data/dummyUsers';
 import axios from 'axios';
 
-type AccountProps = {
-    navigation: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        navigate: any;
-    };
-}
-
-function Account(props: AccountProps) {
+function Account() {
     // used to give initial values to the text fields
     const profile = saulProfile;
 
