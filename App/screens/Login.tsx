@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, TextInput, Button } from 'react-native';
 import { loginSignupStyles as styles } from '../styles/LoginSingup';
+import { SERVER_URI } from '../Config';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const axios = require('axios');
@@ -29,7 +30,7 @@ function Login(props: LoginProps) {
 
   const onPressLogin = () => {
     axios
-      .post('http://192.168.86.93:3000/login', {
+      .post(`${SERVER_URI}/login`, {
         username: email,
         password: password,
       })

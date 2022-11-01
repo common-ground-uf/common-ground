@@ -3,11 +3,43 @@ import { Text, View, TextInput, Button, Image } from 'react-native';
 import { loginSignupStyles as styles } from '../styles/LoginSingup';
 import login from '../assets/login.png';
 
+import axios from 'axios';
+import { SERVER_URI } from '../Config';
+
 type SignupProps = {
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     navigate: any;
   };
+};
+
+const SignupRequest = (firstName: string, lastName: string, email: string, password: string) => {
+  axios
+    .post(`${SERVER_URI}/users`, {
+      firstname: firstName,
+      lastname: lastName,
+      email: email,
+      password: password,
+    })
+    .then((response) => {
+      console.log(response.data.message)
+      if (response.data.message === 'created') {
+        console.log('signup successful');
+      }
+    })
+    .catch((error) => {
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.log('signup errored');
+        if (error.response.data.message === 'signup failed') console.log('signup unsuccessful');
+        else {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      }
+    });
 };
 
 function Signup(props: SignupProps) {
@@ -39,6 +71,7 @@ function Signup(props: SignupProps) {
     } else {
       setErrorState(false);
       console.log('sign up');
+      SignupRequest(firstName, lastName, email, password);
     }
   };
 
