@@ -22,7 +22,6 @@ const SignupRequest = (firstName: string, lastName: string, email: string, passw
       password: password,
     })
     .then((response) => {
-      console.log(response.data.message)
       if (response.data.message === 'created') {
         console.log('signup successful');
       }

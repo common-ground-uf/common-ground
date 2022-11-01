@@ -9,9 +9,9 @@ describe('Login screen', () => {
   test('Login request', async () => {
 
     // test user creds
-    const email = "testuser@gmail.com"
-    const password = "admin"
-    let hasErr = false
+    const email = 'testuser@gmail.com';
+    const password = 'admin';
+    let hasErr = false;
     
     // get elements
     const screen = render(<Login navigation={{
@@ -19,9 +19,12 @@ describe('Login screen', () => {
     }}  />);
     const emailInput = screen.getByPlaceholderText('Email');
     const passwordInput = screen.getByPlaceholderText('Password');
-    // const passwordInput = screen.getByPlaceholderText('Password');
+
     //get only button on page
     const loginButton = screen.getAllByRole('button')[0];
+    if(loginButton === undefined) {
+        hasErr = true;
+    }
 
     try{
         // fill in form
@@ -36,7 +39,7 @@ describe('Login screen', () => {
         // });
     }catch(e){
         console.log(e);
-        hasErr = true
+        hasErr = true;
     }
 
     expect(hasErr).toBe(false);
