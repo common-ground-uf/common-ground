@@ -73,8 +73,8 @@ exports[`RestaurantCard Renders a RestaurantCard correctly 1`] = `
           }
         >
           Los Pollos Hermanos
+           
         </Text>
-         
         <Text>
           4
         </Text>
@@ -174,8 +174,8 @@ exports[`RestaurantCard Renders another RestaurantCard correctly 1`] = `
           }
         >
           El Camino
+           
         </Text>
-         
         <Text>
           5
         </Text>

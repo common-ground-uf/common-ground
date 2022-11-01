@@ -205,8 +205,8 @@ exports[`RestaurantList Renders RestaurantListPage correctly 1`] = `
             }
           >
             Los Pollos Hermanos
+             
           </Text>
-           
           <Text>
             4
           </Text>
@@ -301,8 +301,8 @@ exports[`RestaurantList Renders RestaurantListPage correctly 1`] = `
             }
           >
             Taco Sal
+             
           </Text>
-           
           <Text>
             3
           </Text>
@@ -397,8 +397,8 @@ exports[`RestaurantList Renders RestaurantListPage correctly 1`] = `
             }
           >
             Loyola's Family Restaurant
+             
           </Text>
-           
           <Text>
             4
           </Text>
@@ -493,8 +493,8 @@ exports[`RestaurantList Renders RestaurantListPage correctly 1`] = `
             }
           >
             El Camino
+             
           </Text>
-           
           <Text>
             5
           </Text>
@@ -589,8 +589,8 @@ exports[`RestaurantList Renders RestaurantListPage correctly 1`] = `
             }
           >
             Taco Bell
+             
           </Text>
-           
           <Text>
             1
           </Text>
