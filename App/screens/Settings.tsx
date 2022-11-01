@@ -63,31 +63,42 @@ const Setting = (props: SettingProps) => {
 };
 
 function Settings(props: SettingsProps) {
-  const Account = {
-    name: 'Account',
-    image: 'user',
-    navigation: props.navigation,
-  };
-  const Privacy = {
-    name: 'Privacy',
-    image: 'shield',
-    navigation: props.navigation,
-  };
-  const Notifications = {
-    name: 'Notifications',
-    image: 'bell',
-    navigation: props.navigation,
-  };
-  const members = [Account, Privacy, Notifications];
-  return (
-    <View style={loginSignupStyles.container}>
-      <FlatList
-        data={members}
-        renderItem={(member) => <Setting {...member.item} />}
-        style={{ width: '100%' }}
-      />
-    </View>
-  );
+
+    const Account = {
+        name: 'Account',
+        image: 'user',
+        navigation: props.navigation
+    };
+    const Privacy = {
+        name: 'Privacy',
+        image: 'shield',
+        navigation: props.navigation
+    };
+    const Notifications = {
+        name: 'Notifications',
+        image: 'bell',
+        navigation: props.navigation
+    };
+    const Preferences = {
+        name: 'Preferences',
+        image: 'asterisk',
+        navigation: props.navigation
+    };
+    const Logout = {
+        name: 'Logout',
+        image: 'power-off',
+        navigation: props.navigation
+    };
+    const members = [Account, Privacy, Notifications, Preferences, Logout];
+    return (
+        <View style={loginSignupStyles.container}>
+            <FlatList
+                data={members}
+                renderItem={(member) => <Setting {...member.item} />}
+                style={{width: '100%'}}
+            />
+        </View>
+    );
 }
 
 export { Settings };
