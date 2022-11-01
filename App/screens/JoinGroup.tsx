@@ -7,10 +7,10 @@ type JoinGroupProps = {
 }
 
 function JoinGroup(props: JoinGroupProps) {
-    const [inviteCode, setInviteCode] = React.useState("");
+    const [inviteCode, setInviteCode] = React.useState('');
 
     const onPressJoinGroup = () => {
-        console.log('Joined Group '+inviteCode)
+        console.log('Joined Group '+inviteCode);
     };
 
     return (

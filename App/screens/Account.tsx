@@ -26,9 +26,9 @@ function Account(props: AccountProps) {
             if(response.data.message === 'login success') {
                 console.log('login successful');
                 // User Data object to be processed locally and saved as current login data (cleared after logout)
-                setEmail(response.data.userData.email)
-                setFirstName(response.data.userData.firstname)
-                setLastName(response.data.userData.lastname)
+                setEmail(response.data.userData.email);
+                setFirstName(response.data.userData.firstname);
+                setLastName(response.data.userData.lastname);
                // TODO: Need to get location from user data
             }
         })

@@ -86,12 +86,12 @@ function Settings(props: SettingsProps) {
         name: 'Preferences',
         image: 'asterisk',
         navigation: props.navigation
-    }
+    };
     const Logout = {
         name: 'Logout',
         image: 'power-off',
         navigation: props.navigation
-    }
+    };
     const members = [Account, Privacy, Notifications, Preferences, Logout];
     return (
         <View style={loginSignupStyles.container}>
