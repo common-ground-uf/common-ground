@@ -36,15 +36,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '90%',
   },
-  textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: 'center',
-  },
   expandedImage: {
     width: '95%',
     height: '95%',

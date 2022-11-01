@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, TouchableOpacity, Text, Image, View, StyleSheet } from 'react-native';
+import { ScrollView, Text, Image, View, StyleSheet } from 'react-native';
 import { Contact } from '../commonTypes';
 import {parties} from '../data/dummyUsers';
 

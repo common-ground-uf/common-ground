@@ -9,24 +9,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: '100%',
   },
-  settings: {
-    width: 32,
-    height: 32,
-    paddings: '100%',
-    opacity: 0.6,
-  },
-  topRow: {
-    display: 'flex',
-    flexDirection: 'row',
-    width: '100%',
-    marginTop: 20,
-    marginBottom: 20,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  groupName: {
-    fontSize: 20,
-  },
 });
 
 type AllContactsScreenProps = {

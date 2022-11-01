@@ -30,17 +30,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
   },
-  starIcon: {
-    height: 16,
-    width: 16,
-    marginTop: -2.15,
-    marginRight: 2,
-  },
   topRow: {
     display: 'flex',
     alignItems: 'flex-start',
     alignContent: 'center',
     marginBottom: 4,
+  },
+  horizontalSpace: {
+    width: 16,
   },
 });
 
@@ -59,10 +56,10 @@ export function RestaurantCard(props: RestaurantCardProps) {
     <>
       <TouchableOpacity style={styles.card} onPress={onPress}>
         <Image source={{ uri: props.thumbnail }} style={styles.thumbnail} />
-        <View style={{ width: 16 }} />
+        <View style={styles.horizontalSpace} />
         <View style={styles.cardRight}>
           <Text style={styles.topRow}>
-            <Text style={styles.cardTitle}>{props.name}</Text>&nbsp;
+            <Text style={styles.cardTitle}>{props.name}&nbsp;</Text>
             <Text>{props.starRating}</Text>
             <Icon name="star" size={16} color="orange" />
           </Text>

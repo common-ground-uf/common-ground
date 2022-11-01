@@ -68,6 +68,9 @@ const styles = StyleSheet.create({
   bubble: {
     marginRight: 10,
   },
+  verticalSpace: {
+    height: 20,
+  },
 });
 
 type ProfilePageProps = {
@@ -186,7 +189,7 @@ function ProfileScreen(props: ProfilePageProps) {
           </View>
         </>
       )}
-      <View style={{ height: 20 }} />
+      <View style={styles.verticalSpace} />
     </ScrollView>
   );
 }

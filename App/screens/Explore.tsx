@@ -7,19 +7,6 @@ const styles = StyleSheet.create({
   scrollView: {
     paddingVertical: 20,
   },
-  welcome: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  startNewTableWrapper: {
-    color: 'black',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    borderRadius: 6,
-    marginTop: 8,
-    marginBottom: 20,
-  },
   sectionTitle: {
     fontSize: 20,
     fontWeight: 'bold',

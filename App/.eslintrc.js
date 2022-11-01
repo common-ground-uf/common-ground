@@ -2,14 +2,11 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    "react-native/react-native": true,
   },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'react',
-    'react-native'
   ],
   overrides: [],
   parser: '@typescript-eslint/parser',
@@ -20,16 +17,15 @@ module.exports = {
       jsx: true,
     }
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'react-native'],
   rules: {
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
-    "react-native/no-unused-styles": 2,
-    "react-native/split-platform-components": 2,
-    "react-native/no-inline-styles": 2,
-    "react-native/no-color-literals": 2,
-    "react-native/no-raw-text": 2,
-    "react-native/no-single-element-style-arrays": 2,
+    'react-native/no-unused-styles': 1,
+    'react-native/split-platform-components': 1,
+    'react-native/no-inline-styles': 1,
+    'react-native/no-raw-text': 1,
+    'react-native/no-single-element-style-arrays': 1,
   },
   'settings': {
     'react': {

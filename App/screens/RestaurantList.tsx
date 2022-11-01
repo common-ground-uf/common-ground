@@ -56,27 +56,27 @@ function RestaurantList(props: RestaurantListProps) {
 
   const onPressFilterPriceButton = () => {
     const temp = restaurantList.sort(function(r1, r2) {
-      return r1['priceRating'] - r2['priceRating'];
+      return r1.priceRating - r2.priceRating;
     });
     console.log(temp);
     setRestaurantList([...temp]);
-  }
+  };
 
   const onPressFilterRatingButton = () => {
     const temp = restaurantList.sort(function(r1, r2) {
-      return r1['starRating']! - r2['starRating']!;
+      return (r1.starRating || 1) - (r2.starRating || 1);
     });
     console.log(temp);
     setRestaurantList([...temp]);
-  }
+  };
 
   const onPressFilterDistanceButton = () => {
     const temp = restaurantList.sort(function(r1, r2) {
-      return r1['distanceMiles']! - r2['distanceMiles']!;
+      return (r1.distanceMiles || 1000) - (r2.distanceMiles || 1000);
     });
     console.log(temp);
     setRestaurantList([...temp]);
-  }
+  };
 
   return (
     <ScrollView style={styles.restaurantList}>

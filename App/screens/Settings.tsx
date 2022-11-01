@@ -11,9 +11,6 @@ import { loginSignupStyles } from '../styles/LoginSingup';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const styles = StyleSheet.create({
-  groupDetails: {
-    padding: 20,
-  },
   memberContainer: {
     marginTop: 15,
     display: 'flex',

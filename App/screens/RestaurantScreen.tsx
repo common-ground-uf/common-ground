@@ -51,6 +51,9 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     marginLeft: 20,
   },
+  marginTop: {
+    marginTop: 12,
+  },
 });
 
 type RestaurantScreenProps = {
@@ -84,10 +87,10 @@ function RestaurantScreen(props: RestaurantScreenProps) {
       <View style={styles.padding}>
         <Text style={styles.title}>{restaurant.name}</Text>
         <PriceRating rating={3} />
-        <Text style={{ marginTop: 12 }}>{restaurant.address.line1}</Text>
+        <Text style={styles.marginTop}>{restaurant.address.line1}</Text>
         <Text>{restaurant.address.line2}</Text>
         <Button title='Directions' />
-        <Text style={{ marginTop: 12 }}>{restaurant.description}</Text>
+        <Text style={styles.marginTop}>{restaurant.description}</Text>
         <Text style={styles.sectionTitle}>Reviews</Text>
         <Text style={{ display: 'flex' }}>
           <Text style={styles.averageReviewRating}>
