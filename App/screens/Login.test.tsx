@@ -31,9 +31,9 @@ describe('Login screen', () => {
         });
 
         //click submit button
-        await waitFor(() => {
-            fireEvent.press(loginButton);
-        });
+        // await waitFor(() => {
+        //     fireEvent.press(loginButton);
+        // });
     }catch(e){
         console.log(e);
         hasErr = true
