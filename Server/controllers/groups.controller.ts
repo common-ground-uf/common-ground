@@ -5,6 +5,7 @@ import groupModel from '@models/groups.models';
 import groupService from '@services/groups.service';
 import { Message } from '@interfaces/messages.interface';
 import userService from '@services/users.service';
+import { Preferences } from '@/interfaces/preferences.interface';
 
 class GroupsController {
     public groupService = new groupService();
@@ -76,6 +77,51 @@ class GroupsController {
             return res.status(500).json({success: false, error: error});
         }
     };
+
+    public addPreference = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const currentUser : string = req.user?._id!;
+            const {groupId} = req.params;
+            const prefArray : string[] = req.body.preferences;
+            const userPrefs : Preferences = await this.groupService.addPreference(currentUser, groupId, prefArray);
+            res.status(200).json({success: true, prefs: userPrefs});
+        } catch(error) {
+            return res.status(500).json({success: false, error: error});
+        }
+    };
+
+    public removePreference = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const currentUser : string = req.user?._id!;
+            const {groupId} = req.params;
+            const prefArray : string[] = req.body.preferences;
+            const userPrefs : Preferences = await this.groupService.removePreference(currentUser, groupId, prefArray);
+            res.status(200).json({success: true, prefs: userPrefs});
+        } catch(error) {
+            return res.status(500).json({success: false, error: error});
+        }
+    };
+
+    public getPreference = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const currentUser : string = req.user?._id!;
+            const {groupId} = req.params;
+            const userPrefs : Preferences = await this.groupService.getPreference(currentUser, groupId);
+            res.status(200).json({success: true, prefs: userPrefs});
+        } catch(error) {
+            return res.status(500).json({success: false, error: error});
+        }
+    };
+
+    public getGroupPrefs = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const {groupId} = req.params;
+            const groupPrefs : string [] = await this.groupService.getGroupPrefs(groupId);
+            res.status(200).json({success: true, groupPrefs});
+        } catch(error) {
+            next(error);
+        }
+    }
 }
 
 export default GroupsController

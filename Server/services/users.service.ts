@@ -100,7 +100,9 @@ class UserService {
         const user: User = await this.findUserById(userId);
         if (!user) throw new HttpException(409, `There is no user with id: ${userId}`);
 
-        const updateUserData: User = await this.users.findByIdAndUpdate(userId, { $set: { email: userData.email, firstname: userData.firstname, lastname: userData.lastname, profilePic: userData.profilePic, pastPicks: userData.pastPicks, recentContacts: userData.recentContacts} });
+        const updateUserData: User = await this.users.findByIdAndUpdate(userId, 
+            { $set: { email: userData.email, firstname: userData.firstname, lastname: userData.lastname, profilePic: userData.profilePic, pastPicks: userData.pastPicks, recentContacts: userData.recentContacts} },
+            {new:true});
 
         return this.findUserById(userId);
     }
