@@ -152,14 +152,17 @@ function ProfileScreen(props: ProfilePageProps) {
         <Button onPress={onPressSeeAllPicks} title="See all" />
       </View>
       <View style={styles.row}>
-        {profileData.pastPicks.map((restaurant, index) => (
-          <RestaurantBubble
-            {...restaurant}
-            onPress={onPressRestaurant}
-            key={index}
-            style={styles.bubble}
-          />
-        ))}
+        {profileData.pastPicks.length > 0 ? 
+          profileData.pastPicks.map((restaurant, index) => (
+            <RestaurantBubble
+              {...restaurant}
+              onPress={onPressRestaurant}
+              key={index}
+              style={styles.bubble}
+            />
+          )) :
+          <Text>No recently visited restaurants</Text>
+        }
       </View>
       {isMyProfile && (
         <>
@@ -168,15 +171,18 @@ function ProfileScreen(props: ProfilePageProps) {
             <Button onPress={onPressSeeAllContacts} title="See all" />
           </View>
           <View style={styles.row}>
-            {props.route.params.profileData.recentContacts.map(
-              (contact, index) => (
-                <ContactBubble
-                  {...contact}
-                  onPress={() => onPressContact(contact)}
-                  key={index}
-                />
-              )
-            )}
+            {profileData.recentContacts.length > 0 ? 
+              profileData.recentContacts.map(
+                (contact, index) => (
+                  <ContactBubble
+                    {...contact}
+                    onPress={() => onPressContact(contact)}
+                    key={index}
+                  />
+                )
+              ) :
+              <Text>No recent contacts</Text>
+            }
           </View>
         </>
       )}

@@ -11,6 +11,10 @@ const styles = StyleSheet.create({
   row: {
     display: 'flex',
     flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  contactBubble: {
+    marginBottom: 10,
   },
 });
 
@@ -25,7 +29,7 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
   const contactList = allUsers;
   const [selected, setSelected] = React.useState([false, false, false]);
 
-  const onPressContact = (clickedIndex) => {
+  const onPressContact = (clickedIndex:number) => {
     const newSelected = selected.map((contact, index) => {
       if (index === clickedIndex) {
         return !contact;
@@ -48,6 +52,7 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
             {...contact}
             onPress={() => onPressContact(index)}
             selected={selected[index]}
+            style={styles.contactBubble}
           />
         ))}
       </View>

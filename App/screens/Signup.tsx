@@ -39,11 +39,13 @@ function Signup(props: SignupProps) {
     } else {
       setErrorState(false);
       console.log('sign up');
+      //TODO: create account
+      props.navigation.navigate('Login');
     }
   };
 
   // https://stackoverflow.com/questions/46155/how-can-i-validate-an-email-address-in-javascript
-  const validateEmail = (email) => {
+  const validateEmail = (email:string) => {
     return String(email)
       .toLowerCase()
       .match(

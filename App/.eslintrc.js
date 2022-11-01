@@ -7,6 +7,8 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
+    'react',
+    'react-native'
   ],
   overrides: [],
   parser: '@typescript-eslint/parser',

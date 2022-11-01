@@ -54,6 +54,7 @@ function DebugScreen(props: DebugScreenProps) {
     'Strategic or random',
     'Random Restaurant',
     'All Contacts',
+    'Waiting on Friends'
   ];
   const onPressBreakinBadWithCommentarySeason1Episode1_Pilot_wWalterJesseSkylerHankMarieWJ =
     () => {

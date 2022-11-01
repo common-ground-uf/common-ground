@@ -98,6 +98,10 @@ const mainGroup = (
       name="Random Restaurant"
       component={screens.RandomRestaurantScreen}
     />
+    <MainStack.Screen
+      name="Waiting on Friends"
+      component={screens.WaitingOnFriends}
+    />
   </MainStack.Group>
 );
 

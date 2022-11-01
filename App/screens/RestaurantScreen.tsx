@@ -86,6 +86,7 @@ function RestaurantScreen(props: RestaurantScreenProps) {
         <PriceRating rating={3} />
         <Text style={{ marginTop: 12 }}>{restaurant.address.line1}</Text>
         <Text>{restaurant.address.line2}</Text>
+        <Button title='Directions' />
         <Text style={{ marginTop: 12 }}>{restaurant.description}</Text>
         <Text style={styles.sectionTitle}>Reviews</Text>
         <Text style={{ display: 'flex' }}>

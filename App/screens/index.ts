@@ -21,3 +21,4 @@ export * from './Explore';
 export * from './StrategicOrRandom';
 export * from './RandomRestaurantScreen';
 export * from './AllContactsScreen';
+export * from './WaitingOnFriends';

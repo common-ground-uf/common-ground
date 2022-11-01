@@ -30,11 +30,12 @@ type ContactBubbleProps = {
   lastName: string;
   onPress?: () => void;
   selected?: boolean;
+  style?: any;
 };
 
 function ContactBubble(props: ContactBubbleProps) {
   return (
-    <TouchableOpacity onPress={props.onPress}>
+    <TouchableOpacity onPress={props.onPress} style={props.style}>
       <Image
         style={[styles.image, props.selected ? styles.selected : null]}
         source={{ uri: props.profilePic }}
