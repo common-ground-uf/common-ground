@@ -1,5 +1,5 @@
 import React from 'react';
-import {Restaurant} from '../commonTypes';
+import { Restaurant } from '../commonTypes';
 import { StyleSheet, ScrollView } from 'react-native';
 import { RestaurantCard } from '../components/RestaurantCard';
 
@@ -16,25 +16,32 @@ type RestaurantListProps = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     navigate: any;
   };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  route: any;
-  restaurantList: Restaurant[],
-}
+  route: {
+    params: {
+      restaurantList: Restaurant[];
+    }
+  };
+  restaurantList: Restaurant[];
+};
 
 function RestaurantList(props: RestaurantListProps) {
-  const restaurantList = props.route.params.restaurantList;
+  const restaurantList: Restaurant[] = props.route.params.restaurantList;
 
   if (!restaurantList || restaurantList.length === 0) {
     return null;
   }
-  
+
   return (
     <ScrollView style={styles.restaurantList}>
-      {restaurantList.map((restaurant, index) => 
-        <RestaurantCard key={index} {...restaurant} navigation={props.navigation}/>
-      )}
+      {restaurantList.map((restaurant, index) => (
+        <RestaurantCard
+          key={index}
+          {...restaurant}
+          navigation={props.navigation}
+        />
+      ))}
     </ScrollView>
   );
 }
 
-export {RestaurantList};
+export { RestaurantList };

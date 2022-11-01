@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactBubble Renders a ContactBubble correctly 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "opacity": 1,
+    }
+  }
+>
+  <Image
+    source={
+      {
+        "uri": "https://external-preview.redd.it/Af65FrXSGlwOobPUnC3MNOI1D3xCCERFWoVFfhzpgio.png?format=pjpg&auto=webp&s=ed7b1feb0f8356ba51ea70f5b26b81c1868bc005",
+      }
+    }
+    style={
+      [
+        {
+          "borderRadius": 42.5,
+          "height": 85,
+          "marginRight": 16,
+          "width": 85,
+        },
+        null,
+      ]
+    }
+  />
+  <Text
+    style={
+      {
+        "marginLeft": "auto",
+        "marginRight": "auto",
+        "marginTop": 8,
+      }
+    }
+  >
+    Saul
+     
+    Goodman
+  </Text>
+</View>
+`;
+
+exports[`ContactBubble Renders a ContactBubble correctly when it is selected 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "opacity": 1,
+    }
+  }
+>
+  <Image
+    source={
+      {
+        "uri": "https://external-preview.redd.it/Af65FrXSGlwOobPUnC3MNOI1D3xCCERFWoVFfhzpgio.png?format=pjpg&auto=webp&s=ed7b1feb0f8356ba51ea70f5b26b81c1868bc005",
+      }
+    }
+    style={
+      [
+        {
+          "borderRadius": 42.5,
+          "height": 85,
+          "marginRight": 16,
+          "width": 85,
+        },
+        {
+          "borderColor": "#fdb346",
+          "borderStyle": "solid",
+          "borderWidth": 4,
+        },
+      ]
+    }
+  />
+  <Text
+    style={
+      {
+        "marginLeft": "auto",
+        "marginRight": "auto",
+        "marginTop": 8,
+      }
+    }
+  >
+    Saul
+     
+    Goodman
+  </Text>
+</View>
+`;

@@ -15,10 +15,19 @@ Express + Typescript with Passport authentication
 
 React Native
 
+## Testing that we use
+
+### Static Analysis testing
+- CodeQL
+  - Makes sure that the code quality is not shit and there's no keys lying around
+- EsLint/Prettier
+  - Sets professional standards 🤓 for the code formatting. Minimizes the risk of writing bugs
+
+
 # Contributors
 
-Eric Navar
-Ranger Chenore
-Noah Hirschfield
-Calvin Yang
-Jeffrey Shim-Francis
+- Eric Navar
+- Ranger Chenore 😡
+- Noah Hirschfield
+- Calvin Yang
+- Jeffrey Shim-Francis

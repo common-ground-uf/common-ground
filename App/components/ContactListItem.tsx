@@ -48,14 +48,18 @@ export const ContactListItem = (props: ContactListItemProps) => {
   return (
     <>
       <TouchableOpacity style={styles.memberContainer} onPress={navigate}>
-        <Image style={styles.image} source={{ uri: props.memberData.profilePic }} />
-        <Text>{props.memberData.firstName} {props.memberData.lastName}</Text>
-        {props.editMode ?
+        <Image
+          style={styles.image}
+          source={{ uri: props.memberData.profilePic }}
+        />
+        <Text>
+          {props.memberData.firstName} {props.memberData.lastName}
+        </Text>
+        {props.editMode ? (
           <TouchableOpacity onPress={props.onDelete} style={styles.closeIcon}>
             <Icon size={24} name="close" />
           </TouchableOpacity>
-          : null
-        }
+        ) : null}
       </TouchableOpacity>
       {!props.last && <View style={styles.horizontalLine} />}
     </>

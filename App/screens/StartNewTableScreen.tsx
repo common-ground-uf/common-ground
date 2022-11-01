@@ -4,22 +4,22 @@ import { ContactBubble } from '../components/ContactBubble';
 import { allUsers } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
-    startNewTable: {
-        marginHorizontal: 10,
-        marginTop: 10,
-    },
-    row: {
-        display: 'flex',
-        flexDirection: 'row',
-    },
+  startNewTable: {
+    marginHorizontal: 10,
+    marginTop: 10,
+  },
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
 });
 
 type StartNewTableScreenProps = {
-    navigation: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        navigate: any,
-    },
-}
+  navigation: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    navigate: any;
+  };
+};
 
 function makeid(length) {
     var result = '';
@@ -37,17 +37,17 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
     const [selected, setSelected] = React.useState([false, false, false]);
     const [inviteCode, setInviteCode] = React.useState("");
 
-    const onPressContact = (clickedIndex) => {
-        const newSelected = selected.map((contact, index) => {
-            if (index === clickedIndex) {
-                return !contact;
-            }
-            return contact;
-        });
-        setSelected(newSelected);
-    };
-
-    const onInvitePress = () => {
+  const onPressContact = (clickedIndex) => {
+    const newSelected = selected.map((contact, index) => {
+      if (index === clickedIndex) {
+        return !contact;
+      }
+      return contact;
+    });
+    setSelected(newSelected);
+  };
+  
+      const onInvitePress = () => {
         setInviteCode(makeid(6));
         console.log(inviteCode)
     }

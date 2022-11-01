@@ -3,7 +3,7 @@ import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
 import { GroupBubbles } from '../components/GroupBubbles';
 import { RestaurantBubble } from '../components/RestaurantBubble';
-import { parties, saulProfile} from '../data/dummyUsers';
+import { parties, saulProfile } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
   welcome: {
@@ -91,7 +91,8 @@ function Home(props: HomeProps) {
 
   const restaurant = {
     name: 'Los Pollos Hermanos',
-    thumbnail: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
+    thumbnail:
+      'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
   };
 
   const onClickRestaurant = () => {
@@ -103,7 +104,7 @@ function Home(props: HomeProps) {
   };
 
   const recentlyVisited = [restaurant, restaurant, restaurant];
-  
+
   const onPressStartANewTable = () => {
     props.navigation.navigate('Start New Table');
   };
@@ -153,6 +154,7 @@ function Home(props: HomeProps) {
           )}
         </ScrollView>
         <View style={styles.verticalSpace}/>
+
     </ScrollView>
   );
 }
