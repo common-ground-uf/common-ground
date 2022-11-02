@@ -4,6 +4,7 @@ import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
 import { GroupBubbles } from '../components/GroupBubbles';
 import { RestaurantBubble } from '../components/RestaurantBubble';
+import { SERVER_URI } from '../Config';
 import { parties, saulProfile } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
@@ -57,7 +58,7 @@ function Home(props: HomeProps) {
   const [email, setEmail] = React.useState<string>(saulProfile.email);
   const [location, setLocation] = React.useState<string>(saulProfile.location);
 
-  axios.get('http://192.168.86.93:3000/auth')
+  axios.get(`${SERVER_URI}/auth`)
       .then(response => {
         if(response.data.message === 'login success') {
           console.log('auth successful');
