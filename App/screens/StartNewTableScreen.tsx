@@ -1,43 +1,80 @@
-import React from "react";
-import { View, Text, StyleSheet, Button } from 'react-native';
+import React from 'react';
+import { View, Text, ScrollView, StyleSheet, Button } from 'react-native';
 import { ContactBubble } from '../components/ContactBubble';
-import { Finger } from '../data/dummyData';
+import { allUsers } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
-    row: {
-        display: 'flex',
-        flexDirection: 'row',
-    },
+  startNewTable: {
+    marginHorizontal: 10,
+    marginTop: 10,
+  },
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  contactBubble: {
+    marginBottom: 10,
+  },
 });
 
-function StartNewTableScreen() {
-    const contactList = [Finger, Finger, Finger];
-    const [selected, setSelected] = React.useState([false, false, false]);
+type StartNewTableScreenProps = {
+  navigation: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    navigate: any;
+  };
+};
 
-    const onPressContact = (clickedIndex) => {
-        const newSelected = selected.map((contact, index) => {
-            if (index === clickedIndex) {
-                return !contact;
-            }
-            return contact;
-        });
-        setSelected(newSelected);
+function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() *
+            charactersLength));
+    }
+    return result;
+}
+
+function StartNewTableScreen(props: StartNewTableScreenProps) {
+    const contactList = allUsers;
+    const [selected, setSelected] = React.useState([false, false, false]);
+    const [inviteCode, setInviteCode] = React.useState('');
+
+  const onPressContact = (clickedIndex:number) => {
+    const newSelected = selected.map((contact, index) => {
+      if (index === clickedIndex) {
+        return !contact;
+      }
+      return contact;
+    });
+    setSelected(newSelected);
+  };
+  
+      const onInvitePress = () => {
+        setInviteCode(makeid(6));
+        console.log(inviteCode);
     };
 
-    console.log(selected);
+    const onPressNext = () => {
+        props.navigation.navigate('Strategic or random');
+    };
 
     return (
-        <View>
-            <Text>
-                Start a new table
-            </Text>
+        <ScrollView style={styles.startNewTable}>
             <View style={styles.row}>
                 {contactList.map((contact, index) =>
-                    <ContactBubble key={index} {...contact} onPress={() => onPressContact(index)} selected={selected[index]} />
+                    <ContactBubble key={index} {...contact} onPress={() => onPressContact(index)} selected={selected[index]} style={styles.contactBubble}/>
                 )}
             </View>
-            <Button title='Next' />
-        </View>
+            <Button title='Next' onPress={onPressNext}/>
+            <View>
+                <Button onPress={onInvitePress} title='Generate invite link'/>
+                <Text>
+                    {inviteCode}
+                </Text>
+            </View>
+        </ScrollView>
     );
 }
 

@@ -2,21 +2,17 @@ import React from 'react';
 import { Text, View, TextInput, Button } from 'react-native';
 import { loginSignupStyles } from '../styles/LoginSingup';
 
-type ResetPasswordProps = {
-  navigation: any;
-}
-
-function ResetPassword(props: ResetPasswordProps) {
+function ResetPassword() {
   const [newPassword, setNewPassword] = React.useState<string>('');
-  const [newPasswordConfirmation, setNewPasswordConfirmation] = React.useState<string>('');
+  const [newPasswordConfirmation, setNewPasswordConfirmation] =
+    React.useState<string>('');
   const [errorExists, setErrorExists] = React.useState(false);
 
   const onPress = () => {
     if (newPassword === newPasswordConfirmation) {
       console.log('reset password');
       setErrorExists(false);
-    }
-    else {
+    } else {
       setErrorExists(true);
     }
   };
@@ -36,13 +32,9 @@ function ResetPassword(props: ResetPasswordProps) {
         value={newPasswordConfirmation}
         placeholder="Confirm new password"
       />
-      {errorExists &&
-        <Text>
-          The passwords do not match 😡
-        </Text>
-      }
+      {errorExists && <Text>The passwords do not match 😡</Text>}
       <View style={loginSignupStyles.loginButtonContainer}>
-        <Button title="Reset password" color="#FEB346" onPress={onPress}/>
+        <Button title="Reset password" color="#FF6D6E" onPress={onPress} />
       </View>
     </View>
   );

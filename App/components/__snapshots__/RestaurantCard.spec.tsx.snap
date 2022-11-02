@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RestaurantCard Renders a RestaurantCard correctly 1`] = `
+[
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "display": "flex",
+        "flexDirection": "row",
+        "margin": 8,
+        "maxHWidth": "100%",
+        "opacity": 1,
+        "paddingHorizontal": 6,
+        "paddingVertical": 12,
+      }
+    }
+  >
+    <Image
+      source={
+        {
+          "uri": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200",
+        }
+      }
+      style={
+        {
+          "borderRadius": 4,
+          "height": 60,
+          "width": 60,
+        }
+      }
+    />
+    <View
+      style={
+        {
+          "width": 16,
+        }
+      }
+    />
+    <View
+      style={
+        {
+          "flexGrow": 1,
+          "flexShrink": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "alignContent": "center",
+            "alignItems": "flex-start",
+            "display": "flex",
+            "marginBottom": 4,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Los Pollos Hermanos
+           
+        </Text>
+        <Text>
+          4
+        </Text>
+        <MockedFontAwesomeIcons
+          color="orange"
+          name="star"
+          size={16}
+        />
+      </Text>
+      <Text>
+        Fast-food chain serving Mexican-inspired fare such as tacos, quesadillas & nachos.
+      </Text>
+    </View>
+  </View>,
+  <View
+    style={
+      {
+        "backgroundColor": "#bbb",
+        "height": 1,
+        "width": "100%",
+      }
+    }
+  />,
+]
+`;
+
+exports[`RestaurantCard Renders another RestaurantCard correctly 1`] = `
+[
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "display": "flex",
+        "flexDirection": "row",
+        "margin": 8,
+        "maxHWidth": "100%",
+        "opacity": 1,
+        "paddingHorizontal": 6,
+        "paddingVertical": 12,
+      }
+    }
+  >
+    <Image
+      source={
+        {
+          "uri": "https://static.wikia.nocookie.net/breakingbad/images/c/cc/ElCamino.JPG/revision/latest?cb=20220503235617",
+        }
+      }
+      style={
+        {
+          "borderRadius": 4,
+          "height": 60,
+          "width": 60,
+        }
+      }
+    />
+    <View
+      style={
+        {
+          "width": 16,
+        }
+      }
+    />
+    <View
+      style={
+        {
+          "flexGrow": 1,
+          "flexShrink": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "alignContent": "center",
+            "alignItems": "flex-start",
+            "display": "flex",
+            "marginBottom": 4,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "fontSize": 16,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          El Camino
+           
+        </Text>
+        <Text>
+          5
+        </Text>
+        <MockedFontAwesomeIcons
+          color="orange"
+          name="star"
+          size={16}
+        />
+      </Text>
+      <Text>
+        Fast-food chain serving Mexican-inspired fare such as tacos, quesadillas & nachos.
+      </Text>
+    </View>
+  </View>,
+  <View
+    style={
+      {
+        "backgroundColor": "#bbb",
+        "height": 1,
+        "width": "100%",
+      }
+    }
+  />,
+]
+`;

@@ -1,10 +1,14 @@
 import React from 'react';
-import { Text, View, TextInput, Button } from 'react-native';
-import { loginSignupStyles } from '../styles/LoginSingup';
+import { Text, View, TextInput, Button, Image } from 'react-native';
+import { loginSignupStyles as styles } from '../styles/LoginSingup';
+import forgot from '../assets/forgot.png';
 
 type ForgorPasswordProps = {
-  navigation: any;
-}
+  navigation: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    navigate: any;
+  };
+};
 
 function ForgorPassword(props: ForgorPasswordProps) {
   const [email, setEmail] = React.useState<string>('');
@@ -12,7 +16,8 @@ function ForgorPassword(props: ForgorPasswordProps) {
   const [expectingEmail, setExpectingEmail] = React.useState<boolean>(true);
 
   const sendEmail = () => {
-    if (email !== '') {// TODO: check that it's a valid email
+    if (email !== '') {
+      // TODO: check that it's a valid email
       setExpectingEmail(false);
     }
   };
@@ -22,37 +27,43 @@ function ForgorPassword(props: ForgorPasswordProps) {
   };
 
   return (
-    <View style={loginSignupStyles.container}>
-      {expectingEmail ?
+    <View style={styles.container}>
+      <Image style={styles.logo} source={forgot} />
+      {expectingEmail ? (
         <>
-          <Text style={loginSignupStyles.title}>Reset password</Text>
           <TextInput
-            style={loginSignupStyles.input}
+            style={styles.input}
             onChangeText={setEmail}
             value={email}
             placeholder="Email"
-
           />
-          <View style={loginSignupStyles.loginButtonContainer}>
-            <Button title="Reset password" onPress={sendEmail} color="#FEB346" />
+          <View style={styles.loginButtonContainer}>
+            <Button
+              title="Reset password"
+              onPress={sendEmail}
+              color="#FF6D6E"
+            />
           </View>
         </>
-        :
+      ) : (
         <>
-          <Text style={loginSignupStyles.title}>Check your email</Text>
+          <Text style={styles.title}>Check your email</Text>
           <Text>An email has been sent to {email}</Text>
           <TextInput
-            style={loginSignupStyles.input}
+            style={styles.input}
             onChangeText={setCode}
             value={code}
             placeholder="Code"
           />
-          <View style={loginSignupStyles.loginButtonContainer}>
-            <Button title="Reset password" onPress={resetPassword} color="#FEB346" />
+          <View style={styles.loginButtonContainer}>
+            <Button
+              title="Reset password"
+              onPress={resetPassword}
+              color="#FF6D6E"
+            />
           </View>
         </>
-      }
-
+      )}
     </View>
   );
 }

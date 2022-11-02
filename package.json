@@ -4,6 +4,6 @@
     "start:server": "npm start --prefix Server"
   },
   "devDependencies": {
-    "eslint-plugin-react": "^7.31.6"
+    "husky": "^8.0.0"
   }
 }

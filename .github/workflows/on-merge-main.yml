@@ -1,0 +1,11 @@
+on:
+  push:
+    branches:
+      - main
+      - 'releases/**'
+jobs:
+  test_schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: fast forward
+        run: git rebase develop

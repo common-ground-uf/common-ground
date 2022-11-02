@@ -4,5 +4,8 @@ export interface User {
     password: string;
     firstname: string;
     lastname: string;
+    profilePic: string;
+    pastPicks: string[];
+    recentContacts: string[];
     role: string;
 }

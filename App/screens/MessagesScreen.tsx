@@ -1,16 +1,23 @@
 import React from 'react';
-import { View, StyleSheet, Image, Text, TextInput, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Button, Keyboard } from 'react-native';
-import {loginSignupStyles} from '../styles/LoginSingup';
-import {messages} from '../data/dummyData';
+import {
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  TextInput,
+  KeyboardAvoidingView,
+  Platform,
+  TouchableWithoutFeedback,
+  Keyboard,
+  TouchableOpacity,
+} from 'react-native';
+import { messages } from '../data/dummyData';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const styles = StyleSheet.create({
-  messagesScreen: {
-    height: '100%',
-  },
-  messagesContainer: {
-  },
+  messagesContainer: {},
   selfMessageContainer: {
-    flexDirection: 'row-reverse'
+    flexDirection: 'row-reverse',
   },
   messageContainer: {
     display: 'flex',
@@ -21,7 +28,7 @@ const styles = StyleSheet.create({
   messageBubble: {
     borderRadius: 25,
     padding: 10,
-    backgroundColor: '#ff6666',
+    backgroundColor: '#444',
   },
   profilePic: {
     width: 30,
@@ -33,31 +40,29 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
   },
-  textField: {
-    borderWidth: 1,
-    width: '100%',
-    backgroundColor: '#aaa',
-    marginTop: 'auto',
-  },
   selfMessageBubble: {
-    backgroundColor: 'blue',
+    backgroundColor: '#ff6666',
   },
   container: {
     flex: 1,
-    marginBottom: 65,
+    marginBottom: 0,
   },
   inner: {
     flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   textInputContainer: {
     flexGrow: 1,
+    flexBasis: 1,
     borderWidth: 1,
     borderRadius: 20,
     marginBottom: 80,
+    paddingLeft: 4,
   },
   textInput: {
     minHeight: 40,
-    borderColor: "#000000",
+    borderColor: '#000000',
     padding: 10,
   },
   btnContainer: {
@@ -66,14 +71,17 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     borderWidth: 1,
     marginLeft: 10,
+    flexShrink: 0,
   },
   row: {
     display: 'flex',
     flexDirection: 'row',
-    marginTop: 'auto',
-    maxWidth: '90%',
-    width: '90%',
-  }
+    flexWrap: 'nowrap',
+    minWidth: 0,
+    width: '100%',
+    maxWidth: '100%',
+    boxSizing: 'border-box',
+  },
 });
 
 type MessageProps = {
@@ -85,40 +93,65 @@ type MessageProps = {
 
 function Message(props: MessageProps) {
   return (
-    <View style={[styles.messageContainer,props.self?styles.selfMessageContainer:null]}>
-      <Image source={{uri:props.profilePic}} style={styles.profilePic}/>
-      <View style={[styles.messageBubble, props.self?styles.selfMessageBubble:null]}>
+    <View
+      style={[
+        styles.messageContainer,
+        props.self ? styles.selfMessageContainer : null,
+      ]}
+    >
+      <Image source={{ uri: props.profilePic }} style={styles.profilePic} />
+      <View
+        style={[
+          styles.messageBubble,
+          props.self ? styles.selfMessageBubble : null,
+        ]}
+      >
         <Text style={styles.content}>{props.content}</Text>
       </View>
     </View>
-    )
-};
+  );
+}
 
-type MessagesScreenProps = {
-
-};
-
-function MessagesScreen(props: MessagesScreenProps) {
+function MessagesScreen() {
   const self = 'Saul';
 
   const [messageInput, setMessageInput] = React.useState('');
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleTextInputChange = (e:any) => {
+    setMessageInput(e.target.value);
+  };
+
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
           <View style={styles.messagesContainer}>
-            {messages.map((message, index) => <Message key={index} {...message} self={self===message.author}/>)}
+            {messages.map((message, index) => (
+              <Message
+                key={index}
+                {...message}
+                self={self === message.author}
+              />
+            ))}
           </View>
           <View style={styles.row}>
             <View style={styles.textInputContainer}>
-              <TextInput placeholder="Send a message" style={styles.textInput} multiline={true}/>
+              <TextInput
+                placeholder="Send a message"
+                style={styles.textInput}
+                multiline={true}
+                value={messageInput}
+                onChange={handleTextInputChange}
+              />
             </View>
             <View style={styles.btnContainer}>
-              <Button title=">" onPress={() => null} />
+              <TouchableOpacity>
+                <Icon name="send" size={24} onPress={() => null} />
+              </TouchableOpacity>
             </View>
           </View>
         </View>

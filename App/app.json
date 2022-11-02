@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "common-ground",
+    "name": "Common Ground",
     "slug": "common-ground",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/saul.png.jpg",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -15,20 +15,18 @@
       "fallbackToCacheTimeout": 0,
       "url": "https://u.expo.dev/6a03a19e-9a5e-469e-9b80-48a98159391f"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/saul.png.jpg",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/saul.png.jpg"
     },
     "extra": {
       "eas": {
