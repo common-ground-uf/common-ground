@@ -1,20 +1,57 @@
 import React from 'react';
-import { Button, TextInput, View } from 'react-native';
-import { loginSignupStyles } from '../styles/LoginSingup';
-import { saulProfile } from '../data/dummyUsers';
+import {Button, TextInput, View} from 'react-native';
+import {loginSignupStyles} from '../styles/LoginSingup';
+import {saulProfile} from '../data/dummyUsers';
+import axios from 'axios';
 
 function Account() {
-  // used to give initial values to the text fields
-  const profile = saulProfile;
+    // used to give initial values to the text fields
+    const profile = saulProfile;
+
 
   const [firstName, setFirstName] = React.useState<string>(profile.firstName);
   const [lastName, setLastName] = React.useState<string>(profile.lastName);
   const [email, setEmail] = React.useState<string>(profile.email);
   const [location, setLocation] = React.useState<string>(profile.location);
 
-  const onPressSave = () => {
-    console.log('saved');
-  };
+    axios.get('http://192.168.86.93:3000/auth')
+        .then(response => {
+            if(response.data.message === 'login success') {
+                console.log('login successful');
+                // User Data object to be processed locally and saved as current login data (cleared after logout)
+                setEmail(response.data.userData.email);
+                setFirstName(response.data.userData.firstname);
+                setLastName(response.data.userData.lastname);
+               // TODO: Need to get location from user data
+            }
+        })
+        .catch((error)=> {
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                if(error.response.data.message === 'not logged in')
+                    console.log('Not logged in!');
+                else {
+                    console.log(error.response.data);
+                    console.log(error.response.status);
+                    console.log(error.response.headers);
+                }
+            } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                // http.ClientRequest in node.js
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log('Error', error.message);
+            }
+        });
+
+
+    const onPressSave = () => {
+        console.log('saved');
+        // TODO: Actually change these fields in database
+    };
 
   return (
     <View style={loginSignupStyles.container}>

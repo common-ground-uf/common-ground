@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, StyleSheet, Button } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Button } from 'react-native';
 import { ContactBubble } from '../components/ContactBubble';
 import { allUsers } from '../data/dummyUsers';
 
@@ -21,9 +21,21 @@ type StartNewTableScreenProps = {
   };
 };
 
+function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() *
+            charactersLength));
+    }
+    return result;
+}
+
 function StartNewTableScreen(props: StartNewTableScreenProps) {
-  const contactList = allUsers;
-  const [selected, setSelected] = React.useState([false, false, false]);
+    const contactList = allUsers;
+    const [selected, setSelected] = React.useState([false, false, false]);
+    const [inviteCode, setInviteCode] = React.useState('');
 
   const onPressContact = (clickedIndex) => {
     const newSelected = selected.map((contact, index) => {
@@ -34,26 +46,32 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
     });
     setSelected(newSelected);
   };
+  
+      const onInvitePress = () => {
+        setInviteCode(makeid(6));
+        console.log(inviteCode);
+    };
 
-  const onPressNext = () => {
-    props.navigation.navigate('Strategic or random');
-  };
+    const onPressNext = () => {
+        props.navigation.navigate('Strategic or random');
+    };
 
-  return (
-    <ScrollView style={styles.startNewTable}>
-      <View style={styles.row}>
-        {contactList.map((contact, index) => (
-          <ContactBubble
-            key={index}
-            {...contact}
-            onPress={() => onPressContact(index)}
-            selected={selected[index]}
-          />
-        ))}
-      </View>
-      <Button title="Next" onPress={onPressNext} />
-    </ScrollView>
-  );
+    return (
+        <ScrollView style={styles.startNewTable}>
+            <View style={styles.row}>
+                {contactList.map((contact, index) =>
+                    <ContactBubble key={index} {...contact} onPress={() => onPressContact(index)} selected={selected[index]} />
+                )}
+            </View>
+            <Button title='Next' onPress={onPressNext}/>
+            <View>
+                <Button onPress={onInvitePress} title='Generate invite link'/>
+                <Text>
+                    {inviteCode}
+                </Text>
+            </View>
+        </ScrollView>
+    );
 }
 
 export { StartNewTableScreen };
