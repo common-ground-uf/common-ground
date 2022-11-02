@@ -1,7 +1,18 @@
 import React, { useRef, useEffect } from 'react';
-import { Animated, View, Text } from 'react-native';
+import { Animated, View, Text, StyleSheet } from 'react-native';
 import { RestaurantCard } from '../components/RestaurantCard';
 import { losPollosHermanos } from '../data/dummyRestaurants';
+
+const styles = StyleSheet.create({
+  randomRestaurantScreen: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  fadeInView: {
+    width: '80%',
+  },
+});
 
 const FadeInView = (props) => {
   // Initial value for opacity: 0
@@ -39,9 +50,9 @@ type RandomRestaurantProps = {
 // You can then use your `FadeInView` in place of a `View` in your components:
 export function RandomRestaurantScreen(props: RandomRestaurantProps) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={styles.randomRestaurantScreen}>
       <Text>Random restaurant:</Text>
-      <FadeInView style={{ width: '80%' }}>
+      <FadeInView style={styles.fadeInView}>
         <RestaurantCard navigation={props.navigation} {...losPollosHermanos} />
       </FadeInView>
     </View>

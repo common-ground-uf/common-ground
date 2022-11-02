@@ -2,10 +2,6 @@ import React from 'react';
 import { TouchableOpacity, Image, StyleSheet, Text } from 'react-native';
 
 const styles = StyleSheet.create({
-  contactMain: {
-    justifyContent: 'center',
-    textAlign: 'center',
-  },
   image: {
     width: 85,
     height: 85,
@@ -30,11 +26,13 @@ type ContactBubbleProps = {
   lastName: string;
   onPress?: () => void;
   selected?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  style?: any;
 };
 
 function ContactBubble(props: ContactBubbleProps) {
   return (
-    <TouchableOpacity onPress={props.onPress}>
+    <TouchableOpacity onPress={props.onPress} style={props.style}>
       <Image
         style={[styles.image, props.selected ? styles.selected : null]}
         source={{ uri: props.profilePic }}

@@ -3,3 +3,4 @@
 
 cd App
 npx eslint-staged --fix
+npx pretty-quick --staged

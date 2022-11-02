@@ -13,11 +13,19 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    }
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'react-native'],
   rules: {
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
+    'react-native/no-unused-styles': 1,
+    'react-native/split-platform-components': 1,
+    'react-native/no-inline-styles': 1,
+    'react-native/no-raw-text': 1,
+    'react-native/no-single-element-style-arrays': 1,
   },
   'settings': {
     'react': {

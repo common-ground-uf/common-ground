@@ -15,9 +15,6 @@ import { messages } from '../data/dummyData';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const styles = StyleSheet.create({
-  messagesScreen: {
-    height: '100%',
-  },
   messagesContainer: {},
   selfMessageContainer: {
     flexDirection: 'row-reverse',
@@ -42,12 +39,6 @@ const styles = StyleSheet.create({
   content: {
     color: 'white',
     fontSize: 16,
-  },
-  textField: {
-    borderWidth: 1,
-    width: '100%',
-    backgroundColor: '#aaa',
-    marginTop: 'auto',
   },
   selfMessageBubble: {
     backgroundColor: '#ff6666',

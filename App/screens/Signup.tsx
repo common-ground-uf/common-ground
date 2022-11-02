@@ -75,7 +75,7 @@ function Signup(props: SignupProps) {
   };
 
   // https://stackoverflow.com/questions/46155/how-can-i-validate-an-email-address-in-javascript
-  const validateEmail = (email) => {
+  const validateEmail = (email:string) => {
     return String(email)
       .toLowerCase()
       .match(

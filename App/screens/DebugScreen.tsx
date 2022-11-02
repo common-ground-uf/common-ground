@@ -30,36 +30,37 @@ type DebugScreenProps = {
 };
 
 function DebugScreen(props: DebugScreenProps) {
-    const onClick = (screen: string) => {
-        props.navigation.navigate(screen);
-    };
-    const screens = [
-        'Start',
-        'Login',
-        'Logout',
-        'Signup',
-        'Forgot Password',
-        'Reset Password',
-        'Preferences',
-        'Start New Table',
-        'Join Group',
-        'Restaurant List',
-        'Restaurant',
-        'Gallery',
-        'Profile',
-        'Account',
-        'Privacy',
-        'Settings',
-        'Notifications',
-        'Group Details',
-        'Explore',
-        'Strategic or random',
-        'Random Restaurant',
-        'All Contacts',
-    ];
-    const onPressBreakinBadWithCommentarySeason1Episode1_Pilot_wWalterJesseSkylerHankMarieWJ = () => {
-        Linking.openURL('https://www.youtube.com/watch?v=gf0xPOS1Bdg');
-    };
+  const onClick = (screen: string) => {
+      props.navigation.navigate(screen);
+  };
+  const screens = [
+      'Start',
+      'Login',
+      'Logout',
+      'Signup',
+      'Forgot Password',
+      'Reset Password',
+      'Preferences',
+      'Start New Table',
+      'Join Group',
+      'Restaurant List',
+      'Restaurant',
+      'Gallery',
+      'Profile',
+      'Account',
+      'Privacy',
+      'Settings',
+      'Notifications',
+      'Group Details',
+      'Explore',
+      'Strategic or random',
+      'Random Restaurant',
+      'All Contacts',
+      'Waiting on Friends'
+  ];
+  const onPressBreakinBadWithCommentarySeason1Episode1_Pilot_wWalterJesseSkylerHankMarieWJ = () => {
+      Linking.openURL('https://www.youtube.com/watch?v=gf0xPOS1Bdg');
+  };
   return (
     <ScrollView style={styles.debugScreen}>
       <View style={styles.verticalSpace} />

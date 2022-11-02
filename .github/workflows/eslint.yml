@@ -9,7 +9,9 @@
 # and https://eslint.org
 
 name: ESLint
-
+concurrency: 
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
 on:
   push:
     branches: [ "main", "develop" ]
@@ -39,6 +41,5 @@ jobs:
       - name: Run ESLint
         run: |
           cd App
-          npx eslint .
           npx eslint . --config .eslintrc.js --ext .js,.jsx,.ts,.tsx
         continue-on-error: false

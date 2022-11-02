@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  item: {},
   image: {
     height: 20,
     width: 20,
@@ -46,7 +45,9 @@ export function Navbar() {
   const [selected, setSelected] = React.useState<number>(0);
   const navigation = React.useContext(NavigationContext);
   const onPress = (index: number) => {
-    navigation.navigate(navbarItems[index].screen);
+    if (navigation) {
+      navigation.navigate(navbarItems[index].screen);
+    }
     setSelected(index);
   };
   return (

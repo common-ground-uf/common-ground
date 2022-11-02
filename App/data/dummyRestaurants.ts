@@ -7,7 +7,7 @@ export const losPollosHermanos = {
     line2: 'Gainesville, FL 32601',
   },
   priceRating: 1,
-  starRating: 3,
+  starRating: 4,
   description:
     'Fast-food chain serving Mexican-inspired fare such as tacos, quesadillas & nachos.',
   reviews: [
@@ -31,7 +31,7 @@ export const tacoSal = {
     line1: '1515 SW 13th Street',
     line2: 'Gainesville, FL 32601',
   },
-  priceRating: 1,
+  priceRating: 2,
   starRating: 3,
   description:
     'Fast-food chain serving Mexican-inspired fare such as tacos, quesadillas & nachos.',
@@ -56,8 +56,8 @@ export const loyolasFamilyRestaurant = {
     line1: '1515 SW 13th Street',
     line2: 'Gainesville, FL 32601',
   },
-  priceRating: 1,
-  starRating: 3,
+  priceRating: 3,
+  starRating: 4,
   description:
     'Fast-food chain serving Mexican-inspired fare such as tacos, quesadillas & nachos.',
   reviews: [
@@ -81,8 +81,8 @@ export const elCamino = {
     line1: '1515 SW 13th Street',
     line2: 'Gainesville, FL 32601',
   },
-  priceRating: 1,
-  starRating: 3,
+  priceRating: 5,
+  starRating: 5,
   description:
     'Fast-food chain serving Mexican-inspired fare such as tacos, quesadillas & nachos.',
   reviews: [
@@ -106,8 +106,8 @@ export const tacoBell = {
     line1: '1515 SW 13th Street',
     line2: 'Gainesville, FL 32601',
   },
-  priceRating: 1,
-  starRating: 3,
+  priceRating: 4,
+  starRating: 1,
   description:
     'Fast-food chain serving Mexican-inspired fare such as tacos, quesadillas & nachos.',
   reviews: [

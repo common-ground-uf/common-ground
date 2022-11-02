@@ -102,6 +102,10 @@ const mainGroup = (
       component={screens.RandomRestaurantScreen}
     />
     <MainStack.Screen
+      name="Waiting on Friends"
+      component={screens.WaitingOnFriends}
+    />
+    <MainStack.Screen
       name="Join Group"
       component={screens.JoinGroup}
     />

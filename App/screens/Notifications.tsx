@@ -18,6 +18,9 @@ const styles = StyleSheet.create({
   text: {
     flexGrow: 1,
   },
+  header: {
+    fontWeight: 'bold',
+  },
 });
 
 function Notifications() {
@@ -54,7 +57,7 @@ function Notifications() {
       </View>
       {!notificationsEnabled ? (
         <View style={{ marginTop: 20 }}>
-          <Text style={{ fontWeight: 'bold' }}>
+          <Text style={styles.header}>
             Only allow select notifications:
           </Text>
           <View style={styles.row}>

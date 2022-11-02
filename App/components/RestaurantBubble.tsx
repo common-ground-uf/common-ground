@@ -2,10 +2,6 @@ import React from 'react';
 import { TouchableOpacity, Image, StyleSheet, Text } from 'react-native';
 
 const styles = StyleSheet.create({
-  restaurantMain: {
-    justifyContent: 'center',
-    textAlign: 'center',
-  },
   image: {
     width: 100,
     height: 100,

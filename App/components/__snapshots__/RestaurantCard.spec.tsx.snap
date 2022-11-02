@@ -73,10 +73,10 @@ exports[`RestaurantCard Renders a RestaurantCard correctly 1`] = `
           }
         >
           Los Pollos Hermanos
+           
         </Text>
-         
         <Text>
-          3
+          4
         </Text>
         <MockedFontAwesomeIcons
           color="orange"
@@ -174,10 +174,10 @@ exports[`RestaurantCard Renders another RestaurantCard correctly 1`] = `
           }
         >
           El Camino
+           
         </Text>
-         
         <Text>
-          3
+          5
         </Text>
         <MockedFontAwesomeIcons
           color="orange"

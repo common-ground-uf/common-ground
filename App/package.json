@@ -45,6 +45,7 @@
     "dotenv": "^16.0.3",
     "eslint": "^8.26.0",
     "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-native": "^4.0.0",
     "expo": "^46.0.16",
     "expo-cli": "^6.0.6",
     "expo-updates": "^0.14.6",
