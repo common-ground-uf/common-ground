@@ -7,8 +7,6 @@ describe('Homee', () => {
         navigate: '',
     };
     it('Renders Home correctly', () => {
-        expect(true).toBe(true);
-        return;
         const result = render(<Home navigation={dummyNavigation} />);
 
         expect(result.toJSON()).toMatchSnapshot();
