@@ -149,8 +149,8 @@ export async function getBusinessDetails(id: string): Promise<BusinessDetails> {
 export async function getBusinessesByCoordinatesAndCategories(
     latitude: number,
     longitude: number,
-    categories: String,
-    pricePreferences: String
+    categories: string,
+    pricePreferences: string
 ): Promise<Business[]> {
     return (
         (
