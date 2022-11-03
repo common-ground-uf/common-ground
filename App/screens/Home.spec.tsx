@@ -6,7 +6,6 @@ describe('Homee', () => {
     const dummyNavigation = {
         navigate: '',
     };
-
     it('Renders Home correctly', () => {
         const result = render(<Home navigation={dummyNavigation} />);
 
