@@ -1,12 +1,12 @@
 import React from 'react'
 import {
-    Text,
-    View,
-    Image,
-    StyleSheet,
-    Button,
-    ScrollView,
-    TouchableOpacity,
+  Text,
+  View,
+  Image,
+  StyleSheet,
+  Button,
+  ScrollView,
+  TouchableOpacity,
 } from 'react-native'
 import { Restaurant } from '../commonTypes'
 import { PriceRating } from '../components/PriceRating'
@@ -15,158 +15,152 @@ import { gallery } from '../data/dummyData'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const styles = StyleSheet.create({
-    image: {
-        width: '100%',
-        height: 200,
-    },
-    padding: {
-        paddingHorizontal: 24,
-    },
-    title: {
-        marginBottom: 12,
-        marginTop: 18,
-        fontSize: 24,
-        fontWeight: 'bold',
-    },
-    sectionTitle: {
-        fontWeight: 'bold',
-        marginVertical: 10,
-        fontSize: 18,
-        marginRight: 'auto',
-        marginTop: 30,
-    },
-    averageReviewRating: {
-        fontSize: 18,
-        marginBottom: 10,
-    },
-    averageReview: {
-        fontSize: 12,
-        color: '#444444',
-    },
-    gallery: {
-        display: 'flex',
-        flexDirection: 'row',
-        marginBottom: 6,
-        marginHorizontal: -20,
-    },
-    galleryImage: {
-        height: 100,
-        width: 100,
-        borderRadius: 2,
-        marginLeft: 20,
-    },
-    marginTop: {
-        marginTop: 12,
-    },
-    row: {
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'baseline',
-    },
+  image: {
+    width: '100%',
+    height: 200,
+  },
+  padding: {
+    paddingHorizontal: 24,
+  },
+  title: {
+    marginBottom: 12,
+    marginTop: 18,
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  sectionTitle: {
+    fontWeight: 'bold',
+    marginVertical: 10,
+    fontSize: 18,
+    marginRight: 'auto',
+    marginTop: 30,
+  },
+  averageReviewRating: {
+    fontSize: 18,
+    marginBottom: 10,
+  },
+  averageReview: {
+    fontSize: 12,
+    color: '#444444',
+  },
+  gallery: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginBottom: 6,
+    marginHorizontal: -20,
+  },
+  galleryImage: {
+    height: 100,
+    width: 100,
+    borderRadius: 2,
+    marginLeft: 20,
+  },
+  marginTop: {
+    marginTop: 12,
+  },
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'baseline',
+  },
 })
 
 type RestaurantScreenProps = {
-    navigation: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        navigate: any
-    }
+  navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    route: {
-        params: {
-            restaurant: Restaurant
-        }
+    navigate: any
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  route: {
+    params: {
+      restaurant: Restaurant
     }
-    restaurant: Restaurant
+  }
+  restaurant: Restaurant
 }
 
 function RestaurantScreen(props: RestaurantScreenProps) {
-    const restaurant = props.route.params.restaurant
+  const restaurant = props.route.params.restaurant
 
-    if (!restaurant) {
-        return null
-    }
+  if (!restaurant) {
+    return null
+  }
 
-    const onPressSeeAllGallery = () => {
-        props.navigation.navigate('Gallery')
-    }
+  const onPressSeeAllGallery = () => {
+    props.navigation.navigate('Gallery')
+  }
 
-    return (
-        <View>
-            <Image
-                style={styles.image}
-                source={{ uri: restaurant.thumbnail }}
+  return (
+    <View>
+      <Image style={styles.image} source={{ uri: restaurant.thumbnail }} />
+      <View style={styles.padding}>
+        <Text style={styles.title}>{restaurant.name}</Text>
+        <PriceRating rating={3} />
+        <View style={{ display: 'flex', flexDirection: 'row' }}>
+          <TouchableOpacity
+            style={{
+              justifyContent: 'center',
+              alignContent: 'center',
+              alignItems: 'center',
+              marginRight: 8,
+            }}
+          >
+            <Icon
+              name="directions"
+              size={16}
+              color="#FF6D6E"
+              style={{ alignSelf: 'center' }}
             />
-            <View style={styles.padding}>
-                <Text style={styles.title}>{restaurant.name}</Text>
-                <PriceRating rating={3} />
-                <View style={{ display: 'flex', flexDirection: 'row' }}>
-                    <TouchableOpacity
-                        style={{
-                            justifyContent: 'center',
-                            alignContent: 'center',
-                            alignItems: 'center',
-                            marginRight: 8,
-                        }}
-                    >
-                        <Icon
-                            name="directions"
-                            size={16}
-                            color="#FF6D6E"
-                            style={{ alignSelf: 'center' }}
-                        />
-                        <Text style={{ fontSize: 8 }}>Directions</Text>
-                    </TouchableOpacity>
-                    <View>
-                        <Text style={styles.marginTop}>
-                            {restaurant.address.line1}
-                        </Text>
-                        <Text>{restaurant.address.line2}</Text>
-                    </View>
-                </View>
-                <Text style={styles.marginTop}>{restaurant.description}</Text>
-                <View style={styles.row}>
-                    <Text style={styles.sectionTitle}>Reviews</Text>
-                    <Button
-                        title="See all"
-                        onPress={() => {}}
-                        color="#ff6e6e"
-                    />
-                </View>
-                <Text style={{ display: 'flex' }}>
-                    <Text style={styles.averageReviewRating}>
-                        {restaurant.starRating}
-                        <Icon name="star" size={16} color="orange" />
-                    </Text>
-                    <Text style={styles.averageReview}>
-                        {' '}
-                        average review on Yelp
-                    </Text>
-                </Text>
-                {restaurant.reviews.map((review, index) => (
-                    <Review key={index} {...review} />
-                ))}
-                <View>
-                    <View style={styles.row}>
-                        <Text style={styles.sectionTitle}>Gallery</Text>
-                        <Button
-                            title="See all"
-                            onPress={onPressSeeAllGallery}
-                            color="#ff6e6e"
-                        />
-                    </View>
-                    <ScrollView style={styles.gallery} horizontal={true}>
-                        {gallery.map((image, index) => (
-                            <Image
-                                style={styles.galleryImage}
-                                source={{ uri: image }}
-                                key={index}
-                            />
-                        ))}
-                    </ScrollView>
-                </View>
-            </View>
+            <Text style={{ fontSize: 8 }}>Directions</Text>
+          </TouchableOpacity>
+          <View>
+            <Text style={styles.marginTop}>{restaurant.address.line1}</Text>
+            <Text>{restaurant.address.line2}</Text>
+          </View>
         </View>
-    )
+        <Text style={styles.marginTop}>{restaurant.description}</Text>
+        <View style={styles.row}>
+          <Text style={styles.sectionTitle}>Reviews</Text>
+          <Button
+            title="See all"
+            onPress={() => {
+              console.log('see all')
+            }}
+            color="#ff6e6e"
+          />
+        </View>
+        <Text style={{ display: 'flex' }}>
+          <Text style={styles.averageReviewRating}>
+            {restaurant.starRating}
+            <Icon name="star" size={16} color="orange" />
+          </Text>
+          <Text style={styles.averageReview}> average review on Yelp</Text>
+        </Text>
+        {restaurant.reviews.map((review, index) => (
+          <Review key={index} {...review} />
+        ))}
+        <View>
+          <View style={styles.row}>
+            <Text style={styles.sectionTitle}>Gallery</Text>
+            <Button
+              title="See all"
+              onPress={onPressSeeAllGallery}
+              color="#ff6e6e"
+            />
+          </View>
+          <ScrollView style={styles.gallery} horizontal={true}>
+            {gallery.map((image, index) => (
+              <Image
+                style={styles.galleryImage}
+                source={{ uri: image }}
+                key={index}
+              />
+            ))}
+          </ScrollView>
+        </View>
+      </View>
+    </View>
+  )
 }
 
 export { RestaurantScreen }
