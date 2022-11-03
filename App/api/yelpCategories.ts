@@ -4712,7 +4712,6 @@ const yelpCategories: Category[] = [
 
 export default yelpCategories;
 
-
 // Leaving this code here in case we need to use it again
 // It takes an array of ALL yelp categories and filters it down to just the the relevant food and restaurant categories
 
