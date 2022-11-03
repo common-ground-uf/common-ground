@@ -1,5 +1,5 @@
-import React from 'react'
-import { TouchableOpacity, Image, StyleSheet, Text } from 'react-native'
+import React from 'react';
+import { TouchableOpacity, Image, StyleSheet, Text } from 'react-native';
 
 const styles = StyleSheet.create({
   image: {
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     borderColor: '#fdb346',
     borderWidth: 4,
   },
-})
+});
 
 type ContactBubbleProps = {
   profilePic: string
@@ -40,7 +40,7 @@ function ContactBubble(props: ContactBubbleProps) {
         {props.firstName} {props.lastName}
       </Text>
     </TouchableOpacity>
-  )
+  );
 }
 
-export { ContactBubble }
+export { ContactBubble };

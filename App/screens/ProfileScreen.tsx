@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   ScrollView,
   TouchableOpacity,
@@ -7,12 +7,12 @@ import {
   Text,
   StyleSheet,
   Button,
-} from 'react-native'
-import { Contact, Profile } from '../commonTypes'
-import { Chip } from '../components/Chip'
-import { ContactBubble } from '../components/ContactBubble'
-import { RestaurantBubble } from '../components/RestaurantBubble'
-import { mapContactToProfile } from '../utils'
+} from 'react-native';
+import { Contact, Profile } from '../commonTypes';
+import { Chip } from '../components/Chip';
+import { ContactBubble } from '../components/ContactBubble';
+import { RestaurantBubble } from '../components/RestaurantBubble';
+import { mapContactToProfile } from '../utils';
 
 const styles = StyleSheet.create({
   profile: {
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   contactBubble: {
     marginRight: 16,
   },
-})
+});
 
 type ProfilePageProps = {
   navigation: {
@@ -91,39 +91,39 @@ type ProfilePageProps = {
 }
 
 function ProfileScreen(props: ProfilePageProps) {
-  const selfId = '4'
+  const selfId = '4';
 
   // this is true if the user is looking at their own profile
-  const isMyProfile = props.route.params.profileData.id === selfId
-  const profileData = props.route.params.profileData
+  const isMyProfile = props.route.params.profileData.id === selfId;
+  const profileData = props.route.params.profileData;
 
   const onPressRestaurant = () => {
-    props.navigation.navigate('Restaurant')
-  }
+    props.navigation.navigate('Restaurant');
+  };
 
   const onPressContact = (contact: Contact) => {
     props.navigation.navigate('Profile', {
       profileData: mapContactToProfile(contact),
-    })
-  }
+    });
+  };
 
   const onPressSettings = () => {
-    props.navigation.navigate('Settings')
-  }
+    props.navigation.navigate('Settings');
+  };
 
   const onPressEditPreferences = () => {
-    props.navigation.navigate('Preferences')
-  }
+    props.navigation.navigate('Preferences');
+  };
 
   const onPressSeeAllPicks = () => {
-    props.navigation.navigate('Restaurant List')
-  }
+    props.navigation.navigate('Restaurant List');
+  };
 
   const onPressSeeAllContacts = () => {
-    props.navigation.navigate('All Contacts')
-  }
+    props.navigation.navigate('All Contacts');
+  };
 
-  if (!profileData) return <></>
+  if (!profileData) return <></>;
 
   return (
     <ScrollView style={styles.profile}>
@@ -207,7 +207,7 @@ function ProfileScreen(props: ProfilePageProps) {
       )}
       <View style={styles.verticalSpace} />
     </ScrollView>
-  )
+  );
 }
 
-export { ProfileScreen }
+export { ProfileScreen };

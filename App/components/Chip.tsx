@@ -1,5 +1,5 @@
-import React from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import React from 'react';
+import { View, StyleSheet, Text } from 'react-native';
 
 const styles = StyleSheet.create({
   chip: {
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   text: {
     color: 'white',
   },
-})
+});
 
 type ChipProps = {
   text: string
@@ -24,7 +24,7 @@ function Chip(props: ChipProps) {
     <View style={styles.chip}>
       <Text style={styles.text}>{props.text}</Text>
     </View>
-  )
+  );
 }
 
-export { Chip }
+export { Chip };

@@ -1,6 +1,6 @@
-import React from 'react'
-import { TouchableOpacity, StyleSheet, Text, Image, View } from 'react-native'
-import { Contact } from '../commonTypes'
+import React from 'react';
+import { TouchableOpacity, StyleSheet, Text, Image, View } from 'react-native';
+import { Contact } from '../commonTypes';
 
 const styles = StyleSheet.create({
   container: {
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'center',
   },
-})
+});
 
 type GroupBubblesProps = {
   members: Contact[]
@@ -65,7 +65,7 @@ type GroupBubblesProps = {
 
 function GroupBubbles(props: GroupBubblesProps) {
   if (props.members.length === 0) {
-    return null
+    return null;
   }
   return (
     <View style={[styles.container, props.style]}>
@@ -94,7 +94,7 @@ function GroupBubbles(props: GroupBubblesProps) {
       </TouchableOpacity>
       <Text style={styles.text}>{props.name}</Text>
     </View>
-  )
+  );
 }
 
-export { GroupBubbles }
+export { GroupBubbles };

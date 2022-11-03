@@ -1,5 +1,5 @@
-import React from 'react'
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import React from 'react';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
   button: {
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
   },
-})
+});
 
 type StrategicOrRandomProps = {
   navigation: {
@@ -32,12 +32,12 @@ type StrategicOrRandomProps = {
 
 export function StrategicOrRandom(props: StrategicOrRandomProps) {
   const onPressStrategic = () => {
-    props.navigation.navigate('Restaurant List')
-  }
+    props.navigation.navigate('Restaurant List');
+  };
 
   const onPressRandom = () => {
-    props.navigation.navigate('Random Restaurant')
-  }
+    props.navigation.navigate('Random Restaurant');
+  };
 
   return (
     <View style={styles.strategicOrRandom}>
@@ -51,5 +51,5 @@ export function StrategicOrRandom(props: StrategicOrRandomProps) {
         <Text style={styles.buttonText}>Random</Text>
       </TouchableOpacity>
     </View>
-  )
+  );
 }

@@ -1,7 +1,7 @@
-import React from 'react'
-import { ScrollView, Text, Image, View, StyleSheet } from 'react-native'
-import { Contact } from '../commonTypes'
-import { parties } from '../data/dummyUsers'
+import React from 'react';
+import { ScrollView, Text, Image, View, StyleSheet } from 'react-native';
+import { Contact } from '../commonTypes';
+import { parties } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
   memberContainer: {
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     marginRight: 'auto',
   },
-})
+});
 
 type ContactListItemProps = {
   memberData: Contact
@@ -50,11 +50,11 @@ const ContactListItem = (props: ContactListItemProps) => {
         </View>
       </View>
     </>
-  )
-}
+  );
+};
 
 const WaitingOnFriends = () => {
-  const group = parties[0]
+  const group = parties[0];
 
   return (
     <ScrollView style={{ padding: 20 }}>
@@ -65,7 +65,7 @@ const WaitingOnFriends = () => {
         ))}
       </View>
     </ScrollView>
-  )
-}
+  );
+};
 
-export { WaitingOnFriends }
+export { WaitingOnFriends };

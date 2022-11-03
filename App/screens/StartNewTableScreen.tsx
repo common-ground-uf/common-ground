@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   View,
   Text,
@@ -6,9 +6,9 @@ import {
   StyleSheet,
   Button,
   TextInput,
-} from 'react-native'
-import { ContactBubble } from '../components/ContactBubble'
-import { allUsers } from '../data/dummyUsers'
+} from 'react-native';
+import { ContactBubble } from '../components/ContactBubble';
+import { allUsers } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
   startNewTable: {
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 4,
   },
-})
+});
 
 type StartNewTableScreenProps = {
   navigation: {
@@ -43,42 +43,42 @@ type StartNewTableScreenProps = {
 }
 
 function makeid(length: number) {
-  let result = ''
+  let result = '';
   const characters =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-  const charactersLength = characters.length
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
   for (let i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength))
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
-  return result
+  return result;
 }
 
 function StartNewTableScreen(props: StartNewTableScreenProps) {
-  const contactList = allUsers
+  const contactList = allUsers;
   const [selected, setSelected] = React.useState<boolean[]>(
     Array(allUsers.length).fill(false)
-  )
-  const [inviteCode, setInviteCode] = React.useState('')
-  const [groupName, setGroupName] = React.useState('')
+  );
+  const [inviteCode, setInviteCode] = React.useState('');
+  const [groupName, setGroupName] = React.useState('');
 
   const onPressContact = (clickedIndex: number) => {
     const newSelected = selected.map((contact, index) => {
       if (index === clickedIndex) {
-        return !contact
+        return !contact;
       }
-      return contact
-    })
-    setSelected(newSelected)
-  }
+      return contact;
+    });
+    setSelected(newSelected);
+  };
 
   const onInvitePress = () => {
-    setInviteCode(makeid(6))
-    console.log(inviteCode)
-  }
+    setInviteCode(makeid(6));
+    console.log(inviteCode);
+  };
 
   const onPressNext = () => {
-    props.navigation.navigate('Strategic or random')
-  }
+    props.navigation.navigate('Strategic or random');
+  };
 
   return (
     <ScrollView style={styles.startNewTable}>
@@ -105,7 +105,7 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
       </View>
       <Button title="Next" onPress={onPressNext} />
     </ScrollView>
-  )
+  );
 }
 
-export { StartNewTableScreen }
+export { StartNewTableScreen };

@@ -1,7 +1,7 @@
-import React from 'react'
-import { View, FlatList, Text, StyleSheet, ScrollView } from 'react-native'
-import { Contact, Profile } from '../commonTypes'
-import { ContactListItem } from '../components/ContactListItem'
+import React from 'react';
+import { View, FlatList, Text, StyleSheet, ScrollView } from 'react-native';
+import { Contact, Profile } from '../commonTypes';
+import { ContactListItem } from '../components/ContactListItem';
 
 const styles = StyleSheet.create({
   groupDetails: {
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: '100%',
   },
-})
+});
 
 type AllContactsScreenProps = {
   members: Contact[]
@@ -25,7 +25,7 @@ function AllContactsScreen(props: AllContactsScreenProps) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [members, setMembers] = React.useState<Array<Profile>>(
     props.route.params.members
-  )
+  );
 
   return (
     <ScrollView style={styles.groupDetails}>
@@ -46,7 +46,7 @@ function AllContactsScreen(props: AllContactsScreenProps) {
         )}
       </View>
     </ScrollView>
-  )
+  );
 }
 
-export { AllContactsScreen }
+export { AllContactsScreen };

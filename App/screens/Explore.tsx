@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   Text,
   View,
@@ -6,9 +6,9 @@ import {
   ScrollView,
   TextInput,
   Button,
-} from 'react-native'
-import { RestaurantBubble } from '../components/RestaurantBubble'
-import { exploreSections } from '../data/dummyRestaurants'
+} from 'react-native';
+import { RestaurantBubble } from '../components/RestaurantBubble';
+import { exploreSections } from '../data/dummyRestaurants';
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   headerRow: {
     marginTop: 30,
   },
-})
+});
 
 type HomeProps = {
   navigation: {
@@ -55,10 +55,10 @@ type HomeProps = {
 }
 
 function Explore(props: HomeProps) {
-  const [search, setSearch] = React.useState('')
+  const [search, setSearch] = React.useState('');
   const onClickRestaurant = () => {
-    props.navigation.navigate('Restaurant')
-  }
+    props.navigation.navigate('Restaurant');
+  };
 
   return (
     <ScrollView style={styles.scrollView}>
@@ -74,7 +74,7 @@ function Explore(props: HomeProps) {
             <Text style={styles.sectionTitle}>{section.sectionTitle}</Text>
             <Button
               onPress={() => {
-                console.log('see all')
+                console.log('see all');
               }}
               title="See all"
               color="#ff6e6e"
@@ -94,7 +94,7 @@ function Explore(props: HomeProps) {
       ))}
       <View style={styles.verticalSpace} />
     </ScrollView>
-  )
+  );
 }
 
-export { Explore }
+export { Explore };

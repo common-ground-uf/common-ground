@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   Text,
   View,
@@ -7,12 +7,12 @@ import {
   Button,
   ScrollView,
   TouchableOpacity,
-} from 'react-native'
-import { Restaurant } from '../commonTypes'
-import { PriceRating } from '../components/PriceRating'
-import { Review } from '../components/Review'
-import { gallery } from '../data/dummyData'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+} from 'react-native';
+import { Restaurant } from '../commonTypes';
+import { PriceRating } from '../components/PriceRating';
+import { Review } from '../components/Review';
+import { gallery } from '../data/dummyData';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const styles = StyleSheet.create({
   image: {
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'baseline',
   },
-})
+});
 
 type RestaurantScreenProps = {
   navigation: {
@@ -80,15 +80,15 @@ type RestaurantScreenProps = {
 }
 
 function RestaurantScreen(props: RestaurantScreenProps) {
-  const restaurant = props.route.params.restaurant
+  const restaurant = props.route.params.restaurant;
 
   if (!restaurant) {
-    return null
+    return null;
   }
 
   const onPressSeeAllGallery = () => {
-    props.navigation.navigate('Gallery')
-  }
+    props.navigation.navigate('Gallery');
+  };
 
   return (
     <View>
@@ -124,7 +124,7 @@ function RestaurantScreen(props: RestaurantScreenProps) {
           <Button
             title="See all"
             onPress={() => {
-              console.log('see all')
+              console.log('see all');
             }}
             color="#ff6e6e"
           />
@@ -160,7 +160,7 @@ function RestaurantScreen(props: RestaurantScreenProps) {
         </View>
       </View>
     </View>
-  )
+  );
 }
 
-export { RestaurantScreen }
+export { RestaurantScreen };

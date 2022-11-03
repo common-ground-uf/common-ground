@@ -1,5 +1,5 @@
-import React from 'react'
-import { ScrollView, Button, View, StyleSheet, Text } from 'react-native'
+import React from 'react';
+import { ScrollView, Button, View, StyleSheet, Text } from 'react-native';
 
 const styles = StyleSheet.create({
   button: {
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   verticalSpace: {
     height: 40,
   },
-})
+});
 
 type DebugScreenProps = {
   navigation: {
@@ -24,8 +24,8 @@ type DebugScreenProps = {
 
 function DebugScreen(props: DebugScreenProps) {
   const onClick = (screen: string) => {
-    props.navigation.navigate(screen)
-  }
+    props.navigation.navigate(screen);
+  };
   const screens = [
     'Start',
     'Login',
@@ -50,7 +50,7 @@ function DebugScreen(props: DebugScreenProps) {
     'Random Restaurant',
     'All Contacts',
     'Waiting on Friends',
-  ]
+  ];
   return (
     <ScrollView style={styles.debugScreen}>
       <View style={styles.verticalSpace} />
@@ -61,7 +61,7 @@ function DebugScreen(props: DebugScreenProps) {
         </View>
       ))}
     </ScrollView>
-  )
+  );
 }
 
-export { DebugScreen }
+export { DebugScreen };
