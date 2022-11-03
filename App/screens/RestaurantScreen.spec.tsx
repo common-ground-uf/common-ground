@@ -4,10 +4,14 @@ import { losPollosHermanos } from '../data/dummyRestaurants';
 import { RestaurantScreen } from './RestaurantScreen';
 
 jest.mock(
-    'react-native-vector-icons/FontAwesome',
-    () => 'MockedFontAwesomeicons'
+    'react-native-vector-icons/FontAwesome5',
+    () => 'MockedMaterialCommunityIconsicons'
 );
 
+jest.mock(
+  'react-native-vector-icons/FontAwesome',
+  () => 'MockedFontAwesomeIconsicons'
+);
 
 describe('ProfileScreen', () => {
   const dummyNavigation = {

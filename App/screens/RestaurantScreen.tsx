@@ -6,12 +6,13 @@ import {
   StyleSheet,
   Button,
   ScrollView,
+  TouchableOpacity,
 } from 'react-native';
 import { Restaurant } from '../commonTypes';
 import { PriceRating } from '../components/PriceRating';
 import { Review } from '../components/Review';
 import { gallery } from '../data/dummyData';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const styles = StyleSheet.create({
   image: {
@@ -19,10 +20,11 @@ const styles = StyleSheet.create({
     height: 200,
   },
   padding: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 24,
   },
   title: {
-    marginVertical: 12,
+    marginBottom: 12,
+    marginTop: 18,
     fontSize: 24,
     fontWeight: 'bold',
   },
@@ -30,6 +32,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginVertical: 10,
     fontSize: 18,
+    marginRight: 'auto',
+    marginTop: 30,
   },
   averageReviewRating: {
     fontSize: 18,
@@ -54,21 +58,26 @@ const styles = StyleSheet.create({
   marginTop: {
     marginTop: 12,
   },
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'baseline',
+  },
 });
 
 type RestaurantScreenProps = {
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    navigate: any;
-  };
+    navigate: any
+  }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   route: {
     params: {
-      restaurant: Restaurant;
+      restaurant: Restaurant
     }
-  };
-  restaurant: Restaurant;
-};
+  }
+  restaurant: Restaurant
+}
 
 function RestaurantScreen(props: RestaurantScreenProps) {
   const restaurant = props.route.params.restaurant;
@@ -87,11 +96,39 @@ function RestaurantScreen(props: RestaurantScreenProps) {
       <View style={styles.padding}>
         <Text style={styles.title}>{restaurant.name}</Text>
         <PriceRating rating={3} />
-        <Text style={styles.marginTop}>{restaurant.address.line1}</Text>
-        <Text>{restaurant.address.line2}</Text>
-        <Button title='Directions' />
+        <View style={{ display: 'flex', flexDirection: 'row' }}>
+          <TouchableOpacity
+            style={{
+              justifyContent: 'center',
+              alignContent: 'center',
+              alignItems: 'center',
+              marginRight: 8,
+            }}
+          >
+            <Icon
+              name="directions"
+              size={16}
+              color="#FF6D6E"
+              style={{ alignSelf: 'center' }}
+            />
+            <Text style={{ fontSize: 8 }}>Directions</Text>
+          </TouchableOpacity>
+          <View>
+            <Text style={styles.marginTop}>{restaurant.address.line1}</Text>
+            <Text>{restaurant.address.line2}</Text>
+          </View>
+        </View>
         <Text style={styles.marginTop}>{restaurant.description}</Text>
-        <Text style={styles.sectionTitle}>Reviews</Text>
+        <View style={styles.row}>
+          <Text style={styles.sectionTitle}>Reviews</Text>
+          <Button
+            title="See all"
+            onPress={() => {
+              console.log('see all');
+            }}
+            color="#ff6e6e"
+          />
+        </View>
         <Text style={{ display: 'flex' }}>
           <Text style={styles.averageReviewRating}>
             {restaurant.starRating}
@@ -103,7 +140,14 @@ function RestaurantScreen(props: RestaurantScreenProps) {
           <Review key={index} {...review} />
         ))}
         <View>
-          <Text style={styles.sectionTitle}>Gallery</Text>
+          <View style={styles.row}>
+            <Text style={styles.sectionTitle}>Gallery</Text>
+            <Button
+              title="See all"
+              onPress={onPressSeeAllGallery}
+              color="#ff6e6e"
+            />
+          </View>
           <ScrollView style={styles.gallery} horizontal={true}>
             {gallery.map((image, index) => (
               <Image
@@ -113,7 +157,6 @@ function RestaurantScreen(props: RestaurantScreenProps) {
               />
             ))}
           </ScrollView>
-          <Button title="See all" onPress={onPressSeeAllGallery} />
         </View>
       </View>
     </View>
