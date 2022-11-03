@@ -17,18 +17,22 @@ class GroupService {
     public messages = messageModel;
     public preferences = preferencesModel;
 
-    public async initiateGroup(userIds : string[]) : Promise<Group> {
+    public async initiateGroup(userIds : string[], inviteCode : string) : Promise<Group> {
         try {
-            const availableGroup = await this.groups.findOne({
-                userIds: {
-                    $size: userIds.length,
-                    $all: [...userIds],
-                }
+            // check if group already exists if no invite code was generated
+            // const availableGroup = await this.groups.findOne({
+            //     userIds: {
+            //         $size: userIds.length,
+            //         $all: [...userIds],
+            //     }
+            // });
+            // if (availableGroup) {
+            //     return availableGroup;
+            // }
+            const newGroup = await this.groups.create({
+                userIds: [...userIds],
+                inviteCode: inviteCode
             });
-            if (availableGroup) {
-                return availableGroup;
-            }
-            const newGroup = await this.groups.create({userIds});
             return newGroup;
         } catch (error) {
             console.log('error on create group', error);

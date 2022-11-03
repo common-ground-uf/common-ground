@@ -1,6 +1,8 @@
+import axios from 'axios';
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, Button } from 'react-native';
 import { ContactBubble } from '../components/ContactBubble';
+import { SERVER_URI } from '../Config';
 import { allUsers } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
@@ -38,8 +40,7 @@ function makeid(length) {
 
 function StartNewTableScreen(props: StartNewTableScreenProps) {
     const contactList = allUsers;
-    const [selected, setSelected] = React.useState([false, false, false]);
-    const [inviteCode, setInviteCode] = React.useState('');
+    const [selected, setSelected] = React.useState([false, false, false, false, false, false]);
 
   const onPressContact = (clickedIndex:number) => {
     const newSelected = selected.map((contact, index) => {
@@ -50,14 +51,32 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
     });
     setSelected(newSelected);
   };
-  
-      const onInvitePress = () => {
-        setInviteCode(makeid(6));
-        console.log(inviteCode);
-    };
 
-    const onPressNext = () => {
-        props.navigation.navigate('Strategic or random');
+    const onPressCreate = () => {
+      let inviteCode = makeid(6);
+      console.log(inviteCode);
+
+      let selectedContacts = [];
+      for (let i = 0; i < selected.length; i++) {
+        if (selected[i]) {
+          selectedContacts.push(contactList[i].id);
+        }
+      }
+      
+
+        axios.post(`${SERVER_URI}/groups`, {
+                inviteCode: inviteCode,
+                userIds: selectedContacts,
+              }).then((response) => {
+            console.log("Group created");
+            console.log(response.data);
+        }).catch((error) => {
+            console.log(error);
+            console.log(error.response.data);
+        });
+
+        //TODO: Navigate to newly created table screen
+        // props.navigation.navigate('Strategic or random');
     };
 
     return (
@@ -67,13 +86,7 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
                     <ContactBubble key={index} {...contact} onPress={() => onPressContact(index)} selected={selected[index]} style={styles.contactBubble}/>
                 )}
             </View>
-            <Button title='Next' onPress={onPressNext}/>
-            <View>
-                <Button onPress={onInvitePress} title='Generate invite link'/>
-                <Text>
-                    {inviteCode}
-                </Text>
-            </View>
+            <Button title='Create' onPress={onPressCreate}/>
         </ScrollView>
     );
 }
