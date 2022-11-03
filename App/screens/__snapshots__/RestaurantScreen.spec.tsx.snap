@@ -18,7 +18,7 @@ exports[`ProfileScreen Renders Restaurant screen correctly 1`] = `
   <View
     style={
       {
-        "paddingHorizontal": 20,
+        "paddingHorizontal": 24,
       }
     }
   >
@@ -27,7 +27,8 @@ exports[`ProfileScreen Renders Restaurant screen correctly 1`] = `
         {
           "fontSize": 24,
           "fontWeight": "bold",
-          "marginVertical": 12,
+          "marginBottom": 12,
+          "marginTop": 18,
         }
       }
     >
@@ -75,56 +76,67 @@ exports[`ProfileScreen Renders Restaurant screen correctly 1`] = `
         $
       </Text>
     </View>
-    <Text
-      style={
-        {
-          "marginTop": 12,
-        }
-      }
-    >
-      1515 SW 13th Street
-    </Text>
-    <Text>
-      Gainesville, FL 32601
-    </Text>
     <View
-      accessibilityRole="button"
-      accessible={true}
-      collapsable={false}
-      focusable={false}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         {
-          "opacity": 1,
+          "display": "flex",
+          "flexDirection": "row",
         }
       }
     >
       <View
+        accessible={true}
+        collapsable={false}
+        focusable={false}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          [
-            {},
-          ]
+          {
+            "alignContent": "center",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "marginRight": 8,
+            "opacity": 1,
+          }
         }
       >
+        <MockedMaterialCommunityIconsicons
+          color="#FF6D6E"
+          name="directions"
+          size={16}
+          style={
+            {
+              "alignSelf": "center",
+            }
+          }
+        />
         <Text
           style={
-            [
-              {
-                "color": "#007AFF",
-                "fontSize": 18,
-                "margin": 8,
-                "textAlign": "center",
-              },
-            ]
+            {
+              "fontSize": 8,
+            }
           }
         >
           Directions
+        </Text>
+      </View>
+      <View>
+        <Text
+          style={
+            {
+              "marginTop": 12,
+            }
+          }
+        >
+          1515 SW 13th Street
+        </Text>
+        <Text>
+          Gainesville, FL 32601
         </Text>
       </View>
     </View>
@@ -137,17 +149,73 @@ exports[`ProfileScreen Renders Restaurant screen correctly 1`] = `
     >
       Fast-food chain serving Mexican-inspired fare such as tacos, quesadillas & nachos.
     </Text>
-    <Text
+    <View
       style={
         {
-          "fontSize": 18,
-          "fontWeight": "bold",
-          "marginVertical": 10,
+          "alignItems": "baseline",
+          "display": "flex",
+          "flexDirection": "row",
         }
       }
     >
-      Reviews
-    </Text>
+      <Text
+        style={
+          {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "marginRight": "auto",
+            "marginTop": 30,
+            "marginVertical": 10,
+          }
+        }
+      >
+        Reviews
+      </Text>
+      <View
+        accessibilityRole="button"
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {},
+            ]
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#007AFF",
+                  "fontSize": 18,
+                  "margin": 8,
+                  "textAlign": "center",
+                },
+                {
+                  "color": "#ff6e6e",
+                },
+              ]
+            }
+          >
+            See all
+          </Text>
+        </View>
+      </View>
+    </View>
     <Text
       style={
         {
@@ -164,7 +232,7 @@ exports[`ProfileScreen Renders Restaurant screen correctly 1`] = `
         }
       >
         4
-        <MockedFontAwesomeicons
+        <MockedMaterialCommunityIconsicons
           color="orange"
           name="star"
           size={16}
@@ -207,7 +275,7 @@ exports[`ProfileScreen Renders Restaurant screen correctly 1`] = `
       >
         <Text>
           1
-          <MockedFontAwesomeicons
+          <MockedFontAwesomeIconsicons
             color="orange"
             name="star"
             size={16}
@@ -258,7 +326,7 @@ exports[`ProfileScreen Renders Restaurant screen correctly 1`] = `
       >
         <Text>
           5
-          <MockedFontAwesomeicons
+          <MockedFontAwesomeIconsicons
             color="orange"
             name="star"
             size={16}
@@ -284,17 +352,73 @@ exports[`ProfileScreen Renders Restaurant screen correctly 1`] = `
       </View>
     </View>
     <View>
-      <Text
+      <View
         style={
           {
-            "fontSize": 18,
-            "fontWeight": "bold",
-            "marginVertical": 10,
+            "alignItems": "baseline",
+            "display": "flex",
+            "flexDirection": "row",
           }
         }
       >
-        Gallery
-      </Text>
+        <Text
+          style={
+            {
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginRight": "auto",
+              "marginTop": 30,
+              "marginVertical": 10,
+            }
+          }
+        >
+          Gallery
+        </Text>
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              [
+                {},
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#007AFF",
+                    "fontSize": 18,
+                    "margin": 8,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#ff6e6e",
+                  },
+                ]
+              }
+            >
+              See all
+            </Text>
+          </View>
+        </View>
+      </View>
       <RCTScrollView
         horizontal={true}
         style={
@@ -384,47 +508,6 @@ exports[`ProfileScreen Renders Restaurant screen correctly 1`] = `
           />
         </View>
       </RCTScrollView>
-      <View
-        accessibilityRole="button"
-        accessible={true}
-        collapsable={false}
-        focusable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          {
-            "opacity": 1,
-          }
-        }
-      >
-        <View
-          style={
-            [
-              {},
-            ]
-          }
-        >
-          <Text
-            style={
-              [
-                {
-                  "color": "#007AFF",
-                  "fontSize": 18,
-                  "margin": 8,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            See all
-          </Text>
-        </View>
-      </View>
     </View>
   </View>
 </View>

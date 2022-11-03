@@ -71,21 +71,24 @@ const styles = StyleSheet.create({
   verticalSpace: {
     height: 20,
   },
+  contactBubble: {
+    marginRight: 16,
+  },
 });
 
 type ProfilePageProps = {
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    navigate: any;
-  };
-  profileData: Profile;
+    navigate: any
+  }
+  profileData: Profile
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   route: {
     params: {
-      profileData: Profile;
+      profileData: Profile
     }
   }
-};
+}
 
 function ProfileScreen(props: ProfilePageProps) {
   const selfId = '4';
@@ -139,11 +142,19 @@ function ProfileScreen(props: ProfilePageProps) {
           source={{ uri: props.route.params.profileData.profilePic }}
           style={styles.image}
         />
-        <Text style={styles.name}>{profileData.firstName} {profileData.lastName}</Text>
+        <Text style={styles.name}>
+          {profileData.firstName} {profileData.lastName}
+        </Text>
       </View>
       <View style={styles.row}>
         <Text style={styles.sectionTitle}>Preferences</Text>
-        <Button onPress={onPressEditPreferences} title="Edit" />
+        {isMyProfile && (
+          <Button
+            onPress={onPressEditPreferences}
+            title="Edit"
+            color="#ff6e6e"
+          />
+        )}
       </View>
       <View style={styles.chipContainer}>
         {profileData.preferences.map((preference, index) => (
@@ -152,10 +163,10 @@ function ProfileScreen(props: ProfilePageProps) {
       </View>
       <View style={styles.row}>
         <Text style={styles.sectionTitle}>Past picks</Text>
-        <Button onPress={onPressSeeAllPicks} title="See all" />
+        <Button onPress={onPressSeeAllPicks} title="See all" color="#ff6e6e" />
       </View>
       <View style={styles.row}>
-        {profileData.pastPicks.length > 0 ? 
+        {profileData.pastPicks.length > 0 ? (
           profileData.pastPicks.map((restaurant, index) => (
             <RestaurantBubble
               {...restaurant}
@@ -163,29 +174,34 @@ function ProfileScreen(props: ProfilePageProps) {
               key={index}
               style={styles.bubble}
             />
-          )) :
+          ))
+        ) : (
           <Text>No recently visited restaurants</Text>
-        }
+        )}
       </View>
       {isMyProfile && (
         <>
           <View style={styles.row}>
             <Text style={styles.sectionTitle}>Your contacts</Text>
-            <Button onPress={onPressSeeAllContacts} title="See all" />
+            <Button
+              onPress={onPressSeeAllContacts}
+              title="See all"
+              color="#ff6e6e"
+            />
           </View>
           <View style={styles.row}>
-            {profileData.recentContacts.length > 0 ? 
-              profileData.recentContacts.map(
-                (contact, index) => (
-                  <ContactBubble
-                    {...contact}
-                    onPress={() => onPressContact(contact)}
-                    key={index}
-                  />
-                )
-              ) :
+            {profileData.recentContacts.length > 0 ? (
+              profileData.recentContacts.map((contact, index) => (
+                <ContactBubble
+                  {...contact}
+                  onPress={() => onPressContact(contact)}
+                  key={index}
+                  style={styles.contactBubble}
+                />
+              ))
+            ) : (
               <Text>No recent contacts</Text>
-            }
+            )}
           </View>
         </>
       )}

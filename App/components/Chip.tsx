@@ -5,17 +5,19 @@ const styles = StyleSheet.create({
   chip: {
     height: 30,
     borderRadius: 25,
-    backgroundColor: 'pink',
+    backgroundColor: '#ff6d6e',
     alignItems: 'center',
     padding: 8,
     marginRight: 8,
   },
-  text: {},
+  text: {
+    color: 'white',
+  },
 });
 
 type ChipProps = {
-  text: string;
-};
+  text: string
+}
 
 function Chip(props: ChipProps) {
   return (

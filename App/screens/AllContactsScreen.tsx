@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, Text, StyleSheet } from 'react-native';
+import { View, FlatList, Text, StyleSheet, ScrollView } from 'react-native';
 import { Contact, Profile } from '../commonTypes';
 import { ContactListItem } from '../components/ContactListItem';
 
@@ -12,14 +12,14 @@ const styles = StyleSheet.create({
 });
 
 type AllContactsScreenProps = {
-  members: Contact[];
+  members: Contact[]
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    navigate: any;
-  };
+    navigate: any
+  }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  route: any;
-};
+  route: any
+}
 
 function AllContactsScreen(props: AllContactsScreenProps) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -28,22 +28,24 @@ function AllContactsScreen(props: AllContactsScreenProps) {
   );
 
   return (
-    <View style={styles.groupDetails}>
-      {members.length === 0 ? (
-        <Text>Group is empty</Text>
-      ) : (
-        <FlatList
-          data={members}
-          renderItem={(member) => (
-            <ContactListItem
-              memberData={member.item}
-              last={member.index === members.length - 1}
-              navigate={props.navigation.navigate}
-            />
-          )}
-        />
-      )}
-    </View>
+    <ScrollView style={styles.groupDetails}>
+      <View>
+        {members.length === 0 ? (
+          <Text>Group is empty</Text>
+        ) : (
+          <FlatList
+            data={members}
+            renderItem={(member) => (
+              <ContactListItem
+                memberData={member.item}
+                last={member.index === members.length - 1}
+                navigate={props.navigation.navigate}
+              />
+            )}
+          />
+        )}
+      </View>
+    </ScrollView>
   );
 }
 

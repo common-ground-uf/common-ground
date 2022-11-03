@@ -133,7 +133,7 @@ export const parties = [
     members: [walterContact, saulProfile, gusContact, stanEdgarContact],
   },
   {
-    name: 'My bitch family',
+    name: 'My family',
     members: [walterContact, skylerContact],
   },
   {

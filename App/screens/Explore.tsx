@@ -1,5 +1,12 @@
 import React from 'react';
-import { Text, View, StyleSheet, ScrollView, TextInput } from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  ScrollView,
+  TextInput,
+  Button,
+} from 'react-native';
 import { RestaurantBubble } from '../components/RestaurantBubble';
 import { exploreSections } from '../data/dummyRestaurants';
 
@@ -8,10 +15,9 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   sectionTitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 12,
-    marginTop: 20,
+    marginRight: 'auto',
     marginLeft: 20,
   },
   row: {
@@ -28,21 +34,25 @@ const styles = StyleSheet.create({
     height: 40,
     marginBottom: 10,
     borderWidth: 1,
-    width: '95%',
+    width: '90%',
     borderRadius: 20,
-    marginHorizontal: '2.5%',
+    marginHorizontal: '5%',
+    paddingLeft: 10,
   },
   bubble: {
     marginLeft: 20,
+  },
+  headerRow: {
+    marginTop: 30,
   },
 });
 
 type HomeProps = {
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    navigate: any;
-  };
-};
+    navigate: any
+  }
+}
 
 function Explore(props: HomeProps) {
   const [search, setSearch] = React.useState('');
@@ -60,7 +70,16 @@ function Explore(props: HomeProps) {
       />
       {exploreSections.map((section, index1) => (
         <View key={index1}>
-          <Text style={styles.sectionTitle}>{section.sectionTitle}</Text>
+          <View style={[styles.row, styles.headerRow]}>
+            <Text style={styles.sectionTitle}>{section.sectionTitle}</Text>
+            <Button
+              onPress={() => {
+                console.log('see all');
+              }}
+              title="See all"
+              color="#ff6e6e"
+            />
+          </View>
           <ScrollView style={styles.row} horizontal={true}>
             {section.contentData.map((restaurant, index2) => (
               <RestaurantBubble

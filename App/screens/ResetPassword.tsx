@@ -19,7 +19,6 @@ function ResetPassword() {
 
   return (
     <View style={loginSignupStyles.container}>
-      <Text style={loginSignupStyles.title}>Reset password</Text>
       <TextInput
         style={loginSignupStyles.input}
         onChangeText={setNewPassword}

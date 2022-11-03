@@ -396,16 +396,17 @@ exports[`Homee Renders Home correctly 1`] = `
             <Image
               source={
                 {
-                  "uri": "https://static.wikia.nocookie.net/breakingbad/images/5/54/BCS_S3_GusFring.jpg/revision/latest?cb=20170327185354",
+                  "uri": "https://compote.slate.com/images/fb69a16d-7f35-4103-98c1-62d466196b9a.jpg?width=1200",
                 }
               }
               style={
                 [
                   {
-                    "borderRadius": 30,
-                    "height": 65,
-                    "top": 10,
-                    "width": 65,
+                    "borderRadius": 22.5,
+                    "bottom": 5,
+                    "height": 45,
+                    "right": 5,
+                    "width": 45,
                   },
                   {
                     "borderColor": "#ddd",
@@ -425,10 +426,10 @@ exports[`Homee Renders Home correctly 1`] = `
               style={
                 [
                   {
-                    "borderRadius": 25,
-                    "bottom": 0,
+                    "borderRadius": 27.5,
                     "height": 55,
-                    "right": 0,
+                    "right": 5,
+                    "top": 5,
                     "width": 55,
                   },
                   {
@@ -443,17 +444,16 @@ exports[`Homee Renders Home correctly 1`] = `
             <Image
               source={
                 {
-                  "uri": "https://compote.slate.com/images/fb69a16d-7f35-4103-98c1-62d466196b9a.jpg?width=1200",
+                  "uri": "https://static.wikia.nocookie.net/breakingbad/images/5/54/BCS_S3_GusFring.jpg/revision/latest?cb=20170327185354",
                 }
               }
               style={
                 [
                   {
-                    "borderRadius": 20,
-                    "height": 45,
-                    "right": 0,
-                    "top": 0,
-                    "width": 45,
+                    "borderRadius": 30,
+                    "height": 65,
+                    "top": 10,
+                    "width": 65,
                   },
                   {
                     "borderColor": "#ddd",
@@ -513,19 +513,22 @@ exports[`Homee Renders Home correctly 1`] = `
               }
             }
           >
-            <Image
-              source={
-                {
-                  "uri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS7_zsiM5wfE2uac1B7Xk-jdVGpCKzrQqEwOaK9ak60O1iI4Don3BcWR_sOsumMQetlSw&usqp=CAU",
-                }
-              }
+            <View
               style={
                 [
                   {
-                    "borderRadius": 30,
-                    "height": 65,
-                    "top": 10,
-                    "width": 65,
+                    "borderRadius": 22.5,
+                    "bottom": 5,
+                    "height": 45,
+                    "right": 5,
+                    "width": 45,
+                  },
+                  {
+                    "alignContent": "center",
+                    "alignItems": "center",
+                    "backgroundColor": "#999",
+                    "display": "flex",
+                    "justifyContent": "center",
                   },
                   {
                     "borderColor": "#ddd",
@@ -535,7 +538,12 @@ exports[`Homee Renders Home correctly 1`] = `
                   },
                 ]
               }
-            />
+            >
+              <Text>
+                +
+                2
+              </Text>
+            </View>
             <Image
               source={
                 {
@@ -545,10 +553,10 @@ exports[`Homee Renders Home correctly 1`] = `
               style={
                 [
                   {
-                    "borderRadius": 25,
-                    "bottom": 0,
+                    "borderRadius": 27.5,
                     "height": 55,
-                    "right": 0,
+                    "right": 5,
+                    "top": 5,
                     "width": 55,
                   },
                   {
@@ -563,17 +571,16 @@ exports[`Homee Renders Home correctly 1`] = `
             <Image
               source={
                 {
-                  "uri": "https://static.wikia.nocookie.net/breakingbad/images/5/54/BCS_S3_GusFring.jpg/revision/latest?cb=20170327185354",
+                  "uri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS7_zsiM5wfE2uac1B7Xk-jdVGpCKzrQqEwOaK9ak60O1iI4Don3BcWR_sOsumMQetlSw&usqp=CAU",
                 }
               }
               style={
                 [
                   {
-                    "borderRadius": 20,
-                    "height": 45,
-                    "right": 0,
-                    "top": 0,
-                    "width": 45,
+                    "borderRadius": 30,
+                    "height": 65,
+                    "top": 10,
+                    "width": 65,
                   },
                   {
                     "borderColor": "#ddd",
@@ -636,6 +643,30 @@ exports[`Homee Renders Home correctly 1`] = `
             <Image
               source={
                 {
+                  "uri": "https://static.wikia.nocookie.net/breakingbad/images/4/40/Season_2_-_Skyler.jpg/revision/latest?cb=20090617160516",
+                }
+              }
+              style={
+                [
+                  {
+                    "borderRadius": 27.5,
+                    "height": 55,
+                    "right": 5,
+                    "top": 5,
+                    "width": 55,
+                  },
+                  {
+                    "borderColor": "#ddd",
+                    "borderStyle": "solid",
+                    "borderWidth": 3,
+                    "position": "absolute",
+                  },
+                ]
+              }
+            />
+            <Image
+              source={
+                {
                   "uri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS7_zsiM5wfE2uac1B7Xk-jdVGpCKzrQqEwOaK9ak60O1iI4Don3BcWR_sOsumMQetlSw&usqp=CAU",
                 }
               }
@@ -656,30 +687,6 @@ exports[`Homee Renders Home correctly 1`] = `
                 ]
               }
             />
-            <Image
-              source={
-                {
-                  "uri": "https://static.wikia.nocookie.net/breakingbad/images/4/40/Season_2_-_Skyler.jpg/revision/latest?cb=20090617160516",
-                }
-              }
-              style={
-                [
-                  {
-                    "borderRadius": 25,
-                    "bottom": 0,
-                    "height": 55,
-                    "right": 0,
-                    "width": 55,
-                  },
-                  {
-                    "borderColor": "#ddd",
-                    "borderStyle": "solid",
-                    "borderWidth": 3,
-                    "position": "absolute",
-                  },
-                ]
-              }
-            />
           </View>
           <Text
             style={
@@ -690,7 +697,7 @@ exports[`Homee Renders Home correctly 1`] = `
               }
             }
           >
-            My bitch family
+            My family
           </Text>
         </View>
         <View
@@ -732,16 +739,17 @@ exports[`Homee Renders Home correctly 1`] = `
             <Image
               source={
                 {
-                  "uri": "https://external-preview.redd.it/Af65FrXSGlwOobPUnC3MNOI1D3xCCERFWoVFfhzpgio.png?format=pjpg&auto=webp&s=ed7b1feb0f8356ba51ea70f5b26b81c1868bc005",
+                  "uri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS7_zsiM5wfE2uac1B7Xk-jdVGpCKzrQqEwOaK9ak60O1iI4Don3BcWR_sOsumMQetlSw&usqp=CAU",
                 }
               }
               style={
                 [
                   {
-                    "borderRadius": 30,
-                    "height": 65,
-                    "top": 10,
-                    "width": 65,
+                    "borderRadius": 27.5,
+                    "height": 55,
+                    "right": 5,
+                    "top": 5,
+                    "width": 55,
                   },
                   {
                     "borderColor": "#ddd",
@@ -755,17 +763,16 @@ exports[`Homee Renders Home correctly 1`] = `
             <Image
               source={
                 {
-                  "uri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS7_zsiM5wfE2uac1B7Xk-jdVGpCKzrQqEwOaK9ak60O1iI4Don3BcWR_sOsumMQetlSw&usqp=CAU",
+                  "uri": "https://external-preview.redd.it/Af65FrXSGlwOobPUnC3MNOI1D3xCCERFWoVFfhzpgio.png?format=pjpg&auto=webp&s=ed7b1feb0f8356ba51ea70f5b26b81c1868bc005",
                 }
               }
               style={
                 [
                   {
-                    "borderRadius": 25,
-                    "bottom": 0,
-                    "height": 55,
-                    "right": 0,
-                    "width": 55,
+                    "borderRadius": 30,
+                    "height": 65,
+                    "top": 10,
+                    "width": 65,
                   },
                   {
                     "borderColor": "#ddd",

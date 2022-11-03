@@ -6,24 +6,29 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 6,
     padding: 50,
-    margin: 20,
+    marginBottom: 20,
     borderColor: '#FF6D6E',
   },
   strategicOrRandom: {
     display: 'flex',
     flexDirection: 'column',
+    padding: 20,
   },
   text: {
+    paddingVertical: 40,
+  },
+  buttonText: {
     textAlign: 'center',
+    fontSize: 20,
   },
 });
 
 type StrategicOrRandomProps = {
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    navigate: any;
-  };
-};
+    navigate: any
+  }
+}
 
 export function StrategicOrRandom(props: StrategicOrRandomProps) {
   const onPressStrategic = () => {
@@ -36,11 +41,14 @@ export function StrategicOrRandom(props: StrategicOrRandomProps) {
 
   return (
     <View style={styles.strategicOrRandom}>
+      <Text style={styles.text}>
+        How do you want the restaurant to be picked?
+      </Text>
       <TouchableOpacity style={styles.button} onPress={onPressStrategic}>
-        <Text style={styles.text}>Strategic</Text>
+        <Text style={styles.buttonText}>Strategic</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={onPressRandom}>
-        <Text style={styles.text}>Random</Text>
+        <Text style={styles.buttonText}>Random</Text>
       </TouchableOpacity>
     </View>
   );
