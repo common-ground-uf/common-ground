@@ -18,26 +18,86 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
           "borderWidth": 1,
           "height": 40,
           "marginBottom": 10,
-          "marginHorizontal": "2.5%",
-          "width": "95%",
+          "marginHorizontal": "5%",
+          "paddingLeft": 10,
+          "width": "90%",
         }
       }
       value=""
     />
     <View>
-      <Text
+      <View
         style={
-          {
-            "fontSize": 20,
-            "fontWeight": "bold",
-            "marginBottom": 12,
-            "marginLeft": 20,
-            "marginTop": 20,
-          }
+          [
+            {
+              "display": "flex",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+              "overflowX": "scroll",
+            },
+            {
+              "marginTop": 30,
+            },
+          ]
         }
       >
-        Chicken restaurants (not meth)
-      </Text>
+        <Text
+          style={
+            {
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginLeft": 20,
+              "marginRight": "auto",
+            }
+          }
+        >
+          Chicken restaurants (not meth)
+        </Text>
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              [
+                {},
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#007AFF",
+                    "fontSize": 18,
+                    "margin": 8,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#ff6e6e",
+                  },
+                ]
+              }
+            >
+              See all
+            </Text>
+          </View>
+        </View>
+      </View>
       <RCTScrollView
         horizontal={true}
         style={
@@ -238,19 +298,78 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
       </RCTScrollView>
     </View>
     <View>
-      <Text
+      <View
         style={
-          {
-            "fontSize": 20,
-            "fontWeight": "bold",
-            "marginBottom": 12,
-            "marginLeft": 20,
-            "marginTop": 20,
-          }
+          [
+            {
+              "display": "flex",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+              "overflowX": "scroll",
+            },
+            {
+              "marginTop": 30,
+            },
+          ]
         }
       >
-        Local favorites
-      </Text>
+        <Text
+          style={
+            {
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginLeft": 20,
+              "marginRight": "auto",
+            }
+          }
+        >
+          Local favorites
+        </Text>
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              [
+                {},
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#007AFF",
+                    "fontSize": 18,
+                    "margin": 8,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#ff6e6e",
+                  },
+                ]
+              }
+            >
+              See all
+            </Text>
+          </View>
+        </View>
+      </View>
       <RCTScrollView
         horizontal={true}
         style={
@@ -451,19 +570,78 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
       </RCTScrollView>
     </View>
     <View>
-      <Text
+      <View
         style={
-          {
-            "fontSize": 20,
-            "fontWeight": "bold",
-            "marginBottom": 12,
-            "marginLeft": 20,
-            "marginTop": 20,
-          }
+          [
+            {
+              "display": "flex",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+              "overflowX": "scroll",
+            },
+            {
+              "marginTop": 30,
+            },
+          ]
         }
       >
-        Late night bites
-      </Text>
+        <Text
+          style={
+            {
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginLeft": 20,
+              "marginRight": "auto",
+            }
+          }
+        >
+          Late night bites
+        </Text>
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              [
+                {},
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#007AFF",
+                    "fontSize": 18,
+                    "margin": 8,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#ff6e6e",
+                  },
+                ]
+              }
+            >
+              See all
+            </Text>
+          </View>
+        </View>
+      </View>
       <RCTScrollView
         horizontal={true}
         style={
@@ -664,19 +842,78 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
       </RCTScrollView>
     </View>
     <View>
-      <Text
+      <View
         style={
-          {
-            "fontSize": 20,
-            "fontWeight": "bold",
-            "marginBottom": 12,
-            "marginLeft": 20,
-            "marginTop": 20,
-          }
+          [
+            {
+              "display": "flex",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+              "overflowX": "scroll",
+            },
+            {
+              "marginTop": 30,
+            },
+          ]
         }
       >
-        American
-      </Text>
+        <Text
+          style={
+            {
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginLeft": 20,
+              "marginRight": "auto",
+            }
+          }
+        >
+          American
+        </Text>
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              [
+                {},
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#007AFF",
+                    "fontSize": 18,
+                    "margin": 8,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#ff6e6e",
+                  },
+                ]
+              }
+            >
+              See all
+            </Text>
+          </View>
+        </View>
+      </View>
       <RCTScrollView
         horizontal={true}
         style={
@@ -877,19 +1114,78 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
       </RCTScrollView>
     </View>
     <View>
-      <Text
+      <View
         style={
-          {
-            "fontSize": 20,
-            "fontWeight": "bold",
-            "marginBottom": 12,
-            "marginLeft": 20,
-            "marginTop": 20,
-          }
+          [
+            {
+              "display": "flex",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+              "overflowX": "scroll",
+            },
+            {
+              "marginTop": 30,
+            },
+          ]
         }
       >
-        Vegetarian (kind of)
-      </Text>
+        <Text
+          style={
+            {
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginLeft": 20,
+              "marginRight": "auto",
+            }
+          }
+        >
+          Vegetarian (kind of)
+        </Text>
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              [
+                {},
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#007AFF",
+                    "fontSize": 18,
+                    "margin": 8,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#ff6e6e",
+                  },
+                ]
+              }
+            >
+              See all
+            </Text>
+          </View>
+        </View>
+      </View>
       <RCTScrollView
         horizontal={true}
         style={
@@ -1119,26 +1415,86 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
           "borderWidth": 1,
           "height": 40,
           "marginBottom": 10,
-          "marginHorizontal": "2.5%",
-          "width": "95%",
+          "marginHorizontal": "5%",
+          "paddingLeft": 10,
+          "width": "90%",
         }
       }
       value=""
     />
     <View>
-      <Text
+      <View
         style={
-          {
-            "fontSize": 20,
-            "fontWeight": "bold",
-            "marginBottom": 12,
-            "marginLeft": 20,
-            "marginTop": 20,
-          }
+          [
+            {
+              "display": "flex",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+              "overflowX": "scroll",
+            },
+            {
+              "marginTop": 30,
+            },
+          ]
         }
       >
-        Chicken restaurants (not meth)
-      </Text>
+        <Text
+          style={
+            {
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginLeft": 20,
+              "marginRight": "auto",
+            }
+          }
+        >
+          Chicken restaurants (not meth)
+        </Text>
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              [
+                {},
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#007AFF",
+                    "fontSize": 18,
+                    "margin": 8,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#ff6e6e",
+                  },
+                ]
+              }
+            >
+              See all
+            </Text>
+          </View>
+        </View>
+      </View>
       <RCTScrollView
         horizontal={true}
         style={
@@ -1339,19 +1695,78 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
       </RCTScrollView>
     </View>
     <View>
-      <Text
+      <View
         style={
-          {
-            "fontSize": 20,
-            "fontWeight": "bold",
-            "marginBottom": 12,
-            "marginLeft": 20,
-            "marginTop": 20,
-          }
+          [
+            {
+              "display": "flex",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+              "overflowX": "scroll",
+            },
+            {
+              "marginTop": 30,
+            },
+          ]
         }
       >
-        Local favorites
-      </Text>
+        <Text
+          style={
+            {
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginLeft": 20,
+              "marginRight": "auto",
+            }
+          }
+        >
+          Local favorites
+        </Text>
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              [
+                {},
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#007AFF",
+                    "fontSize": 18,
+                    "margin": 8,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#ff6e6e",
+                  },
+                ]
+              }
+            >
+              See all
+            </Text>
+          </View>
+        </View>
+      </View>
       <RCTScrollView
         horizontal={true}
         style={
@@ -1552,19 +1967,78 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
       </RCTScrollView>
     </View>
     <View>
-      <Text
+      <View
         style={
-          {
-            "fontSize": 20,
-            "fontWeight": "bold",
-            "marginBottom": 12,
-            "marginLeft": 20,
-            "marginTop": 20,
-          }
+          [
+            {
+              "display": "flex",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+              "overflowX": "scroll",
+            },
+            {
+              "marginTop": 30,
+            },
+          ]
         }
       >
-        Late night bites
-      </Text>
+        <Text
+          style={
+            {
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginLeft": 20,
+              "marginRight": "auto",
+            }
+          }
+        >
+          Late night bites
+        </Text>
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              [
+                {},
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#007AFF",
+                    "fontSize": 18,
+                    "margin": 8,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#ff6e6e",
+                  },
+                ]
+              }
+            >
+              See all
+            </Text>
+          </View>
+        </View>
+      </View>
       <RCTScrollView
         horizontal={true}
         style={
@@ -1765,19 +2239,78 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
       </RCTScrollView>
     </View>
     <View>
-      <Text
+      <View
         style={
-          {
-            "fontSize": 20,
-            "fontWeight": "bold",
-            "marginBottom": 12,
-            "marginLeft": 20,
-            "marginTop": 20,
-          }
+          [
+            {
+              "display": "flex",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+              "overflowX": "scroll",
+            },
+            {
+              "marginTop": 30,
+            },
+          ]
         }
       >
-        American
-      </Text>
+        <Text
+          style={
+            {
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginLeft": 20,
+              "marginRight": "auto",
+            }
+          }
+        >
+          American
+        </Text>
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              [
+                {},
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#007AFF",
+                    "fontSize": 18,
+                    "margin": 8,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#ff6e6e",
+                  },
+                ]
+              }
+            >
+              See all
+            </Text>
+          </View>
+        </View>
+      </View>
       <RCTScrollView
         horizontal={true}
         style={
@@ -1978,19 +2511,78 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
       </RCTScrollView>
     </View>
     <View>
-      <Text
+      <View
         style={
-          {
-            "fontSize": 20,
-            "fontWeight": "bold",
-            "marginBottom": 12,
-            "marginLeft": 20,
-            "marginTop": 20,
-          }
+          [
+            {
+              "display": "flex",
+              "flexDirection": "row",
+              "flexWrap": "nowrap",
+              "overflowX": "scroll",
+            },
+            {
+              "marginTop": 30,
+            },
+          ]
         }
       >
-        Vegetarian (kind of)
-      </Text>
+        <Text
+          style={
+            {
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginLeft": 20,
+              "marginRight": "auto",
+            }
+          }
+        >
+          Vegetarian (kind of)
+        </Text>
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              [
+                {},
+              ]
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "color": "#007AFF",
+                    "fontSize": 18,
+                    "margin": 8,
+                    "textAlign": "center",
+                  },
+                  {
+                    "color": "#ff6e6e",
+                  },
+                ]
+              }
+            >
+              See all
+            </Text>
+          </View>
+        </View>
+      </View>
       <RCTScrollView
         horizontal={true}
         style={

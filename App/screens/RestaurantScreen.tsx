@@ -12,7 +12,7 @@ import { Restaurant } from '../commonTypes';
 import { PriceRating } from '../components/PriceRating';
 import { Review } from '../components/Review';
 import { gallery } from '../data/dummyData';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const styles = StyleSheet.create({
   image: {
