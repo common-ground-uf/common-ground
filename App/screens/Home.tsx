@@ -27,14 +27,23 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 12,
-    marginTop: 20,
     paddingHorizontal: 20,
+    marginRight: 'auto',
+    marginVertical: 8,
   },
   row: {
     display: 'flex',
     flexDirection: 'row',
     overflowX: 'scroll',
     flexWrap: 'nowrap',
+    marginTop: 8,
+  },
+  sectionHeaderContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    overflowX: 'scroll',
+    flexWrap: 'nowrap',
+    marginTop: 20,
   },
   restaurantBubble: {
     marginLeft: 20,
@@ -78,6 +87,10 @@ function Home(props: HomeProps) {
     props.navigation.navigate('Start New Table');
   };
 
+  const onPressSeeAllSaved = () => {
+    props.navigation.navigate('Restaurant List');
+  };
+
   return (
     <ScrollView>
         <Text style={styles.welcome}>
@@ -99,8 +112,10 @@ function Home(props: HomeProps) {
           <RestaurantBubble {...restaurant} onPress={onClickRestaurant} style={styles.restaurantBubble}/>
           <RestaurantBubble {...restaurant} onPress={onClickRestaurant} style={styles.restaurantBubble}/>
         </ScrollView>
-        <Text style={styles.sectionTitle}>Parties</Text>
-        <ScrollView style={styles.row} horizontal={true}>
+        <View style={styles.sectionHeaderContainer}>
+          <Text style={styles.sectionTitle}>Recent Parties</Text>
+        </View>
+        <ScrollView style={styles.row} horizontal={true} contentContainerStyle={{alignItems:'flex-start'}}>
           {parties.map((party, index) => 
             <GroupBubbles
               members={party.members}
@@ -111,7 +126,14 @@ function Home(props: HomeProps) {
             />
           )}
         </ScrollView>
-        <Text style={styles.sectionTitle}>Saved restaurants</Text>
+        <View style={styles.sectionHeaderContainer}>
+          <Text style={styles.sectionTitle}>Saved restaurants</Text>
+          <Button
+            onPress={onPressSeeAllSaved}
+            title="See all"
+            color="#ff6e6e"
+          />
+        </View>
         <ScrollView style={styles.row} horizontal={true}>
           {recentlyVisited.map((restaurant, index) => 
             <RestaurantBubble

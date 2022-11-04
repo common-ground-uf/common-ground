@@ -6,6 +6,7 @@ import { allUsers, parties, saulProfile } from './data/dummyUsers';
 import * as screens from './screens';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { HeaderProfileIcon } from './components/HeaderProfileIcon';
 
 const Tab = createBottomTabNavigator();
 
@@ -31,6 +32,11 @@ export default function App() {
                 <Icon name={icons[route.name]} size={16} color="#FF6D6E" />
               );
             },
+            headerLeft: () => (
+              <View>
+                <Text>Hello world!</Text>
+              </View>
+            ),
             tabBarActiveTintColor: 'tomato',
             tabBarInactiveTintColor: 'gray',
           })}
@@ -38,7 +44,7 @@ export default function App() {
           <Tab.Screen name="Home" component={HomeStackScreen} />
           <Tab.Screen name="Messages" component={MessagesStackScreen} />
           <Tab.Screen name="Explore" component={ExploreStackScreen} />
-          <Tab.Screen name="Debug" component={screens.DebugScreen} />
+          {process.env.NODE_ENV === 'development' && <Tab.Screen name="Debug" component={screens.DebugScreen} />}
           <Tab.Screen name="Login" component={LoginStackScreen} />
           <Tab.Screen name="Settings" component={SettingsStackScreen} />
         </Tab.Navigator>
@@ -116,7 +122,11 @@ const HomeStack = createNativeStackNavigator();
 
 function HomeStackScreen() {
   return (
-    <HomeStack.Navigator>
+    <HomeStack.Navigator 
+      screenOptions={({navigation}) => ({
+        headerRight: () => <HeaderProfileIcon image={saulProfile.profilePic} navigation={navigation}/>,
+      })}
+    >
       <HomeStack.Screen
         options={{ title: 'Home' }}
         name="HomeScreen"
