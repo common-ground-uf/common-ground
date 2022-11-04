@@ -82,6 +82,20 @@ const styles = StyleSheet.create({
     maxWidth: '100%',
     boxSizing: 'border-box',
   },
+  sendButton: {
+    justifyContent:'center',
+    alignContent: 'center',
+    display: 'flex',
+    height: '100%',
+    width: '100%',
+    margin: 'auto',
+    textAlign: 'center',
+  },
+  sendIcon: {
+    width: 24,
+    height: 24,
+    marginLeft: 7,
+  },
 });
 
 type MessageProps = {
@@ -149,8 +163,8 @@ function MessagesScreen() {
               />
             </View>
             <View style={styles.btnContainer}>
-              <TouchableOpacity>
-                <Icon name="send" size={24} onPress={() => null} />
+              <TouchableOpacity style={styles.sendButton}>
+                <Icon name="send" size={24} onPress={() => null} style={styles.sendIcon}/>
               </TouchableOpacity>
             </View>
           </View>

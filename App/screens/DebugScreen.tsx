@@ -39,7 +39,6 @@ function DebugScreen(props: DebugScreenProps) {
     'Restaurant List',
     'Restaurant',
     'Gallery',
-    'Profile',
     'Account',
     'Privacy',
     'Settings',

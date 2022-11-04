@@ -89,6 +89,8 @@ function Login(props: LoginProps) {
         value={password}
         placeholder="Password"
         autoComplete="password"
+        secureTextEntry={true}
+        textContentType='password'
       />
       {errorState && (
         <Text style={styles.errorMessage}>
