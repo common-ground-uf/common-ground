@@ -81,7 +81,8 @@ exports[`Homee Renders Home correctly 1`] = `
           "fontSize": 20,
           "fontWeight": "bold",
           "marginBottom": 12,
-          "marginTop": 20,
+          "marginRight": "auto",
+          "marginVertical": 8,
           "paddingHorizontal": 20,
         }
       }
@@ -95,6 +96,7 @@ exports[`Homee Renders Home correctly 1`] = `
           "display": "flex",
           "flexDirection": "row",
           "flexWrap": "nowrap",
+          "marginTop": 8,
           "overflowX": "scroll",
         }
       }
@@ -332,26 +334,45 @@ exports[`Homee Renders Home correctly 1`] = `
         </View>
       </View>
     </RCTScrollView>
-    <Text
+    <View
       style={
         {
-          "fontSize": 20,
-          "fontWeight": "bold",
-          "marginBottom": 12,
+          "display": "flex",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
           "marginTop": 20,
-          "paddingHorizontal": 20,
+          "overflowX": "scroll",
         }
       }
     >
-      Parties
-    </Text>
+      <Text
+        style={
+          {
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginBottom": 12,
+            "marginRight": "auto",
+            "marginVertical": 8,
+            "paddingHorizontal": 20,
+          }
+        }
+      >
+        Recent Parties
+      </Text>
+    </View>
     <RCTScrollView
+      contentContainerStyle={
+        {
+          "alignItems": "flex-start",
+        }
+      }
       horizontal={true}
       style={
         {
           "display": "flex",
           "flexDirection": "row",
           "flexWrap": "nowrap",
+          "marginTop": 8,
           "overflowX": "scroll",
         }
       }
@@ -798,19 +819,76 @@ exports[`Homee Renders Home correctly 1`] = `
         </View>
       </View>
     </RCTScrollView>
-    <Text
+    <View
       style={
         {
-          "fontSize": 20,
-          "fontWeight": "bold",
-          "marginBottom": 12,
+          "display": "flex",
+          "flexDirection": "row",
+          "flexWrap": "nowrap",
           "marginTop": 20,
-          "paddingHorizontal": 20,
+          "overflowX": "scroll",
         }
       }
     >
-      Saved restaurants
-    </Text>
+      <Text
+        style={
+          {
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "marginBottom": 12,
+            "marginRight": "auto",
+            "marginVertical": 8,
+            "paddingHorizontal": 20,
+          }
+        }
+      >
+        Saved restaurants
+      </Text>
+      <View
+        accessibilityRole="button"
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {},
+            ]
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "color": "#007AFF",
+                  "fontSize": 18,
+                  "margin": 8,
+                  "textAlign": "center",
+                },
+                {
+                  "color": "#ff6e6e",
+                },
+              ]
+            }
+          >
+            See all
+          </Text>
+        </View>
+      </View>
+    </View>
     <RCTScrollView
       horizontal={true}
       style={
@@ -818,6 +896,7 @@ exports[`Homee Renders Home correctly 1`] = `
           "display": "flex",
           "flexDirection": "row",
           "flexWrap": "nowrap",
+          "marginTop": 8,
           "overflowX": "scroll",
         }
       }

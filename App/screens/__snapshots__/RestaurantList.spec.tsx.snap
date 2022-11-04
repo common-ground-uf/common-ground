@@ -19,8 +19,10 @@ exports[`RestaurantList Renders RestaurantListPage correctly 1`] = `
       placeholder="Search"
       style={
         {
-          "borderRadius": 12,
-          "borderWidth": 1,
+          "backgroundColor": "#ddd",
+          "borderRadius": 6,
+          "marginBottom": 12,
+          "marginHorizontal": 14,
           "marginTop": 20,
           "padding": 8,
         }
@@ -53,11 +55,11 @@ exports[`RestaurantList Renders RestaurantListPage correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           {
-            "backgroundColor": "blue",
+            "backgroundColor": "#FF6D6E",
             "borderRadius": 24,
             "marginLeft": 10,
             "opacity": 1,
-            "padding": 12,
+            "padding": 8,
           }
         }
       >
@@ -84,11 +86,11 @@ exports[`RestaurantList Renders RestaurantListPage correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           {
-            "backgroundColor": "blue",
+            "backgroundColor": "#FF6D6E",
             "borderRadius": 24,
             "marginLeft": 10,
             "opacity": 1,
-            "padding": 12,
+            "padding": 8,
           }
         }
       >
@@ -115,11 +117,11 @@ exports[`RestaurantList Renders RestaurantListPage correctly 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           {
-            "backgroundColor": "blue",
+            "backgroundColor": "#FF6D6E",
             "borderRadius": 24,
             "marginLeft": 10,
             "opacity": 1,
-            "padding": 12,
+            "padding": 8,
           }
         }
       >
