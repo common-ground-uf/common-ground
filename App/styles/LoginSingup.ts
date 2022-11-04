@@ -26,15 +26,20 @@ export const loginSignupStyles = StyleSheet.create({
   loginButtonContainer: {
     justifyContent: 'center',
     width: '100%',
-    marginTop: 10
+    marginTop: 10,
   },
   link: {
     textDecorationLine: 'underline',
     marginVertical: 12,
-    color: '#818181'
+    color: '#818181',
   },
   errorMessage: {
     color: 'red',
   },
+  logo: {
+    width: 300,
+    height: 179,
+    alignSelf: 'center',
+    marginBottom: '5%',
+  },
 });
-  

@@ -1,8 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import axios from 'axios';
 import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
 import { GroupBubbles } from '../components/GroupBubbles';
 import { RestaurantBubble } from '../components/RestaurantBubble';
-import { Finger, Gus, Walter } from '../data/dummyUsers';
+import { SERVER_URI } from '../Config';
+import { parties, saulProfile } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
   welcome: {
@@ -43,14 +46,22 @@ const styles = StyleSheet.create({
 
 type HomeProps = {
   navigation: {
-    navigate: any,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    navigate: any;
   };
 };
 
 function Home(props: HomeProps) {
+
+  const [firstName, setFirstName] = React.useState<string>(saulProfile.firstName);
+  const [lastName, setLastName] = React.useState<string>(saulProfile.lastName);
+  const [email, setEmail] = React.useState<string>(saulProfile.email);
+  const [location, setLocation] = React.useState<string>(saulProfile.location);
+
   const restaurant = {
     name: 'Los Pollos Hermanos',
-    thumbnail: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
+    thumbnail:
+      'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
   };
 
   const onClickRestaurant = () => {
@@ -60,36 +71,20 @@ function Home(props: HomeProps) {
   const onClickGroup = () => {
     props.navigation.navigate('Group Details');
   };
-  const members = [Gus, Walter, Finger];
-
-  const parties = [
-    {
-      name: 'The boys',
-      members: members,
-    },
-    {
-      name: 'SSDrink&Drive',
-      members: members,
-    },
-    {
-      name: 'My bitch family',
-      members: members,
-    },
-    {
-      name: 'Whiskey Wednesday Gang',
-      members: members,
-    },
-  ];
 
   const recentlyVisited = [restaurant, restaurant, restaurant];
+
+  const onPressStartANewTable = () => {
+    props.navigation.navigate('Start New Table');
+  };
 
   return (
     <ScrollView>
         <Text style={styles.welcome}>
-          Welcome back, Saul!
+          Welcome back, {firstName}!
         </Text>
         <View style={styles.startNewTableWrapper}>
-          <Button title='Start a new table' color='#FEB346'/>
+          <Button title='Start a new table' color='#FF6D6E' onPress={onPressStartANewTable}/>
         </View>
         <Text style={styles.sectionTitle}>Recently Visited</Text>
         <ScrollView style={styles.row} horizontal={true}>
@@ -128,6 +123,7 @@ function Home(props: HomeProps) {
           )}
         </ScrollView>
         <View style={styles.verticalSpace}/>
+
     </ScrollView>
   );
 }

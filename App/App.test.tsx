@@ -1,4 +1,4 @@
-import {describe, expect, test} from '@jest/globals';
+import { describe, expect, test } from '@jest/globals';
 
 describe('Test test', () => {
   test('ADD ACTUAL TESTS FOR App.tsx HERE', () => {
