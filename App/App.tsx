@@ -17,7 +17,8 @@ const icons: Record<string, string> = {
     Messages: 'comment',
     Debug: 'bug',
     Explore: 'search',
-    Settings: 'gear'
+    Settings: 'gear',
+    Misc: 'image'
 };
 
 export default function App() {
@@ -48,6 +49,7 @@ export default function App() {
                     <Tab.Screen name="Debug" component={screens.DebugScreen}/>}
                     <Tab.Screen name="Login" component={LoginStackScreen}/>
                     <Tab.Screen name="Settings" component={SettingsStackScreen}/>
+                    <Tab.Screen name="Misc" component={MiscStackScreen}/>
                 </Tab.Navigator>
             </NavigationContainer>
         </React.StrictMode>
@@ -225,12 +227,23 @@ const SettingsStack = createNativeStackNavigator();
 function SettingsStackScreen() {
     return (
         <SettingsStack.Navigator>
-            <SettingsStack.Screen options={{title: 'Settings'}} name="Settings" component={screens.Settings}/>
+            <SettingsStack.Screen options={{title: 'Settings'}} name="SettingsScreen" component={screens.Settings}/>
             <SettingsStack.Screen name="Account" component={screens.Account}/>
             <SettingsStack.Screen name="Privacy" component={screens.Privacy}/>
             <SettingsStack.Screen name="Notifications" component={screens.Notifications}/>
             <SettingsStack.Screen name="Preferences" component={screens.Preferences}/>
             <SettingsStack.Screen name="Logout" component={screens.Logout}/>
         </SettingsStack.Navigator>
+    );
+}
+
+const MiscStack = createNativeStackNavigator();
+
+function MiscStackScreen() {
+    return (
+        <MiscStack.Navigator>
+            <MiscStack.Screen options={{title: 'Misc'}} name="MiscScreen" component={screens.Start}/>
+            {mainGroup}
+        </MiscStack.Navigator>
     );
 }
