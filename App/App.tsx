@@ -203,7 +203,7 @@ const ExploreStack = createNativeStackNavigator();
 function ExploreStackScreen() {
     return (
         <ExploreStack.Navigator>
-            <ExploreStack.Screen options={{title: 'Explore'}} name="Explore" component={screens.Explore}/>
+            <ExploreStack.Screen options={{title: 'Explore'}} name="ExploreScreen" component={screens.Explore}/>
             <MainStack.Screen
                 name="Restaurant"
                 component={screens.RestaurantScreen}
