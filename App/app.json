@@ -28,11 +28,6 @@
     "web": {
       "favicon": "./assets/saul.png.jpg"
     },
-    "extra": {
-      "eas": {
-        "projectId": "6a03a19e-9a5e-469e-9b80-48a98159391f"
-      }
-    },
     "runtimeVersion": {
       "policy": "sdkVersion"
     }
