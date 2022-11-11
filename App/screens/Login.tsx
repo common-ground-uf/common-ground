@@ -35,6 +35,7 @@ function Login(props: LoginProps) {
         password: password,
       })
       .then((response) => {
+        console.log(response.data);
         if (response.data.message === 'login success') {
           console.log('login successful');
           // User Data object to be processed locally and saved as current login data (cleared after logout)
