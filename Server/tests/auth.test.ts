@@ -1,58 +1,65 @@
-import {describe, expect, test} from '@jest/globals';
-import axios from 'axios';
+import {describe, expect, test, jest, beforeEach} from '@jest/globals';
+import axios, {AxiosResponse, AxiosRequestConfig} from 'axios';
+import { type } from 'os';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe('Auth test', () => {
     beforeEach(() => {
-        mockedAxios.get.mockImplementationOnce((url : any, opts : any) => {
-            let params = opts.params;
+        mockedAxios.get.mockImplementationOnce(<T = any, D = any, R = AxiosResponse<T, D>>(url : string, data : any) => {
+            let params = data.data;
+            let axiosResponse : AxiosResponse<T, D> = {
+                data: <T>{},
+                status: 1000,
+                statusText: 'error, no matched case',
+                headers: {},
+                config: {},
+            }
             switch(url){
                 case '/auth': {
                     if(params.loggedIn){
-                        return Promise.resolve({
-                            data: {
+                        axiosResponse = {
+                            data: <T><any>{
                                 message: "login success",
-                                userData : {
-                    
-                                }
+                                userData: {}
                             },
                             status: 200,
                             statusText: 'Ok',
                             headers: {},
                             config: {},
-                        })
+                        }
                     }else{
-                        return Promise.resolve({
-                            data: {
+                        axiosResponse = {
+                            data: <T><any>{
                                 message: "not logged in",
                             },
                             status: 401,
                             statusText: 'Unauthorized',
                             headers: {},
                             config: {},
-                        })
+                        }
                     }
                 }
             }
-            return Promise.resolve({
-                data: {},
+            return Promise.resolve(<R><any>axiosResponse)
+        });
+
+
+        mockedAxios.post.mockImplementationOnce(<T = any, D = any, R = AxiosResponse<T, D>>(url : string, data : any) => {
+            let params = data.data;
+            let axiosResponse : AxiosResponse<T, D> = {
+                data: <T>{},
                 status: 1000,
                 statusText: 'error, no matched case',
                 headers: {},
                 config: {},
-            })
-        });
-
-
-        mockedAxios.post.mockImplementationOnce((url : any, opts : any) => {
-            let params = opts.params;
+            }
             switch(url){
                 case '/login': {
                     if(params.username == "test" && params.password == "test"){
-                        return Promise.resolve({
-                            data: {
+                        axiosResponse = {
+                            data: <T><any>{
                                 message: "login success",
                                 userData : {
                     
@@ -62,36 +69,30 @@ describe('Auth test', () => {
                             statusText: 'Ok',
                             headers: {},
                             config: {},
-                        })
+                        }
                     }else{
-                        return Promise.resolve({
-                            data: {
+                        axiosResponse = {
+                            data: <T><any>{
                                 message: "login failed",
                             },
                             status: 401,
                             statusText: 'Unauthorized',
                             headers: {},
                             config: {},
-                        })
+                        }
                     }
                 }
             }
-            return Promise.resolve({
-                data: {},
-                status: 1000,
-                statusText: 'error, no matched case',
-                headers: {},
-                config: {},
-            })
+            return Promise.resolve(<R><any>axiosResponse)
         });
     });
 
   test('loggedIn test', () => {
     mockedAxios.get(`/auth`, {
-        params: {
+        data: {
             loggedIn: true
         }
-    }).then((res) => {
+    }).then((res: AxiosResponse) => {
         const expected = {
             message: "login success",
             userData : {
@@ -100,34 +101,34 @@ describe('Auth test', () => {
         };
         expect(JSON.stringify(res.data)).toBe(JSON.stringify(expected));
         expect(res.status).toBe(200);
-    }).catch((err) => {
+    }).catch((err: any) => {
         console.log(err);
     });
   });
 
   test('not loggedIn test', () => {
     mockedAxios.get(`/auth`, {
-        params: {
+        data: {
             loggedIn: false
         }
-    }).then((res) => {
+    }).then((res: AxiosResponse) => {
         const expected = {
             message: "not logged in"
         };
         expect(JSON.stringify(res.data)).toBe(JSON.stringify(expected));
         expect(res.status).toBe(401);
-    }).catch((err) => {
+    }).catch((err: any) => {
         console.log(err);
     });
   });
 
     test('login test', () => {
         mockedAxios.post(`/login`, {
-            params: {
+            data: {
                 username: "test",
                 password: "test"
             }
-        }).then((res) => {
+        }).then((res: AxiosResponse) => {
             const expected = {
                 message: "login success",
                 userData : {
@@ -136,24 +137,24 @@ describe('Auth test', () => {
             };
             expect(JSON.stringify(res.data)).toBe(JSON.stringify(expected));
             expect(res.status).toBe(200);
-        }).catch((err) => {
+        }).catch((err: any) => {
             console.log(err);
         });
     });
 
     test('login test failure', () => {
         mockedAxios.post(`/login`, {
-            params: {
+            data: {
                 username: "test",
                 password: "test1"
             }
-        }).then((res) => {
+        }).then((res: AxiosResponse) => {
             const expected = {
                 message: "login failed"
             };
             expect(JSON.stringify(res.data)).toBe(JSON.stringify(expected));
             expect(res.status).toBe(401);
-        }).catch((err) => {
+        }).catch((err: any) => {
             console.log(err);
         });
     });
