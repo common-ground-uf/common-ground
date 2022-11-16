@@ -14,7 +14,7 @@ class GroupsController {
     public initiate = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const groupInfo : CreateGroupDto = req.body;
-            const group = await this.groupService.initiateGroup(groupInfo.userIds);
+            const group = await this.groupService.initiateGroup(groupInfo.userIds, groupInfo.inviteCode);
             return res.status(200).json({success:true, group});
         } catch (error) {
             next(error);
