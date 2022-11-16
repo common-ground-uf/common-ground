@@ -7,6 +7,7 @@ import * as screens from './screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {HeaderProfileIcon} from './components/HeaderProfileIcon';
+import { View, Text } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
