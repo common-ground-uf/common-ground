@@ -6,6 +6,7 @@ import { GroupBubbles } from '../components/GroupBubbles';
 import { RestaurantBubble } from '../components/RestaurantBubble';
 import { SERVER_URI } from '../Config';
 import { parties, saulProfile } from '../data/dummyUsers';
+import { Storage } from '../data/Storage';
 
 const styles = StyleSheet.create({
   welcome: {
@@ -61,11 +62,40 @@ type HomeProps = {
 };
 
 function Home(props: HomeProps) {
+  
+  const getProfileInfo = async () => {
+    //Get profile info from async storage
+    const profile = await Storage.get('profile');
+    console.log(profile);
+    if (profile) {
+      const profileInfo = JSON.parse(profile);
+      setFirstName(profileInfo.firstName);
+      setLastName(profileInfo.lastName);
+      setEmail(profileInfo.email);
+      setLocation(profileInfo.location);
+    } else {
+      //TODO: redirect to login page
+    }
+  };
+
+  const getParties = async () => {
+    axios.get(`${SERVER_URI}/groups`).then((res) => {
+      console.log(res.data);
+      // setParties(res.data);
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
 
   const [firstName, setFirstName] = React.useState<string>(saulProfile.firstName);
   const [lastName, setLastName] = React.useState<string>(saulProfile.lastName);
   const [email, setEmail] = React.useState<string>(saulProfile.email);
   const [location, setLocation] = React.useState<string>(saulProfile.location);
+
+  React.useEffect(() => {
+    getProfileInfo();
+    getParties();
+  });
 
   const restaurant = {
     name: 'Los Pollos Hermanos',

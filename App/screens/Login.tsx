@@ -2,6 +2,8 @@ import React from 'react';
 import { Text, View, TextInput, Button } from 'react-native';
 import { loginSignupStyles as styles } from '../styles/LoginSingup';
 import { SERVER_URI } from '../Config';
+import { Profile } from '../commonTypes';
+import { Storage } from '../data/Storage';
 import axios from 'axios';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -39,13 +41,20 @@ function Login(props: LoginProps) {
         if (response.data.message === 'login success') {
           console.log('login successful');
           // User Data object to be processed locally and saved as current login data (cleared after logout)
-          const userData = {
+          const userData : Profile = {
             email: response.data.userData.email,
-            firstname: response.data.userData.firstname,
-            lastname: response.data.userData.lastname,
+            firstName: response.data.userData.firstname,
+            lastName: response.data.userData.lastname,
             role: response.data.userData.role,
+            id: response.data.userData.id,
+            profilePic: response.data.userData.profilePic,
+            preferences: response.data.userData.preferences,
+            pastPicks: response.data.userData.pastPicks,
+            recentContacts: response.data.userData.recentContacts,
+            location: response.data.userData.location,
           };
           console.log(userData);
+          Storage.set('profile', JSON.stringify(userData));
           props.navigation.navigate('Home');
         }
       })
