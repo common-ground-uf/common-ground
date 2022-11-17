@@ -2,6 +2,7 @@
 import axios from 'axios';
 import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
+import { useIsFocused } from '@react-navigation/native';
 import { GroupBubbles } from '../components/GroupBubbles';
 import { RestaurantBubble } from '../components/RestaurantBubble';
 import { SERVER_URI } from '../Config';
@@ -92,10 +93,12 @@ function Home(props: HomeProps) {
   const [email, setEmail] = React.useState<string>(saulProfile.email);
   const [location, setLocation] = React.useState<string>(saulProfile.location);
 
+  const isFocused = useIsFocused();
+
   React.useEffect(() => {
     getProfileInfo();
-    getParties();
-  });
+    getParties(); 
+  }, [isFocused]);
 
   const restaurant = {
     name: 'Los Pollos Hermanos',
