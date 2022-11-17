@@ -29,7 +29,6 @@ function Login(props: LoginProps) {
   };
 
   const onPressLogin = () => {
-    console.log('pressed login ' + email + ' ' + password);
     axios
       .post(`${SERVER_URI}/login`, {
         username: email,
