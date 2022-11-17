@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {StyleSheet, Image,TouchableOpacity} from 'react-native';
 
 const styles = StyleSheet.create({
