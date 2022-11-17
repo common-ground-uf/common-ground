@@ -13,8 +13,8 @@ import {
 } from 'react-native';
 import { messagesDummy } from '../data/dummyData';
 import Icon from 'react-native-vector-icons/Ionicons';
-import axios from "axios";
-import {SERVER_URI} from "../Config";
+import axios from 'axios';
+import {SERVER_URI} from '../Config';
 
 const styles = StyleSheet.create({
   messagesContainer: {},
@@ -254,7 +254,7 @@ function MessagesScreen() {
             console.log(response.data.conversation);
             // User Data object to be processed locally and saved as current login data (cleared after logout)
             setMessages(response.data.conversation.map( (conv: any) => {
-              let res = {} as any;
+              const res = {} as any;
               res['content'] = conv['message']['messageText'];
               // res['userId'] = conv['postedByUser']['_id'];
               res['author'] = conv['postedByUser']['firstname'] + ' ' + conv['postedByUser']['lastname'];
