@@ -22,11 +22,10 @@ class GroupsController {
             while (codeExists) {
                 inviteCode = this.groupService.makeid(6);
                 codeExists = await this.groupService.getGroupByInviteCode(inviteCode);
-            
             }
             groupInfo.userIds.push(currentUser);
 
-            const group = await this.groupService.initiateGroup(groupInfo.userIds, inviteCode);
+            const group = await this.groupService.initiateGroup(groupInfo.userIds, inviteCode, groupInfo.name);
             return res.status(200).json({success:true, group});
         } catch (error) {
             next(error);

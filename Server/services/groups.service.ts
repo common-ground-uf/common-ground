@@ -17,11 +17,12 @@ class GroupService {
     public messages = messageModel;
     public preferences = preferencesModel;
 
-    public async initiateGroup(userIds : string[], inviteCode : string) : Promise<Group> {
+    public async initiateGroup(userIds : string[], inviteCode : string, groupName : string) : Promise<Group> {
         try {
             const newGroup = await this.groups.create({
                 userIds: [...userIds],
-                inviteCode: inviteCode
+                inviteCode: inviteCode,
+                name: groupName
             });
             return newGroup;
         } catch (error) {

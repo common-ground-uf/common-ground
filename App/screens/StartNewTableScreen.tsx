@@ -72,6 +72,7 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
 
         axios.post(`${SERVER_URI}/groups`, {
                 userIds: selectedContacts,
+                name: groupName,
               }).then((response) => {
             console.log('Group created');
             console.log(response.data);
