@@ -43,17 +43,6 @@ type StartNewTableScreenProps = {
   }
 }
 
-function makeid(length: number) {
-  let result = '';
-  const characters =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  const charactersLength = characters.length;
-  for (let i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-  return result;
-}
-
 function StartNewTableScreen(props: StartNewTableScreenProps) {
   const contactList = allUsers;
   const [selected, setSelected] = React.useState<boolean[]>(
@@ -72,8 +61,6 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
   };
 
     const onPressCreate = () => {
-      const inviteCode = makeid(6);
-      console.log(inviteCode);
 
       const selectedContacts = [];
       for (let i = 0; i < selected.length; i++) {
@@ -84,7 +71,6 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
       
 
         axios.post(`${SERVER_URI}/groups`, {
-                inviteCode: inviteCode,
                 userIds: selectedContacts,
               }).then((response) => {
             console.log('Group created');
