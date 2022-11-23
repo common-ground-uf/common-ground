@@ -79,11 +79,36 @@ class GroupsController {
             const options = {
                 page: parseInt(req.query.page as any) || 0,
                 limit: parseInt(req.query.limit as any) || 10,
+                names: req.query.name as any || false,
+                lastMessage: req.query.lastMessage as any || false,
             };
+
             const groups : Group[] = await this.groupService.getGroupsByUserId(currentUser);
             const groupIds = groups.map(group => group._id);
-            return res.status(200).json({success: true, groups: groupIds, names: groups.map(group => group.name)});
+
+            let conversations = [];
+            if(options.lastMessage) {
+                conversations = await this.groupService.getRecentConversation(groupIds, {
+                    page: options.page,
+                    limit: 1,
+                }, currentUser);
+            }
+
+            let resGroupsObj : any = {};
+
+            for (let i = 0; i < groups.length; i++) {
+                const group = groups[i];
+                resGroupsObj[group._id] = {
+                    name: options.names ? group.name : "",
+                    lastMessage: options.lastMessage ? conversations[i] ? conversations[i].message.messageText : "" : "",
+                    inviteCode: group.inviteCode,
+                    id: group._id,
+                };
+            }
+
+            return res.status(200).json({success: true, groups: resGroupsObj});
         } catch(error) {
+            console.log(error);
             return res.status(500).json({success: false, error: error});
         }
     };

@@ -158,15 +158,21 @@ function MessagesListScreen(props: MessagesListScreenProps) {
 
   const updateGroups = async () => {
     console.log('getting groups');
-    axios.get(`${SERVER_URI}/groups`).then((res) => {
+    axios.get(`${SERVER_URI}/groups`, {
+      params: {
+        name: true,
+        lastMessage: true,
+      },
+    }).then((res) => {
       let newGroups : GroupInfo[] = [];
-      for(let i = 0; i < res.data.groups.length; i++){
+      for(const group in res.data.groups){
         newGroups.push({
-          id: res.data.groups[i],
-          name: res.data.names[i],
-          lastMessage: "Placeholder message",
+          id: group,
+          name: res.data.groups[group].name,
+          lastMessage: res.data.groups[group].lastMessage,
         });
       }
+
       if(JSON.stringify(newGroups)!=JSON.stringify(groups))
         setGroups(newGroups);
       // setParties(res.data);

@@ -80,7 +80,11 @@ function Home(props: HomeProps) {
   };
 
   const getParties = async () => {
-    axios.get(`${SERVER_URI}/groups`).then((res) => {
+    axios.get(`${SERVER_URI}/groups`, {
+      params: {
+        name: true,
+      },
+    }).then((res) => {
       console.log(res.data);
       // setParties(res.data);
     }).catch((err) => {
