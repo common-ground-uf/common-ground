@@ -16,6 +16,7 @@ import { messagesDummy } from '../data/dummyData';
 import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
 import {SERVER_URI} from '../Config';
+import { Storage } from '../data/Storage';
 
 const styles = StyleSheet.create({
   messagesContainer: {},
@@ -138,7 +139,20 @@ function MessagesScreen(props: Route) {
   //TODO: Change this to properly use auth to get self (not working for some reason)
 
   const [self, setSelf] = React.useState('Saul Goodman');
-  console.log(self);
+ 
+  async function getSelf(){
+    const profile = await Storage.get('profile');
+    console.log(profile);
+    if (profile) {
+      const profileInfo = JSON.parse(profile);
+      setSelf(profileInfo.firstName + ' ' + profileInfo.lastName);
+    }
+  }
+  
+  React.useEffect(() => {
+    getSelf();
+  }, []);
+
   axios.get(`${SERVER_URI}/auth`)
       .then(response => {
         if(response.data.message === 'auth success') {
@@ -186,6 +200,7 @@ function MessagesScreen(props: Route) {
         .then((response) => {
           if (response.data.success === true) {
             console.log('messsage sent to server!');
+            setMessageInput('');
           }
         })
         .catch((error) => {
@@ -220,7 +235,6 @@ function MessagesScreen(props: Route) {
         .then((response) => {
           if (response.data.success === true) {
             console.log('successful get message');
-            console.log(response.data.conversation);
             // User Data object to be processed locally and saved as current login data (cleared after logout)
             setMessages(response.data.conversation.map( (conv: any) => {
               const res = {} as any;
@@ -230,7 +244,6 @@ function MessagesScreen(props: Route) {
               res['profilePic'] = conv['postedByUser']['profilePic'];
               return res;
             } ));
-            console.log(messages);
           }
         })
         .catch((error) => {
