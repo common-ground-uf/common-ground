@@ -43,7 +43,7 @@ type StartNewTableScreenProps = {
   }
 }
 
-function StartNewTableScreen(props: StartNewTableScreenProps) {
+function StartNewTableScreen() {
   const contactList = allUsers;
   const [selected, setSelected] = React.useState<boolean[]>(
     Array(allUsers.length).fill(false)

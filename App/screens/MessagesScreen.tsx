@@ -12,7 +12,6 @@ import {
   TouchableOpacity,
   Route,
 } from 'react-native';
-import { messagesDummy } from '../data/dummyData';
 import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
 import {SERVER_URI} from '../Config';
@@ -130,11 +129,6 @@ function Message(props: MessageProps) {
   );
 }
 
-type MessagesScreenProps = {
-  groupId: string;
-  groupName: string;
-};
-
 function MessagesScreen(props: Route) {
   //TODO: Change this to properly use auth to get self (not working for some reason)
 
@@ -190,8 +184,8 @@ function MessagesScreen(props: Route) {
   const [messages, setMessages] = React.useState([]);
 
   const [messageInput, setMessageInput] = React.useState('');
-  const [groupId, setGroupId] = React.useState(props.route.params.groupId);
-  const [groupName, setGroupName] = React.useState(props.route.params.groupName);
+  const groupId = React.useState(props.route.params.groupId);
+  const groupName = React.useState(props.route.params.groupName);
 
   const onPressSend = () => {
     console.log('pressed send: '+messageInput);

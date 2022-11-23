@@ -9,6 +9,6 @@ export const Storage = {
             console.log('Stored ', value, ' at ', key);
         }).catch((error: any) => {
             console.log('Error storing data at ', key, error);
-        })
+        });
     },
-}
+};
