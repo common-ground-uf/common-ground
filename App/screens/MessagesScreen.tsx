@@ -9,7 +9,8 @@ import {
   Platform,
   TouchableWithoutFeedback,
   Keyboard,
-  TouchableOpacity, Button,
+  TouchableOpacity,
+  Route,
 } from 'react-native';
 import { messagesDummy } from '../data/dummyData';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -128,7 +129,12 @@ function Message(props: MessageProps) {
   );
 }
 
-function MessagesScreen() {
+type MessagesScreenProps = {
+  groupId: string;
+  groupName: string;
+};
+
+function MessagesScreen(props: Route) {
   //TODO: Change this to properly use auth to get self (not working for some reason)
 
   const [self, setSelf] = React.useState('Saul Goodman');
@@ -170,7 +176,8 @@ function MessagesScreen() {
   const [messages, setMessages] = React.useState([]);
 
   const [messageInput, setMessageInput] = React.useState('');
-  const [groupId, setGroupId] = React.useState('');
+  const [groupId, setGroupId] = React.useState(props.route.params.groupId);
+  const [groupName, setGroupName] = React.useState(props.route.params.groupName);
 
   const onPressSend = () => {
     console.log('pressed send: '+messageInput);
@@ -205,44 +212,6 @@ function MessagesScreen() {
         });
       updateMessages();
   };
-
-  const onPressCreateGroup = () => {
-    console.log('creating group');
-    axios
-        .post(`${SERVER_URI}/groups`, {userIds: ['123', '12345', '123456'],
-          inviteCode: '12345'})
-        .then((response) => {
-          if (response.data.success === true) {
-            console.log('group creation successful');
-            // User Data object to be processed locally and saved as current login data (cleared after logout)
-            setGroupId(response.data.group['_id']);
-          }
-        })
-        .catch((error) => {
-          if (error.response) {
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-            if (error.response.data.message === 'login failed')
-              console.log('login unsuccessful');
-            else {
-              console.log(error.response.data);
-              console.log(error.response.status);
-              console.log(error.response.headers);
-            }
-          } else if (error.request) {
-            // The request was made but no response was received
-            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-            // http.ClientRequest in node.js
-            console.log(error.request);
-          } else {
-            // Something happened in setting up the request that triggered an Error
-            console.log('Error', error.message);
-          }
-          return;
-        });
-    console.log(groupId);
-  };
-
 
   const updateMessages = () => {
     console.log('getting messages');
@@ -287,6 +256,11 @@ function MessagesScreen() {
         });
   };
 
+  //get initial messages on screen load
+  React.useEffect(() => {
+    updateMessages();
+  }, []);
+  
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -319,7 +293,6 @@ function MessagesScreen() {
               </TouchableOpacity>
             </View>
           </View>
-          <Button title="Create group" onPress={onPressCreateGroup} color="#FF6D6E" />
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>

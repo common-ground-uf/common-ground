@@ -188,6 +188,11 @@ function MessagesStackScreen() {
         <MessagesStack.Navigator>
             <MessagesStack.Screen
                 options={{title: 'Messages'}}
+                name="MessagesListScreen"
+                component={screens.MessagesListScreen}
+            />
+            <MessagesStack.Screen
+                options={{title: 'Messages'}}
                 name="MessagesScreen"
                 component={screens.MessagesScreen}
             />
