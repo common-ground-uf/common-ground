@@ -91,7 +91,7 @@ function RestaurantScreen(props: RestaurantScreenProps) {
   };
 
   return (
-    <View>
+    <ScrollView>
       <Image style={styles.image} source={{ uri: restaurant.thumbnail }} />
       <View style={styles.padding}>
         <Text style={styles.title}>{restaurant.name}</Text>
@@ -159,7 +159,7 @@ function RestaurantScreen(props: RestaurantScreenProps) {
           </ScrollView>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 

@@ -9,10 +9,12 @@ import {
   Platform,
   TouchableWithoutFeedback,
   Keyboard,
-  TouchableOpacity,
+  TouchableOpacity, Button,
 } from 'react-native';
-import { messages } from '../data/dummyData';
+import { messagesDummy } from '../data/dummyData';
 import Icon from 'react-native-vector-icons/Ionicons';
+import axios from 'axios';
+import {SERVER_URI} from '../Config';
 
 const styles = StyleSheet.create({
   messagesContainer: {},
@@ -82,6 +84,20 @@ const styles = StyleSheet.create({
     maxWidth: '100%',
     boxSizing: 'border-box',
   },
+  sendButton: {
+    justifyContent:'center',
+    alignContent: 'center',
+    display: 'flex',
+    height: '100%',
+    width: '100%',
+    margin: 'auto',
+    textAlign: 'center',
+  },
+  sendIcon: {
+    width: 24,
+    height: 24,
+    marginLeft: 7,
+  },
 });
 
 type MessageProps = {
@@ -113,9 +129,163 @@ function Message(props: MessageProps) {
 }
 
 function MessagesScreen() {
-  const self = 'Saul';
+  //TODO: Change this to properly use auth to get self (not working for some reason)
+
+  const [self, setSelf] = React.useState('Saul Goodman');
+  console.log(self);
+  axios.get(`${SERVER_URI}/auth`)
+      .then(response => {
+        if(response.data.message === 'auth success') {
+          console.log('login successful');
+          // User Data object to be processed locally and saved as current login data (cleared after logout)
+          setSelf(response.data.userData.firstname + ' ' + response.data.userData.lastname);
+          console.log(response.data.userData.firstname + ' ' + response.data.userData.lastname);
+          // TODO: Need to get location from user data
+        }
+      })
+      .catch((error)=> {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          if(error.response.data.message === 'not logged in')
+            console.log('Not logged in!');
+          else {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          }
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+          // http.ClientRequest in node.js
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('Error', error.message);
+        }
+        return;
+      });
+
+
+  const [messages, setMessages] = React.useState([]);
 
   const [messageInput, setMessageInput] = React.useState('');
+  const [groupId, setGroupId] = React.useState('');
+
+  const onPressSend = () => {
+    console.log('pressed send: '+messageInput);
+    axios
+        .post(`${SERVER_URI}/groups/${groupId}/message`, {messageText: messageInput})
+        .then((response) => {
+          if (response.data.success === true) {
+            console.log('messsage sent to server!');
+          }
+        })
+        .catch((error) => {
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            if (error.response.data.message === 'login failed')
+              console.log('login unsuccessful');
+            else {
+              console.log(error.response.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+            }
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log('Error', error.message);
+          }
+          return;
+        });
+      updateMessages();
+  };
+
+  const onPressCreateGroup = () => {
+    console.log('creating group');
+    axios
+        .post(`${SERVER_URI}/groups`, {userIds: ['123', '12345', '123456'],
+          inviteCode: '12345'})
+        .then((response) => {
+          if (response.data.success === true) {
+            console.log('group creation successful');
+            // User Data object to be processed locally and saved as current login data (cleared after logout)
+            setGroupId(response.data.group['_id']);
+          }
+        })
+        .catch((error) => {
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            if (error.response.data.message === 'login failed')
+              console.log('login unsuccessful');
+            else {
+              console.log(error.response.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+            }
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log('Error', error.message);
+          }
+          return;
+        });
+    console.log(groupId);
+  };
+
+
+  const updateMessages = () => {
+    console.log('getting messages');
+    axios
+        .post(`${SERVER_URI}/groups/${groupId}`)
+        .then((response) => {
+          if (response.data.success === true) {
+            console.log('successful get message');
+            console.log(response.data.conversation);
+            // User Data object to be processed locally and saved as current login data (cleared after logout)
+            setMessages(response.data.conversation.map( (conv: any) => {
+              const res = {} as any;
+              res['content'] = conv['message']['messageText'];
+              // res['userId'] = conv['postedByUser']['_id'];
+              res['author'] = conv['postedByUser']['firstname'] + ' ' + conv['postedByUser']['lastname'];
+              res['profilePic'] = conv['postedByUser']['profilePic'];
+              return res;
+            } ));
+            console.log(messages);
+          }
+        })
+        .catch((error) => {
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            if (error.response.data.message === 'login failed')
+              console.log('login unsuccessful');
+            else {
+              console.log(error.response.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+            }
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log('Error', error.message);
+          }
+        });
+  };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleTextInputChange = (e:any) => {
@@ -145,15 +315,16 @@ function MessagesScreen() {
                 style={styles.textInput}
                 multiline={true}
                 value={messageInput}
-                onChange={handleTextInputChange}
+                onChangeText={setMessageInput}
               />
             </View>
             <View style={styles.btnContainer}>
-              <TouchableOpacity>
-                <Icon name="send" size={24} onPress={() => null} />
+              <TouchableOpacity style={styles.sendButton}>
+                <Icon name="send" size={24} onPress={onPressSend} style={styles.sendIcon}/>
               </TouchableOpacity>
             </View>
           </View>
+          <Button title="Create group" onPress={onPressCreateGroup} color="#FF6D6E" />
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>

@@ -18,13 +18,16 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginRight: 'auto',
-    marginLeft: 20,
+    marginVertical: 8,
   },
   row: {
     display: 'flex',
     flexDirection: 'row',
     overflowX: 'scroll',
     flexWrap: 'nowrap',
+    paddingLeft: 20,
+    paddingRight: 20,
+    marginBottom: 8,
   },
   verticalSpace: {
     width: '100%',
@@ -33,14 +36,14 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     marginBottom: 10,
-    borderWidth: 1,
     width: '90%',
-    borderRadius: 20,
+    borderRadius: 6,
     marginHorizontal: '5%',
     paddingLeft: 10,
+    backgroundColor: '#ddd',
   },
   bubble: {
-    marginLeft: 20,
+    paddingRight: 20,
   },
   headerRow: {
     marginTop: 30,
@@ -62,19 +65,21 @@ function Explore(props: HomeProps) {
 
   return (
     <ScrollView style={styles.scrollView}>
-      <TextInput
-        value={search}
-        onChangeText={setSearch}
-        placeholder="search"
-        style={styles.input}
-      />
+      <View>
+        <TextInput
+          value={search}
+          onChangeText={setSearch}
+          placeholder="search"
+          style={styles.input}
+        />
+      </View>
       {exploreSections.map((section, index1) => (
         <View key={index1}>
           <View style={[styles.row, styles.headerRow]}>
             <Text style={styles.sectionTitle}>{section.sectionTitle}</Text>
             <Button
               onPress={() => {
-                console.log('see all');
+                props.navigation.navigate('Restaurant List');
               }}
               title="See all"
               color="#ff6e6e"
