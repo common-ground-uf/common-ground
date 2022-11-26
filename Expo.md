@@ -29,8 +29,13 @@ nvm use 14.19.0
 
 # Android
 
+## Docs
 https://docs.expo.dev/submit/android/
 https://github.com/expo/fyi/blob/main/creating-google-service-account.md
 https://github.com/expo/fyi/blob/main/first-android-submission.md
 
+## Beta testing
+https://play.google.com/store/apps/details?id=com.ericnavar.commonground
+
+## Google Cloud
 IAM role on Google Cloud: kim-wexler-feet-fan@common-ground-369721.iam.gserviceaccount.com

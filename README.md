@@ -19,7 +19,7 @@ React Native
 
 ### Static Analysis testing
 - CodeQL
-  - Makes sure that the code quality is not shit and there's no keys lying around
+  - Makes sure that the code quality is not bad and there's no keys lying around
 - EsLint/Prettier
   - Sets professional standards 🤓 for the code formatting. Minimizes the risk of writing bugs
 
