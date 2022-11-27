@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Button,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { Contact, Profile } from '../commonTypes';
 import { Chip } from '../components/Chip';
 import { ContactBubble } from '../components/ContactBubble';
@@ -23,8 +24,6 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   settings: {
-    width: 32,
-    height: 32,
     paddings: '100%',
     position: 'absolute',
     top: 0,
@@ -130,10 +129,7 @@ function ProfileScreen(props: ProfilePageProps) {
       {isMyProfile && (
         <View style={styles.center}>
           <TouchableOpacity onPress={onPressSettings}>
-            <Image
-              source={require('../assets/settings.png')}
-              style={styles.settings}
-            />
+          <Icon name='gear' size={32} style={styles.settings}/>
           </TouchableOpacity>
         </View>
       )}

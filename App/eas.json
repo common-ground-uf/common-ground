@@ -1,3 +1,4 @@
+
 {
   "cli": {
     "version": ">= 2.1.0"
@@ -10,7 +11,9 @@
     "preview": {
       "distribution": "internal"
     },
-    "production": {}
+    "production": {
+      "node": "14.19.0"
+    }
   },
   "submit": {
     "production": {}
