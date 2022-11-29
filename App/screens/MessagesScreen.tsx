@@ -9,12 +9,13 @@ import {
   Platform,
   TouchableWithoutFeedback,
   Keyboard,
-  TouchableOpacity, Button,
+  TouchableOpacity,
+  Route,
 } from 'react-native';
-import { messagesDummy } from '../data/dummyData';
 import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
 import {SERVER_URI} from '../Config';
+import { Storage } from '../data/Storage';
 
 const styles = StyleSheet.create({
   messagesContainer: {},
@@ -128,11 +129,24 @@ function Message(props: MessageProps) {
   );
 }
 
-function MessagesScreen() {
+function MessagesScreen(props: Route) {
   //TODO: Change this to properly use auth to get self (not working for some reason)
 
   const [self, setSelf] = React.useState('Saul Goodman');
-  console.log(self);
+ 
+  async function getSelf(){
+    const profile = await Storage.get('profile');
+    console.log(profile);
+    if (profile) {
+      const profileInfo = JSON.parse(profile);
+      setSelf(profileInfo.firstName + ' ' + profileInfo.lastName);
+    }
+  }
+  
+  React.useEffect(() => {
+    getSelf();
+  }, []);
+
   axios.get(`${SERVER_URI}/auth`)
       .then(response => {
         if(response.data.message === 'auth success') {
@@ -170,7 +184,8 @@ function MessagesScreen() {
   const [messages, setMessages] = React.useState([]);
 
   const [messageInput, setMessageInput] = React.useState('');
-  const [groupId, setGroupId] = React.useState('');
+  const groupId = React.useState(props.route.params.groupId);
+  const groupName = React.useState(props.route.params.groupName);
 
   const onPressSend = () => {
     console.log('pressed send: '+messageInput);
@@ -179,6 +194,7 @@ function MessagesScreen() {
         .then((response) => {
           if (response.data.success === true) {
             console.log('messsage sent to server!');
+            setMessageInput('');
           }
         })
         .catch((error) => {
@@ -206,44 +222,6 @@ function MessagesScreen() {
       updateMessages();
   };
 
-  const onPressCreateGroup = () => {
-    console.log('creating group');
-    axios
-        .post(`${SERVER_URI}/groups`, {userIds: ['123', '12345', '123456'],
-          inviteCode: '12345'})
-        .then((response) => {
-          if (response.data.success === true) {
-            console.log('group creation successful');
-            // User Data object to be processed locally and saved as current login data (cleared after logout)
-            setGroupId(response.data.group['_id']);
-          }
-        })
-        .catch((error) => {
-          if (error.response) {
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-            if (error.response.data.message === 'login failed')
-              console.log('login unsuccessful');
-            else {
-              console.log(error.response.data);
-              console.log(error.response.status);
-              console.log(error.response.headers);
-            }
-          } else if (error.request) {
-            // The request was made but no response was received
-            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-            // http.ClientRequest in node.js
-            console.log(error.request);
-          } else {
-            // Something happened in setting up the request that triggered an Error
-            console.log('Error', error.message);
-          }
-          return;
-        });
-    console.log(groupId);
-  };
-
-
   const updateMessages = () => {
     console.log('getting messages');
     axios
@@ -251,7 +229,6 @@ function MessagesScreen() {
         .then((response) => {
           if (response.data.success === true) {
             console.log('successful get message');
-            console.log(response.data.conversation);
             // User Data object to be processed locally and saved as current login data (cleared after logout)
             setMessages(response.data.conversation.map( (conv: any) => {
               const res = {} as any;
@@ -261,7 +238,6 @@ function MessagesScreen() {
               res['profilePic'] = conv['postedByUser']['profilePic'];
               return res;
             } ));
-            console.log(messages);
           }
         })
         .catch((error) => {
@@ -287,11 +263,11 @@ function MessagesScreen() {
         });
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleTextInputChange = (e:any) => {
-    setMessageInput(e.target.value);
-  };
-
+  //get initial messages on screen load
+  React.useEffect(() => {
+    updateMessages();
+  }, []);
+  
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -324,7 +300,6 @@ function MessagesScreen() {
               </TouchableOpacity>
             </View>
           </View>
-          <Button title="Create group" onPress={onPressCreateGroup} color="#FF6D6E" />
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>

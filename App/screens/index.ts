@@ -3,6 +3,7 @@ export * from './Account';
 export * from './ForgorPassword💀';
 export * from './Home';
 export * from './Gallery';
+export * from './MessagesListScreen';
 export * from './MessagesScreen';
 export * from './Notifications';
 export * from './Preferences';

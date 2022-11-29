@@ -2,10 +2,12 @@
 import axios from 'axios';
 import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
+import { useIsFocused } from '@react-navigation/native';
 import { GroupBubbles } from '../components/GroupBubbles';
 import { RestaurantBubble } from '../components/RestaurantBubble';
 import { SERVER_URI } from '../Config';
 import { parties, saulProfile } from '../data/dummyUsers';
+import { Storage } from '../data/Storage';
 
 const styles = StyleSheet.create({
   welcome: {
@@ -61,11 +63,45 @@ type HomeProps = {
 };
 
 function Home(props: HomeProps) {
+  
+  const getProfileInfo = async () => {
+    //Get profile info from async storage
+    const profile = await Storage.get('profile');
+    if (profile) {
+      const profileInfo = JSON.parse(profile);
+      setFirstName(profileInfo.firstName);
+      setLastName(profileInfo.lastName);
+      setEmail(profileInfo.email);
+      setLocation(profileInfo.location);
+    } else {
+      //TODO: redirect to login page
+    }
+  };
+
+  const getParties = async () => {
+    axios.get(`${SERVER_URI}/groups`, {
+      params: {
+        name: true,
+      },
+    }).then((res) => {
+      console.log(res.data);
+      // setParties(res.data);
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
 
   const [firstName, setFirstName] = React.useState<string>(saulProfile.firstName);
   const [lastName, setLastName] = React.useState<string>(saulProfile.lastName);
   const [email, setEmail] = React.useState<string>(saulProfile.email);
   const [location, setLocation] = React.useState<string>(saulProfile.location);
+
+  const isFocused = useIsFocused();
+
+  React.useEffect(() => {
+    getProfileInfo();
+    getParties(); 
+  }, [isFocused]);
 
   const restaurant = {
     name: 'Los Pollos Hermanos',

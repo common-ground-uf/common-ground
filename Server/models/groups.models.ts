@@ -9,6 +9,7 @@ const groupSchema : Schema = new Schema({
       },
     userIds: Array,
     inviteCode: String,
+    name: String,
 });
 
 const groupModel : any = model<Group & Document>('Group', groupSchema);

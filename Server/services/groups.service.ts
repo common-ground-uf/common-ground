@@ -17,21 +17,12 @@ class GroupService {
     public messages = messageModel;
     public preferences = preferencesModel;
 
-    public async initiateGroup(userIds : string[], inviteCode : string) : Promise<Group> {
+    public async initiateGroup(userIds : string[], inviteCode : string, groupName : string) : Promise<Group> {
         try {
-            // check if group already exists if no invite code was generated
-            // const availableGroup = await this.groups.findOne({
-            //     userIds: {
-            //         $size: userIds.length,
-            //         $all: [...userIds],
-            //     }
-            // });
-            // if (availableGroup) {
-            //     return availableGroup;
-            // }
             const newGroup = await this.groups.create({
                 userIds: [...userIds],
-                inviteCode: inviteCode
+                inviteCode: inviteCode,
+                name: groupName
             });
             return newGroup;
         } catch (error) {
@@ -336,6 +327,25 @@ class GroupService {
         } catch(error) {
             throw error;
         }
+    }
+
+    public async getGroupByInviteCode(inviteCode: string) {
+        try {
+            return await this.groups.findOne({inviteCode: inviteCode});
+        } catch(error) {
+            throw error;
+        }
+    }
+
+    public makeid(length: number) {
+        let result = '';
+        const characters =
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const charactersLength = characters.length;
+        for (let i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
     }
 
 }

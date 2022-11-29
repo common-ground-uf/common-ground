@@ -4,5 +4,5 @@ export class CreateGroupDto {
     @ArrayUnique()
     @ArrayNotEmpty()
     userIds! : string[]
-    inviteCode! : string
+    name! : string
 }

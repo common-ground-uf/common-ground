@@ -13,8 +13,19 @@ class GroupsController {
 
     public initiate = async (req: Request, res: Response, next: NextFunction) => {
         try {
+            const currentUser : string = req.user?._id!;
             const groupInfo : CreateGroupDto = req.body;
-            const group = await this.groupService.initiateGroup(groupInfo.userIds, groupInfo.inviteCode);
+
+            let inviteCode = this.groupService.makeid(6);
+            let codeExists = await this.groupService.getGroupByInviteCode(inviteCode);
+
+            while (codeExists) {
+                inviteCode = this.groupService.makeid(6);
+                codeExists = await this.groupService.getGroupByInviteCode(inviteCode);
+            }
+            groupInfo.userIds.push(currentUser);
+
+            const group = await this.groupService.initiateGroup(groupInfo.userIds, inviteCode, groupInfo.name);
             return res.status(200).json({success:true, group});
         } catch (error) {
             next(error);
@@ -59,6 +70,46 @@ class GroupsController {
             })
         } catch (error) {
             return res.status(500).json({success: false, error});
+        }
+    };
+
+    public getGroups = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const currentUser : string = req.user?._id!;
+            const options = {
+                page: parseInt(req.query.page as any) || 0,
+                limit: parseInt(req.query.limit as any) || 10,
+                names: req.query.name as any || false,
+                lastMessage: req.query.lastMessage as any || false,
+            };
+
+            const groups : Group[] = await this.groupService.getGroupsByUserId(currentUser);
+            const groupIds = groups.map(group => group._id);
+
+            let conversations = [];
+            if(options.lastMessage) {
+                conversations = await this.groupService.getRecentConversation(groupIds, {
+                    page: options.page,
+                    limit: 1,
+                }, currentUser);
+            }
+
+            let resGroupsObj : any = {};
+
+            for (let i = 0; i < groups.length; i++) {
+                const group = groups[i];
+                resGroupsObj[group._id] = {
+                    name: options.names ? group.name : "",
+                    lastMessage: options.lastMessage ? conversations[i] ? conversations[i].message.messageText : "" : "",
+                    inviteCode: group.inviteCode,
+                    id: group._id,
+                };
+            }
+
+            return res.status(200).json({success: true, groups: resGroupsObj});
+        } catch(error) {
+            console.log(error);
+            return res.status(500).json({success: false, error: error});
         }
     };
 
