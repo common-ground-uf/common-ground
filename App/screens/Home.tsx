@@ -84,7 +84,6 @@ function Home(props: HomeProps) {
         name: true,
       },
     }).then((res) => {
-      console.log(res.data);
       // setParties(res.data);
     }).catch((err) => {
       console.log(err);

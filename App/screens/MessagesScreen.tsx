@@ -136,7 +136,6 @@ function MessagesScreen(props: Route) {
  
   async function getSelf(){
     const profile = await Storage.get('profile');
-    console.log(profile);
     if (profile) {
       const profileInfo = JSON.parse(profile);
       setSelf(profileInfo.firstName + ' ' + profileInfo.lastName);
@@ -184,8 +183,8 @@ function MessagesScreen(props: Route) {
   const [messages, setMessages] = React.useState([]);
 
   const [messageInput, setMessageInput] = React.useState('');
-  const groupId = React.useState(props.route.params.groupId);
-  const groupName = React.useState(props.route.params.groupName);
+  const groupId = props.route.params.groupId;
+  const groupName = props.route.params.groupName;
 
   const onPressSend = () => {
     console.log('pressed send: '+messageInput);
@@ -267,7 +266,7 @@ function MessagesScreen(props: Route) {
   React.useEffect(() => {
     updateMessages();
   }, []);
-  
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
