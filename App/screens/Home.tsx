@@ -67,7 +67,6 @@ function Home(props: HomeProps) {
   const getProfileInfo = async () => {
     //Get profile info from async storage
     const profile = await Storage.get('profile');
-    console.log(profile);
     if (profile) {
       const profileInfo = JSON.parse(profile);
       setFirstName(profileInfo.firstName);
