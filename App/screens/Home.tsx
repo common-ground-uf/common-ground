@@ -4,7 +4,6 @@ import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
 import { GroupBubbles } from '../components/GroupBubbles';
 import { RestaurantBubble } from '../components/RestaurantBubble';
-import { SERVER_URI } from '../Config';
 import { parties, saulProfile } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
