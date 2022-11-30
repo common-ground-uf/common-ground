@@ -37,5 +37,5 @@ function businessToRestaurant(business: Business): Restaurant {
         reviews: [],
         description: business.categories.map(category => category.title).join(', '),
         distanceMiles: business.distance * 0.000621371
-    }
+    };
 }
