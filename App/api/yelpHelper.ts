@@ -1,7 +1,8 @@
 import geoMidpoint from './geographicMidpoint';
 import { getBusinessesByCoordinatesAndCategories, Business } from './yelpApi';
+import { Restaurant } from '../commonTypes';
 
-export async function generateOrderedRestaurantList(locations: Array<{latitude: number, longitude: number}>, categoryAliasLists: Array<Array<string>>, pricePreferences: Array<BigInteger>): Promise<Business[]> {
+export async function generateOrderedRestaurantList(locations: Array<{latitude: number, longitude: number}>, categoryAliasLists: Array<Array<string>>, pricePreferences: Array<BigInteger>): Promise<Restaurant[]> {
     
     const midpoint = geoMidpoint(locations);
     
@@ -18,5 +19,24 @@ export async function generateOrderedRestaurantList(locations: Array<{latitude: 
     // get businesses from Yelp API
     const businesses: Business[] = await getBusinessesByCoordinatesAndCategories(midpoint.latitude, midpoint.longitude, orderedPreferenceString, pricePreferencesString);
 
-    return businesses;
+    // convert businesses to Restaurant objects
+    const restaurants: Restaurant[] = businesses.map(business => businessToRestaurant(business));
+
+    return restaurants;
+}
+
+function businessToRestaurant(business: Business): Restaurant {
+    return {
+        name: business.name,
+        thumbnail: business.image_url,
+        address: {
+            line1: business.location.address1,
+            line2: business.location.address2
+        },
+        priceRating: business.price.length,
+        starRating: business.rating,
+        reviews: [],
+        description: business.categories.map(category => category.title).join(', '),
+        distanceMiles: business.distance * 0.000621371
+    }
 }
