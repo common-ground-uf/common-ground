@@ -14,8 +14,8 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
-import {SERVER_URI} from '../Config';
 import { Storage } from '../data/Storage';
+import 'dotenv/config';
 
 const styles = StyleSheet.create({
   messagesContainer: {},
@@ -147,7 +147,7 @@ function MessagesScreen(props: Route) {
     getSelf();
   }, []);
 
-  axios.get(`${SERVER_URI}/auth`)
+  axios.get(`${process.env.SERVER_URI}/auth`)
       .then(response => {
         if(response.data.message === 'auth success') {
           console.log('login successful');
@@ -190,7 +190,7 @@ function MessagesScreen(props: Route) {
   const onPressSend = () => {
     console.log('pressed send: '+messageInput);
     axios
-        .post(`${SERVER_URI}/groups/${groupId}/message`, {messageText: messageInput})
+        .post(`${process.env.SERVER_URI}/groups/${groupId}/message`, {messageText: messageInput})
         .then((response) => {
           if (response.data.success === true) {
             console.log('messsage sent to server!');
@@ -225,7 +225,7 @@ function MessagesScreen(props: Route) {
   const updateMessages = () => {
     console.log('getting messages');
     axios
-        .post(`${SERVER_URI}/groups/${groupId}`)
+        .post(`${process.env.SERVER_URI}/groups/${groupId}`)
         .then((response) => {
           if (response.data.success === true) {
             console.log('successful get message');

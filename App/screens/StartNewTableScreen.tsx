@@ -8,7 +8,6 @@ import {
   TextInput,
 } from 'react-native';
 import { ContactBubble } from '../components/ContactBubble';
-import { SERVER_URI } from '../Config';
 import { allUsers } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
@@ -70,7 +69,7 @@ function StartNewTableScreen() {
       }
       
 
-        axios.post(`${SERVER_URI}/groups`, {
+        axios.post(`${process.env.SERVER_URI}/groups`, {
                 userIds: selectedContacts,
                 name: groupName,
               }).then((response) => {
