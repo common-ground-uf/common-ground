@@ -3,15 +3,15 @@ import { ScrollView, Button, View, StyleSheet, Text } from 'react-native';
 
 const styles = StyleSheet.create({
   button: {
-    marginVertical: 4,
+    marginVertical: 1,
     marginHorizontal: 8,
   },
   debugScreen: {
     paddingHorizontal: 20,
-    marginVertical: 20,
+    // marginVertical: 20,
   },
   verticalSpace: {
-    height: 40,
+    height: 10,
   },
 });
 
@@ -39,7 +39,6 @@ function DebugScreen(props: DebugScreenProps) {
     'Restaurant List',
     'Restaurant',
     'Gallery',
-    'Profile',
     'Account',
     'Privacy',
     'Settings',

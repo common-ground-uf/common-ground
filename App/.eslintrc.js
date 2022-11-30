@@ -23,7 +23,6 @@ module.exports = {
     semi: ['error', 'always'],
     'react-native/no-unused-styles': 1,
     'react-native/split-platform-components': 1,
-    'react-native/no-inline-styles': 1,
     'react-native/no-raw-text': 1,
     'react-native/no-single-element-style-arrays': 1,
   },

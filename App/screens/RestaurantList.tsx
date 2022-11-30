@@ -10,10 +10,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   searchBox: {
-    borderWidth: 1,
     padding: 8,
-    borderRadius: 12,
+    marginHorizontal: 14,
+    marginBottom: 12,
+    borderRadius: 6,
     marginTop: 20,
+    backgroundColor: '#ddd',
   },
   row: {
     display: 'flex',
@@ -22,9 +24,9 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   sortButton: {
-    padding: 12,
+    padding: 8,
     borderRadius: 24,
-    backgroundColor: 'blue',
+    backgroundColor: '#FF6D6E',
     marginLeft: 10,
   },
   sortButtonText: {

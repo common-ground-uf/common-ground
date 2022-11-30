@@ -9,22 +9,24 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
   }
 >
   <View>
-    <TextInput
-      onChangeText={[Function]}
-      placeholder="search"
-      style={
-        {
-          "borderRadius": 20,
-          "borderWidth": 1,
-          "height": 40,
-          "marginBottom": 10,
-          "marginHorizontal": "5%",
-          "paddingLeft": 10,
-          "width": "90%",
+    <View>
+      <TextInput
+        onChangeText={[Function]}
+        placeholder="search"
+        style={
+          {
+            "backgroundColor": "#ddd",
+            "borderRadius": 6,
+            "height": 40,
+            "marginBottom": 10,
+            "marginHorizontal": "5%",
+            "paddingLeft": 10,
+            "width": "90%",
+          }
         }
-      }
-      value=""
-    />
+        value=""
+      />
+    </View>
     <View>
       <View
         style={
@@ -33,7 +35,10 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
               "display": "flex",
               "flexDirection": "row",
               "flexWrap": "nowrap",
+              "marginBottom": 8,
               "overflowX": "scroll",
+              "paddingLeft": 20,
+              "paddingRight": 20,
             },
             {
               "marginTop": 30,
@@ -46,8 +51,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             {
               "fontSize": 18,
               "fontWeight": "bold",
-              "marginLeft": 20,
               "marginRight": "auto",
+              "marginVertical": 8,
             }
           }
         >
@@ -105,7 +110,10 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             "display": "flex",
             "flexDirection": "row",
             "flexWrap": "nowrap",
+            "marginBottom": 8,
             "overflowX": "scroll",
+            "paddingLeft": 20,
+            "paddingRight": 20,
           }
         }
       >
@@ -123,8 +131,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -169,8 +177,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -215,8 +223,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -261,8 +269,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -305,7 +313,10 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
               "display": "flex",
               "flexDirection": "row",
               "flexWrap": "nowrap",
+              "marginBottom": 8,
               "overflowX": "scroll",
+              "paddingLeft": 20,
+              "paddingRight": 20,
             },
             {
               "marginTop": 30,
@@ -318,8 +329,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             {
               "fontSize": 18,
               "fontWeight": "bold",
-              "marginLeft": 20,
               "marginRight": "auto",
+              "marginVertical": 8,
             }
           }
         >
@@ -377,7 +388,10 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             "display": "flex",
             "flexDirection": "row",
             "flexWrap": "nowrap",
+            "marginBottom": 8,
             "overflowX": "scroll",
+            "paddingLeft": 20,
+            "paddingRight": 20,
           }
         }
       >
@@ -395,8 +409,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -441,8 +455,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -487,8 +501,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -533,8 +547,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -577,7 +591,10 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
               "display": "flex",
               "flexDirection": "row",
               "flexWrap": "nowrap",
+              "marginBottom": 8,
               "overflowX": "scroll",
+              "paddingLeft": 20,
+              "paddingRight": 20,
             },
             {
               "marginTop": 30,
@@ -590,8 +607,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             {
               "fontSize": 18,
               "fontWeight": "bold",
-              "marginLeft": 20,
               "marginRight": "auto",
+              "marginVertical": 8,
             }
           }
         >
@@ -649,7 +666,10 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             "display": "flex",
             "flexDirection": "row",
             "flexWrap": "nowrap",
+            "marginBottom": 8,
             "overflowX": "scroll",
+            "paddingLeft": 20,
+            "paddingRight": 20,
           }
         }
       >
@@ -667,8 +687,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -713,8 +733,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -759,8 +779,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -805,8 +825,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -849,7 +869,10 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
               "display": "flex",
               "flexDirection": "row",
               "flexWrap": "nowrap",
+              "marginBottom": 8,
               "overflowX": "scroll",
+              "paddingLeft": 20,
+              "paddingRight": 20,
             },
             {
               "marginTop": 30,
@@ -862,8 +885,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             {
               "fontSize": 18,
               "fontWeight": "bold",
-              "marginLeft": 20,
               "marginRight": "auto",
+              "marginVertical": 8,
             }
           }
         >
@@ -921,7 +944,10 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             "display": "flex",
             "flexDirection": "row",
             "flexWrap": "nowrap",
+            "marginBottom": 8,
             "overflowX": "scroll",
+            "paddingLeft": 20,
+            "paddingRight": 20,
           }
         }
       >
@@ -939,8 +965,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -985,8 +1011,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -1031,8 +1057,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -1077,8 +1103,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -1121,7 +1147,10 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
               "display": "flex",
               "flexDirection": "row",
               "flexWrap": "nowrap",
+              "marginBottom": 8,
               "overflowX": "scroll",
+              "paddingLeft": 20,
+              "paddingRight": 20,
             },
             {
               "marginTop": 30,
@@ -1134,8 +1163,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             {
               "fontSize": 18,
               "fontWeight": "bold",
-              "marginLeft": 20,
               "marginRight": "auto",
+              "marginVertical": 8,
             }
           }
         >
@@ -1193,7 +1222,10 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             "display": "flex",
             "flexDirection": "row",
             "flexWrap": "nowrap",
+            "marginBottom": 8,
             "overflowX": "scroll",
+            "paddingLeft": 20,
+            "paddingRight": 20,
           }
         }
       >
@@ -1211,8 +1243,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -1257,8 +1289,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -1303,8 +1335,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -1349,8 +1381,8 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -1406,22 +1438,24 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
   }
 >
   <View>
-    <TextInput
-      onChangeText={[Function]}
-      placeholder="search"
-      style={
-        {
-          "borderRadius": 20,
-          "borderWidth": 1,
-          "height": 40,
-          "marginBottom": 10,
-          "marginHorizontal": "5%",
-          "paddingLeft": 10,
-          "width": "90%",
+    <View>
+      <TextInput
+        onChangeText={[Function]}
+        placeholder="search"
+        style={
+          {
+            "backgroundColor": "#ddd",
+            "borderRadius": 6,
+            "height": 40,
+            "marginBottom": 10,
+            "marginHorizontal": "5%",
+            "paddingLeft": 10,
+            "width": "90%",
+          }
         }
-      }
-      value=""
-    />
+        value=""
+      />
+    </View>
     <View>
       <View
         style={
@@ -1430,7 +1464,10 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
               "display": "flex",
               "flexDirection": "row",
               "flexWrap": "nowrap",
+              "marginBottom": 8,
               "overflowX": "scroll",
+              "paddingLeft": 20,
+              "paddingRight": 20,
             },
             {
               "marginTop": 30,
@@ -1443,8 +1480,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             {
               "fontSize": 18,
               "fontWeight": "bold",
-              "marginLeft": 20,
               "marginRight": "auto",
+              "marginVertical": 8,
             }
           }
         >
@@ -1502,7 +1539,10 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             "display": "flex",
             "flexDirection": "row",
             "flexWrap": "nowrap",
+            "marginBottom": 8,
             "overflowX": "scroll",
+            "paddingLeft": 20,
+            "paddingRight": 20,
           }
         }
       >
@@ -1520,8 +1560,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -1566,8 +1606,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -1612,8 +1652,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -1658,8 +1698,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -1702,7 +1742,10 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
               "display": "flex",
               "flexDirection": "row",
               "flexWrap": "nowrap",
+              "marginBottom": 8,
               "overflowX": "scroll",
+              "paddingLeft": 20,
+              "paddingRight": 20,
             },
             {
               "marginTop": 30,
@@ -1715,8 +1758,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             {
               "fontSize": 18,
               "fontWeight": "bold",
-              "marginLeft": 20,
               "marginRight": "auto",
+              "marginVertical": 8,
             }
           }
         >
@@ -1774,7 +1817,10 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             "display": "flex",
             "flexDirection": "row",
             "flexWrap": "nowrap",
+            "marginBottom": 8,
             "overflowX": "scroll",
+            "paddingLeft": 20,
+            "paddingRight": 20,
           }
         }
       >
@@ -1792,8 +1838,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -1838,8 +1884,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -1884,8 +1930,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -1930,8 +1976,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -1974,7 +2020,10 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
               "display": "flex",
               "flexDirection": "row",
               "flexWrap": "nowrap",
+              "marginBottom": 8,
               "overflowX": "scroll",
+              "paddingLeft": 20,
+              "paddingRight": 20,
             },
             {
               "marginTop": 30,
@@ -1987,8 +2036,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             {
               "fontSize": 18,
               "fontWeight": "bold",
-              "marginLeft": 20,
               "marginRight": "auto",
+              "marginVertical": 8,
             }
           }
         >
@@ -2046,7 +2095,10 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             "display": "flex",
             "flexDirection": "row",
             "flexWrap": "nowrap",
+            "marginBottom": 8,
             "overflowX": "scroll",
+            "paddingLeft": 20,
+            "paddingRight": 20,
           }
         }
       >
@@ -2064,8 +2116,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -2110,8 +2162,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -2156,8 +2208,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -2202,8 +2254,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -2246,7 +2298,10 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
               "display": "flex",
               "flexDirection": "row",
               "flexWrap": "nowrap",
+              "marginBottom": 8,
               "overflowX": "scroll",
+              "paddingLeft": 20,
+              "paddingRight": 20,
             },
             {
               "marginTop": 30,
@@ -2259,8 +2314,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             {
               "fontSize": 18,
               "fontWeight": "bold",
-              "marginLeft": 20,
               "marginRight": "auto",
+              "marginVertical": 8,
             }
           }
         >
@@ -2318,7 +2373,10 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             "display": "flex",
             "flexDirection": "row",
             "flexWrap": "nowrap",
+            "marginBottom": 8,
             "overflowX": "scroll",
+            "paddingLeft": 20,
+            "paddingRight": 20,
           }
         }
       >
@@ -2336,8 +2394,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -2382,8 +2440,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -2428,8 +2486,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -2474,8 +2532,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -2518,7 +2576,10 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
               "display": "flex",
               "flexDirection": "row",
               "flexWrap": "nowrap",
+              "marginBottom": 8,
               "overflowX": "scroll",
+              "paddingLeft": 20,
+              "paddingRight": 20,
             },
             {
               "marginTop": 30,
@@ -2531,8 +2592,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             {
               "fontSize": 18,
               "fontWeight": "bold",
-              "marginLeft": 20,
               "marginRight": "auto",
+              "marginVertical": 8,
             }
           }
         >
@@ -2590,7 +2651,10 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             "display": "flex",
             "flexDirection": "row",
             "flexWrap": "nowrap",
+            "marginBottom": 8,
             "overflowX": "scroll",
+            "paddingLeft": 20,
+            "paddingRight": 20,
           }
         }
       >
@@ -2608,8 +2672,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -2654,8 +2718,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -2700,8 +2764,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >
@@ -2746,8 +2810,8 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               {
-                "marginLeft": 20,
                 "opacity": 1,
+                "paddingRight": 20,
               }
             }
           >

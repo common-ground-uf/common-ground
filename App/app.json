@@ -4,7 +4,7 @@
     "slug": "common-ground",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/saul.png.jpg",
+    "icon": "./assets/saul.png.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -15,15 +15,19 @@
       "fallbackToCacheTimeout": 0,
       "url": "https://u.expo.dev/6a03a19e-9a5e-469e-9b80-48a98159391f"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ericnavar.commonground"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/saul.png.jpg",
+        "foregroundImage": "./assets/saul.png.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.ericnavar.commonground"
     },
     "web": {
       "favicon": "./assets/saul.png.jpg"

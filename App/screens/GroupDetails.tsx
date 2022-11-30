@@ -2,11 +2,11 @@ import React from 'react';
 import {
   View,
   FlatList,
-  Image,
   Text,
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { Contact, Profile } from '../commonTypes';
 import { ContactListItem } from '../components/ContactListItem';
 
@@ -17,8 +17,6 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   settings: {
-    width: 32,
-    height: 32,
     paddings: '100%',
     opacity: 0.6,
   },
@@ -69,10 +67,7 @@ function GroupDetails(props: GroupDetailsProps) {
       <View style={styles.topRow}>
         <Text style={styles.groupName}>{groupName}</Text>
         <TouchableOpacity onPress={onClickSettings}>
-          <Image
-            source={require('../assets/settings.png')}
-            style={styles.settings}
-          />
+          <Icon name='gear' size={32} style={styles.settings}/>
         </TouchableOpacity>
       </View>
       {members.length === 0 ? (

@@ -107,6 +107,40 @@ class UserService {
         return this.findUserById(userId);
     }
 
+    public async addPreference(currentUserId: string,  prefs : string[]): Promise<string[]> {
+        if (isEmpty(currentUserId)) throw new HttpException(400, "UserId is empty");
+
+
+        const user: User = await this.users.findOneAndUpdate(
+            {_id: currentUserId},
+            {$addToSet: {pastPicks: prefs}},
+            {upsert: true, new:true}
+        );
+        if (!user) throw new HttpException(409, `There is no user with id: ${currentUserId}`);
+        return user.pastPicks;
+        
+    }
+
+    public async removePreference(currentUserId: string, prefs : string[]): Promise<string[]> {
+        if (isEmpty(currentUserId)) throw new HttpException(400, "UserId is empty");
+
+
+        const user: User = await this.users.findOneAndUpdate(
+            {_id: currentUserId},
+            {$pull: {pastPicks: { $in: prefs}}},
+            {new:true}
+        );
+        if (!user) throw new HttpException(409, `There is no user with id: ${currentUserId}`);
+        return user.pastPicks;
+    }
+
+    public async getPreference(currentUserId: string): Promise<string[]> {
+        if (isEmpty(currentUserId)) throw new HttpException(400, "UserId is empty");
+        const user: User = await this.findUserById(currentUserId);
+        if (!user) throw new HttpException(409, `There is no user with id: ${currentUserId}`);
+        return user.pastPicks;
+    }
+
 }
 
 export default UserService;

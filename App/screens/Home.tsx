@@ -2,10 +2,12 @@
 import axios from 'axios';
 import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
+import { useIsFocused } from '@react-navigation/native';
 import { GroupBubbles } from '../components/GroupBubbles';
 import { RestaurantBubble } from '../components/RestaurantBubble';
 import { SERVER_URI } from '../Config';
 import { parties, saulProfile } from '../data/dummyUsers';
+import { Storage } from '../data/Storage';
 
 const styles = StyleSheet.create({
   welcome: {
@@ -27,14 +29,23 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 12,
-    marginTop: 20,
     paddingHorizontal: 20,
+    marginRight: 'auto',
+    marginVertical: 8,
   },
   row: {
     display: 'flex',
     flexDirection: 'row',
     overflowX: 'scroll',
     flexWrap: 'nowrap',
+    marginTop: 8,
+  },
+  sectionHeaderContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    overflowX: 'scroll',
+    flexWrap: 'nowrap',
+    marginTop: 20,
   },
   restaurantBubble: {
     marginLeft: 20,
@@ -52,11 +63,45 @@ type HomeProps = {
 };
 
 function Home(props: HomeProps) {
+  
+  const getProfileInfo = async () => {
+    //Get profile info from async storage
+    const profile = await Storage.get('profile');
+    if (profile) {
+      const profileInfo = JSON.parse(profile);
+      setFirstName(profileInfo.firstName);
+      setLastName(profileInfo.lastName);
+      setEmail(profileInfo.email);
+      setLocation(profileInfo.location);
+    } else {
+      //TODO: redirect to login page
+    }
+  };
+
+  const getParties = async () => {
+    axios.get(`${SERVER_URI}/groups`, {
+      params: {
+        name: true,
+      },
+    }).then((res) => {
+      console.log(res.data);
+      // setParties(res.data);
+    }).catch((err) => {
+      console.log(err);
+    });
+  };
 
   const [firstName, setFirstName] = React.useState<string>(saulProfile.firstName);
   const [lastName, setLastName] = React.useState<string>(saulProfile.lastName);
   const [email, setEmail] = React.useState<string>(saulProfile.email);
   const [location, setLocation] = React.useState<string>(saulProfile.location);
+
+  const isFocused = useIsFocused();
+
+  React.useEffect(() => {
+    getProfileInfo();
+    getParties(); 
+  }, [isFocused]);
 
   const restaurant = {
     name: 'Los Pollos Hermanos',
@@ -76,6 +121,10 @@ function Home(props: HomeProps) {
 
   const onPressStartANewTable = () => {
     props.navigation.navigate('Start New Table');
+  };
+
+  const onPressSeeAllSaved = () => {
+    props.navigation.navigate('Restaurant List');
   };
 
   return (
@@ -99,8 +148,10 @@ function Home(props: HomeProps) {
           <RestaurantBubble {...restaurant} onPress={onClickRestaurant} style={styles.restaurantBubble}/>
           <RestaurantBubble {...restaurant} onPress={onClickRestaurant} style={styles.restaurantBubble}/>
         </ScrollView>
-        <Text style={styles.sectionTitle}>Parties</Text>
-        <ScrollView style={styles.row} horizontal={true}>
+        <View style={styles.sectionHeaderContainer}>
+          <Text style={styles.sectionTitle}>Recent Parties</Text>
+        </View>
+        <ScrollView style={styles.row} horizontal={true} contentContainerStyle={{alignItems:'flex-start'}}>
           {parties.map((party, index) => 
             <GroupBubbles
               members={party.members}
@@ -111,7 +162,14 @@ function Home(props: HomeProps) {
             />
           )}
         </ScrollView>
-        <Text style={styles.sectionTitle}>Saved restaurants</Text>
+        <View style={styles.sectionHeaderContainer}>
+          <Text style={styles.sectionTitle}>Saved restaurants</Text>
+          <Button
+            onPress={onPressSeeAllSaved}
+            title="See all"
+            color="#ff6e6e"
+          />
+        </View>
         <ScrollView style={styles.row} horizontal={true}>
           {recentlyVisited.map((restaurant, index) => 
             <RestaurantBubble

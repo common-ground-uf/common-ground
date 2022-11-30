@@ -7,7 +7,9 @@ const groupSchema : Schema = new Schema({
         type: String,
         default: () => uuidv4().replace(/\-/g, ""),
       },
-    userIds: Array
+    userIds: Array,
+    inviteCode: String,
+    name: String,
 });
 
 const groupModel : any = model<Group & Document>('Group', groupSchema);

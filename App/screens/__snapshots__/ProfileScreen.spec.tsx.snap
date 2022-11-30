@@ -439,20 +439,15 @@ exports[`ProfileScreen Renders user's own profile correctly 1`] = `
           }
         }
       >
-        <Image
-          source={
-            {
-              "testUri": "../../../assets/settings.png",
-            }
-          }
+        <MockedFontAwesomeIconsicons
+          name="gear"
+          size={32}
           style={
             {
-              "height": 32,
               "paddings": "100%",
               "position": "absolute",
               "right": 0,
               "top": 0,
-              "width": 32,
             }
           }
         />
