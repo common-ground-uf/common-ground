@@ -4,4 +4,5 @@ export class CreateGroupDto {
     @ArrayUnique()
     @ArrayNotEmpty()
     userIds! : string[]
+    name! : string
 }

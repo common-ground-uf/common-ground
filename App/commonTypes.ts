@@ -32,4 +32,5 @@ export type Profile = Contact & {
   recentContacts: Contact[];
   email: string;
   location: string;
+  role: string;
 };

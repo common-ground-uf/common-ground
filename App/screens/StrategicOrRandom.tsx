@@ -32,7 +32,7 @@ type StrategicOrRandomProps = {
 
 export function StrategicOrRandom(props: StrategicOrRandomProps) {
   const onPressStrategic = () => {
-    props.navigation.navigate('Restaurant List');
+    props.navigation.navigate('Waiting on Friends');
   };
 
   const onPressRandom = () => {

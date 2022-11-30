@@ -71,6 +71,44 @@ class UsersController {
             next(error);
         }
     };
+
+    public addUserPref = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const currentUser : string = req.user?._id!;
+            const userId: string = req.params.id;
+            if (currentUser != userId) return res.status(403).json({success:false, error:"User not authorized"});
+            const prefArray : string[] = req.body.preferences;
+            const newPrefs: string[] = await this.userService.addPreference(currentUser, prefArray);
+            res.status(200).json({success: true, prefs: newPrefs});
+        } catch(error) {
+            return res.status(500).json({success: false, error: error});
+        }
+    };
+
+    public removeUserPref = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const currentUser : string = req.user?._id!;
+            const userId: string = req.params.id;
+            if (currentUser != userId) return res.status(403).json({success:false, error:"User not authorized"});
+            const prefArray : string[] = req.body.preferences;
+            const newPrefs: string[] = await this.userService.removePreference(currentUser, prefArray);
+            res.status(200).json({success: true, prefs: newPrefs});
+        } catch(error) {
+            return res.status(500).json({success: false, error: error});
+        }
+    };
+
+    public getUserPref = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const currentUser : string = req.user?._id!;
+            const userId: string = req.params.id;
+            if (currentUser != userId) return res.status(403).json({success:false, error:"User not authorized"});
+            const userPrefs: string[] = await this.userService.getPreference(currentUser);
+            res.status(200).json({success: true, prefs: userPrefs});
+        } catch(error) {
+            return res.status(500).json({success: false, error: error});
+        }
+    };
 }
 
 export default UsersController;

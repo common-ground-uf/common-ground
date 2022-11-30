@@ -117,6 +117,7 @@ function Signup(props: SignupProps) {
         placeholder="Password"
         autoComplete="password"
         secureTextEntry={true}
+        textContentType='newPassword'
       />
       <TextInput
         style={styles.input}
@@ -124,6 +125,7 @@ function Signup(props: SignupProps) {
         value={passwordConfirmation}
         placeholder="Confirm password"
         secureTextEntry={true}
+        textContentType='newPassword'
       />
       {errorState && <Text style={styles.errorMessage}>{errorMessage}</Text>}
       <Text onPress={onPressHaveAccount} style={styles.link}>

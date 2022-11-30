@@ -28,7 +28,7 @@ function AllContactsScreen(props: AllContactsScreenProps) {
   );
 
   return (
-    <ScrollView style={styles.groupDetails}>
+    <View style={styles.groupDetails}>
       <View>
         {members.length === 0 ? (
           <Text>Group is empty</Text>
@@ -45,7 +45,7 @@ function AllContactsScreen(props: AllContactsScreenProps) {
           />
         )}
       </View>
-    </ScrollView>
+    </View>
   );
 }
 

@@ -6,7 +6,7 @@ export const gallery = [
   'https://preview.redd.it/v0jc0zl5sli41.jpg?width=3024&format=pjpg&auto=webp&s=76f0c68e71507aa323b6a97c86eb15e1e6b34809',
 ];
 
-export const messages = [
+export const messagesDummy = [
   {
     author: 'Saul',
     content: 'Let\'s go to Taco Bell',
