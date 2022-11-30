@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text, View, TextInput, Button } from 'react-native';
 import { loginSignupStyles as styles } from '../styles/LoginSingup';
-import { SERVER_URI } from '../Config';
 import { Profile } from '../commonTypes';
 import { Storage } from '../data/Storage';
 import axios from 'axios';
+import 'dotenv/config';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 
@@ -32,7 +32,7 @@ function Login(props: LoginProps) {
 
   const onPressLogin = () => {
     axios
-      .post(`${SERVER_URI}/login`, {
+      .post(`${process.env.SERVER_URI}/login`, {
         username: email,
         password: password,
       })

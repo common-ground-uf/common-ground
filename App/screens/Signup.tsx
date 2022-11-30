@@ -2,9 +2,8 @@ import React from 'react';
 import { Text, View, TextInput, Button, Image } from 'react-native';
 import { loginSignupStyles as styles } from '../styles/LoginSingup';
 import login from '../assets/login.png';
-
+import 'dotenv/config';
 import axios from 'axios';
-import { SERVER_URI } from '../Config';
 
 type SignupProps = {
   navigation: {
@@ -15,7 +14,7 @@ type SignupProps = {
 
 const SignupRequest = (firstName: string, lastName: string, email: string, password: string) => {
   axios
-    .post(`${SERVER_URI}/users`, {
+    .post(`${process.env.SERVER_URI}/users`, {
       firstname: firstName,
       lastname: lastName,
       email: email,

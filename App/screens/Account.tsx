@@ -3,7 +3,7 @@ import {Button, TextInput, View} from 'react-native';
 import {loginSignupStyles} from '../styles/LoginSingup';
 import {saulProfile} from '../data/dummyUsers';
 import axios from 'axios';
-import { SERVER_URI } from '../Config';
+import 'dotenv/config';
 
 function Account() {
     // used to give initial values to the text fields
@@ -15,7 +15,7 @@ function Account() {
   const [email, setEmail] = React.useState<string>(profile.email);
   const [location, setLocation] = React.useState<string>(profile.location);
 
-    axios.get(`${SERVER_URI}/auth`)
+    axios.get(`${process.env.SERVER_URI}/auth`)
         .then(response => {
             if(response.data.message === 'login success') {
                 console.log('login successful');

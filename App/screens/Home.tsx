@@ -5,7 +5,6 @@ import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 import { GroupBubbles } from '../components/GroupBubbles';
 import { RestaurantBubble } from '../components/RestaurantBubble';
-import { SERVER_URI } from '../Config';
 import { parties, saulProfile } from '../data/dummyUsers';
 import { Storage } from '../data/Storage';
 
