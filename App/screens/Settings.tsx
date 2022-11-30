@@ -5,7 +5,6 @@ import {
   FlatList,
   StyleSheet,
   TouchableOpacity,
-  ImageSourcePropType,
 } from 'react-native';
 import { loginSignupStyles } from '../styles/LoginSingup';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -43,7 +42,7 @@ type SettingProps = {
     navigate: any;
   };
   name: string;
-  image: ImageSourcePropType;
+  image: string;
 };
 
 const Setting = (props: SettingProps) => {
@@ -74,11 +73,11 @@ function Settings(props: SettingsProps) {
         image: 'shield',
         navigation: props.navigation
     };
-    const Notifications = {
-        name: 'Notifications',
-        image: 'bell',
-        navigation: props.navigation
-    };
+    // const Notifications = {
+    //     name: 'Notifications',
+    //     image: 'bell',
+    //     navigation: props.navigation
+    // };
     const Preferences = {
         name: 'Preferences',
         image: 'asterisk',
@@ -89,7 +88,7 @@ function Settings(props: SettingsProps) {
         image: 'power-off',
         navigation: props.navigation
     };
-    const members = [Account, Privacy, Notifications, Preferences, Logout];
+    const members = [Account, Privacy, /*Notifications,*/ Preferences, Logout];
     return (
         <View style={loginSignupStyles.container}>
             <FlatList

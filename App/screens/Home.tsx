@@ -73,7 +73,7 @@ function Home(props: HomeProps) {
       setEmail(profileInfo.email);
       setLocation(profileInfo.location);
     } else {
-      //TODO: redirect to login page
+      props.navigation.navigate('Login');
     }
   };
 
@@ -122,8 +122,12 @@ function Home(props: HomeProps) {
     props.navigation.navigate('Start New Table');
   };
 
-  const onPressSeeAllSaved = () => {
-    props.navigation.navigate('Restaurant List');
+  // const onPressSeeAllSaved = () => {
+  //   props.navigation.navigate('Restaurant List');
+  // };
+
+  const onPressSeeAllParties = () => {
+    props.navigation.navigate('Parties List');
   };
 
   return (
@@ -148,7 +152,12 @@ function Home(props: HomeProps) {
           <RestaurantBubble {...restaurant} onPress={onClickRestaurant} style={styles.restaurantBubble}/>
         </ScrollView>
         <View style={styles.sectionHeaderContainer}>
-          <Text style={styles.sectionTitle}>Recent Parties</Text>
+          <Text style={styles.sectionTitle}>Groups</Text>
+          <Button
+            onPress={onPressSeeAllParties}
+            title="See all"
+            color="#ff6e6e"
+          />
         </View>
         <ScrollView style={styles.row} horizontal={true} contentContainerStyle={{alignItems:'flex-start'}}>
           {parties.map((party, index) => 
@@ -161,15 +170,15 @@ function Home(props: HomeProps) {
             />
           )}
         </ScrollView>
-        <View style={styles.sectionHeaderContainer}>
+        {/* <View style={styles.sectionHeaderContainer}>
           <Text style={styles.sectionTitle}>Saved restaurants</Text>
           <Button
             onPress={onPressSeeAllSaved}
             title="See all"
             color="#ff6e6e"
           />
-        </View>
-        <ScrollView style={styles.row} horizontal={true}>
+        </View> */}
+        {/* <ScrollView style={styles.row} horizontal={true}>
           {recentlyVisited.map((restaurant, index) => 
             <RestaurantBubble
               key={index}
@@ -178,9 +187,8 @@ function Home(props: HomeProps) {
               style={styles.restaurantBubble}
             />
           )}
-        </ScrollView>
+        </ScrollView> */}
         <View style={styles.verticalSpace}/>
-
     </ScrollView>
   );
 }

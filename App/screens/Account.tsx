@@ -1,24 +1,25 @@
 import React from 'react';
 import {Button, TextInput, View} from 'react-native';
 import {loginSignupStyles} from '../styles/LoginSingup';
-import {saulProfile} from '../data/dummyUsers';
 import axios from 'axios';
 import 'dotenv/config';
 
 function Account() {
     // used to give initial values to the text fields
-    const profile = saulProfile;
 
 
-  const [firstName, setFirstName] = React.useState<string>(profile.firstName);
-  const [lastName, setLastName] = React.useState<string>(profile.lastName);
-  const [email, setEmail] = React.useState<string>(profile.email);
-  const [location, setLocation] = React.useState<string>(profile.location);
+  const [firstName, setFirstName] = React.useState<string>('');
+  const [lastName, setLastName] = React.useState<string>('');
+  const [email, setEmail] = React.useState<string>('');
+  const [location, setLocation] = React.useState<string>('');
 
     axios.get(`${process.env.SERVER_URI}/auth`)
         .then(response => {
+            console.log('RESPONSE');
+            console.log(response);
             if(response.data.message === 'login success') {
                 console.log('login successful');
+                console.log(response.data.userData);
                 // User Data object to be processed locally and saved as current login data (cleared after logout)
                 setEmail(response.data.userData.email);
                 setFirstName(response.data.userData.firstname);
