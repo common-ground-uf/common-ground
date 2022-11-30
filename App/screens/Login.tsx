@@ -31,6 +31,7 @@ function Login(props: LoginProps) {
   };
 
   const onPressLogin = () => {
+    console.log('on press login');
     axios
       .post(`${SERVER_URI}/login`, {
         username: email,
@@ -59,6 +60,7 @@ function Login(props: LoginProps) {
         }
       })
       .catch((error) => {
+        console.log('error');
         if (error.response) {
           // The request was made and the server responded with a status code
           // that falls out of the range of 2xx

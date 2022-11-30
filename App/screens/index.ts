@@ -17,7 +17,6 @@ export * from './GroupDetails';
 export * from './Login';
 export * from './StartNewTableScreen';
 export * from './ResetPassword';
-export * from './Start';
 export * from './Explore';
 export * from './StrategicOrRandom';
 export * from './RandomRestaurantScreen';

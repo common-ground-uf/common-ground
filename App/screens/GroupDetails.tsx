@@ -5,6 +5,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  Button,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Contact, Profile } from '../commonTypes';
@@ -62,6 +63,10 @@ function GroupDetails(props: GroupDetailsProps) {
 
   const groupName = props.route.params.name;
 
+  const onPressGenerateRecommendations = () => {
+    props.navigation.navigate('Restaurant List');
+  };
+
   return (
     <View style={styles.groupDetails}>
       <View style={styles.topRow}>
@@ -86,6 +91,7 @@ function GroupDetails(props: GroupDetailsProps) {
           )}
         />
       )}
+      <Button title='Generate recommendations' onPress={onPressGenerateRecommendations} />
     </View>
   );
 }
