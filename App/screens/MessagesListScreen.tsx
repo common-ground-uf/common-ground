@@ -100,6 +100,7 @@ function MessagesListScreen(props: MessagesListScreenProps) {
       // setParties(res.data);
     }).catch((err) => {
       console.log(err);
+      props.navigation.navigate('Login');
     });
   };
   updateGroups();

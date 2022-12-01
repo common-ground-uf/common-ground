@@ -38,6 +38,7 @@ const SignupRequest = (firstName: string, lastName: string, email: string, passw
           console.log(error.response.headers);
         }
       }
+      // Probably shouldn't go back to login if failed..
     });
 };
 
