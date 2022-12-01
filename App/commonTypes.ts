@@ -7,7 +7,6 @@ export type Restaurant = {
   reviews: ReviewProps[];
   description: string;
   distanceMiles?: number;
-  gallery?: string[];
 };
 
 type Address = {

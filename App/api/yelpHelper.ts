@@ -4,8 +4,6 @@ import { Restaurant } from '../commonTypes';
 import { Storage } from '../data/Storage';
 import axios from 'axios';
 import { SERVER_URI } from '../Config';
-// import react native location
-import GetLocation from 'react-native-get-location';
 
 
 export async function generateOrderedRestaurantList(locations: Array<{latitude: number, longitude: number}>, categoryAliasLists: Array<Array<string>>, pricePreferences: Array<number>, limit: number | undefined = undefined): Promise<Restaurant[]> {
@@ -24,17 +22,15 @@ export async function generateOrderedRestaurantList(locations: Array<{latitude: 
     // get businesses from Yelp API
     const businesses: Business[] = await getBusinessesByCoordinatesAndCategories(midpoint.latitude, midpoint.longitude, orderedPreferenceString, pricePreferencesString, limit);
 
+    console.log("Before");
+
     // convert businesses to Restaurant objects
-    const restaurants: Restaurant[] = await Promise.all(businesses.map(async (business) => await businessToRestaurant(business)));
+    const restaurants: Restaurant[] = businesses.map((business) => businessToRestaurant(business));
 
     return restaurants;
 }
 
-async function businessToRestaurant(business: Business): Promise<Restaurant> {
-    let photos = await getBusinessDetails(business.id).then((details) => {
-        return details.photos;
-    });
-
+function businessToRestaurant(business: Business): Restaurant {
     return {
         name: business.name,
         thumbnail: business.image_url,
@@ -47,7 +43,6 @@ async function businessToRestaurant(business: Business): Promise<Restaurant> {
         reviews: [],
         description: business.categories.map(category => category.title).join(', '),
         distanceMiles: business.distance * 0.000621371,
-        gallery: photos
     };
 }
 
@@ -83,14 +78,22 @@ export async function generateExploreSections(): Promise<Array<{sectionTitle: st
 
     // get restaurants for each pref
     const restaurants: Restaurant[][] = await Promise.all(prefs.map(async (pref) => {
+        console.log("Here");
         const restaurants: Restaurant[] = await generateOrderedRestaurantList([{latitude, longitude}], [[pref]], [1, 2, 3, 4], 10);
+        console.log("this restaurant", restaurants);
         return restaurants;
     }));
 
-    return prefs.map((pref, index) => {
+    console.log("restaurants: ", restaurants);
+
+    let stuff = prefs.map((pref, index) => {
         return {
             sectionTitle: pref,
             contentData: restaurants[index]
         }
     });
+
+    console.log("stuff " + JSON.stringify(stuff));
+
+    return stuff;
 }
