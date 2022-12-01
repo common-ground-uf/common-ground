@@ -78,13 +78,9 @@ export async function generateExploreSections(): Promise<Array<{sectionTitle: st
 
     // get restaurants for each pref
     const restaurants: Restaurant[][] = await Promise.all(prefs.map(async (pref) => {
-        console.log("Here");
         const restaurants: Restaurant[] = await generateOrderedRestaurantList([{latitude, longitude}], [[pref]], [1, 2, 3, 4], 10);
-        console.log("this restaurant", restaurants);
         return restaurants;
     }));
-
-    console.log("restaurants: ", restaurants);
 
     let stuff = prefs.map((pref, index) => {
         return {
@@ -92,8 +88,6 @@ export async function generateExploreSections(): Promise<Array<{sectionTitle: st
             contentData: restaurants[index]
         }
     });
-
-    console.log("stuff " + JSON.stringify(stuff));
 
     return stuff;
 }
