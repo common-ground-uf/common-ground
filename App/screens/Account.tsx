@@ -4,7 +4,14 @@ import { loginSignupStyles } from '../styles/LoginSingup';
 import axios from 'axios';
 import { SERVER_URI } from '../Config';
 
-function Account() {
+type AccountProps = {
+    navigation: {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        navigate: any;
+    };
+}
+
+function Account(props: AccountProps) {
   const [firstName, setFirstName] = React.useState<string>('');
   const [lastName, setLastName] = React.useState<string>('');
   const [email, setEmail] = React.useState<string>('');
@@ -32,6 +39,7 @@ function Account() {
           console.log(error.response.data);
           console.log(error.response.status);
           console.log(error.response.headers);
+          props.navigation.navigate('Login');
         }
       } else if (error.request) {
         // The request was made but no response was received

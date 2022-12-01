@@ -90,6 +90,7 @@ function Home(props: HomeProps) {
       .catch((error) => {
         console.log(error);
         console.log(error.response.data);
+        props.navigation.navigate('Login');
       });
   };
 
@@ -105,6 +106,7 @@ function Home(props: HomeProps) {
     })
       .catch((err) => {
       console.log(err);
+      props.navigation.navigate('Login');
     });
   };
 
@@ -136,7 +138,7 @@ function Home(props: HomeProps) {
   // };
 
   const onPressSeeAllParties = () => {
-    props.navigation.navigate('Parties List');
+    props.navigation.navigate('Group List');
   };
 
   return (

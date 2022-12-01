@@ -104,6 +104,10 @@ function HomeStackScreen() {
                 initialParams={parties[0]}
             />
             <HomeStack.Screen
+                name="Group List"
+                component={screens.GroupList}
+            />
+            <HomeStack.Screen
                 name="Restaurant List"
                 component={screens.RestaurantList}
                 initialParams={{restaurantList: allRestaurants}}
