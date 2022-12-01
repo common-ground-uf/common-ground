@@ -29,7 +29,7 @@ export type Contact = {
 export type GroupInfo = {
   id: string;
   name: string;
-  members?: Profile[];
+  users: Profile[];
   lastMessage: string;
   inviteCode: string;
 };

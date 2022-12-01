@@ -17,7 +17,6 @@ const icons: Record<string, string> = {
     Login: 'user-circle-o',
     Home: 'home',
     Messages: 'comment',
-    Debug: 'bug',
     Explore: 'search',
     Settings: 'gear',
 };
@@ -60,9 +59,6 @@ export default function App() {
                     <Tab.Screen name="Home" component={HomeStackScreen}/>
                     <Tab.Screen name="Messages" component={MessagesStackScreen}/>
                     <Tab.Screen name="Explore" component={ExploreStackScreen}/>
-                    {process.env.NODE_ENV === 'development' &&
-                        <Tab.Screen name="Debug" component={DebugStackScreen}/>
-                    }
                     <Tab.Screen name="Settings" component={SettingsStackScreen}/>
                 </Tab.Navigator>
             </NavigationContainer>
@@ -282,16 +278,5 @@ function SettingsStackScreen() {
             <SettingsStack.Screen name="Logout" component={screens.Logout}/>
             <SettingsStack.Screen name="Login" component={LoginStackScreen}/>
         </SettingsStack.Navigator>
-    );
-}
-
-const DebugStack = createNativeStackNavigator();
-
-function DebugStackScreen() {
-    return (
-        <DebugStack.Navigator>
-            <DebugStack.Screen options={{title: 'Debug'}} name="DebugScreen" component={screens.DebugScreen}/>
-            <MainGroup />
-        </DebugStack.Navigator>
     );
 }

@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
 });
 
 type GroupBubbleProps = {
-  members: Contact[]
+  users: Contact[]
   name: string
   onClick: () => void
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -64,31 +64,31 @@ type GroupBubbleProps = {
 }
 
 function GroupBubble(props: GroupBubbleProps) {
-  if (props.members.length === 0) {
+  if (!props.users || props.users.length === 0) {
     return null;
   }
   return (
     <View style={[styles.container, props.style]}>
       <TouchableOpacity onPress={props.onClick} style={styles.touchable}>
-        {props.members.length === 3 && (
+        {props.users.length === 3 && (
           <Image
-            source={{ uri: props.members[2].profilePic }}
+            source={{ uri: props.users[2].profilePic }}
             style={[styles.image2, styles.image]}
           />
         )}
-        {props.members.length > 3 && (
+        {props.users.length > 3 && (
           <View style={[styles.image2, styles.plusBubble, styles.image]}>
-            <Text>+{props.members.length - 2}</Text>
+            <Text>+{props.users.length - 2}</Text>
           </View>
         )}
-        {props.members[1] && (
+        {props.users[1] && (
           <Image
-            source={{ uri: props.members[1].profilePic }}
+            source={{ uri: props.users[1].profilePic }}
             style={[styles.image1, styles.image]}
           />
         )}
         <Image
-          source={{ uri: props.members[0].profilePic }}
+          source={{ uri: props.users[0].profilePic }}
           style={[styles.image0, styles.image]}
         />
       </TouchableOpacity>

@@ -139,6 +139,9 @@ function Home(props: HomeProps) {
     props.navigation.navigate('Parties List');
   };
 
+  console.log('GROUPS');
+  console.log(groups);
+
   return (
     <ScrollView>
       <Text style={styles.welcome}>Welcome back, {firstName}!</Text>
@@ -171,7 +174,7 @@ function Home(props: HomeProps) {
           >
             {groups && groups.map((group, index) => (
               <GroupBubble
-                members={group.members ?? []}
+                members={group.members}
                 name={group.name}
                 onClick={onClickGroup}
                 style={styles.restaurantBubble}
