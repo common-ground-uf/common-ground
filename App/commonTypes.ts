@@ -28,6 +28,7 @@ export type Contact = {
 
 export type Group = {
   id: string;
+  name: string;
   members: Profile[];
 };
 

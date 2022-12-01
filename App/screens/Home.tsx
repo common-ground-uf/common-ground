@@ -6,7 +6,8 @@ import { useIsFocused } from '@react-navigation/native';
 import { GroupBubbles } from '../components/GroupBubbles';
 import { Storage } from '../data/Storage';
 import { SERVER_URI } from '../Config';
-import { Group } from '../commonTypes';
+import { Group, Restaurant } from '../commonTypes';
+import { RestaurantBubble } from '../components/RestaurantBubble';
 
 const styles = StyleSheet.create({
   welcome: {
@@ -65,6 +66,7 @@ function Home(props: HomeProps) {
   const [firstName, setFirstName] = React.useState<string>('');
   const [groups, setGroups] = React.useState<Group[]>([]);
   const [location, setLocation] = React.useState<string>('');
+  const [pastPicks, setPastPicks] = React.useState<Restaurant[]>([]);
 
   const getProfileInfo = async () => {
     //Get profile info from async storage
@@ -75,6 +77,7 @@ function Home(props: HomeProps) {
       profileId = profileInfo.id;
       setFirstName(profileInfo.firstName);
       setLocation(profileInfo.location);
+      setPastPicks([]);
     } else {
       props.navigation.navigate('Login');
     }
@@ -118,9 +121,9 @@ function Home(props: HomeProps) {
       'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
   };
 
-  // const onClickRestaurant = () => {
-  //   props.navigation.navigate('Restaurant');
-  // };
+  const onClickRestaurant = () => {
+    props.navigation.navigate('Restaurant');
+  };
 
   const onClickGroup = () => {
     props.navigation.navigate('Group Details');
@@ -138,9 +141,6 @@ function Home(props: HomeProps) {
     props.navigation.navigate('Parties List');
   };
 
-  console.log('GROUPS');
-  console.log(groups);
-
   return (
     <ScrollView>
       <Text style={styles.welcome}>Welcome back, {firstName}!</Text>
@@ -151,18 +151,24 @@ function Home(props: HomeProps) {
           onPress={onPressStartANewTable}
         />
       </View>
-      {/* <Text style={styles.sectionTitle}>Recently Visited</Text>
-        <ScrollView style={styles.row} horizontal={true}>
-          {recentlyVisited.map((restaurant, index) => 
-            <RestaurantBubble
-              key={index}
-              {...restaurant}
-              onPress={onClickRestaurant}
-              style={styles.restaurantBubble}
-            />
-          )}
-        </ScrollView> */}
-      {groups && groups.length > 0 &&
+      {pastPicks && pastPicks.length > 0 ? (
+        <>
+          <Text style={styles.sectionTitle}>Recently Visited</Text>
+          <ScrollView style={styles.row} horizontal={true}>
+            {pastPicks.map((restaurant, index) => (
+              <RestaurantBubble
+                key={index}
+                {...restaurant}
+                onPress={onClickRestaurant}
+                style={styles.restaurantBubble}
+              />
+            ))} 
+          </ScrollView>
+        </>
+      )
+        : <Text>No Recently visited restaurants</Text>
+      }
+      {groups && groups.length > 0 ? (
         <>
           <View style={styles.sectionHeaderContainer}>
             <Text style={styles.sectionTitle}>Groups</Text>
@@ -188,6 +194,8 @@ function Home(props: HomeProps) {
             ))}
           </ScrollView>
         </>
+      ): 
+      <Text>No recent groups</Text>
       }
       {/* <View style={styles.sectionHeaderContainer}>
           <Text style={styles.sectionTitle}>Saved restaurants</Text>
