@@ -51,6 +51,7 @@ function JoinGroup(props: JoinGroupProps) {
             }
         }).catch((error) => {
             console.log(error.response.data);
+            props.navigation.navigate('Login');
         });
     }
 
