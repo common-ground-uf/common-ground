@@ -73,7 +73,7 @@ function Explore(props: HomeProps) {
 
   React.useEffect(() => {
     getExploreSections();
-  }, []);
+  }, [search]);
 
   return (
     <ScrollView style={styles.scrollView}>

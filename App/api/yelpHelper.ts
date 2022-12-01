@@ -47,26 +47,19 @@ function businessToRestaurant(business: Business): Restaurant {
 }
 
 export async function generateExploreSections(): Promise<Array<{sectionTitle: string, contentData: any}>> {
-    console.log("GENERATING EXPLORE SECTIONS");
     
     const getProfileId = async () => {
         //Get profile info from async storage
         const profile = await Storage.get('profile');
         if (profile) {
-            console.log("PROFILE: " + JSON.stringify(profile));
           const profileInfo = JSON.parse(profile);
           return profileInfo.id;
         }
-        console.log("PROFILE DOES NOT EXIST");
     };
 
     const profileId = await getProfileId();
 
-    console.log("PROFILE ID: " + profileId);
-
     let prefs: string[] = await axios.get(SERVER_URI + "/users/" + profileId + "/prefs").then((response) => response.data.prefs);
-    
-    console.log("PREFS: " + JSON.stringify(prefs));
 
     // filter out prefs that have dollar signs
     prefs = prefs.filter((pref) => !pref.includes("$"));
@@ -75,18 +68,19 @@ export async function generateExploreSections(): Promise<Array<{sectionTitle: st
         prefs = prefs.slice(0, 3);
     }
     else {
-        prefs = ["pizza", "bars", "coffee"];
+        prefs = prefs.concat(["pizza", "bars", "coffee"]);
+        prefs.slice(0, 3);
     }
 
-    let { latitude, longitude } = await GetLocation.getCurrentPosition({enableHighAccuracy: false, timeout: 15000});
+    // let location = await GetLocation.getCurrentPosition({enableHighAccuracy: false, timeout: 15000});
+    let location = {latitude: 29.648292, longitude: -82.345171};
+    let { latitude, longitude } = location;
 
     // get restaurants for each pref
     const restaurants: Restaurant[][] = await Promise.all(prefs.map(async (pref) => {
         const restaurants: Restaurant[] = await generateOrderedRestaurantList([{latitude, longitude}], [[pref]], [1, 2, 3, 4], 10);
         return restaurants;
     }));
-
-    console.log("Restaurants: " + JSON.stringify(restaurants));
 
     return prefs.map((pref, index) => {
         return {

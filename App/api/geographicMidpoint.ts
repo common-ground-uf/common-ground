@@ -32,6 +32,10 @@ function radToCart(radianLocations: Array<GeographicLocation>) {
 }
 
 export default function geoMidpoint(coordinates: Array<GeographicLocation>): GeographicLocation {
+    if (coordinates.length === 1) {
+        return coordinates[0];
+    }
+
 	const carts = radToCart(coordinates);
 	const allX = carts.map(function(cart) {
 		return cart.x;
