@@ -81,6 +81,7 @@ class GroupsController {
                 limit: parseInt(req.query.limit as any) || 10,
                 names: req.query.name as any || false,
                 lastMessage: req.query.lastMessage as any || false,
+                users: req.query.users as any || false,
             };
 
             const groups : Group[] = await this.groupService.getGroupsByUserId(currentUser);
@@ -101,6 +102,7 @@ class GroupsController {
                 resGroupsObj[group._id] = {
                     name: options.names ? group.name : "",
                     lastMessage: options.lastMessage ? conversations[i] ? conversations[i].message.messageText : "" : "",
+                    users: options.users ? group.userIds : [],
                     inviteCode: group.inviteCode,
                     id: group._id,
                 };

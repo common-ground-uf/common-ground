@@ -9,6 +9,7 @@ import {
 import { useIsFocused } from '@react-navigation/native';
 import axios from 'axios';
 import { SERVER_URI } from '../Config';
+import { GroupInfo } from '../commonTypes';
 
 const styles = StyleSheet.create({
   inner: {
@@ -69,26 +70,19 @@ type MessagesListScreenProps = {
   };
 }
 
-type GroupInfo = {
-  id: string;
-  name: string;
-  lastMessage: string;
-  inviteCode: string;
-}
-
 function MessagesListScreen(props: MessagesListScreenProps) {
   //TODO: Change this to properly use auth to get self (not working for some reason)
 
   const isFocused = useIsFocused();
 
   const [groups, setGroups] = React.useState<GroupInfo[]>([]);
-
   const updateGroups = async () => {
     console.log('getting groups');
     axios.get(`${SERVER_URI}/groups`, {
       params: {
         name: true,
         lastMessage: true,
+        users: true
       },
     }).then((res) => {
       const newGroups : GroupInfo[] = [];

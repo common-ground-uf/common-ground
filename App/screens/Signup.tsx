@@ -12,7 +12,7 @@ type SignupProps = {
   };
 };
 
-const SignupRequest = (firstName: string, lastName: string, email: string, password: string) => {
+const SignupRequest = (firstName: string, lastName: string, email: string, password: string, navigation: any) => {
   axios
     .post(`${SERVER_URI}/users`, {
       firstname: firstName,
@@ -23,6 +23,7 @@ const SignupRequest = (firstName: string, lastName: string, email: string, passw
     .then((response) => {
       if (response.data.message === 'created') {
         console.log('signup successful');
+        navigation.navigate('Login');
       }
     })
     .catch((error) => {
@@ -69,7 +70,7 @@ function Signup(props: SignupProps) {
     } else {
       setErrorState(false);
       console.log('sign up');
-      SignupRequest(firstName, lastName, email, password);
+      SignupRequest(firstName, lastName, email.toLowerCase(), password, props.navigation);
     }
   };
 

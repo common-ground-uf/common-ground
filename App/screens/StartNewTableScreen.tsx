@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Button,
   TextInput,
+  Text
 } from 'react-native';
 import { ContactBubble } from '../components/ContactBubble';
 import { allUsers } from '../data/dummyUsers';
@@ -48,6 +49,7 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
   const [selected, setSelected] = React.useState<boolean[]>(
     Array(allUsers.length).fill(false)
   );
+  const [errorState, setErrorState] = React.useState<boolean>(false);
   const [groupName, setGroupName] = React.useState('');
 
   const onPressContact = (clickedIndex: number) => {
@@ -61,26 +63,29 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
   };
 
     const onPressCreate = () => {
-
-      const selectedContacts = [];
-      for (let i = 0; i < selected.length; i++) {
-        if (selected[i]) {
-          selectedContacts.push(contactList[i].id);
+        if (groupName === '') {
+          setErrorState(true);
+          return;
         }
-      }
-      
-
+        setErrorState(false);
+        const selectedContacts = [];
+        for (let i = 0; i < selected.length; i++) {
+          if (selected[i]) {
+            selectedContacts.push(contactList[i].id);
+          }
+        }
+        
         axios.post(`${SERVER_URI}/groups`, {
-                userIds: selectedContacts,
-                name: groupName,
-              }).then((response) => {
-            console.log('Group created');
-            console.log(response.data);
+          userIds: selectedContacts,
+          name: groupName,
+        }).then((response) => {
+          console.log('Group created');
+          console.log(response.data);
         }).catch((error) => {
-            console.log(error);
-            console.log(error.response.data);
+          console.log(error);
+          console.log(error.response.data);
         });
-
+        
         props.navigation.navigate('Group Details', {
           name: groupName,
           members: selectedContacts,
@@ -95,6 +100,7 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
           placeholder='Group name'
           style={styles.input}
         />
+        {errorState && <Text>A group name is required</Text>}
         <View style={styles.row}>
           {contactList.map((contact, index) => (
             <ContactBubble

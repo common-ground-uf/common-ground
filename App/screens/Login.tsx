@@ -34,7 +34,7 @@ function Login(props: LoginProps) {
     console.log('on press login');
     axios
       .post(`${SERVER_URI}/login`, {
-        username: email,
+        username: email.toLowerCase(),
         password: password,
       })
       .then((response) => {
@@ -96,6 +96,8 @@ function Login(props: LoginProps) {
         onChangeText={setEmail}
         value={email}
         placeholder="Email"
+        autoComplete="email"
+        textContentType='emailAddress'
       />
       <TextInput
         style={styles.input}

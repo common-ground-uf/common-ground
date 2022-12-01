@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Text, ScrollView } from 'react-native';
-import { GroupBubbles } from '../components/GroupBubbles';
+import { GroupBubble } from '../components/GroupBubble';
 import { parties } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
@@ -27,7 +27,7 @@ export const GroupList = (props: GroupListProps) => {
       <Text>All parties</Text>
       <ScrollView>
         {parties.map((party, index) => (
-          <GroupBubbles
+          <GroupBubble
             members={party.members}
             name={party.name}
             onClick={onClickGroup}
