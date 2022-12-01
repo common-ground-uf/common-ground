@@ -38,6 +38,30 @@ const styles = StyleSheet.create({
   },
 });
 
+type MessageGroupProps = {
+  navigation: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    navigate: any;
+  };
+  id: string;
+  name: string;
+  lastMessage: string;
+  inviteCode: string;
+};
+
+function GroupInList(props: MessageGroupProps){
+  const onClickGroup = () => {
+    props.navigation.navigate('MessagesScreen', {groupId: props.id, groupName: props.name, inviteCode: props.inviteCode});
+  };
+
+  return (
+    <TouchableOpacity style={styles.row} onPress={onClickGroup}>
+      <Text style={styles.title}>{props.name}</Text>
+      <Text style={styles.subtitle}>{props.lastMessage}</Text>
+    </TouchableOpacity>
+  );
+}
+
 type MessagesListScreenProps = {
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -45,44 +69,19 @@ type MessagesListScreenProps = {
   };
 }
 
+type GroupInfo = {
+  id: string;
+  name: string;
+  lastMessage: string;
+  inviteCode: string;
+}
+
 function MessagesListScreen(props: MessagesListScreenProps) {
   //TODO: Change this to properly use auth to get self (not working for some reason)
 
   const isFocused = useIsFocused();
 
-  type MessageGroupProps = {
-    navigation: {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      navigate: any;
-    };
-    id: string;
-    name: string;
-    lastMessage: string;
-    inviteCode: string;
-  };
-
-  type GroupInfo = {
-    id: string;
-    name: string;
-    lastMessage: string;
-    inviteCode: string;
-  }
-
   const [groups, setGroups] = React.useState<GroupInfo[]>([]);
-
-
-  function GroupInList(props: MessageGroupProps){
-    const onClickGroup = () => {
-      props.navigation.navigate('MessagesScreen', {groupId: props.id, groupName: props.name, inviteCode: props.inviteCode});
-    };
-
-    return (
-      <TouchableOpacity style={styles.row} onPress={onClickGroup}>
-        <Text style={styles.title}>{props.name}</Text>
-        <Text style={styles.subtitle}>{props.lastMessage}</Text>
-      </TouchableOpacity>
-    );
-  }
 
   const updateGroups = async () => {
     console.log('getting groups');

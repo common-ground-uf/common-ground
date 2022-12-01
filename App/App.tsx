@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {allRestaurants, losPollosHermanos} from './data/dummyRestaurants';
-import {allUsers, parties, saulProfile} from './data/dummyUsers';
+import {allUsers, parties} from './data/dummyUsers';
 import * as screens from './screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -23,6 +23,20 @@ const icons: Record<string, string> = {
 };
 
 export default function App() {
+    const [profile, setProfile] = React.useState();
+
+    const getProfileInfo = async () => {
+        //Get profile info from async storage
+        const profile = await Storage.get('profile');
+        if (profile) {
+          const profileInfo = JSON.parse(profile);
+          setProfile(profileInfo);
+        }
+    };
+    React.useEffect(() => {
+        getProfileInfo();
+    }, []);
+
     return (
         <React.StrictMode>
             <NavigationContainer>
@@ -47,8 +61,8 @@ export default function App() {
                     <Tab.Screen name="Messages" component={MessagesStackScreen}/>
                     <Tab.Screen name="Explore" component={ExploreStackScreen}/>
                     {process.env.NODE_ENV === 'development' &&
-                    <Tab.Screen name="Debug" component={DebugStackScreen}/>}
-                    <Tab.Screen name="Login" component={LoginStackScreen}/>
+                        <Tab.Screen name="Debug" component={DebugStackScreen}/>
+                    }
                     <Tab.Screen name="Settings" component={SettingsStackScreen}/>
                 </Tab.Navigator>
             </NavigationContainer>
@@ -204,7 +218,11 @@ const LoginStack = createNativeStackNavigator();
 
 function LoginStackScreen() {
     return (
-        <LoginStack.Navigator>
+        <LoginStack.Navigator 
+            screenOptions={() => ({
+                headerShown: false,
+            })}
+        >
             <LoginStack.Screen options={{title: 'Login'}} name="LoginScreen" component={screens.Login}/>
             <LoginStack.Screen name="Forgot Password" component={screens.ForgorPassword}/>
             <LoginStack.Screen name="Signup" component={screens.Signup}/>
@@ -262,6 +280,7 @@ function SettingsStackScreen() {
             <SettingsStack.Screen name="Notifications" component={screens.Notifications}/>
             <SettingsStack.Screen name="Preferences" component={screens.Preferences}/>
             <SettingsStack.Screen name="Logout" component={screens.Logout}/>
+            <SettingsStack.Screen name="Login" component={LoginStackScreen}/>
         </SettingsStack.Navigator>
     );
 }

@@ -48,7 +48,7 @@ function Login(props: LoginProps) {
             firstName: response.data.userData.firstname,
             lastName: response.data.userData.lastname,
             role: response.data.userData.role,
-            id: response.data.userData.id,
+            id: response.data.userData._id,
             profilePic: response.data.userData.profilePic,
             preferences: response.data.userData.preferences,
             pastPicks: response.data.userData.pastPicks,
