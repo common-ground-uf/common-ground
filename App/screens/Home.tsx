@@ -173,7 +173,7 @@ function Home(props: HomeProps) {
           >
             {groups && groups.map((group, index) => (
               <GroupBubble
-                members={group.members}
+                users={group.users}
                 name={group.name}
                 onClick={onClickGroup}
                 style={styles.restaurantBubble}
