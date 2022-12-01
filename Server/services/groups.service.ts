@@ -337,6 +337,28 @@ class GroupService {
         }
     }
 
+    public async joinGroupByInviteCode(userId: string, inviteCode: string) {
+        try {
+            const updatedGroup = await this.groups.findOneAndUpdate(
+                {
+                    inviteCode: {
+                        $regex: new RegExp(inviteCode, "i")
+                    }
+                },
+                {$addToSet: {userIds: userId}}
+            );
+            
+            if (updatedGroup) {
+                return updatedGroup;
+            }
+            else {
+                throw new HttpException(400, "Invalid invite code");
+            }
+        } catch(error) {
+            throw error;
+        }
+    }
+
     public makeid(length: number) {
         let result = '';
         const characters =

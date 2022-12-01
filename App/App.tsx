@@ -150,6 +150,10 @@ function HomeStackScreen() {
                 component={screens.StartNewTableScreen}
             />
             <MainStack.Screen
+                name="Join Group"
+                component={screens.JoinGroup}
+            />
+            <MainStack.Screen
                 name="Restaurant"
                 component={screens.RestaurantScreen}
                 initialParams={{restaurant: losPollosHermanos}}

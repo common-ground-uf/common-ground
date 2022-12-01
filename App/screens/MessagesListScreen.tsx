@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
+    marginTop: 20,
   },
   row: {
     display: 'flex',
@@ -57,12 +58,14 @@ function MessagesListScreen(props: MessagesListScreenProps) {
     id: string;
     name: string;
     lastMessage: string;
+    inviteCode: string;
   };
 
   type GroupInfo = {
     id: string;
     name: string;
     lastMessage: string;
+    inviteCode: string;
   }
 
   const [groups, setGroups] = React.useState<GroupInfo[]>([]);
@@ -70,7 +73,7 @@ function MessagesListScreen(props: MessagesListScreenProps) {
 
   function GroupInList(props: MessageGroupProps){
     const onClickGroup = () => {
-      props.navigation.navigate('MessagesScreen', {groupId: props.id, groupName: props.name});
+      props.navigation.navigate('MessagesScreen', {groupId: props.id, groupName: props.name, inviteCode: props.inviteCode});
     };
 
     return (
@@ -95,6 +98,7 @@ function MessagesListScreen(props: MessagesListScreenProps) {
           id: group,
           name: res.data.groups[group].name,
           lastMessage: res.data.groups[group].lastMessage,
+          inviteCode: res.data.groups[group].inviteCode,
         });
       }
 
@@ -117,6 +121,7 @@ function MessagesListScreen(props: MessagesListScreenProps) {
               name={group.name}
               lastMessage={group.lastMessage}
               key={group.id}
+              inviteCode={group.inviteCode}
             />
           )}
       </View>

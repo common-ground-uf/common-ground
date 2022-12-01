@@ -173,6 +173,23 @@ class GroupsController {
             next(error);
         }
     }
+
+    public joinGroup = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            const currentUser : string = req.user?._id!;
+
+            const {inviteCode} = req.body;
+            if(inviteCode.length !== 6) {
+                return res.status(400).json({success: false, message: "Invalid invite code format"});
+            }
+
+            const group : Group = await this.groupService.joinGroupByInviteCode(currentUser, inviteCode);
+            res.status(200).json({success: true, group});
+        } catch(error) {
+            next(error);
+        }
+    }
+
 }
 
 export default GroupsController
