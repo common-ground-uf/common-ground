@@ -154,7 +154,7 @@ function ProfileScreen(props: ProfilePageProps) {
         )}
       </View>
       <View style={styles.chipContainer}>
-        {profileData.preferences.map((preference, index) => (
+        {profileData.preferences && profileData.preferences.map((preference, index) => (
           <Chip text={preference} key={index} />
         ))}
       </View>
