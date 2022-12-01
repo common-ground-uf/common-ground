@@ -34,7 +34,7 @@ export type Group = {
 
 export type Profile = Contact & {
   preferences: string[];
-  pastPicks: Restaurant[];
+  pastPicks: string[]; // past picks is preferences and not restaurants
   recentContacts: Contact[];
   email: string;
   location: string;
