@@ -10,6 +10,10 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Contact, Profile } from '../commonTypes';
 import { ContactListItem } from '../components/ContactListItem';
+import { generateOrderedRestaurantList } from '../api/yelpHelper';
+import axios from 'axios';
+import { SERVER_URI } from '../Config';
+import GetLocation from 'react-native-get-location';
 
 const styles = StyleSheet.create({
   groupDetails: {
@@ -63,8 +67,28 @@ function GroupDetails(props: GroupDetailsProps) {
 
   const groupName = props.route.params.name;
 
-  const onPressGenerateRecommendations = () => {
-    props.navigation.navigate('Restaurant List');
+  const onPressGenerateRecommendations = async () => {
+    // use axios to get group preferences for this group
+    let groupId = props.route.params.groupId;
+    let categoryAliasList: string[] = await axios.get(SERVER_URI + "/groups/" + groupId + "/groupPrefs").then((response) => response.data.groupPrefs );
+
+    // extract the category aliases that contain dollar signs
+    let dollarSigns = categoryAliasList.filter((categoryAlias) => categoryAlias.includes("$"));
+    
+    // remove duplicates from dollarSigns
+    dollarSigns = dollarSigns.filter((dollarSign, index) => dollarSigns.indexOf(dollarSign) === index);
+
+    // convert dollar signs to integers based on number of dollar signs
+    let dollarSignInts: number[] = dollarSigns.map((dollarSign) => dollarSign.length);
+
+    // remove the dollar signs from the category aliases
+    let dollarSignlessCategoryAliasList = categoryAliasList.filter((categoryAlias) => !categoryAlias.includes("$"));
+
+    let { latitude, longitude } = await GetLocation.getCurrentPosition({enableHighAccuracy: false, timeout: 15000});
+
+    props.navigation.navigate('Restaurant List', {
+        restaurantList: generateOrderedRestaurantList([{ latitude, longitude }], [dollarSignlessCategoryAliasList], dollarSignInts),
+    });
   };
 
   return (
