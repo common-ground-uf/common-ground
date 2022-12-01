@@ -53,7 +53,7 @@ function Account(props: AccountProps) {
     });
 
   const onPressSave = () => {
-    console.log('press save');
+    console.log('pressed save. Did not actually save.');
     // TODO: Actually change these fields in database
   };
 

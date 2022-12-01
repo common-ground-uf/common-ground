@@ -67,7 +67,7 @@ function Explore(props: HomeProps) {
     });
   };
 
-  let defaultExploreSections: any[] = [];
+  const defaultExploreSections: any[] = [];
   const [exploreSections, setExploreSections] = React.useState(defaultExploreSections);
 
   const getExploreSections = async () => {
