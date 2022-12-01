@@ -27,7 +27,6 @@ function DebugScreen(props: DebugScreenProps) {
     props.navigation.navigate(screen);
   };
   const screens = [
-    'Start',
     'Login',
     'Logout',
     'Signup',
