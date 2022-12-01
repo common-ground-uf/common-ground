@@ -5,8 +5,6 @@ import axios from 'axios';
 import { SERVER_URI } from '../Config';
 
 function Account() {
-  // used to give initial values to the text fields
-
   const [firstName, setFirstName] = React.useState<string>('');
   const [lastName, setLastName] = React.useState<string>('');
   const [email, setEmail] = React.useState<string>('');
