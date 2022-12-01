@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Button} from 'react-native';
 import {loginSignupStyles as styles} from '../styles/LoginSingup';
 import axios from 'axios';
-import 'dotenv/config';
+import { SERVER_URI } from '../Config';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 
@@ -21,7 +21,7 @@ type LogoutProps = {
 function Logout(props: LogoutProps) {
 
     const onPressLogout = () => {
-        axios.post(`${process.env.SERVER_URI}/logout`)
+        axios.post(`${SERVER_URI}/logout`)
             .then(response => {
                 if(response.data === 'OK') {
                     console.log('logout successful');
