@@ -80,18 +80,6 @@ function Home(props: HomeProps) {
         } else {
             props.navigation.navigate('Login');
         }
-
-        axios
-            .get(`${SERVER_URI}/groups`)
-            .then((response) => {
-                const keys = Object.keys(response.data.groups);
-                setGroups(keys.map(key => response.data.groups[key]));
-            })
-            .catch((error) => {
-                console.log(error);
-                console.log(error.response.data);
-                props.navigation.navigate('Login');
-            });
     };
 
     const getParties = async () => {
@@ -102,7 +90,8 @@ function Home(props: HomeProps) {
                 },
             })
             .then((res) => {
-                setGroups(res.data.groups);
+                const keys = Object.keys(res.data.groups);
+                setGroups(keys.map(key => res.data.groups[key]));
             })
             .catch((err) => {
                 console.log(err);
