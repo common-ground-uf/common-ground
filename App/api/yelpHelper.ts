@@ -1,11 +1,9 @@
 import geoMidpoint from './geographicMidpoint';
-import { getBusinessesByCoordinatesAndCategories, Business } from './yelpApi';
+import { getBusinessesByCoordinatesAndCategories, Business, getBusinessDetails } from './yelpApi';
 import { Restaurant } from '../commonTypes';
 import { Storage } from '../data/Storage';
 import axios from 'axios';
 import { SERVER_URI } from '../Config';
-// import react native location
-import GetLocation from 'react-native-get-location';
 
 
 export async function generateOrderedRestaurantList(locations: Array<{latitude: number, longitude: number}>, categoryAliasLists: Array<Array<string>>, pricePreferences: Array<number>, limit: number | undefined = undefined): Promise<Restaurant[]> {
@@ -24,8 +22,10 @@ export async function generateOrderedRestaurantList(locations: Array<{latitude: 
     // get businesses from Yelp API
     const businesses: Business[] = await getBusinessesByCoordinatesAndCategories(midpoint.latitude, midpoint.longitude, orderedPreferenceString, pricePreferencesString, limit);
 
+    console.log("Before");
+
     // convert businesses to Restaurant objects
-    const restaurants: Restaurant[] = businesses.map(business => businessToRestaurant(business));
+    const restaurants: Restaurant[] = businesses.map((business) => businessToRestaurant(business));
 
     return restaurants;
 }
@@ -42,7 +42,7 @@ function businessToRestaurant(business: Business): Restaurant {
         starRating: business.rating,
         reviews: [],
         description: business.categories.map(category => category.title).join(', '),
-        distanceMiles: business.distance * 0.000621371
+        distanceMiles: business.distance * 0.000621371,
     };
 }
 
@@ -82,10 +82,12 @@ export async function generateExploreSections(): Promise<Array<{sectionTitle: st
         return restaurants;
     }));
 
-    return prefs.map((pref, index) => {
+    let stuff = prefs.map((pref, index) => {
         return {
             sectionTitle: pref,
             contentData: restaurants[index]
         }
     });
+
+    return stuff;
 }

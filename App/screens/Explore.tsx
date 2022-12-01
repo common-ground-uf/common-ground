@@ -60,10 +60,12 @@ type HomeProps = {
 }
 
 function Explore(props: HomeProps) {
+    console.log("EXPLORE PROPS");
+
   const [search, setSearch] = React.useState('');
   const onClickRestaurant = (restaurant: Restaurant) => {
     props.navigation.navigate('Restaurant', {
-      restaurant: restaurant
+        restaurant
     });
   };
 
@@ -71,6 +73,7 @@ function Explore(props: HomeProps) {
   const [exploreSections, setExploreSections] = React.useState(defaultExploreSections);
 
   const getExploreSections = async () => {
+    console.log("GET EXPLORE SECTIONS");
     setExploreSections(await generateExploreSections());
   };
 
@@ -101,7 +104,7 @@ function Explore(props: HomeProps) {
             />
           </View>
           <ScrollView style={styles.row} horizontal={true}>
-            {section.contentData.map((restaurant: any, index2: number) => (
+            {section.contentData.map((restaurant: Restaurant, index2: number) => (
               <RestaurantBubble
                 key={index2}
                 {...restaurant}
