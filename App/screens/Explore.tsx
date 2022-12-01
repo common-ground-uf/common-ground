@@ -8,7 +8,8 @@ import {
   Button,
 } from 'react-native';
 import { RestaurantBubble } from '../components/RestaurantBubble';
-import { exploreSections } from '../data/dummyRestaurants';
+// import { exploreSections } from '../data/dummyRestaurants';
+import { generateExploreSections } from '../api/yelpHelper';
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -63,6 +64,17 @@ function Explore(props: HomeProps) {
     props.navigation.navigate('Restaurant');
   };
 
+  let defaultExploreSections: any[] = [];
+  const [exploreSections, setExploreSections] = React.useState(defaultExploreSections);
+
+  const getExploreSections = async () => {
+    setExploreSections(await generateExploreSections());
+  };
+
+  React.useEffect(() => {
+    getExploreSections();
+  }, []);
+
   return (
     <ScrollView style={styles.scrollView}>
       <View>
@@ -73,7 +85,7 @@ function Explore(props: HomeProps) {
           style={styles.input}
         />
       </View>
-      {exploreSections.map((section, index1) => (
+      {exploreSections.map((section: any, index1: number) => (
         <View key={index1}>
           <View style={[styles.row, styles.headerRow]}>
             <Text style={styles.sectionTitle}>{section.sectionTitle}</Text>
@@ -86,7 +98,7 @@ function Explore(props: HomeProps) {
             />
           </View>
           <ScrollView style={styles.row} horizontal={true}>
-            {section.contentData.map((restaurant, index2) => (
+            {section.contentData.map((restaurant: any, index2: number) => (
               <RestaurantBubble
                 key={index2}
                 {...restaurant}

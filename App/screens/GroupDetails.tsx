@@ -69,7 +69,7 @@ function GroupDetails(props: GroupDetailsProps) {
 
   const onPressGenerateRecommendations = async () => {
     // use axios to get group preferences for this group
-    let groupId = props.route.params.groupId;
+    let groupId = props.route.params.id;
     let categoryAliasList: string[] = await axios.get(SERVER_URI + "/groups/" + groupId + "/groupPrefs").then((response) => response.data.groupPrefs );
 
     // extract the category aliases that contain dollar signs

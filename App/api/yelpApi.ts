@@ -150,7 +150,8 @@ export async function getBusinessesByCoordinatesAndCategories(
     latitude: number,
     longitude: number,
     categories: string,
-    pricePreferences: string
+    pricePreferences: string,
+    limit = 50
 ): Promise<Business[]> {
     return (
         (
@@ -160,7 +161,7 @@ export async function getBusinessesByCoordinatesAndCategories(
                     latitude: latitude,
                     longitude: longitude,
                     categories: categories,
-                    limit: 50,
+                    limit: limit,
                     price: pricePreferences
                 },
             })
