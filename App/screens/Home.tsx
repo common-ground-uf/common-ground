@@ -7,7 +7,7 @@ import { GroupBubbles } from '../components/GroupBubbles';
 import { RestaurantBubble } from '../components/RestaurantBubble';
 import { parties, saulProfile } from '../data/dummyUsers';
 import { Storage } from '../data/Storage';
-import 'dotenv/config';
+import { SERVER_URI } from '../Config';
 
 const styles = StyleSheet.create({
   welcome: {
@@ -79,7 +79,7 @@ function Home(props: HomeProps) {
   };
 
   const getParties = async () => {
-    axios.get(`${process.env.SERVER_URI}/groups`, {
+    axios.get(`${SERVER_URI}/groups`, {
       params: {
         name: true,
       },

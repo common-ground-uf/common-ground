@@ -1,5 +1,5 @@
 import axios from 'axios';
-import 'dotenv/config';
+import { YELP_API_KEY } from '../Config';
 
 // Surface level info about a business
 export interface Business {
@@ -102,14 +102,14 @@ interface BusinessSearchResponse {
 const yelp = axios.create({
     baseURL: 'https://api.yelp.com/v3/businesses',
     headers: {
-        Authorization: 'Bearer ' + process.env.YELP_API_KEY,
+        Authorization: 'Bearer ' + YELP_API_KEY,
     },
 });
 
 export async function getBusinessesByLocation(
     location: string
 ): Promise<Business[]> {
-    console.log('API KEY: ' + JSON.stringify(process.env.YELP_API_KEY));
+    console.log('API KEY: ' + JSON.stringify(YELP_API_KEY));
 
     return (
         (
