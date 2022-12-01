@@ -67,48 +67,37 @@ function Home(props: HomeProps) {
     const [location, setLocation] = React.useState<string>('');
     const [pastPicks, setPastPicks] = React.useState<Restaurant[]>([]);
 
-    const getProfileInfo = async () => {
-        //Get profile info from async storage
-        const profile = await Storage.get('profile');
-        let profileId;
-        if (profile) {
-            const profileInfo = JSON.parse(profile);
-            profileId = profileInfo.id;
-            setFirstName(profileInfo.firstName);
-            setLocation(profileInfo.location);
-            setPastPicks([]);
-        } else {
-            props.navigation.navigate('Login');
-        }
+  const getProfileInfo = async () => {
+    //Get profile info from async storage
+    const profile = await Storage.get('profile');
+    let profileId;
+    if (profile) {
+      const profileInfo = JSON.parse(profile);
+      profileId = profileInfo.id;
+      setFirstName(profileInfo.firstName);
+      setLocation(profileInfo.location);
+      setPastPicks([]);
+    } else {
+      props.navigation.navigate('Login');
+    }
+  };
 
-        axios
-            .get(`${SERVER_URI}/groups`)
-            .then((response) => {
-                const keys = Object.keys(response.data.groups);
-                setGroups(keys.map(key => response.data.groups[key]));
-            })
-            .catch((error) => {
-                console.log(error);
-                console.log(error.response.data);
-                props.navigation.navigate('Login');
-            });
-    };
-
-    const getParties = async () => {
-        axios
-            .get(`${SERVER_URI}/groups`, {
-                params: {
-                    name: true,
-                },
-            })
-            .then((res) => {
-                setGroups(res.data.groups);
-            })
-            .catch((err) => {
-                console.log(err);
-                props.navigation.navigate('Login');
-            });
-    };
+  const getParties = async () => {
+    axios
+      .get(`${SERVER_URI}/groups`, {
+      params: {
+        name: true,
+      },
+    })
+      .then((res) => {
+        const keys = Object.keys(res.data.groups);
+        setGroups(keys.map(key => res.data.groups[key]));
+    })
+      .catch((err) => {
+      console.log(err);
+      props.navigation.navigate('Login');
+    });
+  };
 
     const isFocused = useIsFocused();
 
