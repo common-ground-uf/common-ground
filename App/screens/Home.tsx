@@ -91,10 +91,10 @@ function Home(props: HomeProps) {
     });
   };
 
-  const [firstName, setFirstName] = React.useState<string>(saulProfile.firstName);
-  const [lastName, setLastName] = React.useState<string>(saulProfile.lastName);
-  const [email, setEmail] = React.useState<string>(saulProfile.email);
-  const [location, setLocation] = React.useState<string>(saulProfile.location);
+  const [firstName, setFirstName] = React.useState<string>('');
+  const [lastName, setLastName] = React.useState<string>('');
+  const [email, setEmail] = React.useState<string>('');
+  const [location, setLocation] = React.useState<string>('');
 
   const isFocused = useIsFocused();
 
