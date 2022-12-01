@@ -11,6 +11,8 @@ import {
   Keyboard,
   TouchableOpacity,
   Route,
+  ScrollView,
+  Pressable,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
@@ -18,7 +20,9 @@ import { Storage } from '../data/Storage';
 import { SERVER_URI } from '../Config';
 
 const styles = StyleSheet.create({
-  messagesContainer: {},
+  messagesContainer: {
+    
+  },
   selfMessageContainer: {
     flexDirection: 'row-reverse',
   },
@@ -296,13 +300,17 @@ function MessagesScreen(props: Route) {
             <Text style={styles.inviteCode}>{inviteCode.toUpperCase()}</Text>
           </View>
           <View style={styles.messagesContainer}>
-            {messages.map((message, index) => (
-              <Message
-                key={index}
-                {...message}
-                self={self === message.author}
-              />
-            ))}
+            <ScrollView>
+              {messages.map((message, index) => (
+                <Pressable>
+                  <Message
+                    key={index}
+                    {...message}
+                    self={self === message.author}
+                  />
+                </Pressable>
+              ))}
+            </ScrollView>
           </View>
           <View style={styles.row}>
             <View style={styles.textInputContainer}>
