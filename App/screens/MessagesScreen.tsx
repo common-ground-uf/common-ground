@@ -244,7 +244,6 @@ function MessagesScreen(props: Route) {
         .post(`${SERVER_URI}/groups/${groupId}`)
         .then((response) => {
           if (response.data.success === true) {
-            console.log('successful get message');
             // User Data object to be processed locally and saved as current login data (cleared after logout)
             setMessages(response.data.conversation.map( (conv: any) => {
               const res = {} as any;

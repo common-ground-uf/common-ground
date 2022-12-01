@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { GroupBubbles } from './GroupBubbles';
+import { GroupBubbles } from './GroupBubble';
 import { render } from '@testing-library/react-native';
 import React from 'react';
 import { allUsers } from '../data/dummyUsers';

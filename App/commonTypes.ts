@@ -26,10 +26,12 @@ export type Contact = {
   profilePic: string;
 };
 
-export type Group = {
+export type GroupInfo = {
   id: string;
   name: string;
-  members: Profile[];
+  members?: Profile[];
+  lastMessage: string;
+  inviteCode: string;
 };
 
 export type Profile = Contact & {
