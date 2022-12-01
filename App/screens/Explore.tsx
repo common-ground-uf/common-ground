@@ -8,7 +8,6 @@ import {
   Button,
 } from 'react-native';
 import { RestaurantBubble } from '../components/RestaurantBubble';
-// import { exploreSections } from '../data/dummyRestaurants';
 import { generateExploreSections } from '../api/yelpHelper';
 import { Restaurant } from '../commonTypes';
 
