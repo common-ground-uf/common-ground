@@ -17,6 +17,7 @@ const icons: Record<string, string> = {
     Login: 'user-circle-o',
     Home: 'home',
     Messages: 'comment',
+    Debug: 'bug',
     Explore: 'search',
     Settings: 'gear',
 };
