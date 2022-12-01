@@ -81,16 +81,6 @@ function Home(props: HomeProps) {
     } else {
       props.navigation.navigate('Login');
     }
-
-    axios
-      .post(`${SERVER_URI}/groups`)
-      .then((response) => {
-        setGroups(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-        console.log(error.response.data);
-      });
   };
 
   const getParties = async () => {
@@ -101,7 +91,7 @@ function Home(props: HomeProps) {
       },
     })
       .then((res) => {
-      // setParties(res.data);
+        setGroups(res.data);
     })
       .catch((err) => {
       console.log(err);
