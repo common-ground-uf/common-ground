@@ -151,23 +151,6 @@ function Home(props: HomeProps) {
           onPress={onPressStartANewTable}
         />
       </View>
-      {pastPicks && pastPicks.length > 0 ? (
-        <>
-          <Text style={styles.sectionTitle}>Recently Visited</Text>
-          <ScrollView style={styles.row} horizontal={true}>
-            {pastPicks.map((restaurant, index) => (
-              <RestaurantBubble
-                key={index}
-                {...restaurant}
-                onPress={onClickRestaurant}
-                style={styles.restaurantBubble}
-              />
-            ))} 
-          </ScrollView>
-        </>
-      )
-        : <Text>No Recently visited restaurants</Text>
-      }
       {groups && groups.length > 0 ? (
         <>
           <View style={styles.sectionHeaderContainer}>

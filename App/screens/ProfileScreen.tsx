@@ -154,11 +154,11 @@ function ProfileScreen(props: ProfilePageProps) {
         )}
       </View>
       <View style={styles.chipContainer}>
-        {profileData.preferences && profileData.preferences.map((preference, index) => (
+        {profileData.pastPicks && profileData.pastPicks.map((preference, index) => (
           <Chip text={preference} key={index} />
         ))}
       </View>
-      <View style={styles.row}>
+      {/* <View style={styles.row}>
         <Text style={styles.sectionTitle}>Past picks</Text>
         <Button onPress={onPressSeeAllPicks} title="See all" color="#ff6e6e" />
       </View>
@@ -175,7 +175,7 @@ function ProfileScreen(props: ProfilePageProps) {
         ) : (
           <Text>No recently visited restaurants</Text>
         )}
-      </View>
+      </View> */}
       {isMyProfile && (
         <>
           <View style={styles.row}>
