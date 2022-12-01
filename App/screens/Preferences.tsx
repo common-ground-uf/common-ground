@@ -60,8 +60,7 @@ function Preferences(props: PreferencesProps) {
         preferencesToRemove.push(oldValue[i]);
       }
     }
-    console.log("adding: " + preferencesToAdd);
-    console.log("removing: " + preferencesToRemove);
+
     if(preferencesToAdd.length > 0) {
       axios.post(`${SERVER_URI}/users/${profileInfo.id}/prefs`, {
         preferences: preferencesToAdd,
@@ -74,6 +73,7 @@ function Preferences(props: PreferencesProps) {
         }
       });
     }
+    setOldValue(value);
   };
 
   const onScreenFocus = async () => {
@@ -86,8 +86,6 @@ function Preferences(props: PreferencesProps) {
     const profileInfo = JSON.parse(profile);
 
     axios.get(`${SERVER_URI}/users/${profileInfo.id}/prefs`).then((response) => {
-      console.log(response.data);
-      console.log(response.data.prefs);
       setValue(response.data.prefs);
       setOldValue(response.data.prefs);
     }).catch((error) => {
