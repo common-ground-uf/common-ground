@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 import { loginSignupStyles } from '../styles/LoginSingup';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import axios from 'axios';
+import { SERVER_URI } from '../Config';
 
 const styles = StyleSheet.create({
   memberContainer: {
@@ -37,22 +39,15 @@ type SettingsProps = {
 };
 
 type SettingProps = {
-  navigation: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    navigate: any;
-  };
+  onClick: () => void;
   name: string;
   image: string;
 };
 
 const Setting = (props: SettingProps) => {
-  const onClickSetting = () => {
-    props.navigation.navigate(props.name);
-  };
-
   return (
     <>
-      <TouchableOpacity onPress={onClickSetting} style={styles.memberContainer}>
+      <TouchableOpacity onPress={props.onClick} style={styles.memberContainer}>
         <Icon size={24} name={props.image} style={styles.image} />
         <Text>{props.name}</Text>
       </TouchableOpacity>
@@ -62,42 +57,63 @@ const Setting = (props: SettingProps) => {
 };
 
 function Settings(props: SettingsProps) {
+  const onPressLogout = () => {
+    axios
+      .post(`${SERVER_URI}/logout`)
+      .then((response) => {
+        if (response.data === 'OK') {
+          console.log('logout successful');
+        }
+        props.navigation.navigate('Login');
+      })
+      .catch((error) => {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+          // http.ClientRequest in node.js
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('Error', error.message);
+        }
+      });
+  };
 
-    const Account = {
-        name: 'Account',
-        image: 'user',
-        navigation: props.navigation
-    };
-    const Privacy = {
-        name: 'Privacy',
-        image: 'shield',
-        navigation: props.navigation
-    };
-    // const Notifications = {
-    //     name: 'Notifications',
-    //     image: 'bell',
-    //     navigation: props.navigation
-    // };
-    const Preferences = {
-        name: 'Preferences',
-        image: 'asterisk',
-        navigation: props.navigation
-    };
-    const Logout = {
-        name: 'Logout',
-        image: 'power-off',
-        navigation: props.navigation
-    };
-    const members = [Account, Privacy, /*Notifications,*/ Preferences, Logout];
-    return (
-        <View style={loginSignupStyles.container}>
-            <FlatList
-                data={members}
-                renderItem={(member) => <Setting {...member.item} />}
-                style={{width: '100%'}}
-            />
-        </View>
-    );
+  const Account = {
+    name: 'Account',
+    image: 'user',
+    onClick: () => {
+      props.navigation.navigate('Account');
+    },
+  };
+  const Preferences = {
+    name: 'Preferences',
+    image: 'asterisk',
+    onClick: () => {
+      props.navigation.navigate('Preferences');
+    },
+  };
+  const Logout = {
+    name: 'Logout',
+    image: 'power-off',
+    onClick: onPressLogout,
+  };
+  const members = [Account, Preferences, Logout];
+  return (
+    <View style={loginSignupStyles.container}>
+      <FlatList
+        data={members}
+        renderItem={(member) => <Setting {...member.item} />}
+        style={{ width: '100%' }}
+      />
+    </View>
+  );
 }
 
 export { Settings };
