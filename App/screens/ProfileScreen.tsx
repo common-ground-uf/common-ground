@@ -14,6 +14,8 @@ import { Chip } from '../components/Chip';
 import { ContactBubble } from '../components/ContactBubble';
 import { RestaurantBubble } from '../components/RestaurantBubble';
 import { mapContactToProfile } from '../utils';
+import { useIsFocused } from '@react-navigation/native';
+import { Storage } from '../data/Storage';
 
 const styles = StyleSheet.create({
   profile: {
@@ -90,21 +92,44 @@ type ProfilePageProps = {
 }
 
 function ProfileScreen(props: ProfilePageProps) {
-  let selfId;
+    let selfId;
 
-  // this is true if the user is looking at their own profile
-  const isMyProfile = props.route.params.profileData.id === selfId;
-  const profileData = props.route.params.profileData;
+    // this is true if the user is looking at their own profile
+    const isMyProfile = props.route.params.profileData.id === selfId;
+    const profileDataProps = props.route.params.profileData;
 
-  const onPressRestaurant = () => {
-    props.navigation.navigate('Restaurant');
-  };
+    // profileData usestate
+    const [profileData, setProfile] = React.useState<Profile>(profileDataProps);
 
-  const onPressContact = (contact: Contact) => {
-    props.navigation.navigate('Profile', {
-      profileData: mapContactToProfile(contact),
-    });
-  };
+    const getProfileInfo = async () => {
+        //Get profile info from async storage
+        const profile = await Storage.get('profile');
+        let profileId;
+        if (profile) {
+            const profileInfo = JSON.parse(profile);
+            setProfile(profileInfo);
+        } else {
+            props.navigation.navigate('Login');
+        }
+    };
+
+    let isFocused = useIsFocused();
+
+    // useEffect for profile
+    React.useEffect(() => {
+        console.log("Running useEffect for ProfileScreen");
+        getProfileInfo();
+    }, [isFocused]);
+
+    const onPressRestaurant = () => {
+        props.navigation.navigate('Restaurant');
+    };
+
+    const onPressContact = (contact: Contact) => {
+        props.navigation.navigate('Profile', {
+            profileData: mapContactToProfile(contact),
+        });
+    };
 
   const onPressSettings = () => {
     props.navigation.navigate('Settings');
