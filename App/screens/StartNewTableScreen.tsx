@@ -43,7 +43,7 @@ type StartNewTableScreenProps = {
   }
 }
 
-function StartNewTableScreen() {
+function StartNewTableScreen(props: StartNewTableScreenProps) {
   const contactList = allUsers;
   const [selected, setSelected] = React.useState<boolean[]>(
     Array(allUsers.length).fill(false)
@@ -81,8 +81,10 @@ function StartNewTableScreen() {
             console.log(error.response.data);
         });
 
-        //TODO: Navigate to newly created table screen
-        // props.navigation.navigate('Strategic or random');
+        props.navigation.navigate('Group Details', {
+          name: name,
+          members: selectedContacts,
+        });
     };
 
     return (
