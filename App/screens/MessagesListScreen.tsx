@@ -89,6 +89,7 @@ function MessagesListScreen(props: MessagesListScreenProps) {
       params: {
         name: true,
         lastMessage: true,
+        users: true
       },
     }).then((res) => {
       const newGroups : GroupInfo[] = [];
