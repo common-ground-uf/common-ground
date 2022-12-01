@@ -139,6 +139,34 @@ class GroupService {
         }
     }
 
+    public async getLastMessage(groupIds: string[], options : {page : number, limit : number} , currentUserId : string){
+        const lastMessages = await this.messages.aggregate([
+            { $match: { groupId: { $in: groupIds } } },
+            {
+              $sort: {
+                createdAt: -1
+              }
+            }, {
+              $group: {
+                _id: '$groupId', 
+                message: {
+                  $first: '$message'
+                }
+              }
+            }
+          ]);
+          type LastMessage = {
+            [key: string]: {
+                message: string
+            }
+          }
+        let map : LastMessage = {};
+        lastMessages.forEach((message : any) => {
+            map[message._id] = message.message.messageText;
+        });
+        return map;
+    }
+
     public async getRecentConversation(groupIds: string[], options : {page : number, limit : number} , currentUserId : string) {
         try {
             return this.messages.aggregate([

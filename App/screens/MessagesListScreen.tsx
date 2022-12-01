@@ -85,6 +85,7 @@ function MessagesListScreen(props: MessagesListScreenProps) {
         users: true
       },
     }).then((res) => {
+      console.log(res.data.groups);
       const newGroups : GroupInfo[] = [];
       for(const group in res.data.groups){
         newGroups.push({

@@ -87,21 +87,24 @@ class GroupsController {
             const groups : Group[] = await this.groupService.getGroupsByUserId(currentUser);
             const groupIds = groups.map(group => group._id);
 
-            let conversations = [];
+            let conversations: {
+                [key: string]: {
+                    message: string
+                }
+            } = {};
             if(options.lastMessage) {
-                conversations = await this.groupService.getRecentConversation(groupIds, {
+                conversations = await this.groupService.getLastMessage(groupIds, {
                     page: options.page,
                     limit: 1,
                 }, currentUser);
             }
 
             let resGroupsObj : any = {};
-
             for (let i = 0; i < groups.length; i++) {
                 const group = groups[i];
                 resGroupsObj[group._id] = {
                     name: options.names ? group.name : "",
-                    lastMessage: options.lastMessage ? conversations[i] ? conversations[i].message.messageText : "" : "",
+                    lastMessage: options.lastMessage ? conversations[group._id] ? conversations[group._id] : "" : "",
                     users: options.users ? group.userIds : [],
                     inviteCode: group.inviteCode,
                     id: group._id,
