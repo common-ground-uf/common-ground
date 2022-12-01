@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 import axios from 'axios';
+import { SERVER_URI } from '../Config';
 
 const styles = StyleSheet.create({
   inner: {
@@ -82,7 +83,7 @@ function MessagesListScreen(props: MessagesListScreenProps) {
 
   const updateGroups = async () => {
     console.log('getting groups');
-    axios.get(`${process.env.SERVER_URI}/groups`, {
+    axios.get(`${SERVER_URI}/groups`, {
       params: {
         name: true,
         lastMessage: true,

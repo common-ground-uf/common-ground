@@ -4,7 +4,7 @@ import { loginSignupStyles as styles } from '../styles/LoginSingup';
 import { Profile } from '../commonTypes';
 import { Storage } from '../data/Storage';
 import axios from 'axios';
-import 'dotenv/config';
+import { SERVER_URI } from '../Config';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 
@@ -33,7 +33,7 @@ function Login(props: LoginProps) {
   const onPressLogin = () => {
     console.log('on press login');
     axios
-      .post(`${process.env.SERVER_URI}/login`, {
+      .post(`${SERVER_URI}/login`, {
         username: email,
         password: password,
       })

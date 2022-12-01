@@ -11,6 +11,7 @@ npm-debug.*
 web-build/
 .env
 .idea
+Config.tsx
 
 App/common-ground-369721-b4cc170da221.json
 
