@@ -83,7 +83,7 @@ function Home(props: HomeProps) {
     }
 
     axios
-      .post(`${SERVER_URI}/groups`)
+      .get(`${SERVER_URI}/groups`)
       .then((response) => {
         setGroups(response.data);
       })
@@ -96,17 +96,16 @@ function Home(props: HomeProps) {
   const getParties = async () => {
     axios
       .get(`${SERVER_URI}/groups`, {
-        params: {
-          name: true,
-        },
-      })
+      params: {
+        name: true,
+      },
+    })
       .then((res) => {
-        console.log(res.data);
-        // setParties(res.data);
-      })
+      // setParties(res.data);
+    })
       .catch((err) => {
-        console.log(err);
-      });
+      console.log(err);
+    });
   };
 
   const isFocused = useIsFocused();
@@ -152,23 +151,6 @@ function Home(props: HomeProps) {
           onPress={onPressStartANewTable}
         />
       </View>
-      {pastPicks && pastPicks.length > 0 ? (
-        <>
-          <Text style={styles.sectionTitle}>Recently Visited</Text>
-          <ScrollView style={styles.row} horizontal={true}>
-            {pastPicks.map((restaurant, index) => (
-              <RestaurantBubble
-                key={index}
-                {...restaurant}
-                onPress={onClickRestaurant}
-                style={styles.restaurantBubble}
-              />
-            ))} 
-          </ScrollView>
-        </>
-      )
-        : <Text>No Recently visited restaurants</Text>
-      }
       {groups && groups.length > 0 ? (
         <>
           <View style={styles.sectionHeaderContainer}>

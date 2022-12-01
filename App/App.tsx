@@ -8,6 +8,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {HeaderProfileIcon} from './components/HeaderProfileIcon';
 import { View, Text } from 'react-native';
+import { Storage } from './data/Storage';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,7 +20,6 @@ const icons: Record<string, string> = {
     Debug: 'bug',
     Explore: 'search',
     Settings: 'gear',
-    // Misc: 'image'
 };
 
 export default function App() {
@@ -50,7 +50,6 @@ export default function App() {
                     <Tab.Screen name="Debug" component={DebugStackScreen}/>}
                     <Tab.Screen name="Login" component={LoginStackScreen}/>
                     <Tab.Screen name="Settings" component={SettingsStackScreen}/>
-                    {/*<Tab.Screen name="Misc" component={MiscStackScreen}/>*/}
                 </Tab.Navigator>
             </NavigationContainer>
         </React.StrictMode>
@@ -59,80 +58,109 @@ export default function App() {
 
 const MainStack = createNativeStackNavigator();
 
-const mainGroup = (
-    <MainStack.Group>
-        <MainStack.Screen name="Start" component={screens.Start}/>
-        <MainStack.Screen name="Preferences" component={screens.Preferences}/>
-        <MainStack.Screen name="Settings" component={screens.Settings}/>
-        <MainStack.Screen name="Account" component={screens.Account}/>
-        <MainStack.Screen name="Notifications" component={screens.Notifications}/>
-        <MainStack.Screen name="Privacy" component={screens.Privacy}/>
-        <MainStack.Screen
-            name="Restaurant List"
-            component={screens.RestaurantList}
-            initialParams={{restaurantList: allRestaurants}}
-        />
-        <MainStack.Screen name="Signup" component={screens.Signup}/>
-        <MainStack.Screen
-            name="Group Details"
-            component={screens.GroupDetails}
-            initialParams={parties[0]}
-        />
-        <MainStack.Screen
-            name="All Contacts"
-            component={screens.AllContactsScreen}
-            initialParams={{members: allUsers}}
-        />
-        <MainStack.Screen
-            name="Forgot Password"
-            component={screens.ForgorPassword}
-        />
-        <MainStack.Screen name="Gallery" component={screens.Gallery}/>
-        <MainStack.Screen
-            name="Restaurant"
-            component={screens.RestaurantScreen}
-            initialParams={{restaurant: losPollosHermanos}}
-        />
-        <MainStack.Screen
-            name="Start New Table"
-            component={screens.StartNewTableScreen}
-        />
-        <MainStack.Screen name="Reset Password" component={screens.ResetPassword}/>
-        <MainStack.Screen
-            name="Profile"
-            component={screens.ProfileScreen}
-            initialParams={{profileData: saulProfile}}
-        />
-        <MainStack.Screen
-            name="Strategic or random"
-            component={screens.StrategicOrRandom}
-        />
-        <MainStack.Screen
-            name="Random Restaurant"
-            component={screens.RandomRestaurantScreen}
-        />
-        <MainStack.Screen
-            name="Waiting on Friends"
-            component={screens.WaitingOnFriends}
-        />
-        <MainStack.Screen
-            name="Join Group"
-            component={screens.JoinGroup}
-        />
-        <MainStack.Screen
-            name="Group List"
-            component={screens.GroupList}
-        />
-    </MainStack.Group>
-);
+const MainGroup = () => {
+    const [profile, setProfile] = React.useState();
+
+    const getProfileInfo = async () => {
+        //Get profile info from async storage
+        const profile = await Storage.get('profile');
+        if (profile) {
+          const profileInfo = JSON.parse(profile);
+          setProfile(profileInfo);
+        }
+    };
+    React.useEffect(() => {
+        getProfileInfo();
+    }, []);
+
+    return (
+        <MainStack.Group>
+            <MainStack.Screen name="Preferences" component={screens.Preferences}/>
+            <MainStack.Screen name="Settings" component={screens.Settings}/>
+            <MainStack.Screen name="Account" component={screens.Account}/>
+            <MainStack.Screen name="Notifications" component={screens.Notifications}/>
+            <MainStack.Screen name="Privacy" component={screens.Privacy}/>
+            <MainStack.Screen
+                name="Restaurant List"
+                component={screens.RestaurantList}
+                initialParams={{restaurantList: allRestaurants}}
+            />
+            <MainStack.Screen name="Signup" component={screens.Signup}/>
+            <MainStack.Screen
+                name="Group Details"
+                component={screens.GroupDetails}
+                initialParams={parties[0]}
+            />
+            <MainStack.Screen
+                name="All Contacts"
+                component={screens.AllContactsScreen}
+                initialParams={{members: allUsers}}
+            />
+            <MainStack.Screen
+                name="Forgot Password"
+                component={screens.ForgorPassword}
+            />
+            <MainStack.Screen name="Gallery" component={screens.Gallery}/>
+            <MainStack.Screen
+                name="Restaurant"
+                component={screens.RestaurantScreen}
+                initialParams={{restaurant: losPollosHermanos}}
+            />
+            <MainStack.Screen
+                name="Start New Table"
+                component={screens.StartNewTableScreen}
+            />
+            <MainStack.Screen name="Reset Password" component={screens.ResetPassword}/>
+            <MainStack.Screen
+                name="Profile"
+                component={screens.ProfileScreen}
+                initialParams={{profileData: profile}}
+            />
+            <MainStack.Screen
+                name="Strategic or random"
+                component={screens.StrategicOrRandom}
+            />
+            <MainStack.Screen
+                name="Random Restaurant"
+                component={screens.RandomRestaurantScreen}
+            />
+            <MainStack.Screen
+                name="Waiting on Friends"
+                component={screens.WaitingOnFriends}
+            />
+            <MainStack.Screen
+                name="Join Group"
+                component={screens.JoinGroup}
+            />
+            <MainStack.Screen
+                name="Group List"
+                component={screens.GroupList}
+            />
+        </MainStack.Group>
+    );
+};
 
 const HomeStack = createNativeStackNavigator();
 
 function HomeStackScreen() {
+    const [profile, setProfile] = React.useState();
+
+    const getProfileInfo = async () => {
+        //Get profile info from async storage
+        const profile = await Storage.get('profile');
+        if (profile) {
+          const profileInfo = JSON.parse(profile);
+          setProfile(profileInfo);
+        }
+    };
+    React.useEffect(() => {
+        getProfileInfo();
+    }, []);
+
     return (
         <HomeStack.Navigator
             screenOptions={({navigation}) => ({
-                headerRight: () => <HeaderProfileIcon image={saulProfile.profilePic} navigation={navigation}/>,
+                headerRight: () => <HeaderProfileIcon navigation={navigation}/>,
             })}
         >
             <HomeStack.Screen
@@ -143,7 +171,7 @@ function HomeStackScreen() {
             <MainStack.Screen
                 name="Profile"
                 component={screens.ProfileScreen}
-                initialParams={{profileData: saulProfile}}
+                initialParams={{profileData: profile}}
             />
             <MainStack.Screen
                 name="Start New Table"
@@ -164,11 +192,6 @@ function HomeStackScreen() {
                 component={screens.RestaurantList}
                 initialParams={{restaurantList: allRestaurants}}
             />
-            {/*  */}
-            {/*{mainGroup}*/}
-            {/*<HomeStack.Screen name="Login" component={screens.Login} />*/}
-            {/*<HomeStack.Screen name="Messages" component={screens.MessagesScreen} />*/}
-            {/*<HomeStack.Screen name="Explore" component={screens.Explore} />*/}
         </HomeStack.Navigator>
     );
 }
@@ -200,10 +223,6 @@ function MessagesStackScreen() {
                 name="MessagesScreen"
                 component={screens.MessagesScreen}
             />
-            {/*{mainGroup}*/}
-            {/*<MessagesStack.Screen name="Login" component={screens.Login} />*/}
-            {/*<MessagesStack.Screen name="Home" component={screens.Home} />*/}
-            {/*<MessagesStack.Screen name="Explore" component={screens.Explore} />*/}
         </MessagesStack.Navigator>
     );
 }
@@ -249,7 +268,7 @@ function DebugStackScreen() {
     return (
         <DebugStack.Navigator>
             <DebugStack.Screen options={{title: 'Debug'}} name="DebugScreen" component={screens.DebugScreen}/>
-            {mainGroup}
+            <MainGroup />
         </DebugStack.Navigator>
     );
 }

@@ -82,7 +82,7 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
         });
 
         props.navigation.navigate('Group Details', {
-          name: name,
+          name: groupName,
           members: selectedContacts,
         });
     };

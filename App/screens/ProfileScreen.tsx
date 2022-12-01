@@ -90,7 +90,7 @@ type ProfilePageProps = {
 }
 
 function ProfileScreen(props: ProfilePageProps) {
-  const selfId = '4';
+  let selfId;
 
   // this is true if the user is looking at their own profile
   const isMyProfile = props.route.params.profileData.id === selfId;
@@ -123,6 +123,7 @@ function ProfileScreen(props: ProfilePageProps) {
   };
 
   if (!profileData) return <></>;
+  console.log(profileData);
 
   return (
     <ScrollView style={styles.profile}>
@@ -153,11 +154,11 @@ function ProfileScreen(props: ProfilePageProps) {
         )}
       </View>
       <View style={styles.chipContainer}>
-        {profileData.preferences.map((preference, index) => (
+        {profileData.pastPicks && profileData.pastPicks.map((preference, index) => (
           <Chip text={preference} key={index} />
         ))}
       </View>
-      <View style={styles.row}>
+      {/* <View style={styles.row}>
         <Text style={styles.sectionTitle}>Past picks</Text>
         <Button onPress={onPressSeeAllPicks} title="See all" color="#ff6e6e" />
       </View>
@@ -174,7 +175,7 @@ function ProfileScreen(props: ProfilePageProps) {
         ) : (
           <Text>No recently visited restaurants</Text>
         )}
-      </View>
+      </View> */}
       {isMyProfile && (
         <>
           <View style={styles.row}>
