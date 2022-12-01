@@ -53,6 +53,7 @@ function Login(props: LoginProps) {
             pastPicks: response.data.userData.pastPicks,
             recentContacts: response.data.userData.recentContacts,
             location: response.data.userData.location,
+            groups: [],
           };
           console.log(userData);
           Storage.set('profile', JSON.stringify(userData));

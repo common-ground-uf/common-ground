@@ -119,6 +119,10 @@ const mainGroup = (
             name="Join Group"
             component={screens.JoinGroup}
         />
+        <MainStack.Screen
+            name="Group List"
+            component={screens.GroupList}
+        />
     </MainStack.Group>
 );
 
@@ -220,10 +224,6 @@ function ExploreStackScreen() {
                 component={screens.RestaurantList}
                 initialParams={{restaurantList: allRestaurants}}
             />
-            {/*{mainGroup}*/}
-            {/*<ExploreStack.Screen name="Messages" component={screens.MessagesScreen}/>*/}
-            {/*<ExploreStack.Screen name="Login" component={screens.Login}/>*/}
-            {/*<ExploreStack.Screen name="Home" component={screens.Home}/>*/}
         </ExploreStack.Navigator>
     );
 }

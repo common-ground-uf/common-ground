@@ -6,8 +6,8 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "scripts": {
-    "start:prod": "expo start --port 50344  --no-dev",
-    "start": "expo start --port 50344",
+    "start:prod": "expo start --port 50344  --no-dev  --reset-cache",
+    "start": "expo start --port 50344 -c",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
@@ -28,7 +28,7 @@
     "expo-status-bar": "^1.4.2",
     "expo-updates": "~0.14.7",
     "react": "18.0.0",
-    "react-native": "0.69.5",
+    "react-native": "^0.69.5",
     "react-native-dotenv": "^3.4.2",
     "react-native-dropdown-picker": "^5.4.3",
     "react-native-get-location": "^2.2.1",

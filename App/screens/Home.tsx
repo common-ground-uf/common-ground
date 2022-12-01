@@ -4,10 +4,9 @@ import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
 import { GroupBubbles } from '../components/GroupBubbles';
-import { RestaurantBubble } from '../components/RestaurantBubble';
-import { parties, saulProfile } from '../data/dummyUsers';
 import { Storage } from '../data/Storage';
 import { SERVER_URI } from '../Config';
+import { Group } from '../commonTypes';
 
 const styles = StyleSheet.create({
   welcome: {
@@ -63,44 +62,55 @@ type HomeProps = {
 };
 
 function Home(props: HomeProps) {
-  
+  const [firstName, setFirstName] = React.useState<string>('');
+  const [groups, setGroups] = React.useState<Group[]>([]);
+  const [location, setLocation] = React.useState<string>('');
+
   const getProfileInfo = async () => {
     //Get profile info from async storage
     const profile = await Storage.get('profile');
+    let profileId;
     if (profile) {
       const profileInfo = JSON.parse(profile);
+      profileId = profileInfo.id;
       setFirstName(profileInfo.firstName);
-      setLastName(profileInfo.lastName);
-      setEmail(profileInfo.email);
       setLocation(profileInfo.location);
     } else {
       props.navigation.navigate('Login');
     }
+
+    axios
+      .post(`${SERVER_URI}/groups`)
+      .then((response) => {
+        setGroups(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log(error.response.data);
+      });
   };
 
   const getParties = async () => {
-    axios.get(`${SERVER_URI}/groups`, {
-      params: {
-        name: true,
-      },
-    }).then((res) => {
-      console.log(res.data);
-      // setParties(res.data);
-    }).catch((err) => {
-      console.log(err);
-    });
+    axios
+      .get(`${SERVER_URI}/groups`, {
+        params: {
+          name: true,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        // setParties(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
-
-  const [firstName, setFirstName] = React.useState<string>(saulProfile.firstName);
-  const [lastName, setLastName] = React.useState<string>(saulProfile.lastName);
-  const [email, setEmail] = React.useState<string>(saulProfile.email);
-  const [location, setLocation] = React.useState<string>(saulProfile.location);
 
   const isFocused = useIsFocused();
 
   React.useEffect(() => {
     getProfileInfo();
-    getParties(); 
+    getParties();
   }, [isFocused]);
 
   const restaurant = {
@@ -109,15 +119,13 @@ function Home(props: HomeProps) {
       'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
   };
 
-  const onClickRestaurant = () => {
-    props.navigation.navigate('Restaurant');
-  };
+  // const onClickRestaurant = () => {
+  //   props.navigation.navigate('Restaurant');
+  // };
 
   const onClickGroup = () => {
     props.navigation.navigate('Group Details');
   };
-
-  const recentlyVisited = [restaurant, restaurant, restaurant];
 
   const onPressStartANewTable = () => {
     props.navigation.navigate('Start New Table');
@@ -131,15 +139,20 @@ function Home(props: HomeProps) {
     props.navigation.navigate('Parties List');
   };
 
+  console.log('GROUPS');
+  console.log(groups);
+
   return (
     <ScrollView>
-        <Text style={styles.welcome}>
-          Welcome back, {firstName}!
-        </Text>
-        <View style={styles.startNewTableWrapper}>
-          <Button title='Start a new table' color='#FF6D6E' onPress={onPressStartANewTable}/>
-        </View>
-        <Text style={styles.sectionTitle}>Recently Visited</Text>
+      <Text style={styles.welcome}>Welcome back, {firstName}!</Text>
+      <View style={styles.startNewTableWrapper}>
+        <Button
+          title="Start a new table"
+          color="#FF6D6E"
+          onPress={onPressStartANewTable}
+        />
+      </View>
+      {/* <Text style={styles.sectionTitle}>Recently Visited</Text>
         <ScrollView style={styles.row} horizontal={true}>
           {recentlyVisited.map((restaurant, index) => 
             <RestaurantBubble
@@ -149,29 +162,35 @@ function Home(props: HomeProps) {
               style={styles.restaurantBubble}
             />
           )}
-          <RestaurantBubble {...restaurant} onPress={onClickRestaurant} style={styles.restaurantBubble}/>
-          <RestaurantBubble {...restaurant} onPress={onClickRestaurant} style={styles.restaurantBubble}/>
-        </ScrollView>
-        <View style={styles.sectionHeaderContainer}>
-          <Text style={styles.sectionTitle}>Groups</Text>
-          <Button
-            onPress={onPressSeeAllParties}
-            title="See all"
-            color="#ff6e6e"
-          />
-        </View>
-        <ScrollView style={styles.row} horizontal={true} contentContainerStyle={{alignItems:'flex-start'}}>
-          {parties.map((party, index) => 
-            <GroupBubbles
-              members={party.members}
-              name={party.name}
-              onClick={onClickGroup}
-              style={styles.restaurantBubble}
-              key={index}
+        </ScrollView> */}
+      {groups && groups.length > 0 &&
+        <>
+          <View style={styles.sectionHeaderContainer}>
+            <Text style={styles.sectionTitle}>Groups</Text>
+            <Button
+              onPress={onPressSeeAllParties}
+              title="See all"
+              color="#ff6e6e"
             />
-          )}
-        </ScrollView>
-        {/* <View style={styles.sectionHeaderContainer}>
+          </View>
+          <ScrollView
+            style={styles.row}
+            horizontal={true}
+            contentContainerStyle={{ alignItems: 'flex-start' }}
+          >
+            {groups.map((group, index) => (
+              <GroupBubbles
+                members={group.members}
+                name={group.name}
+                onClick={onClickGroup}
+                style={styles.restaurantBubble}
+                key={index}
+              />
+            ))}
+          </ScrollView>
+        </>
+      }
+      {/* <View style={styles.sectionHeaderContainer}>
           <Text style={styles.sectionTitle}>Saved restaurants</Text>
           <Button
             onPress={onPressSeeAllSaved}
@@ -179,7 +198,7 @@ function Home(props: HomeProps) {
             color="#ff6e6e"
           />
         </View> */}
-        {/* <ScrollView style={styles.row} horizontal={true}>
+      {/* <ScrollView style={styles.row} horizontal={true}>
           {recentlyVisited.map((restaurant, index) => 
             <RestaurantBubble
               key={index}
@@ -189,7 +208,7 @@ function Home(props: HomeProps) {
             />
           )}
         </ScrollView> */}
-        <View style={styles.verticalSpace}/>
+      <View style={styles.verticalSpace} />
     </ScrollView>
   );
 }

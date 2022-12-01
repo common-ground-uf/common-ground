@@ -24,3 +24,4 @@ export * from './AllContactsScreen';
 export * from './WaitingOnFriends';
 export * from './Logout';
 export * from './JoinGroup';
+export * from './GroupList';

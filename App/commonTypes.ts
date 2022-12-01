@@ -26,6 +26,11 @@ export type Contact = {
   profilePic: string;
 };
 
+export type Group = {
+  id: string;
+  members: Profile[];
+};
+
 export type Profile = Contact & {
   preferences: string[];
   pastPicks: Restaurant[];
@@ -33,4 +38,5 @@ export type Profile = Contact & {
   email: string;
   location: string;
   role: string;
+  groups: Group[];
 };

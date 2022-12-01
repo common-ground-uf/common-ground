@@ -2,29 +2,15 @@ import React from 'react';
 import {
   View,
   StyleSheet,
-  Image,
   Text,
-  TextInput,
-  KeyboardAvoidingView,
-  Platform,
-  TouchableWithoutFeedback,
-  Keyboard,
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
-import { messagesDummy } from '../data/dummyData';
-import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
 import { SERVER_URI } from '../Config';
 
 const styles = StyleSheet.create({
-  profilePic: {
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    marginHorizontal: 10,
-  },
   inner: {
     flex: 1,
     flexDirection: 'column',
@@ -135,7 +121,6 @@ function MessagesListScreen(props: MessagesListScreenProps) {
           )}
       </View>
     </ScrollView>
-    
   );
 }
 
