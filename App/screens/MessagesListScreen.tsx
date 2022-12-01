@@ -69,17 +69,17 @@ type MessagesListScreenProps = {
   };
 }
 
+type GroupInfo = {
+  id: string;
+  name: string;
+  lastMessage: string;
+  inviteCode: string;
+}
+
 function MessagesListScreen(props: MessagesListScreenProps) {
   //TODO: Change this to properly use auth to get self (not working for some reason)
 
   const isFocused = useIsFocused();
-
-  type GroupInfo = {
-    id: string;
-    name: string;
-    lastMessage: string;
-    inviteCode: string;
-  }
 
   const [groups, setGroups] = React.useState<GroupInfo[]>([]);
 
