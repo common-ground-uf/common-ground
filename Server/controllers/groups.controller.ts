@@ -85,23 +85,24 @@ class GroupsController {
             };
 
             const groups : Group[] = await this.groupService.getGroupsByUserId(currentUser);
-            const groupIds = groups.map(group => group._id);
-
-            let conversations = [];
-            if(options.lastMessage) {
-                conversations = await this.groupService.getRecentConversation(groupIds, {
-                    page: options.page,
-                    limit: 1,
-                }, currentUser);
-            }
+            // const groupIds = groups.map(group => group._id);
 
             let resGroupsObj : any = {};
 
             for (let i = 0; i < groups.length; i++) {
                 const group = groups[i];
+
+                let conversations = [];
+                if(options.lastMessage) {
+                    conversations = await this.groupService.getLastMessage(group._id, {
+                        page: options.page,
+                        limit: 1,
+                    }, currentUser);
+                }
+
                 resGroupsObj[group._id] = {
                     name: options.names ? group.name : "",
-                    lastMessage: options.lastMessage ? conversations[i] ? conversations[i].message.messageText : "" : "",
+                    lastMessage: options.lastMessage ? conversations[0] ? conversations[0].message.messageText.trim() : "" : "",
                     users: options.users ? group.userIds : [],
                     inviteCode: group.inviteCode,
                     id: group._id,
@@ -115,21 +116,21 @@ class GroupsController {
         }
     };
 
-    public getRecentConversation = async (req: Request, res: Response, next: NextFunction) => {
-        try {
-            const currentUser : string = req.user?._id!;
-            const options = {
-                page: parseInt(req.query.page as any) || 0,
-                limit: parseInt(req.query.limit as any) || 10,
-            };
-            const groups : Group[] = await this.groupService.getGroupsByUserId(currentUser);
-            const groupIds = groups.map(group => group._id);
-            const recentConversation = await this.groupService.getRecentConversation(groupIds, options, currentUser);
-            return res.status(200).json({success: true, conversation: recentConversation});
-        } catch(error) {
-            return res.status(500).json({success: false, error: error});
-        }
-    };
+    // public getRecentConversation = async (req: Request, res: Response, next: NextFunction) => {
+    //     try {
+    //         const currentUser : string = req.user?._id!;
+    //         const options = {
+    //             page: parseInt(req.query.page as any) || 0,
+    //             limit: parseInt(req.query.limit as any) || 10,
+    //         };
+    //         const groups : Group[] = await this.groupService.getGroupsByUserId(currentUser);
+    //         const groupIds = groups.map(group => group._id);
+    //         const recentConversation = await this.groupService.getRecentConversation(groupIds, options, currentUser);
+    //         return res.status(200).json({success: true, conversation: recentConversation});
+    //     } catch(error) {
+    //         return res.status(500).json({success: false, error: error});
+    //     }
+    // };
 
     public addPreference = async (req: Request, res: Response, next: NextFunction) => {
         try {
