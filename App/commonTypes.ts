@@ -41,5 +41,5 @@ export type Profile = Contact & {
   email: string;
   location: string;
   role: string;
-  groups: Group[];
+  groups: GroupInfo[];
 };

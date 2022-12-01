@@ -9,6 +9,7 @@ import {
 import { useIsFocused } from '@react-navigation/native';
 import axios from 'axios';
 import { SERVER_URI } from '../Config';
+import { GroupInfo } from '../commonTypes';
 
 const styles = StyleSheet.create({
   inner: {
@@ -75,8 +76,6 @@ function MessagesListScreen(props: MessagesListScreenProps) {
   const isFocused = useIsFocused();
 
   const [groups, setGroups] = React.useState<GroupInfo[]>([]);
-  console.log(groups);
-
   const updateGroups = async () => {
     console.log('getting groups');
     axios.get(`${SERVER_URI}/groups`, {
