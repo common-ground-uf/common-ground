@@ -139,9 +139,6 @@ function Home(props: HomeProps) {
     props.navigation.navigate('Parties List');
   };
 
-  console.log('GROUPS');
-  console.log(groups);
-
   return (
     <ScrollView>
       <Text style={styles.welcome}>Welcome back, {firstName}!</Text>

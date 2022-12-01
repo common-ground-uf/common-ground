@@ -10,6 +10,7 @@ import {
 import { RestaurantBubble } from '../components/RestaurantBubble';
 // import { exploreSections } from '../data/dummyRestaurants';
 import { generateExploreSections } from '../api/yelpHelper';
+import { Restaurant } from '../commonTypes';
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -60,11 +61,13 @@ type HomeProps = {
 
 function Explore(props: HomeProps) {
   const [search, setSearch] = React.useState('');
-  const onClickRestaurant = () => {
-    props.navigation.navigate('Restaurant');
+  const onClickRestaurant = (restaurant: Restaurant) => {
+    props.navigation.navigate('Restaurant', {
+      restaurant: restaurant
+    });
   };
 
-  let defaultExploreSections: any[] = [];
+  const defaultExploreSections: any[] = [];
   const [exploreSections, setExploreSections] = React.useState(defaultExploreSections);
 
   const getExploreSections = async () => {
@@ -102,7 +105,7 @@ function Explore(props: HomeProps) {
               <RestaurantBubble
                 key={index2}
                 {...restaurant}
-                onPress={onClickRestaurant}
+                onPress={() => onClickRestaurant(restaurant)}
                 style={styles.bubble}
               />
             ))}

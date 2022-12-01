@@ -114,7 +114,6 @@ const MainGroup = () => {
             <MainStack.Screen
                 name="Restaurant"
                 component={screens.RestaurantScreen}
-                initialParams={{restaurant: losPollosHermanos}}
             />
             <MainStack.Screen
                 name="Start New Table"

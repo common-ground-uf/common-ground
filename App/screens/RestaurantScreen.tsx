@@ -82,6 +82,9 @@ type RestaurantScreenProps = {
 function RestaurantScreen(props: RestaurantScreenProps) {
   const restaurant = props.route.params.restaurant;
 
+  console.log('RESTAURANT');
+  console.log(restaurant);
+
   if (!restaurant) {
     return null;
   }
@@ -89,13 +92,15 @@ function RestaurantScreen(props: RestaurantScreenProps) {
   const onPressSeeAllGallery = () => {
     props.navigation.navigate('Gallery');
   };
+  
+  const distanceFormatted = restaurant.distanceMiles ? (Math.floor(restaurant.distanceMiles * 100) / 100) : undefined;
 
   return (
     <ScrollView>
       <Image style={styles.image} source={{ uri: restaurant.thumbnail }} />
       <View style={styles.padding}>
         <Text style={styles.title}>{restaurant.name}</Text>
-        <PriceRating rating={3} />
+        <PriceRating rating={restaurant.priceRating} />
         <View style={{ display: 'flex', flexDirection: 'row' }}>
           <TouchableOpacity
             style={{
@@ -113,21 +118,28 @@ function RestaurantScreen(props: RestaurantScreenProps) {
             />
             <Text style={{ fontSize: 8 }}>Directions</Text>
           </TouchableOpacity>
-          <View>
-            <Text style={styles.marginTop}>{restaurant.address.line1}</Text>
-            <Text>{restaurant.address.line2}</Text>
-          </View>
+          {restaurant.address &&
+            <View>
+              {restaurant.address.line1 && <Text style={styles.marginTop}>{restaurant.address.line1}</Text>}
+              {restaurant.address.line2 && <Text>{restaurant.address.line2}</Text>}
+            </View>
+          }
+          {restaurant.distanceMiles && (
+            <Text>{distanceFormatted} miles away</Text>
+          )}
         </View>
         <Text style={styles.marginTop}>{restaurant.description}</Text>
         <View style={styles.row}>
           <Text style={styles.sectionTitle}>Reviews</Text>
-          <Button
-            title="See all"
-            onPress={() => {
-              console.log('see all');
-            }}
-            color="#ff6e6e"
-          />
+          {restaurant.reviews && restaurant.reviews.length > 0 && 
+            <Button
+              title="See all"
+              onPress={() => {
+                console.log('see all');
+              }}
+              color="#ff6e6e"
+            />
+          }
         </View>
         <Text style={{ display: 'flex' }}>
           <Text style={styles.averageReviewRating}>
@@ -136,28 +148,31 @@ function RestaurantScreen(props: RestaurantScreenProps) {
           </Text>
           <Text style={styles.averageReview}> average review on Yelp</Text>
         </Text>
-        {restaurant.reviews.map((review, index) => (
+        {restaurant.reviews && restaurant.reviews.map((review, index) => (
           <Review key={index} {...review} />
         ))}
-        <View>
-          <View style={styles.row}>
-            <Text style={styles.sectionTitle}>Gallery</Text>
-            <Button
-              title="See all"
-              onPress={onPressSeeAllGallery}
-              color="#ff6e6e"
-            />
-          </View>
-          <ScrollView style={styles.gallery} horizontal={true}>
-            {gallery.map((image, index) => (
-              <Image
-                style={styles.galleryImage}
-                source={{ uri: image }}
-                key={index}
+        {restaurant.gallery && restaurant.gallery.length > 0 && 
+          <View>
+            <View style={styles.row}>
+              <Text style={styles.sectionTitle}>Gallery</Text>
+              <Button
+                title="See all"
+                onPress={onPressSeeAllGallery}
+                color="#ff6e6e"
               />
-            ))}
-          </ScrollView>
-        </View>
+            </View>
+            <ScrollView style={styles.gallery} horizontal={true}>
+              {gallery.map((image, index) => (
+                <Image
+                  style={styles.galleryImage}
+                  source={{ uri: image }}
+                  key={index}
+                />
+              ))}
+            </ScrollView>
+          </View>
+        }
+
       </View>
     </ScrollView>
   );
