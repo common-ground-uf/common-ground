@@ -101,7 +101,7 @@ function Home(props: HomeProps) {
       },
     })
       .then((res) => {
-      // setParties(res.data);
+        setGroups(res.data);
     })
       .catch((err) => {
       console.log(err);
@@ -133,6 +133,11 @@ function Home(props: HomeProps) {
     props.navigation.navigate('Start New Table');
   };
 
+  
+  const onPressJoinTable = () => {
+    props.navigation.navigate('Join Group');
+  };
+
   // const onPressSeeAllSaved = () => {
   //   props.navigation.navigate('Restaurant List');
   // };
@@ -149,6 +154,11 @@ function Home(props: HomeProps) {
           title="Start a new table"
           color="#FF6D6E"
           onPress={onPressStartANewTable}
+        />
+        <Button
+          title="Join a table"
+          color="#FF6D6E"
+          onPress={onPressJoinTable}
         />
       </View>
       {groups && groups.length > 0 ? (

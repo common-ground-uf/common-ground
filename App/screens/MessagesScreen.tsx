@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     flexBasis: 1,
     borderWidth: 1,
-    borderRadius: 20,
-    marginBottom: 80,
+    borderRadius: 15,
+    marginBottom: 20,
     paddingLeft: 4,
   },
   textInput: {
@@ -98,6 +98,22 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     marginLeft: 7,
+  },
+  groupName: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    marginBottom: 6,
+    marginRight: 'auto',
+    width: '100%',
+    textAlign: 'center',
+  },
+  inviteCode: {
+    fontSize: 14,
+    color: '#999',
+    marginBottom: 12,
+    marginRight: 'auto',
+    width: '100%',
+    textAlign: 'center',
   },
 });
 
@@ -185,6 +201,7 @@ function MessagesScreen(props: Route) {
   const [messageInput, setMessageInput] = React.useState('');
   const groupId = props.route.params.groupId;
   const groupName = props.route.params.groupName;
+  const inviteCode = props.route.params.inviteCode;
 
   const onPressSend = () => {
     console.log('pressed send: '+messageInput);
@@ -274,6 +291,10 @@ function MessagesScreen(props: Route) {
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
+          <View>
+            <Text style={styles.groupName}>{groupName}</Text>
+            <Text style={styles.inviteCode}>{inviteCode.toUpperCase()}</Text>
+          </View>
           <View style={styles.messagesContainer}>
             {messages.map((message, index) => (
               <Message

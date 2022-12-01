@@ -10,6 +10,7 @@ import { loginSignupStyles } from '../styles/LoginSingup';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
 import { SERVER_URI } from '../Config';
+import { Storage } from '../data/Storage';
 
 const styles = StyleSheet.create({
   memberContainer: {
@@ -63,8 +64,10 @@ function Settings(props: SettingsProps) {
       .then((response) => {
         if (response.data === 'OK') {
           console.log('logout successful');
+          Storage.delete('profile');
+          props.navigation.navigate('Login');
+          
         }
-        props.navigation.navigate('Login');
       })
       .catch((error) => {
         if (error.response) {
