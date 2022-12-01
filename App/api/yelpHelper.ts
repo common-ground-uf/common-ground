@@ -69,7 +69,7 @@ export async function generateExploreSections(): Promise<Array<{sectionTitle: st
     }
     else {
         prefs = prefs.concat(["pizza", "bars", "coffee"]);
-        prefs.slice(0, 3);
+        prefs = prefs.slice(0, 3);
     }
 
     // let location = await GetLocation.getCurrentPosition({enableHighAccuracy: false, timeout: 15000});
