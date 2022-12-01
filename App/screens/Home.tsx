@@ -93,17 +93,16 @@ function Home(props: HomeProps) {
   const getParties = async () => {
     axios
       .get(`${SERVER_URI}/groups`, {
-        params: {
-          name: true,
-        },
-      })
+      params: {
+        name: true,
+      },
+    })
       .then((res) => {
-        console.log(res.data);
-        // setParties(res.data);
-      })
+      // setParties(res.data);
+    })
       .catch((err) => {
-        console.log(err);
-      });
+      console.log(err);
+    });
   };
 
   const isFocused = useIsFocused();
