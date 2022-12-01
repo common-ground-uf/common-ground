@@ -83,7 +83,7 @@ function Home(props: HomeProps) {
     }
 
     axios
-      .post(`${SERVER_URI}/groups`)
+      .get(`${SERVER_URI}/groups`)
       .then((response) => {
         setGroups(response.data);
       })

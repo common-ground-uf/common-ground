@@ -15,11 +15,8 @@ function Account() {
 
     axios.get(`${SERVER_URI}/auth`)
         .then(response => {
-            console.log('RESPONSE');
-            console.log(response);
             if(response.data.message === 'login success') {
                 console.log('login successful');
-                console.log(response.data.userData);
                 // User Data object to be processed locally and saved as current login data (cleared after logout)
                 setEmail(response.data.userData.email);
                 setFirstName(response.data.userData.firstname);
@@ -51,7 +48,7 @@ function Account() {
 
 
     const onPressSave = () => {
-        console.log('saved');
+        console.log('press save');
         // TODO: Actually change these fields in database
     };
 

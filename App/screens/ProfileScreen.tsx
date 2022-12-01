@@ -90,7 +90,7 @@ type ProfilePageProps = {
 }
 
 function ProfileScreen(props: ProfilePageProps) {
-  const selfId = '4';
+  let selfId;
 
   // this is true if the user is looking at their own profile
   const isMyProfile = props.route.params.profileData.id === selfId;
@@ -123,6 +123,7 @@ function ProfileScreen(props: ProfilePageProps) {
   };
 
   if (!profileData) return <></>;
+  console.log(profileData);
 
   return (
     <ScrollView style={styles.profile}>

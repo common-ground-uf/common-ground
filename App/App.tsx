@@ -19,7 +19,6 @@ const icons: Record<string, string> = {
     Debug: 'bug',
     Explore: 'search',
     Settings: 'gear',
-    // Misc: 'image'
 };
 
 export default function App() {
@@ -50,7 +49,6 @@ export default function App() {
                     <Tab.Screen name="Debug" component={DebugStackScreen}/>}
                     <Tab.Screen name="Login" component={LoginStackScreen}/>
                     <Tab.Screen name="Settings" component={SettingsStackScreen}/>
-                    {/*<Tab.Screen name="Misc" component={MiscStackScreen}/>*/}
                 </Tab.Navigator>
             </NavigationContainer>
         </React.StrictMode>
@@ -132,7 +130,7 @@ function HomeStackScreen() {
     return (
         <HomeStack.Navigator
             screenOptions={({navigation}) => ({
-                headerRight: () => <HeaderProfileIcon image={saulProfile.profilePic} navigation={navigation}/>,
+                headerRight: () => <HeaderProfileIcon navigation={navigation}/>,
             })}
         >
             <HomeStack.Screen
@@ -164,11 +162,6 @@ function HomeStackScreen() {
                 component={screens.RestaurantList}
                 initialParams={{restaurantList: allRestaurants}}
             />
-            {/*  */}
-            {/*{mainGroup}*/}
-            {/*<HomeStack.Screen name="Login" component={screens.Login} />*/}
-            {/*<HomeStack.Screen name="Messages" component={screens.MessagesScreen} />*/}
-            {/*<HomeStack.Screen name="Explore" component={screens.Explore} />*/}
         </HomeStack.Navigator>
     );
 }
@@ -200,10 +193,6 @@ function MessagesStackScreen() {
                 name="MessagesScreen"
                 component={screens.MessagesScreen}
             />
-            {/*{mainGroup}*/}
-            {/*<MessagesStack.Screen name="Login" component={screens.Login} />*/}
-            {/*<MessagesStack.Screen name="Home" component={screens.Home} />*/}
-            {/*<MessagesStack.Screen name="Explore" component={screens.Explore} />*/}
         </MessagesStack.Navigator>
     );
 }
