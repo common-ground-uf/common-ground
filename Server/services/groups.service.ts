@@ -139,10 +139,10 @@ class GroupService {
         }
     }
 
-    public async getRecentConversation(groupIds: string[], options : {page : number, limit : number} , currentUserId : string) {
+    public async getLastMessage(groupId: string, options : {page : number, limit : number} , currentUserId : string) {
         try {
             return this.messages.aggregate([
-                { $match: { groupId: { $in: groupIds } } },
+                { $match: { groupId: groupId  } },
                 {
                     $group: {
                       _id: '$groupId',
