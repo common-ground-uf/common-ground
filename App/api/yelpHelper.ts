@@ -2,7 +2,7 @@ import geoMidpoint from './geographicMidpoint';
 import { getBusinessesByCoordinatesAndCategories, Business } from './yelpApi';
 import { Restaurant } from '../commonTypes';
 
-export async function generateOrderedRestaurantList(locations: Array<{latitude: number, longitude: number}>, categoryAliasLists: Array<Array<string>>, pricePreferences: Array<BigInteger>): Promise<Restaurant[]> {
+export async function generateOrderedRestaurantList(locations: Array<{latitude: number, longitude: number}>, categoryAliasLists: Array<Array<string>>, pricePreferences: Array<number>): Promise<Restaurant[]> {
     const midpoint = geoMidpoint(locations);
     
     // concatenate all preference lists into one list
