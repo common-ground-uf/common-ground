@@ -47,7 +47,7 @@ async function businessToRestaurant(business: Business): Promise<Restaurant> {
         reviews: [],
         description: business.categories.map(category => category.title).join(', '),
         distanceMiles: business.distance * 0.000621371,
-        photos: photos
+        gallery: photos
     };
 }
 
