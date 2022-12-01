@@ -7,6 +7,7 @@ export type Restaurant = {
   reviews: ReviewProps[];
   description: string;
   distanceMiles?: number;
+  gallery?: any[];
 };
 
 type Address = {
@@ -29,7 +30,7 @@ export type Contact = {
 export type GroupInfo = {
   id: string;
   name: string;
-  members?: Profile[];
+  users: Profile[];
   lastMessage: string;
   inviteCode: string;
 };

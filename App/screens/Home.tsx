@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from 'axios';
 import React from 'react';
-import {Text, View, StyleSheet, ScrollView, Button} from 'react-native';
-import {useIsFocused} from '@react-navigation/native';
-import {GroupBubble} from '../components/GroupBubble';
-import {Storage} from '../data/Storage';
-import {SERVER_URI} from '../Config';
-import {GroupInfo, Restaurant} from '../commonTypes';
+import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
+import { useIsFocused } from '@react-navigation/native';
+import { GroupBubble } from '../components/GroupBubble';
+import { Storage } from '../data/Storage';
+import { SERVER_URI } from '../Config';
+import { GroupInfo, Restaurant } from '../commonTypes';
 
 const styles = StyleSheet.create({
     welcome: {
@@ -144,49 +144,49 @@ function Home(props: HomeProps) {
     return (
         <ScrollView>
             {(firstName === '') ? <></> : <>
-                <Text style={styles.welcome}>Welcome back, {firstName}!</Text>
-                <View style={styles.startNewTableWrapper}>
-                    <Button
-                        title="Start a new table"
-                        color="#FF6D6E"
-                        onPress={onPressStartANewTable}
-                    />
-                    <Button
-                        title="Join a table"
-                        color="#FF6D6E"
-                        onPress={onPressJoinTable}
-                    />
-                </View>
-                {groups && groups.length > 0 ? (
-                        <>
-                            <View style={styles.sectionHeaderContainer}>
-                                <Text style={styles.sectionTitle}>Groups</Text>
-                                <Button
-                                    onPress={onPressSeeAllParties}
-                                    title="See all"
-                                    color="#ff6e6e"
+            <Text style={styles.welcome}>Welcome back, {firstName}!</Text>
+            <View style={styles.startNewTableWrapper}>
+                <Button
+                    title="Start a new table"
+                    color="#FF6D6E"
+                    onPress={onPressStartANewTable}
+                />
+                <Button
+                    title="Join a table"
+                    color="#FF6D6E"
+                    onPress={onPressJoinTable}
+                />
+            </View>
+            {groups && groups.length > 0 ? (
+                    <>
+                        <View style={styles.sectionHeaderContainer}>
+                            <Text style={styles.sectionTitle}>Groups</Text>
+                            <Button
+                                onPress={onPressSeeAllParties}
+                                title="See all"
+                                color="#ff6e6e"
+                            />
+                        </View>
+                        <ScrollView
+                            style={styles.row}
+                            horizontal={true}
+                            contentContainerStyle={{ alignItems: 'flex-start' }}
+                        >
+                            {groups && groups.map((group, index) => (
+                                <GroupBubble
+                                    members={group.members}
+                                    name={group.name}
+                                    onClick={onClickGroup}
+                                    style={styles.restaurantBubble}
+                                    key={index}
                                 />
-                            </View>
-                            <ScrollView
-                                style={styles.row}
-                                horizontal={true}
-                                contentContainerStyle={{alignItems: 'flex-start'}}
-                            >
-                                {groups && groups.map((group, index) => (
-                                    <GroupBubble
-                                        members={group.members ?? []}
-                                        name={group.name}
-                                        onClick={onClickGroup}
-                                        style={styles.restaurantBubble}
-                                        key={index}
-                                    />
-                                ))}
-                            </ScrollView>
-                        </>
-                    ) :
-                    <Text>No recent groups</Text>
-                }
-                {/* <View style={styles.sectionHeaderContainer}>
+                            ))}
+                        </ScrollView>
+                    </>
+                ):
+                <Text>No recent groups</Text>
+            }
+            {/* <View style={styles.sectionHeaderContainer}>
           <Text style={styles.sectionTitle}>Saved restaurants</Text>
           <Button
             onPress={onPressSeeAllSaved}
@@ -194,8 +194,8 @@ function Home(props: HomeProps) {
             color="#ff6e6e"
           />
         </View> */}
-                {/* <ScrollView style={styles.row} horizontal={true}>
-          {recentlyVisited.map((restaurant, index) => 
+            {/* <ScrollView style={styles.row} horizontal={true}>
+          {recentlyVisited.map((restaurant, index) =>
             <RestaurantBubble
               key={index}
               {...restaurant}
@@ -204,11 +204,10 @@ function Home(props: HomeProps) {
             />
           )}
         </ScrollView> */}
-                <View style={styles.verticalSpace}/>
-            </>
-            }
+            <View style={styles.verticalSpace} />
+            </>}
         </ScrollView>
     );
 }
 
-export {Home};
+export { Home };
