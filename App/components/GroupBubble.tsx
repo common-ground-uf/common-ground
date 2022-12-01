@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   },
 });
 
-type GroupBubblesProps = {
+type GroupBubbleProps = {
   members: Contact[]
   name: string
   onClick: () => void
@@ -63,7 +63,7 @@ type GroupBubblesProps = {
   style?: any
 }
 
-function GroupBubbles(props: GroupBubblesProps) {
+function GroupBubble(props: GroupBubbleProps) {
   if (props.members.length === 0) {
     return null;
   }
@@ -97,4 +97,4 @@ function GroupBubbles(props: GroupBubblesProps) {
   );
 }
 
-export { GroupBubbles };
+export { GroupBubble };

@@ -3,11 +3,10 @@ import axios from 'axios';
 import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Button } from 'react-native';
 import { useIsFocused } from '@react-navigation/native';
-import { GroupBubbles } from '../components/GroupBubbles';
+import { GroupBubble } from '../components/GroupBubble';
 import { Storage } from '../data/Storage';
 import { SERVER_URI } from '../Config';
-import { Group, Restaurant } from '../commonTypes';
-import { RestaurantBubble } from '../components/RestaurantBubble';
+import { GroupInfo, Restaurant } from '../commonTypes';
 
 const styles = StyleSheet.create({
   welcome: {
@@ -64,7 +63,7 @@ type HomeProps = {
 
 function Home(props: HomeProps) {
   const [firstName, setFirstName] = React.useState<string>('');
-  const [groups, setGroups] = React.useState<Group[]>([]);
+  const [groups, setGroups] = React.useState<GroupInfo[]>([]);
   const [location, setLocation] = React.useState<string>('');
   const [pastPicks, setPastPicks] = React.useState<Restaurant[]>([]);
 
@@ -85,7 +84,8 @@ function Home(props: HomeProps) {
     axios
       .get(`${SERVER_URI}/groups`)
       .then((response) => {
-        setGroups(response.data);
+        const keys = Object.keys(response.data.groups);
+        setGroups(keys.map(key => response.data.groups[key]));
       })
       .catch((error) => {
         console.log(error);
@@ -101,7 +101,7 @@ function Home(props: HomeProps) {
       },
     })
       .then((res) => {
-        setGroups(res.data);
+        setGroups(res.data.groups);
     })
       .catch((err) => {
       console.log(err);
@@ -115,15 +115,9 @@ function Home(props: HomeProps) {
     getParties();
   }, [isFocused]);
 
-  const restaurant = {
-    name: 'Los Pollos Hermanos',
-    thumbnail:
-      'https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/05/01/15/lospolloshermanos.jpg?width=1200',
-  };
-
-  const onClickRestaurant = () => {
-    props.navigation.navigate('Restaurant');
-  };
+  // const onClickRestaurant = () => {
+  //   props.navigation.navigate('Restaurant');
+  // };
 
   const onClickGroup = () => {
     props.navigation.navigate('Group Details');
@@ -132,7 +126,6 @@ function Home(props: HomeProps) {
   const onPressStartANewTable = () => {
     props.navigation.navigate('Start New Table');
   };
-
   
   const onPressJoinTable = () => {
     props.navigation.navigate('Join Group');
@@ -176,9 +169,9 @@ function Home(props: HomeProps) {
             horizontal={true}
             contentContainerStyle={{ alignItems: 'flex-start' }}
           >
-            {groups.map((group, index) => (
-              <GroupBubbles
-                members={group.members}
+            {groups && groups.map((group, index) => (
+              <GroupBubble
+                members={group.members ?? []}
                 name={group.name}
                 onClick={onClickGroup}
                 style={styles.restaurantBubble}
