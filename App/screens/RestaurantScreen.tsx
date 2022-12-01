@@ -82,9 +82,6 @@ type RestaurantScreenProps = {
 function RestaurantScreen(props: RestaurantScreenProps) {
   const restaurant = props.route.params.restaurant;
 
-  console.log('RESTAURANT');
-  console.log(restaurant);
-
   if (!restaurant) {
     return null;
   }
