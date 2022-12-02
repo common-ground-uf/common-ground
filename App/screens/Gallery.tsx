@@ -1,3 +1,5 @@
+// This file is no longer being used for the restaurants, but maybe it will be used for something else?
+
 import React from 'react';
 import {
   View,
@@ -8,7 +10,6 @@ import {
   Modal,
   TouchableOpacity,
 } from 'react-native';
-import { gallery } from '../data/dummyData';
 
 const styles = StyleSheet.create({
   gallery: {
@@ -48,7 +49,21 @@ const styles = StyleSheet.create({
   },
 });
 
-function Gallery() {
+type GalleryProps = {
+    navigation: {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      navigate: any
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    route: {
+      params: {
+        galleryPhotos: string[]
+      }
+    }
+    galleryPhotos: string[]
+  }
+
+function Gallery(props: GalleryProps) {
   const [modalVisible, setModalVisible] = React.useState(false);
   const [expandedImage, setExpandedImage] = React.useState('');
   const onPressThumbnail = (image:string) => {
@@ -64,7 +79,7 @@ function Gallery() {
     <>
       <ScrollView>
         <View style={styles.gallery}>
-          {gallery.map((image, index) => (
+          {props.route.params.galleryPhotos.map((image, index) => (
             <TouchableOpacity
               onPress={() => onPressThumbnail(image)}
               key={index}

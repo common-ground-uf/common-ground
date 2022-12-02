@@ -98,14 +98,8 @@ function RestaurantScreen(props: RestaurantScreenProps) {
   if (!restaurant) {
     return null;
   }
-
-  const onPressSeeAllGallery = () => {
-    props.navigation.navigate('Gallery');
-  };
   
   const distanceFormatted = restaurant.distanceMiles ? (Math.floor(restaurant.distanceMiles * 100) / 100) : undefined;
-
-  
 
   return (
     <ScrollView>
@@ -167,11 +161,6 @@ function RestaurantScreen(props: RestaurantScreenProps) {
           <View>
             <View style={styles.row}>
               <Text style={styles.sectionTitle}>Gallery</Text>
-              <Button
-                title="See all"
-                onPress={onPressSeeAllGallery}
-                color="#ff6e6e"
-              />
             </View>
             <ScrollView style={styles.gallery} horizontal={true}>
               {galleryPhotos.map((image: string, index: number) => (
