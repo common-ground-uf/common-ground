@@ -98,6 +98,7 @@ function MessagesListScreen(props: MessagesListScreenProps) {
                     name: res.data.groups[group].name,
                     lastMessage: res.data.groups[group].lastMessage,
                     inviteCode: res.data.groups[group].inviteCode,
+                    users: res.data.groups[group].users,
                 });
             }
 
@@ -110,6 +111,8 @@ function MessagesListScreen(props: MessagesListScreenProps) {
         });
     };
     updateGroups();
+
+    console.log(groups);
 
     return (
         <ScrollView>

@@ -1,7 +1,6 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {allRestaurants, losPollosHermanos} from './data/dummyRestaurants';
 import * as screens from './screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -94,7 +93,6 @@ function HomeStackScreen() {
             <HomeStack.Screen
                 name="Restaurant"
                 component={screens.RestaurantScreen}
-                initialParams={{restaurant: losPollosHermanos}}
             />
             <HomeStack.Screen
                 name="Group Details"
@@ -108,7 +106,6 @@ function HomeStackScreen() {
             <HomeStack.Screen
                 name="Restaurant List"
                 component={screens.RestaurantList}
-                initialParams={{restaurantList: allRestaurants}}
             />
         </HomeStack.Navigator>
     );
@@ -146,12 +143,10 @@ function ExploreStackScreen() {
             <ExploreStack.Screen
                 name="Restaurant"
                 component={screens.RestaurantScreen}
-                initialParams={{restaurant: losPollosHermanos}}
             />
             <ExploreStack.Screen
                 name="Restaurant List"
                 component={screens.RestaurantList}
-                initialParams={{restaurantList: allRestaurants}}
             />
         </ExploreStack.Navigator>
     );
