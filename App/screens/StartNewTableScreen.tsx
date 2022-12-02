@@ -8,8 +8,8 @@ import {
   TextInput,
   Text
 } from 'react-native';
+import { Profile } from '../commonTypes';
 import { ContactBubble } from '../components/ContactBubble';
-import { allUsers } from '../data/dummyUsers';
 import { SERVER_URI } from '../Config';
 
 const styles = StyleSheet.create({
@@ -45,9 +45,31 @@ type StartNewTableScreenProps = {
 }
 
 function StartNewTableScreen(props: StartNewTableScreenProps) {
-  const contactList = allUsers;
+  const userIds = ['a9c529deb69447b78cba5c5a0e7b33c9', 'a9c529deb69447b78cba5c5a0e7b33c9', 'a9c529deb69447b78cba5c5a0e7b33c9', 'a9c529deb69447b78cba5c5a0e7b33c9'];
+  const [contactList, setContactList] = React.useState<Profile[]>([]);
+
+  const getUsersByIds = async () => {
+    // eslint-disable-next-line prefer-const
+    let newUsers: Profile[] = [];
+    newUsers = await Promise.all(
+      userIds.map(async (id: string) => {
+        const res2 = await axios.get(`${SERVER_URI}/users/${id}`);
+        console.log('successully got a user by ID');
+        return res2.data.data;
+      })
+    );
+
+    console.log('newUsers');
+    console.log(newUsers);
+    setContactList(newUsers);
+  };
+
+  React.useEffect(() => {
+    getUsersByIds();
+  }, []);
+  
   const [selected, setSelected] = React.useState<boolean[]>(
-    Array(allUsers.length).fill(false)
+    Array(contactList.length).fill(false)
   );
   const [errorState, setErrorState] = React.useState<boolean>(false);
   const [groupName, setGroupName] = React.useState('');
@@ -91,6 +113,10 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
           members: selectedContacts,
         });
     };
+
+    if (contactList.length === 0) {
+      console.log('no recent contacts');
+    }
 
     return (
       <ScrollView style={styles.startNewTable}>
