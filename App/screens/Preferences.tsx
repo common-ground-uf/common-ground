@@ -48,8 +48,8 @@ function Preferences(props: PreferencesProps) {
       return;
     }
     const profileInfo = JSON.parse(profile);
-    let preferencesToAdd : string[] = [];
-    let preferencesToRemove : string[] = [];
+    const preferencesToAdd : string[] = [];
+    const preferencesToRemove : string[] = [];
     for(let i = 0; i < value.length; i++) {
       if(!oldValue.includes(value[i])) {
         preferencesToAdd.push(value[i]);
@@ -73,6 +73,17 @@ function Preferences(props: PreferencesProps) {
         }
       });
     }
+    Storage.get('profile').then((profile) => {
+      if (profile) {
+        const profileInfo = JSON.parse(profile);
+        profileInfo.pastPicks = value;
+        Storage.set('profile', JSON.stringify(profileInfo)).then(() => {
+          props.navigation.navigate('SettingsScreen');
+        });
+      }else{
+        props.navigation.navigate('Login');
+      }
+    });
     setOldValue(value);
   };
 
