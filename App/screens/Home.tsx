@@ -88,7 +88,8 @@ function Home(props: HomeProps) {
     userIds.map((id: string) => {
         axios.get(`${SERVER_URI}/users/${id}`)
             .then((res2) => {        
-                users.push(res2.data);
+                console.log('successully got a user by ID');
+                users.push(res2.data.data);
         }).catch((err2) => {
             console.log('could not get a user by ID');
             console.log(err2);
@@ -141,8 +142,9 @@ function Home(props: HomeProps) {
     //   props.navigation.navigate('Restaurant');
     // };
 
-    const onClickGroup = (users: Profile[]) => {
-        props.navigation.navigate('Group Details');
+    const onClickGroup = (users: Profile[], name: string, id: string) => {
+        console.log("IN HOME Users: " + users);
+        props.navigation.navigate('Group Details', { users, name, id });
     };
 
     const onPressStartANewTable = () => {
@@ -198,7 +200,7 @@ function Home(props: HomeProps) {
                                 <GroupBubble
                                     users={group.users}
                                     name={group.name}
-                                    onClick={onClickGroup}
+                                    onClick={() => onClickGroup(group.users, group.name, group.id)}
                                     style={styles.restaurantBubble}
                                     key={index}
                                 />

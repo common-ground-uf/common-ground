@@ -50,6 +50,8 @@ type RestaurantListProps = {
 function RestaurantList(props: RestaurantListProps) {
   const [searchText, setSearchText] = React.useState<string>('');
 
+  console.log("SUPPOSED RESTAURANT LIST" + JSON.stringify(props.route.params.restaurantList));
+
   const [restaurantList, setRestaurantList] = React.useState<Restaurant[]>(props.route.params.restaurantList);
 
   if (!restaurantList || restaurantList.length === 0) {

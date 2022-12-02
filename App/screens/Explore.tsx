@@ -60,7 +60,6 @@ type HomeProps = {
 }
 
 function Explore(props: HomeProps) {
-    console.log("EXPLORE PROPS");
 
     const [search, setSearch] = React.useState('');
     const onClickRestaurant = (restaurant: Restaurant) => {
@@ -72,10 +71,9 @@ function Explore(props: HomeProps) {
     const defaultExploreSections: any[] = [];
     const [exploreSections, setExploreSections] = React.useState(defaultExploreSections);
 
-    const getExploreSections = async () => {
-        console.log("GET EXPLORE SECTIONS");
-        setExploreSections(await generateExploreSections());
-    };
+  const getExploreSections = async () => {
+    setExploreSections(await generateExploreSections());
+  };
 
     const isFocused = useIsFocused();
 

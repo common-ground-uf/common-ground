@@ -1,0 +1,44 @@
+[
+    {
+        "recentContacts": [],
+        "_id": "4a22a9cb38cf4ee68ad2b464d46afd90",
+        "email": "admin@gmail.com",
+        "firstname": "Saul",
+        "lastname": "Goodman",
+        "role": "admin",
+        "__v": 0,
+        "profilePic": "https://i.kym-cdn.com/entries/icons/original/000/040/009/3dsaulcover.jpg",
+        "pastPicks": [
+            "acaibowls",
+            "andalusian",
+            "senegalese",
+            "arabpizza"
+        ]
+    },
+    {
+        "_id": "f03add7e70994b19a33a9d49a48c457b",
+        "email": "noah@thehirschfields.com",
+        "firstname": "Noah",
+        "lastname": "Hirschfield",
+        "pastPicks": [
+            "BBQ"
+        ],
+        "recentContacts": [],
+        "role": "user",
+        "__v": 0,
+        "profilePic": "https://media-exp1.licdn.com/dms/image/C4E03AQGQEoimRYkoEQ/profile-displayphoto-shrink_800_800/0/1578533292839?e=1675296000&v=beta&t=LkjIMr6a5XlEN0p-pPdXGPLfGMKpQitNDqkkSfLd7DU"
+    },
+    {
+        "_id": "58eaaa5e67684c28bbc42748b7c58467",
+        "email": "rango@me.com",
+        "firstname": "R",
+        "lastname": "C",
+        "pastPicks": [
+            "mexican"
+        ],
+        "recentContacts": [],
+        "role": "user",
+        "__v": 0,
+        "profilePic": "https://t3.ftcdn.net/jpg/03/42/99/68/360_F_342996846_tHMepJOsXWwbvMpG7uiYpE68wbfQ9e4s.jpg"
+    }
+]
