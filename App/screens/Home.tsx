@@ -142,7 +142,7 @@ function Home(props: HomeProps) {
     //   props.navigation.navigate('Restaurant');
     // };
 
-    const onClickGroup = () => {
+    const onClickGroup = (users: Profile[]) => {
         props.navigation.navigate('Group Details');
     };
 

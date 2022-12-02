@@ -11,7 +11,6 @@ import {
 import { Restaurant } from '../commonTypes';
 import { PriceRating } from '../components/PriceRating';
 import { Review } from '../components/Review';
-import { gallery as dummyGallery } from '../data/dummyData';
 import { getBusinessDetails } from '../api/yelpApi';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
@@ -83,7 +82,7 @@ type RestaurantScreenProps = {
 function RestaurantScreen(props: RestaurantScreenProps) {
   const restaurant = props.route.params.restaurant;
 
-  const [galleryPhotos, setGalleryPhotos] = React.useState<string[]>(dummyGallery);
+  const [galleryPhotos, setGalleryPhotos] = React.useState<string[]>([]);
 
   const getGalleryPhotos = async () => getBusinessDetails(restaurant.id).then((data) => {
     return data.photos;
