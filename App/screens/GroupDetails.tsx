@@ -8,12 +8,9 @@ import {
   Button,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Contact, Profile } from '../commonTypes';
+import { Contact } from '../commonTypes';
 import { ContactListItem } from '../components/ContactListItem';
 import { generateOrderedRestaurantList } from '../api/yelpHelper';
-import axios from 'axios';
-import { SERVER_URI } from '../Config';
-import {GroupInfo} from '../commonTypes';
 
 const styles = StyleSheet.create({
   groupDetails: {
@@ -49,11 +46,11 @@ type GroupDetailsProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   route: {
     params: {
-        users: any[],
-        id: string,
-        name: string,
-        inviteCode: string,
-    }
+      users: any[];
+      id: string;
+      name: string;
+      inviteCode: string;
+    };
   };
 };
 
@@ -63,7 +60,7 @@ function GroupDetails(props: GroupDetailsProps) {
   );
   const [editMode, setEditMode] = React.useState(false);
 
-  console.log("Members: " + JSON.stringify(members));
+  console.log('Members: ' + JSON.stringify(members));
 
   const onClickSettings = () => {
     setEditMode(!editMode);
@@ -78,52 +75,72 @@ function GroupDetails(props: GroupDetailsProps) {
   const inviteCode = props.route.params.inviteCode;
 
   const userIDs = members.map((member) => member._id);
-  console.log("User IDs: " + userIDs);
+  console.log('User IDs: ' + userIDs);
 
   const getGroupPreferences = async (groupId: string) => {
     // get preferences for each user in the group and consolidate into 1 string array
-    const preferences: string[] = (await Promise.all(members.map(async (member: any) => {
-        let prefs = member.pastPicks;
-        return prefs;
-    }))).reduce((acc: string[], curr: string[]) => {
-        return acc.concat(curr);
+    const preferences: string[] = (
+      await Promise.all(
+        members.map(async (member: any) => {
+          const prefs = member.pastPicks;
+          return prefs;
+        })
+      )
+    ).reduce((acc: string[], curr: string[]) => {
+      return acc.concat(curr);
     }, []);
-
 
     return preferences;
   };
 
   const onPressGenerateRecommendations = async () => {
-    console.log("Generating recommendations...");
+    console.log('Generating recommendations...');
     // use axios to get group preferences for this group
-    let groupId = props.route.params.id;
-    let categoryAliasList: string[] = await getGroupPreferences(groupId);
-    console.log("categoryAliasList: " + categoryAliasList);
+    const groupId = props.route.params.id;
+    const categoryAliasList: string[] = await getGroupPreferences(groupId);
+    console.log('categoryAliasList: ' + categoryAliasList);
 
     // extract the category aliases that contain dollar signs
-    let dollarSigns = categoryAliasList.filter((categoryAlias) => categoryAlias.includes("$"));
-    
+    let dollarSigns = categoryAliasList.filter((categoryAlias) =>
+      categoryAlias.includes('$')
+    );
+
     // remove duplicates from dollarSigns
-    dollarSigns = dollarSigns.filter((dollarSign, index) => dollarSigns.indexOf(dollarSign) === index);
+    dollarSigns = dollarSigns.filter(
+      (dollarSign, index) => dollarSigns.indexOf(dollarSign) === index
+    );
 
     // convert dollar signs to integers based on number of dollar signs
-    let dollarSignInts: number[] = dollarSigns.map((dollarSign) => dollarSign.length);
+    const dollarSignInts: number[] = dollarSigns.map(
+      (dollarSign) => dollarSign.length
+    );
 
     // remove the dollar signs from the category aliases
-    let dollarSignlessCategoryAliasList = categoryAliasList.filter((categoryAlias) => !categoryAlias.includes("$"));
+    const dollarSignlessCategoryAliasList = categoryAliasList.filter(
+      (categoryAlias) => !categoryAlias.includes('$')
+    );
 
     // let { latitude, longitude } = await GetLocation.getCurrentPosition({enableHighAccuracy: false, timeout: 15000});
-    let {latitude, longitude} = {latitude: 29.648292, longitude: -82.345171};
+    const { latitude, longitude } = {
+      latitude: 29.648292,
+      longitude: -82.345171,
+    };
 
-    let restaurantList = await generateOrderedRestaurantList([{ latitude, longitude }], [dollarSignlessCategoryAliasList], dollarSignInts);
+    const restaurantList = await generateOrderedRestaurantList(
+      [{ latitude, longitude }],
+      [dollarSignlessCategoryAliasList],
+      dollarSignInts
+    );
 
     //pick 1 restaurant from the list
-    let restaurant = [restaurantList[Math.floor(Math.random() * restaurantList.length)]];
+    const restaurant = [
+      restaurantList[Math.floor(Math.random() * restaurantList.length)],
+    ];
 
-    console.log("restaurantList: " + JSON.stringify(restaurantList));
+    console.log('restaurantList: ' + JSON.stringify(restaurantList));
 
     props.navigation.navigate('Restaurant List', {
-        restaurantList: restaurant,
+      restaurantList: restaurant,
     });
   };
 
@@ -133,7 +150,7 @@ function GroupDetails(props: GroupDetailsProps) {
         <Text style={styles.groupName}>{groupName}</Text>
         <Text style={styles.groupName}>{inviteCode}</Text>
         <TouchableOpacity onPress={onClickSettings}>
-          <Icon name='gear' size={32} style={styles.settings}/>
+          <Icon name="gear" size={32} style={styles.settings} />
         </TouchableOpacity>
       </View>
       {!members || members.length === 0 ? (
@@ -152,7 +169,10 @@ function GroupDetails(props: GroupDetailsProps) {
           )}
         />
       )}
-      <Button title='Generate recommendations' onPress={onPressGenerateRecommendations} />
+      <Button
+        title="Generate recommendations"
+        onPress={onPressGenerateRecommendations}
+      />
     </View>
   );
 }

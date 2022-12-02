@@ -14,8 +14,42 @@ export const transformer = {
   }),
 };
 export const resolver = {
-  sourceExts: ['.native', '.ios.ts', '.native.ts', '.ts', '.ios.tsx', '.native.tsx', '.tsx', '.ios.js', '.native.js', '.js', '.ios.jsx', '.native.jsx', '.jsx', '.ios.json', '.native.json', '.json']
+  sourceExts: [
+    '.native',
+    '.ios.ts',
+    '.native.ts',
+    '.ts',
+    '.ios.tsx',
+    '.native.tsx',
+    '.tsx',
+    '.ios.js',
+    '.native.js',
+    '.js',
+    '.ios.jsx',
+    '.native.jsx',
+    '.jsx',
+    '.ios.json',
+    '.native.json',
+    '.json',
+  ],
 };
 export const watchman = {
-  additionalExts: ['.native', '.ios.ts', '.native.ts', '.ts', '.ios.tsx', '.native.tsx', '.tsx', '.ios.js', '.native.js', '.js', '.ios.jsx', '.native.jsx', '.jsx', '.ios.json', '.native.json', '.json']
+  additionalExts: [
+    '.native',
+    '.ios.ts',
+    '.native.ts',
+    '.ts',
+    '.ios.tsx',
+    '.native.tsx',
+    '.tsx',
+    '.ios.js',
+    '.native.js',
+    '.js',
+    '.ios.jsx',
+    '.native.jsx',
+    '.jsx',
+    '.ios.json',
+    '.native.json',
+    '.json',
+  ],
 };

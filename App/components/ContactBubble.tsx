@@ -20,14 +20,14 @@ const styles = StyleSheet.create({
 });
 
 type ContactBubbleProps = {
-  profilePic: string
-  firstName: string
-  lastName: string
-  onPress?: () => void
-  selected?: boolean
+  profilePic: string;
+  firstName: string;
+  lastName: string;
+  onPress?: () => void;
+  selected?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  style?: any
-}
+  style?: any;
+};
 
 function ContactBubble(props: ContactBubbleProps) {
   return (

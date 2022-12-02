@@ -7,5 +7,8 @@ module.exports = {
   },
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(ts|tsx)?$',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect', './jest.setup.js'],
+  setupFilesAfterEnv: [
+    '@testing-library/jest-native/extend-expect',
+    './jest.setup.js',
+  ],
 };

@@ -57,9 +57,7 @@ function Notifications() {
       </View>
       {!notificationsEnabled ? (
         <View style={{ marginTop: 20 }}>
-          <Text style={styles.header}>
-            Only allow select notifications:
-          </Text>
+          <Text style={styles.header}>Only allow select notifications:</Text>
           <View style={styles.row}>
             <Text style={styles.text}>Recommendations for you</Text>
             <Switch

@@ -50,23 +50,23 @@ const styles = StyleSheet.create({
 });
 
 type GalleryProps = {
-    navigation: {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      navigate: any
-    }
+  navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    route: {
-      params: {
-        galleryPhotos: string[]
-      }
-    }
-    galleryPhotos: string[]
-  }
+    navigate: any;
+  };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  route: {
+    params: {
+      galleryPhotos: string[];
+    };
+  };
+  galleryPhotos: string[];
+};
 
 function Gallery(props: GalleryProps) {
   const [modalVisible, setModalVisible] = React.useState(false);
   const [expandedImage, setExpandedImage] = React.useState('');
-  const onPressThumbnail = (image:string) => {
+  const onPressThumbnail = (image: string) => {
     setModalVisible(true);
     setExpandedImage(image);
   };

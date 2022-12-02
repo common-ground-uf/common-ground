@@ -52,13 +52,16 @@ type RestaurantCardProps = {
 export function RestaurantCard(props: RestaurantCardProps) {
   const onPress = () => {
     props.navigation.navigate('Restaurant', {
-      restaurant: props.restaurant
+      restaurant: props.restaurant,
     });
   };
   return (
     <>
       <TouchableOpacity style={styles.card} onPress={onPress}>
-        <Image source={{ uri: props.restaurant.thumbnail }} style={styles.thumbnail} />
+        <Image
+          source={{ uri: props.restaurant.thumbnail }}
+          style={styles.thumbnail}
+        />
         <View style={styles.horizontalSpace} />
         <View style={styles.cardRight}>
           <Text style={styles.topRow}>

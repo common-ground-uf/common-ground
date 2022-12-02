@@ -68,25 +68,26 @@ const styles = StyleSheet.create({
 type RestaurantScreenProps = {
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    navigate: any
-  }
+    navigate: any;
+  };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   route: {
     params: {
-      restaurant: Restaurant
-    }
-  }
-  restaurant: Restaurant
-}
+      restaurant: Restaurant;
+    };
+  };
+  restaurant: Restaurant;
+};
 
 function RestaurantScreen(props: RestaurantScreenProps) {
   const restaurant = props.route.params.restaurant;
 
   const [galleryPhotos, setGalleryPhotos] = React.useState<string[]>([]);
 
-  const getGalleryPhotos = async () => getBusinessDetails(restaurant.id).then((data) => {
-    return data.photos;
-  });
+  const getGalleryPhotos = async () =>
+    getBusinessDetails(restaurant.id).then((data) => {
+      return data.photos;
+    });
 
   React.useEffect(() => {
     getGalleryPhotos().then((photos) => {
@@ -97,8 +98,10 @@ function RestaurantScreen(props: RestaurantScreenProps) {
   if (!restaurant) {
     return null;
   }
-  
-  const distanceFormatted = restaurant.distanceMiles ? (Math.floor(restaurant.distanceMiles * 100) / 100) : undefined;
+
+  const distanceFormatted = restaurant.distanceMiles
+    ? Math.floor(restaurant.distanceMiles * 100) / 100
+    : undefined;
 
   return (
     <ScrollView>
@@ -123,12 +126,16 @@ function RestaurantScreen(props: RestaurantScreenProps) {
             />
             <Text style={{ fontSize: 8 }}>Directions</Text>
           </TouchableOpacity>
-          {restaurant.address &&
+          {restaurant.address && (
             <View>
-              {restaurant.address.line1 && <Text style={styles.marginTop}>{restaurant.address.line1}</Text>}
-              {restaurant.address.line2 && <Text>{restaurant.address.line2}</Text>}
+              {restaurant.address.line1 && (
+                <Text style={styles.marginTop}>{restaurant.address.line1}</Text>
+              )}
+              {restaurant.address.line2 && (
+                <Text>{restaurant.address.line2}</Text>
+              )}
             </View>
-          }
+          )}
           {restaurant.distanceMiles && (
             <Text>{distanceFormatted} miles away</Text>
           )}
@@ -136,7 +143,7 @@ function RestaurantScreen(props: RestaurantScreenProps) {
         <Text style={styles.marginTop}>{restaurant.description}</Text>
         <View style={styles.row}>
           <Text style={styles.sectionTitle}>Reviews</Text>
-          {restaurant.reviews && restaurant.reviews.length > 0 && 
+          {restaurant.reviews && restaurant.reviews.length > 0 && (
             <Button
               title="See all"
               onPress={() => {
@@ -144,7 +151,7 @@ function RestaurantScreen(props: RestaurantScreenProps) {
               }}
               color="#ff6e6e"
             />
-          }
+          )}
         </View>
         <Text style={{ display: 'flex' }}>
           <Text style={styles.averageReviewRating}>
@@ -153,10 +160,11 @@ function RestaurantScreen(props: RestaurantScreenProps) {
           </Text>
           <Text style={styles.averageReview}> average review on Yelp</Text>
         </Text>
-        {restaurant.reviews && restaurant.reviews.map((review, index) => (
-          <Review key={index} {...review} />
-        ))}
-        {galleryPhotos && galleryPhotos.length > 0 && 
+        {restaurant.reviews &&
+          restaurant.reviews.map((review, index) => (
+            <Review key={index} {...review} />
+          ))}
+        {galleryPhotos && galleryPhotos.length > 0 && (
           <View>
             <View style={styles.row}>
               <Text style={styles.sectionTitle}>Gallery</Text>
@@ -171,8 +179,7 @@ function RestaurantScreen(props: RestaurantScreenProps) {
               ))}
             </ScrollView>
           </View>
-        }
-
+        )}
       </View>
     </ScrollView>
   );

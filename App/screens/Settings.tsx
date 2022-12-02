@@ -66,7 +66,6 @@ function Settings(props: SettingsProps) {
           console.log('logout successful');
           Storage.delete('profile');
           props.navigation.navigate('Login');
-          
         }
       })
       .catch((error) => {

@@ -8,21 +8,13 @@ describe('ProfileScreen', () => {
   };
 
   it('Renders Explore screen correctly', () => {
-    const result = render(
-      <Explore
-        navigation={dummyNavigation}
-      />
-    );
+    const result = render(<Explore navigation={dummyNavigation} />);
 
     expect(result.toJSON()).toMatchSnapshot();
   });
 
   it('Renders someone else\'s profile correctly', () => {
-    const result = render(
-      <Explore
-        navigation={dummyNavigation}
-      />
-    );
+    const result = render(<Explore navigation={dummyNavigation} />);
 
     expect(result.toJSON()).toMatchSnapshot();
   });

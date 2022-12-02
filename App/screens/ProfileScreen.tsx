@@ -12,7 +12,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Contact, Profile } from '../commonTypes';
 import { Chip } from '../components/Chip';
 import { ContactBubble } from '../components/ContactBubble';
-import { RestaurantBubble } from '../components/RestaurantBubble';
 import { mapContactToProfile } from '../utils';
 import { useIsFocused } from '@react-navigation/native';
 import { Storage } from '../data/Storage';
@@ -66,9 +65,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
   },
-  bubble: {
-    marginRight: 10,
-  },
   verticalSpace: {
     height: 20,
   },
@@ -80,62 +76,56 @@ const styles = StyleSheet.create({
 type ProfilePageProps = {
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    navigate: any
-  }
-  profileData: Profile
+    navigate: any;
+  };
+  profileData: Profile;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   route: {
     params: {
-      profileData: any
-    }
-  }
-}
+      profileData: any;
+    };
+  };
+};
 
 function ProfileScreen(props: ProfilePageProps) {
+  console.log('ProfileScreen props: ', props.route.params);
 
-    console.log("ProfileScreen props: ", props.route.params);
+  // this is true if the user is looking at their own profile
+  let isMyProfile = false;
+  const profileDataProps = props.route.params.profileData;
 
-    // this is true if the user is looking at their own profile
-    let isMyProfile = false;
-    const profileDataProps = props.route.params.profileData;
+  // profileData usestate
+  const [profileData, setProfile] = React.useState<Profile>(profileDataProps);
 
-    // profileData usestate
-    const [profileData, setProfile] = React.useState<Profile>(profileDataProps);
+  const getProfileInfo = async () => {
+    //Get profile info from async storage
+    const profile = await Storage.get('profile');
+    if (profile) {
+      const profileInfo = JSON.parse(profile);
+      isMyProfile = props.route.params.profileData._id === profileInfo._id;
+      if (isMyProfile) {
+        setProfile(profileInfo);
+      } else {
+        setProfile(profileDataProps);
+      }
+    } else {
+      props.navigation.navigate('Login');
+    }
+  };
 
-    const getProfileInfo = async () => {
-        //Get profile info from async storage
-        const profile = await Storage.get('profile');
-        let profileId;
-        if (profile) {
-            const profileInfo = JSON.parse(profile);
-            isMyProfile = props.route.params.profileData._id === profileInfo._id;
-            if(isMyProfile) {
-              setProfile(profileInfo);
-            }else{
-              setProfile(profileDataProps);
-            }
-        } else {
-            props.navigation.navigate('Login');
-        }
-    };
+  const isFocused = useIsFocused();
 
-    let isFocused = useIsFocused();
+  // useEffect for profile
+  React.useEffect(() => {
+    console.log('Running useEffect for ProfileScreen');
+    getProfileInfo();
+  }, [isFocused]);
 
-    // useEffect for profile
-    React.useEffect(() => {
-        console.log("Running useEffect for ProfileScreen");
-        getProfileInfo();
-    }, [isFocused]);
-
-    const onPressRestaurant = () => {
-        props.navigation.navigate('Restaurant');
-    };
-
-    const onPressContact = (contact: Contact) => {
-        props.navigation.navigate('Profile', {
-            profileData: mapContactToProfile(contact),
-        });
-    };
+  const onPressContact = (contact: Contact) => {
+    props.navigation.navigate('Profile', {
+      profileData: mapContactToProfile(contact),
+    });
+  };
 
   const onPressSettings = () => {
     props.navigation.navigate('Settings');
@@ -143,10 +133,6 @@ function ProfileScreen(props: ProfilePageProps) {
 
   const onPressEditPreferences = () => {
     props.navigation.navigate('Preferences');
-  };
-
-  const onPressSeeAllPicks = () => {
-    props.navigation.navigate('Restaurant List');
   };
 
   const onPressSeeAllContacts = () => {
@@ -161,7 +147,7 @@ function ProfileScreen(props: ProfilePageProps) {
       {isMyProfile && (
         <View style={styles.center}>
           <TouchableOpacity onPress={onPressSettings}>
-          <Icon name='gear' size={32} style={styles.settings}/>
+            <Icon name="gear" size={32} style={styles.settings} />
           </TouchableOpacity>
         </View>
       )}
@@ -185,9 +171,10 @@ function ProfileScreen(props: ProfilePageProps) {
         )}
       </View>
       <View style={styles.chipContainer}>
-        {profileData.pastPicks && profileData.pastPicks.map((preference, index) => (
-          <Chip text={preference} key={index} />
-        ))}
+        {profileData.pastPicks &&
+          profileData.pastPicks.map((preference, index) => (
+            <Chip text={preference} key={index} />
+          ))}
       </View>
       {/* <View style={styles.row}>
         <Text style={styles.sectionTitle}>Past picks</Text>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Contact } from '../commonTypes';
-import { mapContactToProfile } from '../utils';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const styles = StyleSheet.create({
@@ -45,10 +44,16 @@ export const ContactListItem = (props: ContactListItemProps) => {
     });
   };
 
-  if((!props.memberData.firstName || props.memberData.firstName === '') && props.memberData.firstname) {
+  if (
+    (!props.memberData.firstName || props.memberData.firstName === '') &&
+    props.memberData.firstname
+  ) {
     props.memberData.firstName = props.memberData.firstname;
   }
-  if((!props.memberData.lastName || props.memberData.lastName === '') && props.memberData.lastname) {
+  if (
+    (!props.memberData.lastName || props.memberData.lastName === '') &&
+    props.memberData.lastname
+  ) {
     props.memberData.lastName = props.memberData.lastname;
   }
   return (

@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
 });
 
 type ChipProps = {
-  text: string
-}
+  text: string;
+};
 
 function Chip(props: ChipProps) {
   return (

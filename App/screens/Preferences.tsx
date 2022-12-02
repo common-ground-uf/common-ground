@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     width: '100%',
     marginTop: 15,
-  }
+  },
 });
 
 type PreferencesProps = {
@@ -30,26 +30,30 @@ function Preferences(props: PreferencesProps) {
   const parents = new Set();
   const values = new Set();
 
-  yelpCategories.forEach((category)=>{
+  yelpCategories.forEach((category) => {
     const value = category.alias;
     values.add(value);
     const parent = category.parents[0];
     parents.add(parent);
   });
 
-  const nonValueParents = new Set([...parents].filter(element => !values.has(element)));
+  const nonValueParents = new Set(
+    [...parents].filter((element) => !values.has(element))
+  );
 
   // const parentsItems = nonValueParents.map((value: string)=>{
   //   return {label: value.charAt(0).toUpperCase() + value.slice(1), value: value};
   // });
 
-  const yelpItems = yelpCategories.map((category)=> {
+  const yelpItems = yelpCategories.map((category) => {
     const label = category.title;
     const value = category.alias;
     const parent = category.parents[0];
 
     // We don't want preferences that have a parent that isnt a value... causes issues with dropdownpicker
-    return nonValueParents.has(parent) ? {label: label, value: value} : {label: label, value: value, parent: parent};
+    return nonValueParents.has(parent)
+      ? { label: label, value: value }
+      : { label: label, value: value, parent: parent };
   });
 
   const [items, setItems] = React.useState(yelpItems);
@@ -63,36 +67,35 @@ function Preferences(props: PreferencesProps) {
   // console.log(yelpItems);
 
   const onPressSave = async () => {
-
     const profile = await Storage.get('profile');
     if (!profile) {
       props.navigation.navigate('Login');
       return;
     }
     const profileInfo = JSON.parse(profile);
-    const preferencesToAdd : string[] = [];
-    const preferencesToRemove : string[] = [];
-    for(let i = 0; i < value.length; i++) {
-      if(!oldValue.includes(value[i])) {
+    const preferencesToAdd: string[] = [];
+    const preferencesToRemove: string[] = [];
+    for (let i = 0; i < value.length; i++) {
+      if (!oldValue.includes(value[i])) {
         preferencesToAdd.push(value[i]);
       }
     }
-    for(let i = 0; i < oldValue.length; i++) {
-      if(!value.includes(oldValue[i])) {
+    for (let i = 0; i < oldValue.length; i++) {
+      if (!value.includes(oldValue[i])) {
         preferencesToRemove.push(oldValue[i]);
       }
     }
 
-    if(preferencesToAdd.length > 0) {
+    if (preferencesToAdd.length > 0) {
       axios.post(`${SERVER_URI}/users/${profileInfo.id}/prefs`, {
         preferences: preferencesToAdd,
       });
     }
-    if(preferencesToRemove.length > 0) {
+    if (preferencesToRemove.length > 0) {
       axios.delete(`${SERVER_URI}/users/${profileInfo.id}/prefs`, {
         data: {
-          preferences: preferencesToRemove
-        }
+          preferences: preferencesToRemove,
+        },
       });
     }
     Storage.get('profile').then((profile) => {
@@ -102,7 +105,7 @@ function Preferences(props: PreferencesProps) {
         Storage.set('profile', JSON.stringify(profileInfo)).then(() => {
           props.navigation.navigate('Explore');
         });
-      }else{
+      } else {
         props.navigation.navigate('Login');
       }
     });
@@ -118,12 +121,15 @@ function Preferences(props: PreferencesProps) {
     }
     const profileInfo = JSON.parse(profile);
 
-    axios.get(`${SERVER_URI}/users/${profileInfo.id}/prefs`).then((response) => {
-      setValue(response.data.prefs);
-      setOldValue(response.data.prefs);
-    }).catch((error) => {
-      console.log(error);
-    });
+    axios
+      .get(`${SERVER_URI}/users/${profileInfo.id}/prefs`)
+      .then((response) => {
+        setValue(response.data.prefs);
+        setOldValue(response.data.prefs);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   React.useEffect(() => {
@@ -132,7 +138,8 @@ function Preferences(props: PreferencesProps) {
 
   return (
     <View style={loginSignupStyles.container}>
-      <DropDownPicker searchable={true}
+      <DropDownPicker
+        searchable={true}
         open={open}
         value={value}
         items={items}
@@ -153,7 +160,7 @@ function Preferences(props: PreferencesProps) {
         ]}
       />
       <View style={styles.next}>
-        <Button title='Save' onPress={onPressSave}/>
+        <Button title="Save" onPress={onPressSave} />
       </View>
     </View>
   );

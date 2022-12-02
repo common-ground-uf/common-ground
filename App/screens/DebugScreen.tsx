@@ -18,9 +18,9 @@ const styles = StyleSheet.create({
 type DebugScreenProps = {
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    navigate: any
-  }
-}
+    navigate: any;
+  };
+};
 
 function DebugScreen(props: DebugScreenProps) {
   const onClick = (screen: string) => {

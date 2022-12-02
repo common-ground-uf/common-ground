@@ -12,7 +12,16 @@ type SignupProps = {
   };
 };
 
-const SignupRequest = (firstName: string, lastName: string, email: string, password: string, navigation: any) => {
+const SignupRequest = (
+  firstName: string,
+  lastName: string,
+  email: string,
+  password: string,
+  navigation: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    navigate: any
+  }
+) => {
   axios
     .post(`${SERVER_URI}/users`, {
       firstname: firstName,
@@ -31,7 +40,8 @@ const SignupRequest = (firstName: string, lastName: string, email: string, passw
         // The request was made and the server responded with a status code
         // that falls out of the range of 2xx
         console.log('signup errored');
-        if (error.response.data.message === 'signup failed') console.log('signup unsuccessful');
+        if (error.response.data.message === 'signup failed')
+          console.log('signup unsuccessful');
         else {
           console.log(error.response.data);
           console.log(error.response.status);
@@ -71,12 +81,18 @@ function Signup(props: SignupProps) {
     } else {
       setErrorState(false);
       console.log('sign up');
-      SignupRequest(firstName, lastName, email.toLowerCase(), password, props.navigation);
+      SignupRequest(
+        firstName,
+        lastName,
+        email.toLowerCase(),
+        password,
+        props.navigation
+      );
     }
   };
 
   // https://stackoverflow.com/questions/46155/how-can-i-validate-an-email-address-in-javascript
-  const validateEmail = (email:string) => {
+  const validateEmail = (email: string) => {
     return String(email)
       .toLowerCase()
       .match(
@@ -119,7 +135,7 @@ function Signup(props: SignupProps) {
         placeholder="Password"
         autoComplete="password"
         secureTextEntry={true}
-        textContentType='newPassword'
+        textContentType="newPassword"
       />
       <TextInput
         style={styles.input}
@@ -127,7 +143,7 @@ function Signup(props: SignupProps) {
         value={passwordConfirmation}
         placeholder="Confirm password"
         secureTextEntry={true}
-        textContentType='newPassword'
+        textContentType="newPassword"
       />
       {errorState && <Text style={styles.errorMessage}>{errorMessage}</Text>}
       <Text onPress={onPressHaveAccount} style={styles.link}>

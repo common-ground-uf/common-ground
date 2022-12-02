@@ -41,7 +41,7 @@ function Login(props: LoginProps) {
         if (response.data.message === 'login success') {
           console.log('login successful');
           // User Data object to be processed locally and saved as current login data (cleared after logout)
-          const userData : Profile = {
+          const userData: Profile = {
             email: response.data.userData.email,
             firstName: response.data.userData.firstname,
             lastName: response.data.userData.lastname,
@@ -94,7 +94,7 @@ function Login(props: LoginProps) {
         value={email}
         placeholder="Email"
         autoComplete="email"
-        textContentType='emailAddress'
+        textContentType="emailAddress"
       />
       <TextInput
         style={styles.input}
@@ -103,7 +103,7 @@ function Login(props: LoginProps) {
         placeholder="Password"
         autoComplete="password"
         secureTextEntry={true}
-        textContentType='password'
+        textContentType="password"
       />
       {errorState && (
         <Text style={styles.errorMessage}>

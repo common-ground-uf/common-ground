@@ -8,7 +8,6 @@ jest.mock(
   () => 'MockedFontAwesomeIconsicons'
 );
 
-
 describe('ProfileScreen', () => {
   const dummyNavigation = {
     navigate: '',

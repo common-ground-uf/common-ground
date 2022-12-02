@@ -31,11 +31,10 @@ type GroupListProps = {
   route: {
     params: {
       groups: GroupInfo[];
-    }
+    };
   };
   groups: GroupInfo[];
 };
-
 
 export const GroupList = (props: GroupListProps) => {
   const groups = props.route.params.groups;

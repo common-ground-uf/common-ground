@@ -56,12 +56,12 @@ const styles = StyleSheet.create({
 });
 
 type GroupBubbleProps = {
-  users: Contact[]
-  name?: string
-  onClick: () => void
+  users: Contact[];
+  name?: string;
+  onClick: () => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  style?: any
-}
+  style?: any;
+};
 
 function GroupBubble(props: GroupBubbleProps) {
   if (!props.users || props.users.length === 0) {

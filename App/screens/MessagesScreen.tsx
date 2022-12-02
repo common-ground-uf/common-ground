@@ -13,7 +13,7 @@ import {
   Route,
   ScrollView,
   Pressable,
-  Dimensions
+  Dimensions,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
@@ -22,7 +22,7 @@ import { SERVER_URI } from '../Config';
 
 const styles = StyleSheet.create({
   messagesContainer: {
-    height: Dimensions.get('window').height - 298
+    height: Dimensions.get('window').height - 298,
   },
   selfMessageContainer: {
     flexDirection: 'row-reverse',
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     boxSizing: 'border-box',
   },
   sendButton: {
-    justifyContent:'center',
+    justifyContent: 'center',
     alignContent: 'center',
     display: 'flex',
     height: '100%',
@@ -154,35 +154,86 @@ function MessagesScreen(props: Route) {
   //TODO: Change this to properly use auth to get self (not working for some reason)
 
   const [self, setSelf] = React.useState('Saul Goodman');
- 
-  async function getSelf(){
+
+  async function getSelf() {
     const profile = await Storage.get('profile');
     if (profile) {
       const profileInfo = JSON.parse(profile);
       setSelf(profileInfo.firstName + ' ' + profileInfo.lastName);
     }
   }
-  
+
   React.useEffect(() => {
     getSelf();
   }, []);
 
-  axios.get(`${SERVER_URI}/auth`)
-      .then(response => {
-        if(response.data.message === 'auth success') {
-          console.log('login successful');
-          // User Data object to be processed locally and saved as current login data (cleared after logout)
-          setSelf(response.data.userData.firstname + ' ' + response.data.userData.lastname);
-          console.log(response.data.userData.firstname + ' ' + response.data.userData.lastname);
-          // TODO: Need to get location from user data
+  axios
+    .get(`${SERVER_URI}/auth`)
+    .then((response) => {
+      if (response.data.message === 'auth success') {
+        console.log('login successful');
+        // User Data object to be processed locally and saved as current login data (cleared after logout)
+        setSelf(
+          response.data.userData.firstname +
+            ' ' +
+            response.data.userData.lastname
+        );
+        console.log(
+          response.data.userData.firstname +
+            ' ' +
+            response.data.userData.lastname
+        );
+        // TODO: Need to get location from user data
+      }
+    })
+    .catch((error) => {
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        if (error.response.data.message === 'not logged in')
+          console.log('Not logged in!');
+        else {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      } else if (error.request) {
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+        // http.ClientRequest in node.js
+        console.log(error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log('Error', error.message);
+      }
+      return;
+    });
+
+  const [messages, setMessages] = React.useState([]);
+
+  const [messageInput, setMessageInput] = React.useState('');
+  const groupId = props.route.params.groupId;
+  const groupName = props.route.params.groupName;
+  const inviteCode = props.route.params.inviteCode;
+
+  const onPressSend = () => {
+    console.log('pressed send: ' + messageInput);
+    axios
+      .post(`${SERVER_URI}/groups/${groupId}/message`, {
+        messageText: messageInput,
+      })
+      .then((response) => {
+        if (response.data.success === true) {
+          console.log('messsage sent to server!');
+          setMessageInput('');
         }
       })
-      .catch((error)=> {
+      .catch((error) => {
         if (error.response) {
           // The request was made and the server responded with a status code
           // that falls out of the range of 2xx
-          if(error.response.data.message === 'not logged in')
-            console.log('Not logged in!');
+          if (error.response.data.message === 'login failed')
+            console.log('login unsuccessful');
           else {
             console.log(error.response.data);
             console.log(error.response.status);
@@ -199,85 +250,49 @@ function MessagesScreen(props: Route) {
         }
         return;
       });
-
-
-  const [messages, setMessages] = React.useState([]);
-
-  const [messageInput, setMessageInput] = React.useState('');
-  const groupId = props.route.params.groupId;
-  const groupName = props.route.params.groupName;
-  const inviteCode = props.route.params.inviteCode;
-
-  const onPressSend = () => {
-    console.log('pressed send: '+messageInput);
-    axios
-        .post(`${SERVER_URI}/groups/${groupId}/message`, {messageText: messageInput})
-        .then((response) => {
-          if (response.data.success === true) {
-            console.log('messsage sent to server!');
-            setMessageInput('');
-          }
-        })
-        .catch((error) => {
-          if (error.response) {
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-            if (error.response.data.message === 'login failed')
-              console.log('login unsuccessful');
-            else {
-              console.log(error.response.data);
-              console.log(error.response.status);
-              console.log(error.response.headers);
-            }
-          } else if (error.request) {
-            // The request was made but no response was received
-            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-            // http.ClientRequest in node.js
-            console.log(error.request);
-          } else {
-            // Something happened in setting up the request that triggered an Error
-            console.log('Error', error.message);
-          }
-          return;
-        });
-      updateMessages();
+    updateMessages();
   };
 
   const updateMessages = () => {
     console.log('getting messages');
     axios
-        .post(`${SERVER_URI}/groups/${groupId}`)
-        .then((response) => {
-          if (response.data.success === true) {
-            // User Data object to be processed locally and saved as current login data (cleared after logout)
-            setMessages(response.data.conversation.map( (conv: any) => {
+      .post(`${SERVER_URI}/groups/${groupId}`)
+      .then((response) => {
+        if (response.data.success === true) {
+          // User Data object to be processed locally and saved as current login data (cleared after logout)
+          setMessages(
+            response.data.conversation.map((conv: any) => {
               const res = {} as any;
               res['content'] = conv['message']['messageText'];
               // res['userId'] = conv['postedByUser']['_id'];
-              res['author'] = conv['postedByUser']['firstname'] + ' ' + conv['postedByUser']['lastname'];
+              res['author'] =
+                conv['postedByUser']['firstname'] +
+                ' ' +
+                conv['postedByUser']['lastname'];
               res['profilePic'] = conv['postedByUser']['profilePic'];
               return res;
-            } ));
-          }
-        })
-        .catch((error) => {
-          if (error.response) {
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          } else if (error.request) {
-            // The request was made but no response was received
-            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-            // http.ClientRequest in node.js
-            console.log(error.request);
-          } else {
-            // Something happened in setting up the request that triggered an Error
-            console.log('Error', error.message);
-          }
-          props.navigation.navigate('Login');
-        });
+            })
+          );
+        }
+      })
+      .catch((error) => {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+          // http.ClientRequest in node.js
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log('Error', error.message);
+        }
+        props.navigation.navigate('Login');
+      });
   };
 
   //get initial messages on screen load
@@ -299,10 +314,12 @@ function MessagesScreen(props: Route) {
           <View style={styles.messagesContainer}>
             <ScrollView
               ref={scrollViewRef}
-              onContentSizeChange={() => scrollViewRef.current?.scrollToEnd({ animated: true })}
+              onContentSizeChange={() =>
+                scrollViewRef.current?.scrollToEnd({ animated: true })
+              }
             >
               {messages.map((message, index) => (
-                <Pressable>
+                <Pressable key={index}>
                   <Message
                     key={index}
                     {...message}
@@ -324,7 +341,12 @@ function MessagesScreen(props: Route) {
             </View>
             <View style={styles.btnContainer}>
               <TouchableOpacity style={styles.sendButton}>
-                <Icon name="send" size={24} onPress={onPressSend} style={styles.sendIcon}/>
+                <Icon
+                  name="send"
+                  size={24}
+                  onPress={onPressSend}
+                  style={styles.sendIcon}
+                />
               </TouchableOpacity>
             </View>
           </View>

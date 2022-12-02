@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Button,
   TextInput,
-  Text
+  Text,
 } from 'react-native';
 import { Profile } from '../commonTypes';
 import { ContactBubble } from '../components/ContactBubble';
@@ -40,12 +40,17 @@ const styles = StyleSheet.create({
 type StartNewTableScreenProps = {
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    navigate: any
-  }
-}
+    navigate: any;
+  };
+};
 
 function StartNewTableScreen(props: StartNewTableScreenProps) {
-  const userIds = ['a9c529deb69447b78cba5c5a0e7b33c9', 'a9c529deb69447b78cba5c5a0e7b33c9', 'a9c529deb69447b78cba5c5a0e7b33c9', 'a9c529deb69447b78cba5c5a0e7b33c9'];
+  const userIds = [
+    'a9c529deb69447b78cba5c5a0e7b33c9',
+    'a9c529deb69447b78cba5c5a0e7b33c9',
+    'a9c529deb69447b78cba5c5a0e7b33c9',
+    'a9c529deb69447b78cba5c5a0e7b33c9',
+  ];
   const [contactList, setContactList] = React.useState<Profile[]>([]);
 
   const getUsersByIds = async () => {
@@ -64,7 +69,7 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
   React.useEffect(() => {
     getUsersByIds();
   }, []);
-  
+
   const [selected, setSelected] = React.useState<boolean[]>(
     Array(contactList.length).fill(false)
   );
@@ -81,63 +86,66 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
     setSelected(newSelected);
   };
 
-    const onPressCreate = () => {
-        if (groupName === '') {
-          setErrorState(true);
-          return;
-        }
-        setErrorState(false);
-        const selectedContacts = [];
-        for (let i = 0; i < selected.length; i++) {
-          if (selected[i]) {
-            selectedContacts.push(contactList[i].id);
-          }
-        }
-        
-        axios.post(`${SERVER_URI}/groups`, {
-          userIds: selectedContacts,
-          name: groupName,
-        }).then((response) => {
-          console.log('Group created');
-          console.log(response.data);
-        }).catch((error) => {
-          console.log(error);
-          console.log(error.response.data);
-        });
-        
-        props.navigation.navigate('Group Details', {
-          name: groupName,
-          members: selectedContacts,
-        });
-    };
-
-    if (contactList.length === 0) {
-      console.log('no recent contacts');
+  const onPressCreate = () => {
+    if (groupName === '') {
+      setErrorState(true);
+      return;
+    }
+    setErrorState(false);
+    const selectedContacts = [];
+    for (let i = 0; i < selected.length; i++) {
+      if (selected[i]) {
+        selectedContacts.push(contactList[i].id);
+      }
     }
 
-    return (
-      <ScrollView style={styles.startNewTable}>
-        <TextInput
-          value={groupName}
-          onChangeText={setGroupName}
-          placeholder='Group name'
-          style={styles.input}
-        />
-        {errorState && <Text>A group name is required</Text>}
-        <View style={styles.row}>
-          {contactList.map((contact, index) => (
-            <ContactBubble
-              key={index}
-              {...contact}
-              onPress={() => onPressContact(index)}
-              selected={selected[index]}
-              style={styles.contactBubble}
-            />
-          ))}
-        </View>
-        <Button title='Create' onPress={onPressCreate}/>
-      </ScrollView>
-    );
+    axios
+      .post(`${SERVER_URI}/groups`, {
+        userIds: selectedContacts,
+        name: groupName,
+      })
+      .then((response) => {
+        console.log('Group created');
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log(error.response.data);
+      });
+
+    props.navigation.navigate('Group Details', {
+      name: groupName,
+      members: selectedContacts,
+    });
+  };
+
+  if (contactList.length === 0) {
+    console.log('no recent contacts');
+  }
+
+  return (
+    <ScrollView style={styles.startNewTable}>
+      <TextInput
+        value={groupName}
+        onChangeText={setGroupName}
+        placeholder="Group name"
+        style={styles.input}
+      />
+      {errorState && <Text>A group name is required</Text>}
+      <View style={styles.row}>
+        {contactList.map((contact, index) => (
+          <ContactBubble
+            key={index}
+            {...contact}
+            onPress={() => onPressContact(index)}
+            selected={selected[index]}
+            style={styles.contactBubble}
+          />
+        ))}
+      </View>
+      <Button title="Create" onPress={onPressCreate} />
+    </ScrollView>
+  );
 }
 
 export { StartNewTableScreen };

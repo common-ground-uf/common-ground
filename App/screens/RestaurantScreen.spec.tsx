@@ -4,8 +4,8 @@ import { losPollosHermanos } from '../data/dummyRestaurants';
 import { RestaurantScreen } from './RestaurantScreen';
 
 jest.mock(
-    'react-native-vector-icons/FontAwesome5',
-    () => 'MockedMaterialCommunityIconsicons'
+  'react-native-vector-icons/FontAwesome5',
+  () => 'MockedMaterialCommunityIconsicons'
 );
 
 jest.mock(

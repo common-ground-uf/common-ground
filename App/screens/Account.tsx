@@ -5,11 +5,11 @@ import axios from 'axios';
 import { SERVER_URI } from '../Config';
 
 type AccountProps = {
-    navigation: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        navigate: any;
-    };
-}
+  navigation: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    navigate: any;
+  };
+};
 
 function Account(props: AccountProps) {
   const [firstName, setFirstName] = React.useState<string>('');

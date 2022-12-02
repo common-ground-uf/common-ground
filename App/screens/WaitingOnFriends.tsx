@@ -1,5 +1,12 @@
 import React from 'react';
-import { ScrollView, Text, Image, View, StyleSheet, Button } from 'react-native';
+import {
+  ScrollView,
+  Text,
+  Image,
+  View,
+  StyleSheet,
+  Button,
+} from 'react-native';
 import { Contact } from '../commonTypes';
 import { parties } from '../data/dummyUsers';
 
@@ -30,9 +37,9 @@ const styles = StyleSheet.create({
 });
 
 type ContactListItemProps = {
-  memberData: Contact
-  loading: boolean
-}
+  memberData: Contact;
+  loading: boolean;
+};
 
 const ContactListItem = (props: ContactListItemProps) => {
   return (
@@ -69,8 +76,8 @@ const WaitingOnFriends = (props: WaitingOnFriendsProps) => {
   console.log('timeLeft:', timeLeft);
 
   React.useEffect(() => {
-    if(timeLeft === 0){
-        setLoading(loading + 1);
+    if (timeLeft === 0) {
+      setLoading(loading + 1);
     }
 
     // exit early when we reach 0
@@ -97,10 +104,14 @@ const WaitingOnFriends = (props: WaitingOnFriendsProps) => {
       <Text style={styles.sectionTitle}>{group.name}</Text>
       <View>
         {group.members.map((member, index) => (
-          <ContactListItem key={index} memberData={member} loading={index < timeLeft} />
+          <ContactListItem
+            key={index}
+            memberData={member}
+            loading={index < timeLeft}
+          />
         ))}
       </View>
-      <Button title='Next' onPress={onPressNext} color='#FF6D6E'/>
+      <Button title="Next" onPress={onPressNext} color="#FF6D6E" />
     </ScrollView>
   );
 };
