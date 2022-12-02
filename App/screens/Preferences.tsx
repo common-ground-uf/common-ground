@@ -5,6 +5,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import axios from 'axios';
 import { SERVER_URI } from '../Config';
 import { Storage } from '../data/Storage';
+import yelpCategories from '../api/yelpCategories';
 
 export const styles = StyleSheet.create({
   next: {
@@ -25,20 +26,41 @@ function Preferences(props: PreferencesProps) {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState([]);
   const [oldValue, setOldValue] = React.useState([]);
-  const [items, setItems] = React.useState([
-    { label: 'American', value: 'american' },
-    { label: 'Mexican', value: 'mexican' },
-    { label: 'Sushi', value: 'sushi' },
-    { label: 'BBQ', value: 'BBQ' },
-    { label: 'KBBQ', value: 'kbbq', parent: 'BBQ' },
-    { label: 'AYCE', value: 'ayce' },
-    { label: 'Halal', value: 'halal' },
-    { label: '$', value: '$' },
-    { label: '$-$$', value: '$-$$' },
-    { label: '$$', value: '$$' },
-    { label: '$$-$$$', value: '$$-$$$' },
-    { label: '$$$', value: '$$$' },
-  ]);
+
+  const parents = new Set();
+  const values = new Set();
+
+  yelpCategories.forEach((category)=>{
+    const value = category.alias;
+    values.add(value);
+    const parent = category.parents[0];
+    parents.add(parent);
+  });
+
+  const nonValueParents = new Set([...parents].filter(element => !values.has(element)));
+
+  // const parentsItems = nonValueParents.map((value: string)=>{
+  //   return {label: value.charAt(0).toUpperCase() + value.slice(1), value: value};
+  // });
+
+  const yelpItems = yelpCategories.map((category)=> {
+    const label = category.title;
+    const value = category.alias;
+    const parent = category.parents[0];
+
+    // We don't want preferences that have a parent that isnt a value... causes issues with dropdownpicker
+    return nonValueParents.has(parent) ? {label: label, value: value} : {label: label, value: value, parent: parent};
+  });
+
+  const [items, setItems] = React.useState(yelpItems);
+  // const [items, setItems] = React.useState([
+  //   {label: 'Restaurants', value: 'restaurants'},
+  //   {label: 'Italian', value: 'italian', parent: 'restaurants'},
+  //
+  //   {label: 'Abruzzese', value: 'abruzzese', parent: 'italian'},
+  // ]);
+  // console.log(items);
+  // console.log(yelpItems);
 
   const onPressSave = async () => {
 
@@ -110,7 +132,7 @@ function Preferences(props: PreferencesProps) {
 
   return (
     <View style={loginSignupStyles.container}>
-      <DropDownPicker
+      <DropDownPicker searchable={true}
         open={open}
         value={value}
         items={items}
