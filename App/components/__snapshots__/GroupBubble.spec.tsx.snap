@@ -1,0 +1,548 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroupBubbles Renders a GroupBubble with 1 person 1`] = `
+<View
+  style={
+    [
+      {
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "backgroundColor": "#ddd",
+        "borderRadius": 50,
+        "height": 100,
+        "marginBottom": 10,
+        "opacity": 1,
+        "padding": 20,
+        "position": "relative",
+        "width": 100,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "borderRadius": 22.5,
+            "bottom": 5,
+            "height": 45,
+            "right": 5,
+            "width": 45,
+          },
+          {
+            "alignContent": "center",
+            "alignItems": "center",
+            "backgroundColor": "#999",
+            "display": "flex",
+            "justifyContent": "center",
+          },
+          {
+            "borderColor": "#ddd",
+            "borderStyle": "solid",
+            "borderWidth": 3,
+            "position": "absolute",
+          },
+        ]
+      }
+    >
+      <Text>
+        +
+        3
+      </Text>
+    </View>
+    <Image
+      source={
+        {
+          "uri": "https://external-preview.redd.it/Af65FrXSGlwOobPUnC3MNOI1D3xCCERFWoVFfhzpgio.png?format=pjpg&auto=webp&s=ed7b1feb0f8356ba51ea70f5b26b81c1868bc005",
+        }
+      }
+      style={
+        [
+          {
+            "borderRadius": 27.5,
+            "height": 55,
+            "right": 5,
+            "top": 5,
+            "width": 55,
+          },
+          {
+            "borderColor": "#ddd",
+            "borderStyle": "solid",
+            "borderWidth": 3,
+            "position": "absolute",
+          },
+        ]
+      }
+    />
+    <Image
+      source={
+        {
+          "uri": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS7_zsiM5wfE2uac1B7Xk-jdVGpCKzrQqEwOaK9ak60O1iI4Don3BcWR_sOsumMQetlSw&usqp=CAU",
+        }
+      }
+      style={
+        [
+          {
+            "borderRadius": 30,
+            "height": 65,
+            "top": 10,
+            "width": 65,
+          },
+          {
+            "borderColor": "#ddd",
+            "borderStyle": "solid",
+            "borderWidth": 3,
+            "position": "absolute",
+          },
+        ]
+      }
+    />
+  </View>
+  <Text
+    style={
+      {
+        "marginLeft": "auto",
+        "marginRight": "auto",
+        "width": 100,
+      }
+    }
+  >
+    1 member gang
+  </Text>
+</View>
+`;
+
+exports[`GroupBubbles Renders a GroupBubble with 2 people 1`] = `
+<View
+  style={
+    [
+      {
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "backgroundColor": "#ddd",
+        "borderRadius": 50,
+        "height": 100,
+        "marginBottom": 10,
+        "opacity": 1,
+        "padding": 20,
+        "position": "relative",
+        "width": 100,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "borderRadius": 22.5,
+            "bottom": 5,
+            "height": 45,
+            "right": 5,
+            "width": 45,
+          },
+          {
+            "alignContent": "center",
+            "alignItems": "center",
+            "backgroundColor": "#999",
+            "display": "flex",
+            "justifyContent": "center",
+          },
+          {
+            "borderColor": "#ddd",
+            "borderStyle": "solid",
+            "borderWidth": 3,
+            "position": "absolute",
+          },
+        ]
+      }
+    >
+      <Text>
+        +
+        2
+      </Text>
+    </View>
+    <Image
+      source={
+        {
+          "uri": "https://compote.slate.com/images/fb69a16d-7f35-4103-98c1-62d466196b9a.jpg?width=1200",
+        }
+      }
+      style={
+        [
+          {
+            "borderRadius": 27.5,
+            "height": 55,
+            "right": 5,
+            "top": 5,
+            "width": 55,
+          },
+          {
+            "borderColor": "#ddd",
+            "borderStyle": "solid",
+            "borderWidth": 3,
+            "position": "absolute",
+          },
+        ]
+      }
+    />
+    <Image
+      source={
+        {
+          "uri": "https://external-preview.redd.it/Af65FrXSGlwOobPUnC3MNOI1D3xCCERFWoVFfhzpgio.png?format=pjpg&auto=webp&s=ed7b1feb0f8356ba51ea70f5b26b81c1868bc005",
+        }
+      }
+      style={
+        [
+          {
+            "borderRadius": 30,
+            "height": 65,
+            "top": 10,
+            "width": 65,
+          },
+          {
+            "borderColor": "#ddd",
+            "borderStyle": "solid",
+            "borderWidth": 3,
+            "position": "absolute",
+          },
+        ]
+      }
+    />
+  </View>
+  <Text
+    style={
+      {
+        "marginLeft": "auto",
+        "marginRight": "auto",
+        "width": 100,
+      }
+    }
+  >
+    2 member gang
+  </Text>
+</View>
+`;
+
+exports[`GroupBubbles Renders a GroupBubble with 3 people 1`] = `
+<View
+  style={
+    [
+      {
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "backgroundColor": "#ddd",
+        "borderRadius": 50,
+        "height": 100,
+        "marginBottom": 10,
+        "opacity": 1,
+        "padding": 20,
+        "position": "relative",
+        "width": 100,
+      }
+    }
+  >
+    <Image
+      source={
+        {
+          "uri": "https://static.wikia.nocookie.net/breakingbad/images/4/40/Season_2_-_Skyler.jpg/revision/latest?cb=20090617160516",
+        }
+      }
+      style={
+        [
+          {
+            "borderRadius": 22.5,
+            "bottom": 5,
+            "height": 45,
+            "right": 5,
+            "width": 45,
+          },
+          {
+            "borderColor": "#ddd",
+            "borderStyle": "solid",
+            "borderWidth": 3,
+            "position": "absolute",
+          },
+        ]
+      }
+    />
+    <Image
+      source={
+        {
+          "uri": "https://static.wikia.nocookie.net/villains/images/3/38/740full-stan-edgar.jpg/revision/latest/scale-to-width-down/250?cb=20190925225050",
+        }
+      }
+      style={
+        [
+          {
+            "borderRadius": 27.5,
+            "height": 55,
+            "right": 5,
+            "top": 5,
+            "width": 55,
+          },
+          {
+            "borderColor": "#ddd",
+            "borderStyle": "solid",
+            "borderWidth": 3,
+            "position": "absolute",
+          },
+        ]
+      }
+    />
+    <Image
+      source={
+        {
+          "uri": "https://compote.slate.com/images/fb69a16d-7f35-4103-98c1-62d466196b9a.jpg?width=1200",
+        }
+      }
+      style={
+        [
+          {
+            "borderRadius": 30,
+            "height": 65,
+            "top": 10,
+            "width": 65,
+          },
+          {
+            "borderColor": "#ddd",
+            "borderStyle": "solid",
+            "borderWidth": 3,
+            "position": "absolute",
+          },
+        ]
+      }
+    />
+  </View>
+  <Text
+    style={
+      {
+        "marginLeft": "auto",
+        "marginRight": "auto",
+        "width": 100,
+      }
+    }
+  >
+    3 member gang
+  </Text>
+</View>
+`;
+
+exports[`GroupBubbles Renders a GroupBubble with 4 people 1`] = `
+<View
+  style={
+    [
+      {
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "backgroundColor": "#ddd",
+        "borderRadius": 50,
+        "height": 100,
+        "marginBottom": 10,
+        "opacity": 1,
+        "padding": 20,
+        "position": "relative",
+        "width": 100,
+      }
+    }
+  >
+    <Image
+      source={
+        {
+          "uri": "https://static.wikia.nocookie.net/breakingbad/images/4/40/Season_2_-_Skyler.jpg/revision/latest?cb=20090617160516",
+        }
+      }
+      style={
+        [
+          {
+            "borderRadius": 27.5,
+            "height": 55,
+            "right": 5,
+            "top": 5,
+            "width": 55,
+          },
+          {
+            "borderColor": "#ddd",
+            "borderStyle": "solid",
+            "borderWidth": 3,
+            "position": "absolute",
+          },
+        ]
+      }
+    />
+    <Image
+      source={
+        {
+          "uri": "https://static.wikia.nocookie.net/villains/images/3/38/740full-stan-edgar.jpg/revision/latest/scale-to-width-down/250?cb=20190925225050",
+        }
+      }
+      style={
+        [
+          {
+            "borderRadius": 30,
+            "height": 65,
+            "top": 10,
+            "width": 65,
+          },
+          {
+            "borderColor": "#ddd",
+            "borderStyle": "solid",
+            "borderWidth": 3,
+            "position": "absolute",
+          },
+        ]
+      }
+    />
+  </View>
+  <Text
+    style={
+      {
+        "marginLeft": "auto",
+        "marginRight": "auto",
+        "width": 100,
+      }
+    }
+  >
+    4 member gang
+  </Text>
+</View>
+`;
+
+exports[`GroupBubbles Renders a GroupBubble with 5 people 1`] = `
+<View
+  style={
+    [
+      {
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "backgroundColor": "#ddd",
+        "borderRadius": 50,
+        "height": 100,
+        "marginBottom": 10,
+        "opacity": 1,
+        "padding": 20,
+        "position": "relative",
+        "width": 100,
+      }
+    }
+  >
+    <Image
+      source={
+        {
+          "uri": "https://static.wikia.nocookie.net/breakingbad/images/4/40/Season_2_-_Skyler.jpg/revision/latest?cb=20090617160516",
+        }
+      }
+      style={
+        [
+          {
+            "borderRadius": 30,
+            "height": 65,
+            "top": 10,
+            "width": 65,
+          },
+          {
+            "borderColor": "#ddd",
+            "borderStyle": "solid",
+            "borderWidth": 3,
+            "position": "absolute",
+          },
+        ]
+      }
+    />
+  </View>
+  <Text
+    style={
+      {
+        "marginLeft": "auto",
+        "marginRight": "auto",
+        "width": 100,
+      }
+    }
+  >
+    5 member gang
+  </Text>
+</View>
+`;
