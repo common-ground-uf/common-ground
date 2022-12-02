@@ -284,7 +284,7 @@ function MessagesScreen(props: Route) {
   React.useEffect(() => {
     updateMessages();
   }, []);
-
+  const scrollViewRef = React.useRef<ScrollView>(null);
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -297,7 +297,10 @@ function MessagesScreen(props: Route) {
             <Text style={styles.inviteCode}>{inviteCode.toUpperCase()}</Text>
           </View>
           <View style={styles.messagesContainer}>
-            <ScrollView>
+            <ScrollView
+              ref={scrollViewRef}
+              onContentSizeChange={() => scrollViewRef.current?.scrollToEnd({ animated: true })}
+            >
               {messages.map((message, index) => (
                 <Pressable>
                   <Message
