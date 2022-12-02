@@ -60,9 +60,6 @@ type HomeProps = {
 }
 
 function Explore(props: HomeProps) {
-    console.log("EXPLORE PROPS");
-
-    const [search, setSearch] = React.useState('');
     const onClickRestaurant = (restaurant: Restaurant) => {
         props.navigation.navigate('Restaurant', {
             restaurant
@@ -73,7 +70,7 @@ function Explore(props: HomeProps) {
     const [exploreSections, setExploreSections] = React.useState(defaultExploreSections);
 
     const getExploreSections = async () => {
-        console.log("GET EXPLORE SECTIONS");
+        console.log('Explore section refresh!');
         setExploreSections(await generateExploreSections());
     };
 
@@ -81,18 +78,18 @@ function Explore(props: HomeProps) {
 
     React.useEffect(() => {
         getExploreSections();
-    }, [search, isFocused]);
+    }, [isFocused]);
 
     return (
         <ScrollView style={styles.scrollView}>
-            <View>
-                <TextInput
-                    value={search}
-                    onChangeText={setSearch}
-                    placeholder="search"
-                    style={styles.input}
-                />
-            </View>
+            {/*<View>*/}
+            {/*    <TextInput*/}
+            {/*        value={search}*/}
+            {/*        onChangeText={setSearch}*/}
+            {/*        placeholder="search"*/}
+            {/*        style={styles.input}*/}
+            {/*    />*/}
+            {/*</View>*/}
             {exploreSections.map((section: any, index1: number) => (
                 <View key={index1}>
                     <View style={[styles.row, styles.headerRow]}>
