@@ -106,7 +106,7 @@ function RestaurantList(props: RestaurantListProps) {
       {restaurantList.map((restaurant, index) => (
         <RestaurantCard
           key={index}
-          {...restaurant}
+          restaurant={restaurant}
           navigation={props.navigation}
         />
       ))}
