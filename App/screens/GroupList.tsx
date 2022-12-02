@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Text, ScrollView } from 'react-native';
 import { GroupBubble } from '../components/GroupBubble';
-import { parties } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
   root: {

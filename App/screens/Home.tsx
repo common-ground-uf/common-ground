@@ -6,7 +6,7 @@ import { useIsFocused } from '@react-navigation/native';
 import { GroupBubble } from '../components/GroupBubble';
 import { Storage } from '../data/Storage';
 import { SERVER_URI } from '../Config';
-import { GroupInfo, Restaurant } from '../commonTypes';
+import { Profile, GroupInfo, Restaurant } from '../commonTypes';
 
 const styles = StyleSheet.create({
     welcome: {
@@ -82,28 +82,55 @@ function Home(props: HomeProps) {
     }
   };
 
-  const getParties = async () => {
-    axios
-      .get(`${SERVER_URI}/groups`, {
-      params: {
-        name: true,
-      },
-    })
-      .then((res) => {
-        const keys = Object.keys(res.data.groups);
-        setGroups(keys.map(key => res.data.groups[key]));
-    })
-      .catch((err) => {
-      console.log(err);
-      props.navigation.navigate('Login');
-    });
+  const updateGroups = async () => {
+      console.log('getting groups');
+      axios.get(`${SERVER_URI}/groups`, {
+          params: {
+              name: true,
+              lastMessage: true,
+              users: true
+          },
+      }).then((res) => {
+          // console.log(res.data.groups);
+
+          const newGroups: GroupInfo[] = [];
+          for (const group in res.data.groups) {
+            const userIds = res.data.groups[group].users;
+            // const users: Profile[] = [];
+            //   
+            // userIds.map((id: string) => {
+            //     axios.get(`${SERVER_URI}/user/${id}`)
+            //         .then((res2) => {        
+            //             users.push(res2.data);
+            //     }).catch((err2) => {
+            //         console.log('could not get user by id');
+            //         console.log(err2);
+            //     });
+            // });
+            // console.log(users);
+
+            newGroups.push({
+                id: group,
+                name: res.data.groups[group].name,
+                lastMessage: res.data.groups[group].lastMessage,
+                inviteCode: res.data.groups[group].inviteCode,
+                users: userIds,
+            });
+          }
+
+          if (JSON.stringify(newGroups) != JSON.stringify(groups))
+              setGroups(newGroups);
+      }).catch((err) => {
+          console.log(err);
+          props.navigation.navigate('Login');
+      });
   };
 
     const isFocused = useIsFocused();
 
     React.useEffect(() => {
         getProfileInfo();
-        getParties();
+        updateGroups();
     }, [isFocused]);
 
     // const onClickRestaurant = () => {
