@@ -115,10 +115,13 @@ function GroupDetails(props: GroupDetailsProps) {
 
     let restaurantList = await generateOrderedRestaurantList([{ latitude, longitude }], [dollarSignlessCategoryAliasList], dollarSignInts);
 
+    //pick 1 restaurant from the list
+    let restaurant = [restaurantList[Math.floor(Math.random() * restaurantList.length)]];
+
     console.log("restaurantList: " + JSON.stringify(restaurantList));
 
     props.navigation.navigate('Restaurant List', {
-        restaurantList: restaurantList,
+        restaurantList: restaurant,
     });
   };
 
