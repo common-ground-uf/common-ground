@@ -41,10 +41,6 @@ function Preferences(props: PreferencesProps) {
     [...parents].filter((element) => !values.has(element))
   );
 
-  // const parentsItems = nonValueParents.map((value: string)=>{
-  //   return {label: value.charAt(0).toUpperCase() + value.slice(1), value: value};
-  // });
-
   const yelpItems = yelpCategories.map((category) => {
     const label = category.title;
     const value = category.alias;
