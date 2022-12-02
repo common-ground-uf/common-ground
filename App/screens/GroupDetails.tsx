@@ -47,14 +47,22 @@ type GroupDetailsProps = {
     navigate: any;
   };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  route: any;
+  route: {
+    params: {
+        users: any[],
+        id: string,
+        name: string,
+    }
+  };
 };
 
 function GroupDetails(props: GroupDetailsProps) {
-  const [members, setMembers] = React.useState<Array<Profile>>(
+  const [members, setMembers] = React.useState<Array<any>>(
     props.route.params.users
   );
   const [editMode, setEditMode] = React.useState(false);
+
+  console.log("Members: " + JSON.stringify(members));
 
   const onClickSettings = () => {
     setEditMode(!editMode);
@@ -67,19 +75,18 @@ function GroupDetails(props: GroupDetailsProps) {
 
   const groupName = props.route.params.name;
 
-  const userIDs = members.map((member) => member.id);
+  const userIDs = members.map((member) => member._id);
+  console.log("User IDs: " + userIDs);
 
   const getGroupPreferences = async (groupId: string) => {
-    console.log("Getting group preferences...");
     // get preferences for each user in the group and consolidate into 1 string array
-    const preferences: string[] = (await Promise.all(userIDs.map(async (id: string) => {
-        console.log("Before prefs");
-        let prefs = (await axios.get(`${SERVER_URI}/users/${id}`)).data.pastPicks;
-        console.log("prefs " + JSON.stringify(prefs));
+    const preferences: string[] = (await Promise.all(members.map(async (member: any) => {
+        let prefs = member.pastPicks;
         return prefs;
     }))).reduce((acc: string[], curr: string[]) => {
         return acc.concat(curr);
     }, []);
+
 
     return preferences;
   };
@@ -106,8 +113,12 @@ function GroupDetails(props: GroupDetailsProps) {
     // let { latitude, longitude } = await GetLocation.getCurrentPosition({enableHighAccuracy: false, timeout: 15000});
     let {latitude, longitude} = {latitude: 29.648292, longitude: -82.345171};
 
+    let restaurantList = await generateOrderedRestaurantList([{ latitude, longitude }], [dollarSignlessCategoryAliasList], dollarSignInts);
+
+    console.log("restaurantList: " + JSON.stringify(restaurantList));
+
     props.navigation.navigate('Restaurant List', {
-        restaurantList: generateOrderedRestaurantList([{ latitude, longitude }], [dollarSignlessCategoryAliasList], dollarSignInts),
+        restaurantList: restaurantList,
     });
   };
 

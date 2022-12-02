@@ -17,17 +17,15 @@ export async function generateOrderedRestaurantList(locations: Array<{latitude: 
     const orderedPreferenceString: string = orderedPreferenceList.join(',');
     
     // Concatenate price preferences into a comma separated string
-    const pricePreferencesString = pricePreferences.join(',');
+    let pricePreferencesString = pricePreferences.join(',');
+    pricePreferencesString = pricePreferencesString.length > 0 ? pricePreferencesString : '1,2,3,4';
 
     // get businesses from Yelp API
     const businesses: Business[] = await getBusinessesByCoordinatesAndCategories(midpoint.latitude, midpoint.longitude, orderedPreferenceString, pricePreferencesString, limit);
 
-    console.log("Before");
-
     // convert businesses to Restaurant objects
     const restaurants: Restaurant[] = businesses.map((business) => businessToRestaurant(business));
 
-    console.log("Restaurants: " + JSON.stringify(restaurants));
     return restaurants;
 }
 

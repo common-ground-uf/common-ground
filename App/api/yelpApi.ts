@@ -109,7 +109,6 @@ const yelp = axios.create({
 export async function getBusinessesByLocation(
     location: string
 ): Promise<Business[]> {
-    console.log('API KEY: ' + JSON.stringify(YELP_API_KEY));
 
     return (
         (
@@ -160,9 +159,9 @@ export async function getBusinessesByCoordinatesAndCategories(
                     term: 'food',
                     latitude: latitude,
                     longitude: longitude,
-                    categories: categories,
+                    categories: categories.toLowerCase(),
                     limit: limit,
-                    price: pricePreferences
+                    price: pricePreferences || '1,2,3,4'
                 },
             })
         ).data as BusinessSearchResponse
