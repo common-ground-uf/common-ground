@@ -52,6 +52,7 @@ type GroupDetailsProps = {
         users: any[],
         id: string,
         name: string,
+        inviteCode: string,
     }
   };
 };
@@ -74,6 +75,7 @@ function GroupDetails(props: GroupDetailsProps) {
   };
 
   const groupName = props.route.params.name;
+  const inviteCode = props.route.params.inviteCode;
 
   const userIDs = members.map((member) => member._id);
   console.log("User IDs: " + userIDs);
@@ -129,6 +131,7 @@ function GroupDetails(props: GroupDetailsProps) {
     <View style={styles.groupDetails}>
       <View style={styles.topRow}>
         <Text style={styles.groupName}>{groupName}</Text>
+        <Text style={styles.groupName}>{inviteCode}</Text>
         <TouchableOpacity onPress={onClickSettings}>
           <Icon name='gear' size={32} style={styles.settings}/>
         </TouchableOpacity>

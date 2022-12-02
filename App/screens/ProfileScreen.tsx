@@ -86,16 +86,17 @@ type ProfilePageProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   route: {
     params: {
-      profileData: Profile
+      profileData: any
     }
   }
 }
 
 function ProfileScreen(props: ProfilePageProps) {
-    let selfId;
+
+    console.log("ProfileScreen props: ", props.route.params);
 
     // this is true if the user is looking at their own profile
-    const isMyProfile = props.route.params.profileData.id === selfId;
+    let isMyProfile = false;
     const profileDataProps = props.route.params.profileData;
 
     // profileData usestate
@@ -107,7 +108,12 @@ function ProfileScreen(props: ProfilePageProps) {
         let profileId;
         if (profile) {
             const profileInfo = JSON.parse(profile);
-            setProfile(profileInfo);
+            isMyProfile = props.route.params.profileData._id === profileInfo._id;
+            if(isMyProfile) {
+              setProfile(profileInfo);
+            }else{
+              setProfile(profileDataProps);
+            }
         } else {
             props.navigation.navigate('Login');
         }

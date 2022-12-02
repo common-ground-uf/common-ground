@@ -25,6 +25,8 @@ export type Contact = {
   firstName: string;
   lastName: string;
   profilePic: string;
+  firstname: string;
+  lastname: string;
 };
 
 export type GroupInfo = {

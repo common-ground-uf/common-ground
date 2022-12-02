@@ -41,10 +41,16 @@ type ContactListItemProps = {
 export const ContactListItem = (props: ContactListItemProps) => {
   const navigate = () => {
     props.navigate('Profile', {
-      profileData: mapContactToProfile(props.memberData),
+      profileData: props.memberData,
     });
   };
 
+  if((!props.memberData.firstName || props.memberData.firstName === '') && props.memberData.firstname) {
+    props.memberData.firstName = props.memberData.firstname;
+  }
+  if((!props.memberData.lastName || props.memberData.lastName === '') && props.memberData.lastname) {
+    props.memberData.lastName = props.memberData.lastname;
+  }
   return (
     <>
       <TouchableOpacity style={styles.memberContainer} onPress={navigate}>

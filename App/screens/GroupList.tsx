@@ -45,6 +45,7 @@ export const GroupList = (props: GroupListProps) => {
       users: party.users,
       name: party.name,
       id: party.id,
+      inviteCode: party.inviteCode,
     });
   };
 
