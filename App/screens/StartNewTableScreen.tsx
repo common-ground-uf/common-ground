@@ -54,13 +54,10 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
     newUsers = await Promise.all(
       userIds.map(async (id: string) => {
         const res2 = await axios.get(`${SERVER_URI}/users/${id}`);
-        console.log('successully got a user by ID');
         return res2.data.data;
       })
     );
 
-    console.log('newUsers');
-    console.log(newUsers);
     setContactList(newUsers);
   };
 
