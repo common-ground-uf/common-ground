@@ -2,13 +2,12 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {allRestaurants, losPollosHermanos} from './data/dummyRestaurants';
-import {allUsers, parties} from './data/dummyUsers';
 import * as screens from './screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {HeaderProfileIcon} from './components/HeaderProfileIcon';
-import {View, Text} from 'react-native';
 import {Storage} from './data/Storage';
+import { GroupDetailsIcon } from './components/GroupDetailsIcon';
 
 const Tab = createBottomTabNavigator();
 
@@ -70,15 +69,14 @@ function HomeStackScreen() {
     }, []);
 
     return (
-        <HomeStack.Navigator
-            screenOptions={({navigation}) => ({
-                headerRight: () => <HeaderProfileIcon navigation={navigation}/>,
-            })}
-        >
+        <HomeStack.Navigator>
             <HomeStack.Screen
-                options={{title: 'Home'}}
                 name="HomeScreen"
                 component={screens.Home}
+                options={({navigation}) => ({
+                    headerRight: () => <HeaderProfileIcon navigation={navigation}/>,
+                    title: 'Home',
+                })}
             />
             <HomeStack.Screen
                 name="Profile"
@@ -101,7 +99,7 @@ function HomeStackScreen() {
             <HomeStack.Screen
                 name="Group Details"
                 component={screens.GroupDetails}
-                initialParams={parties[0]}
+                initialParams={{members: []}}
             />
             <HomeStack.Screen
                 name="Group List"
@@ -128,9 +126,12 @@ function MessagesStackScreen() {
                 component={screens.MessagesListScreen}
             />
             <MessagesStack.Screen
-                options={{title: 'Messages'}}
                 name="MessagesScreen"
                 component={screens.MessagesScreen}
+                options={({navigation}) => ({
+                    headerRight: () => <GroupDetailsIcon navigation={navigation} members={[]} name={''} />,
+                    title: 'Messages',
+                })}
             />
         </MessagesStack.Navigator>
     );

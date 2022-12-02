@@ -4,8 +4,22 @@ import { GroupBubble } from '../components/GroupBubble';
 import { parties } from '../data/dummyUsers';
 
 const styles = StyleSheet.create({
-  restaurantBubble: {
-    marginLeft: 20,
+  root: {
+    paddingHorizontal: 20,
+  },
+  header: {
+    fontSize: 20,
+    paddingVertical: 10,
+  },
+  groupBubbleContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  partyName: {
+    marginLeft: 10,
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
@@ -18,22 +32,25 @@ type GroupListProps = {
 
 
 export const GroupList = (props: GroupListProps) => {
-  const onClickGroup = () => {
-    props.navigation.navigate('Group Details');
+  const onClickGroup = (party: any) => {
+    props.navigation.navigate('Group Details', {
+      members: party.members,
+      name: party.name,
+    });
   };
 
   return (
-    <View>
-      <Text>All parties</Text>
+    <View style={styles.root}>
+      <Text style={styles.header}>All parties</Text>
       <ScrollView>
         {parties.map((party, index) => (
-          <GroupBubble
-            members={party.members}
-            name={party.name}
-            onClick={onClickGroup}
-            style={styles.restaurantBubble}
-            key={index}
-          />
+          <View key={index} style={styles.groupBubbleContainer}>
+            <GroupBubble
+              users={party.members}
+              onClick={() => onClickGroup(party)}
+            />
+            <Text style={styles.partyName}>{party.name}</Text>
+          </View>
         ))}
       </ScrollView>
     </View>

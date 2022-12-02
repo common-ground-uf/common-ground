@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
 
 type GroupBubbleProps = {
   users: Contact[]
-  name: string
+  name?: string
   onClick: () => void
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   style?: any
@@ -92,7 +92,7 @@ function GroupBubble(props: GroupBubbleProps) {
           style={[styles.image0, styles.image]}
         />
       </TouchableOpacity>
-      <Text style={styles.text}>{props.name}</Text>
+      {props.name && <Text style={styles.text}>{props.name}</Text>}
     </View>
   );
 }
