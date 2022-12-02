@@ -126,7 +126,7 @@ function MessagesStackScreen() {
                 name="MessagesScreen"
                 component={screens.MessagesScreen}
                 options={({navigation}) => ({
-                    headerRight: () => <GroupDetailsIcon navigation={navigation} members={[]} name={''} />,
+                    // headerRight: () => <GroupDetailsIcon navigation={navigation} members={[]} name={''} />,
                     title: 'Messages',
                 })}
             />
