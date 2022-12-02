@@ -85,8 +85,9 @@ function Home(props: HomeProps) {
   const getUsersByIds = async (userIds: string[]) => {
     // eslint-disable-next-line prefer-const
     let users: Profile[] = [];
-    userIds.map((id: string) => {
-        axios.get(`${SERVER_URI}/users/${id}`)
+    for (let i = 0; i < userIds.length; i++) {
+        const userId = userIds[i];
+        await axios.get(`${SERVER_URI}/users/${userId}`)
             .then((res2) => {        
                 console.log('successully got a user by ID');
                 users.push(res2.data.data);
@@ -94,7 +95,7 @@ function Home(props: HomeProps) {
             console.log('could not get a user by ID');
             console.log(err2);
         });
-    });
+    }
     return users;
   };
 
