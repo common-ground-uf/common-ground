@@ -143,9 +143,9 @@ function Home(props: HomeProps) {
     //   props.navigation.navigate('Restaurant');
     // };
 
-    const onClickGroup = (users: Profile[], name: string, id: string) => {
+    const onClickGroup = (users: Profile[], name: string, id: string, inviteCode: string) => {
         console.log("IN HOME Users: " + users);
-        props.navigation.navigate('Group Details', { users, name, id });
+        props.navigation.navigate('Group Details', { users, name, id, inviteCode });
     };
 
     const onPressStartANewTable = () => {
@@ -201,7 +201,7 @@ function Home(props: HomeProps) {
                                 <GroupBubble
                                     users={group.users}
                                     name={group.name}
-                                    onClick={() => onClickGroup(group.users, group.name, group.id)}
+                                    onClick={() => onClickGroup(group.users, group.name, group.id, group.inviteCode)}
                                     style={styles.restaurantBubble}
                                     key={index}
                                 />
