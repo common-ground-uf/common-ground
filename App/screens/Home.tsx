@@ -137,8 +137,8 @@ function Home(props: HomeProps) {
     //   props.navigation.navigate('Restaurant');
     // };
 
-    const onClickGroup = () => {
-        props.navigation.navigate('Group Details');
+    const onClickGroup = (members: Profile[], name: string, id: string) => {
+        props.navigation.navigate('Group Details', { members, name, id });
     };
 
     const onPressStartANewTable = () => {
@@ -192,7 +192,7 @@ function Home(props: HomeProps) {
                                 <GroupBubble
                                     users={group.users}
                                     name={group.name}
-                                    onClick={onClickGroup}
+                                    onClick={() => onClickGroup(group.users, group.name, group.id)}
                                     style={styles.restaurantBubble}
                                     key={index}
                                 />

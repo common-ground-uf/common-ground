@@ -27,6 +27,7 @@ export async function generateOrderedRestaurantList(locations: Array<{latitude: 
     // convert businesses to Restaurant objects
     const restaurants: Restaurant[] = businesses.map((business) => businessToRestaurant(business));
 
+    console.log("Restaurants: " + JSON.stringify(restaurants));
     return restaurants;
 }
 

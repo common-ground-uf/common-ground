@@ -13,7 +13,7 @@ import { ContactListItem } from '../components/ContactListItem';
 import { generateOrderedRestaurantList } from '../api/yelpHelper';
 import axios from 'axios';
 import { SERVER_URI } from '../Config';
-import GetLocation from 'react-native-get-location';
+import {GroupInfo} from '../commonTypes';
 
 const styles = StyleSheet.create({
   groupDetails: {
@@ -67,10 +67,29 @@ function GroupDetails(props: GroupDetailsProps) {
 
   const groupName = props.route.params.name;
 
+  const userIDs = members.map((member) => member.id);
+
+  const getGroupPreferences = async (groupId: string) => {
+    console.log("Getting group preferences...");
+    // get preferences for each user in the group and consolidate into 1 string array
+    const preferences: string[] = (await Promise.all(userIDs.map(async (id: string) => {
+        console.log("Before prefs");
+        let prefs = (await axios.get(`${SERVER_URI}/users/${id}`)).data.pastPicks;
+        console.log("prefs " + JSON.stringify(prefs));
+        return prefs;
+    }))).reduce((acc: string[], curr: string[]) => {
+        return acc.concat(curr);
+    }, []);
+
+    return preferences;
+  };
+
   const onPressGenerateRecommendations = async () => {
+    console.log("Generating recommendations...");
     // use axios to get group preferences for this group
     let groupId = props.route.params.id;
-    let categoryAliasList: string[] = await axios.get(SERVER_URI + "/groups/" + groupId + "/groupPrefs").then((response) => response.data.groupPrefs );
+    let categoryAliasList: string[] = await getGroupPreferences(groupId);
+    console.log("categoryAliasList: " + categoryAliasList);
 
     // extract the category aliases that contain dollar signs
     let dollarSigns = categoryAliasList.filter((categoryAlias) => categoryAlias.includes("$"));
@@ -84,7 +103,8 @@ function GroupDetails(props: GroupDetailsProps) {
     // remove the dollar signs from the category aliases
     let dollarSignlessCategoryAliasList = categoryAliasList.filter((categoryAlias) => !categoryAlias.includes("$"));
 
-    let { latitude, longitude } = await GetLocation.getCurrentPosition({enableHighAccuracy: false, timeout: 15000});
+    // let { latitude, longitude } = await GetLocation.getCurrentPosition({enableHighAccuracy: false, timeout: 15000});
+    let {latitude, longitude} = {latitude: 29.648292, longitude: -82.345171};
 
     props.navigation.navigate('Restaurant List', {
         restaurantList: generateOrderedRestaurantList([{ latitude, longitude }], [dollarSignlessCategoryAliasList], dollarSignInts),
