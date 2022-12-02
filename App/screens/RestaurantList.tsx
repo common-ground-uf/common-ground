@@ -52,6 +52,7 @@ function RestaurantList(props: RestaurantListProps) {
 
     const [restaurantList, setRestaurantList] = React.useState<Restaurant[]>(props.route.params.restaurantList);
 
+
     if (!restaurantList || restaurantList.length === 0) {
         return null;
     }
@@ -105,7 +106,7 @@ function RestaurantList(props: RestaurantListProps) {
                     <Text style={styles.sortButtonText}>Distance</Text>
                 </TouchableOpacity>
             </View>
-            {restaurantList.filter(restaurant => restaurant.name.includes(searchText)).map((restaurant, index) => (
+            {restaurantList.filter(restaurant => restaurant.name.toUpperCase().includes(searchText.toUpperCase())).map((restaurant, index) => (
                 <RestaurantCard
                     key={index}
                     restaurant={restaurant}

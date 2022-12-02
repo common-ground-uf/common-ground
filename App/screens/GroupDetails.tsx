@@ -13,7 +13,7 @@ import { ContactListItem } from '../components/ContactListItem';
 import { generateOrderedRestaurantList } from '../api/yelpHelper';
 import axios from 'axios';
 import { SERVER_URI } from '../Config';
-import GetLocation from 'react-native-get-location';
+import {GroupInfo} from '../commonTypes';
 
 const styles = StyleSheet.create({
   groupDetails: {
@@ -47,14 +47,22 @@ type GroupDetailsProps = {
     navigate: any;
   };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  route: any;
+  route: {
+    params: {
+        users: any[],
+        id: string,
+        name: string,
+    }
+  };
 };
 
 function GroupDetails(props: GroupDetailsProps) {
-  const [members, setMembers] = React.useState<Array<Profile>>(
+  const [members, setMembers] = React.useState<Array<any>>(
     props.route.params.users
   );
   const [editMode, setEditMode] = React.useState(false);
+
+  console.log("Members: " + JSON.stringify(members));
 
   const onClickSettings = () => {
     setEditMode(!editMode);
@@ -67,10 +75,28 @@ function GroupDetails(props: GroupDetailsProps) {
 
   const groupName = props.route.params.name;
 
+  const userIDs = members.map((member) => member._id);
+  console.log("User IDs: " + userIDs);
+
+  const getGroupPreferences = async (groupId: string) => {
+    // get preferences for each user in the group and consolidate into 1 string array
+    const preferences: string[] = (await Promise.all(members.map(async (member: any) => {
+        let prefs = member.pastPicks;
+        return prefs;
+    }))).reduce((acc: string[], curr: string[]) => {
+        return acc.concat(curr);
+    }, []);
+
+
+    return preferences;
+  };
+
   const onPressGenerateRecommendations = async () => {
+    console.log("Generating recommendations...");
     // use axios to get group preferences for this group
     let groupId = props.route.params.id;
-    let categoryAliasList: string[] = await axios.get(SERVER_URI + "/groups/" + groupId + "/groupPrefs").then((response) => response.data.groupPrefs );
+    let categoryAliasList: string[] = await getGroupPreferences(groupId);
+    console.log("categoryAliasList: " + categoryAliasList);
 
     // extract the category aliases that contain dollar signs
     let dollarSigns = categoryAliasList.filter((categoryAlias) => categoryAlias.includes("$"));
@@ -84,10 +110,15 @@ function GroupDetails(props: GroupDetailsProps) {
     // remove the dollar signs from the category aliases
     let dollarSignlessCategoryAliasList = categoryAliasList.filter((categoryAlias) => !categoryAlias.includes("$"));
 
-    let { latitude, longitude } = await GetLocation.getCurrentPosition({enableHighAccuracy: false, timeout: 15000});
+    // let { latitude, longitude } = await GetLocation.getCurrentPosition({enableHighAccuracy: false, timeout: 15000});
+    let {latitude, longitude} = {latitude: 29.648292, longitude: -82.345171};
+
+    let restaurantList = await generateOrderedRestaurantList([{ latitude, longitude }], [dollarSignlessCategoryAliasList], dollarSignInts);
+
+    console.log("restaurantList: " + JSON.stringify(restaurantList));
 
     props.navigation.navigate('Restaurant List', {
-        restaurantList: generateOrderedRestaurantList([{ latitude, longitude }], [dollarSignlessCategoryAliasList], dollarSignInts),
+        restaurantList: restaurantList,
     });
   };
 

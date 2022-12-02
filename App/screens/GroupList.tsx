@@ -39,10 +39,12 @@ type GroupListProps = {
 
 export const GroupList = (props: GroupListProps) => {
   const groups = props.route.params.groups;
-  const onClickGroup = (party: any) => {
+  const onClickGroup = (party: GroupInfo) => {
+    console.log('clicked group' + party.users);
     props.navigation.navigate('Group Details', {
-      members: party.members,
+      users: party.users,
       name: party.name,
+      id: party.id,
     });
   };
 
