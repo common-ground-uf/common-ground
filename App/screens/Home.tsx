@@ -82,6 +82,22 @@ function Home(props: HomeProps) {
     }
   };
 
+  const getUsersByIds = async (userIds: string[]) => {
+    // eslint-disable-next-line prefer-const
+    let users: Profile[] = [];
+    userIds.map((id: string) => {
+        axios.get(`${SERVER_URI}/users/${id}`)
+            .then((res2) => {        
+                console.log('successully got a user by ID');
+                users.push(res2.data);
+        }).catch((err2) => {
+            console.log('could not get a user by ID');
+            console.log(err2);
+        });
+    });
+    return users;
+  };
+
   const updateGroups = async () => {
       console.log('getting groups');
       axios.get(`${SERVER_URI}/groups`, {
@@ -90,31 +106,20 @@ function Home(props: HomeProps) {
               lastMessage: true,
               users: true
           },
-      }).then((res) => {
-          // console.log(res.data.groups);
-
+      }).then(async (res) => {
           const newGroups: GroupInfo[] = [];
           for (const group in res.data.groups) {
             const userIds = res.data.groups[group].users;
-            // const users: Profile[] = [];
-            //   
-            // userIds.map((id: string) => {
-            //     axios.get(`${SERVER_URI}/user/${id}`)
-            //         .then((res2) => {        
-            //             users.push(res2.data);
-            //     }).catch((err2) => {
-            //         console.log('could not get user by id');
-            //         console.log(err2);
-            //     });
-            // });
-            // console.log(users);
+            let users: Profile[] = [];
+
+            users = await getUsersByIds(userIds);
 
             newGroups.push({
                 id: group,
                 name: res.data.groups[group].name,
                 lastMessage: res.data.groups[group].lastMessage,
                 inviteCode: res.data.groups[group].inviteCode,
-                users: userIds,
+                users: users,
             });
           }
 
@@ -154,7 +159,9 @@ function Home(props: HomeProps) {
     // };
 
     const onPressSeeAllParties = () => {
-        props.navigation.navigate('Group List');
+        props.navigation.navigate('Group List', {
+            groups: groups
+        });
     };
 
     return (

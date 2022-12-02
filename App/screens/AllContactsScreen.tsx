@@ -30,7 +30,7 @@ function AllContactsScreen(props: AllContactsScreenProps) {
   return (
     <View style={styles.groupDetails}>
       <View>
-        {members.length === 0 ? (
+        {!members || members.length === 0 ? (
           <Text>Group is empty</Text>
         ) : (
           <FlatList

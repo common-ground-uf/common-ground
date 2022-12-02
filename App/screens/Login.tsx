@@ -38,10 +38,8 @@ function Login(props: LoginProps) {
         password: password,
       })
       .then((response) => {
-        console.log(response.data);
         if (response.data.message === 'login success') {
           console.log('login successful');
-          console.log(response.data.userData);
           // User Data object to be processed locally and saved as current login data (cleared after logout)
           const userData : Profile = {
             email: response.data.userData.email,
@@ -56,7 +54,6 @@ function Login(props: LoginProps) {
             location: response.data.userData.location,
             groups: [],
           };
-          console.log(userData);
           Storage.set('profile', JSON.stringify(userData));
           props.navigation.navigate('Home');
         }

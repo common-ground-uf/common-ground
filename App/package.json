@@ -6,8 +6,8 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "scripts": {
-    "start:prod": "expo start --port 50344  --no-dev  --reset-cache",
-    "start": "expo start --port 50344 -c",
+    "start:prod": "expo start --port 50344 --no-dev -c",
+    "start": "expo start --port 50344",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",

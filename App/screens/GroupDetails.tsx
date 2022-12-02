@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
 
 type GroupDetailsProps = {
   name: string;
-  members: Contact[];
+  users: Contact[];
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     navigate: any;
@@ -52,7 +52,7 @@ type GroupDetailsProps = {
 
 function GroupDetails(props: GroupDetailsProps) {
   const [members, setMembers] = React.useState<Array<Profile>>(
-    props.route.params.members
+    props.route.params.users
   );
   const [editMode, setEditMode] = React.useState(false);
 
@@ -119,7 +119,7 @@ function GroupDetails(props: GroupDetailsProps) {
           <Icon name='gear' size={32} style={styles.settings}/>
         </TouchableOpacity>
       </View>
-      {members.length === 0 ? (
+      {!members || members.length === 0 ? (
         <Text>Group is empty</Text>
       ) : (
         <FlatList
