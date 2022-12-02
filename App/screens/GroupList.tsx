@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Text, ScrollView } from 'react-native';
+import { GroupInfo } from '../commonTypes';
 import { GroupBubble } from '../components/GroupBubble';
 
 const styles = StyleSheet.create({
@@ -27,10 +28,17 @@ type GroupListProps = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     navigate: any;
   };
+  route: {
+    params: {
+      groups: GroupInfo[];
+    }
+  };
+  groups: GroupInfo[];
 };
 
 
 export const GroupList = (props: GroupListProps) => {
+  const groups = props.route.params.groups;
   const onClickGroup = (party: any) => {
     props.navigation.navigate('Group Details', {
       members: party.members,
@@ -42,13 +50,13 @@ export const GroupList = (props: GroupListProps) => {
     <View style={styles.root}>
       <Text style={styles.header}>All parties</Text>
       <ScrollView>
-        {parties.map((party, index) => (
+        {groups.map((group, index) => (
           <View key={index} style={styles.groupBubbleContainer}>
             <GroupBubble
-              users={party.members}
-              onClick={() => onClickGroup(party)}
+              users={group.users}
+              onClick={() => onClickGroup(group)}
             />
-            <Text style={styles.partyName}>{party.name}</Text>
+            <Text style={styles.partyName}>{group.name}</Text>
           </View>
         ))}
       </ScrollView>
