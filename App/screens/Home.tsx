@@ -131,9 +131,6 @@ function Home(props: HomeProps) {
       });
   };
 
-  console.log('GROUPS');
-  console.log(groups);
-
     const isFocused = useIsFocused();
 
     React.useEffect(() => {
