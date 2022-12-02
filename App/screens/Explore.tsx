@@ -34,15 +34,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 50,
   },
-  input: {
-    height: 40,
-    marginBottom: 10,
-    width: '90%',
-    borderRadius: 6,
-    marginHorizontal: '5%',
-    paddingLeft: 10,
-    backgroundColor: '#ddd',
-  },
   bubble: {
     paddingRight: 20,
   },
