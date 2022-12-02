@@ -90,7 +90,6 @@ function Home(props: HomeProps) {
       await axios
         .get(`${SERVER_URI}/users/${userId}`)
         .then((res2) => {
-          console.log('successully got a user by ID');
           users.push(res2.data.data);
         })
         .catch((err2) => {

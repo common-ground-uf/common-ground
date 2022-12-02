@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
 
 type ContactBubbleProps = {
   profilePic: string;
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   onPress?: () => void;
   selected?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -37,7 +37,7 @@ function ContactBubble(props: ContactBubbleProps) {
         source={{ uri: props.profilePic }}
       />
       <Text style={styles.text}>
-        {props.firstName} {props.lastName}
+        {props.firstname} {props.lastname}
       </Text>
     </TouchableOpacity>
   );

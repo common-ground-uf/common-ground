@@ -351,7 +351,7 @@ function MessagesScreen(props: Route) {
               </TouchableOpacity>
             </View>
           </View>
-          <Button title="Create group" onPress={onPressCreateGroup} color="#FF6D6E" />
+          {/* <Button title="Create group" onPress={onPressCreateGroup} color="#FF6D6E" /> */}
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
