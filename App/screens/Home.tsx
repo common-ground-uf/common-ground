@@ -88,7 +88,6 @@ function Home(props: HomeProps) {
     userIds.map((id: string) => {
         axios.get(`${SERVER_URI}/users/${id}`)
             .then((res2) => {        
-                console.log('successully got a user by ID');
                 users.push(res2.data);
         }).catch((err2) => {
             console.log('could not get a user by ID');

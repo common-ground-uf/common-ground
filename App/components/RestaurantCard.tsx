@@ -41,29 +41,32 @@ const styles = StyleSheet.create({
   },
 });
 
-type RestaurantCardProps = Restaurant & {
+type RestaurantCardProps = {
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     navigate: any;
   };
+  restaurant: Restaurant;
 };
 
 export function RestaurantCard(props: RestaurantCardProps) {
   const onPress = () => {
-    props.navigation.navigate('Restaurant');
+    props.navigation.navigate('Restaurant', {
+      restaurant: props.restaurant
+    });
   };
   return (
     <>
       <TouchableOpacity style={styles.card} onPress={onPress}>
-        <Image source={{ uri: props.thumbnail }} style={styles.thumbnail} />
+        <Image source={{ uri: props.restaurant.thumbnail }} style={styles.thumbnail} />
         <View style={styles.horizontalSpace} />
         <View style={styles.cardRight}>
           <Text style={styles.topRow}>
-            <Text style={styles.cardTitle}>{props.name}&nbsp;</Text>
-            <Text>{props.starRating}</Text>
+            <Text style={styles.cardTitle}>{props.restaurant.name}&nbsp;</Text>
+            <Text>{props.restaurant.starRating}</Text>
             <Icon name="star" size={16} color="orange" />
           </Text>
-          <Text>{props.description}</Text>
+          <Text>{props.restaurant.description}</Text>
         </View>
       </TouchableOpacity>
       <View style={styles.horizontalLine} />
