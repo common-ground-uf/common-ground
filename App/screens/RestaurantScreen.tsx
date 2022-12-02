@@ -11,6 +11,8 @@ import {
 import { Restaurant } from '../commonTypes';
 import { PriceRating } from '../components/PriceRating';
 import { Review } from '../components/Review';
+import { gallery as dummyGallery } from '../data/dummyData';
+import { getBusinessDetails } from '../api/yelpApi';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const styles = StyleSheet.create({
@@ -81,13 +83,21 @@ type RestaurantScreenProps = {
 function RestaurantScreen(props: RestaurantScreenProps) {
   const restaurant = props.route.params.restaurant;
 
+  const [galleryPhotos, setGalleryPhotos] = React.useState<string[]>(dummyGallery);
+
+  const getGalleryPhotos = async () => getBusinessDetails(restaurant.id).then((data) => {
+    return data.photos;
+  });
+
+  React.useEffect(() => {
+    getGalleryPhotos().then((photos) => {
+      setGalleryPhotos(photos);
+    });
+  }, []);
+
   if (!restaurant) {
     return null;
   }
-
-  const onPressSeeAllGallery = () => {
-    props.navigation.navigate('Gallery');
-  };
   
   const distanceFormatted = restaurant.distanceMiles ? (Math.floor(restaurant.distanceMiles * 100) / 100) : undefined;
 
@@ -147,18 +157,13 @@ function RestaurantScreen(props: RestaurantScreenProps) {
         {restaurant.reviews && restaurant.reviews.map((review, index) => (
           <Review key={index} {...review} />
         ))}
-        {restaurant.gallery && restaurant.gallery.length > 0 && 
+        {galleryPhotos && galleryPhotos.length > 0 && 
           <View>
             <View style={styles.row}>
               <Text style={styles.sectionTitle}>Gallery</Text>
-              <Button
-                title="See all"
-                onPress={onPressSeeAllGallery}
-                color="#ff6e6e"
-              />
             </View>
             <ScrollView style={styles.gallery} horizontal={true}>
-              {gallery.map((image, index) => (
+              {galleryPhotos.map((image: string, index: number) => (
                 <Image
                   style={styles.galleryImage}
                   source={{ uri: image }}

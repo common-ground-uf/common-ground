@@ -32,6 +32,7 @@ export async function generateOrderedRestaurantList(locations: Array<{latitude: 
 
 function businessToRestaurant(business: Business): Restaurant {
     return {
+        id: business.id,
         name: business.name,
         thumbnail: business.image_url,
         address: {
