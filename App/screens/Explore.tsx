@@ -10,6 +10,7 @@ import {
 import {RestaurantBubble} from '../components/RestaurantBubble';
 import {generateExploreSections} from '../api/yelpHelper';
 import {Restaurant} from '../commonTypes';
+import { useIsFocused } from '@react-navigation/native';
 
 const styles = StyleSheet.create({
     scrollView: {
@@ -76,9 +77,11 @@ function Explore(props: HomeProps) {
         setExploreSections(await generateExploreSections());
     };
 
+    const isFocused = useIsFocused();
+
     React.useEffect(() => {
         getExploreSections();
-    }, [search]);
+    }, [search, isFocused]);
 
     return (
         <ScrollView style={styles.scrollView}>

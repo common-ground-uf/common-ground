@@ -100,7 +100,7 @@ function Preferences(props: PreferencesProps) {
         const profileInfo = JSON.parse(profile);
         profileInfo.pastPicks = value;
         Storage.set('profile', JSON.stringify(profileInfo)).then(() => {
-          props.navigation.navigate('SettingsScreen');
+          props.navigation.navigate('Explore');
         });
       }else{
         props.navigation.navigate('Login');
