@@ -57,14 +57,6 @@ function Preferences(props: PreferencesProps) {
   });
 
   const [items, setItems] = React.useState(yelpItems);
-  // const [items, setItems] = React.useState([
-  //   {label: 'Restaurants', value: 'restaurants'},
-  //   {label: 'Italian', value: 'italian', parent: 'restaurants'},
-  //
-  //   {label: 'Abruzzese', value: 'abruzzese', parent: 'italian'},
-  // ]);
-  // console.log(items);
-  // console.log(yelpItems);
 
   const onPressSave = async () => {
     const profile = await Storage.get('profile');
@@ -113,7 +105,6 @@ function Preferences(props: PreferencesProps) {
   };
 
   const onScreenFocus = async () => {
-    console.log('Preferences screen focused');
     const profile = await Storage.get('profile');
     if (!profile) {
       props.navigation.navigate('Login');

@@ -88,13 +88,6 @@ function Settings(props: SettingsProps) {
       });
   };
 
-  const Account = {
-    name: 'Account',
-    image: 'user',
-    onClick: () => {
-      props.navigation.navigate('Account');
-    },
-  };
   const Preferences = {
     name: 'Preferences',
     image: 'asterisk',
@@ -107,7 +100,7 @@ function Settings(props: SettingsProps) {
     image: 'power-off',
     onClick: onPressLogout,
   };
-  const members = [Account, Preferences, Logout];
+  const members = [Preferences, Logout];
   return (
     <View style={loginSignupStyles.container}>
       <FlatList

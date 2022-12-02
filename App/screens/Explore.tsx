@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { RestaurantBubble } from '../components/RestaurantBubble';
 import { generateExploreSections } from '../api/yelpHelper';
-import { Restaurant } from '../commonTypes';
+import { Restaurant, SectionProps } from '../commonTypes';
 import { useIsFocused } from '@react-navigation/native';
 
 const styles = StyleSheet.create({
@@ -40,6 +40,10 @@ const styles = StyleSheet.create({
   headerRow: {
     marginTop: 30,
   },
+  errorText: {
+    marginLeft: 20,
+    marginTop: 20,
+  }
 });
 
 type HomeProps = {
@@ -56,7 +60,7 @@ function Explore(props: HomeProps) {
     });
   };
 
-  const defaultExploreSections: any[] = [];
+  const defaultExploreSections: SectionProps[] = [];
   const [exploreSections, setExploreSections] = React.useState(
     defaultExploreSections
   );
@@ -73,46 +77,43 @@ function Explore(props: HomeProps) {
 
   return (
     <ScrollView style={styles.scrollView}>
-      {/*<View>*/}
-      {/*    <TextInput*/}
-      {/*        value={search}*/}
-      {/*        onChangeText={setSearch}*/}
-      {/*        placeholder="search"*/}
-      {/*        style={styles.input}*/}
-      {/*    />*/}
-      {/*</View>*/}
-      {exploreSections.map((section: any, index1: number) => (
-        <View key={index1}>
-          <View style={[styles.row, styles.headerRow]}>
-            <Text style={styles.sectionTitle}>{section.sectionTitle}</Text>
-            <Button
-              onPress={() => {
-                props.navigation.navigate('Restaurant List', {
-                  restaurantList: section.contentData.map(
-                    (restaurant: Restaurant) => {
-                      return restaurant;
-                    }
-                  ),
-                });
-              }}
-              title="See all"
-              color="#ff6e6e"
-            />
-          </View>
-          <ScrollView style={styles.row} horizontal={true}>
-            {section.contentData.map(
-              (restaurant: Restaurant, index2: number) => (
-                <RestaurantBubble
-                  key={index2}
-                  {...restaurant}
-                  onPress={() => onClickRestaurant(restaurant)}
-                  style={styles.bubble}
+      {exploreSections.map((section: SectionProps, index1: number) => {
+        if (section.contentData && section.contentData.length > 0) {
+          return (
+            <View key={index1}>
+              <View style={[styles.row, styles.headerRow]}>
+                <Text style={styles.sectionTitle}>{section.sectionTitle}</Text>
+                <Button
+                  onPress={() => {
+                    props.navigation.navigate('Restaurant List', {
+                      restaurantList: section.contentData.map(
+                        (restaurant: Restaurant) => {
+                          return restaurant;
+                        }
+                      ),
+                    });
+                  }}
+                  title="See all"
+                  color="#ff6e6e"
                 />
-              )
-            )}
-          </ScrollView>
-        </View>
-      ))}
+              </View>
+              <ScrollView style={styles.row} horizontal={true}>
+                {section.contentData.map(
+                  (restaurant: Restaurant, index2: number) => (
+                    <RestaurantBubble
+                      key={index2}
+                      {...restaurant}
+                      onPress={() => onClickRestaurant(restaurant)}
+                      style={styles.bubble}
+                    />
+                  )
+                )}
+              </ScrollView>
+            </View>
+          );
+        }
+        return <Text style={styles.errorText} key={index1}>No restaurants found with tag {section.sectionTitle}</Text>;
+      })}
       <View style={styles.verticalSpace} />
     </ScrollView>
   );

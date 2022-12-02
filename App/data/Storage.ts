@@ -7,7 +7,7 @@ export const Storage = {
   set: async (key: string, value?: string) => {
     await AsyncStorage.setItem(key, value)
       .then(() => {
-        console.log('Stored ', value, ' at ', key);
+        // console.log('Stored ', value, ' at ', key);
       })
       .catch((error: any) => {
         console.log('Error storing data at ', key, error);

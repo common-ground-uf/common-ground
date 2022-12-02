@@ -46,3 +46,8 @@ export type Profile = Contact & {
   role: string;
   groups: GroupInfo[];
 };
+
+export type SectionProps = {
+  contentData: Restaurant[];
+  sectionTitle: string;
+}
