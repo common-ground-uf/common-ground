@@ -15,7 +15,7 @@ describe('RestaurantCard', () => {
 
   it('Renders a RestaurantCard correctly', () => {
     const result = render(
-      <RestaurantCard navigation={dummyNavigation} {...losPollosHermanos} />
+      <RestaurantCard navigation={dummyNavigation} restaurant={losPollosHermanos} />
     );
 
     expect(result.toJSON()).toMatchSnapshot();
@@ -23,7 +23,7 @@ describe('RestaurantCard', () => {
 
   it('Renders another RestaurantCard correctly', () => {
     const result = render(
-      <RestaurantCard navigation={dummyNavigation} {...elCamino} />
+      <RestaurantCard navigation={dummyNavigation} restaurant={elCamino} />
     );
 
     expect(result.toJSON()).toMatchSnapshot();
