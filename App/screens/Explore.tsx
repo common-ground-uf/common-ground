@@ -96,7 +96,9 @@ function Explore(props: HomeProps) {
             <Text style={styles.sectionTitle}>{section.sectionTitle}</Text>
             <Button
               onPress={() => {
-                props.navigation.navigate('Restaurant List');
+                props.navigation.navigate('Restaurant List',{
+                  restaurantList: section.contentData
+                });
               }}
               title="See all"
               color="#ff6e6e"
