@@ -13,6 +13,7 @@ import {
   Route,
   ScrollView,
   Pressable,
+  Dimensions
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
@@ -21,7 +22,7 @@ import { SERVER_URI } from '../Config';
 
 const styles = StyleSheet.create({
   messagesContainer: {
-    
+    height: Dimensions.get('window').height - 298
   },
   selfMessageContainer: {
     flexDirection: 'row-reverse',
