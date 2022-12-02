@@ -6,20 +6,12 @@ import { Storage } from '../data/Storage';
 import axios from 'axios';
 import { SERVER_URI } from '../Config';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-
 type LoginProps = {
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     navigate: any;
   };
 };
-
-// type requestLoginProps = {
-//     email: string;
-//     password: string;
-// }
-
 function Login(props: LoginProps) {
   const [email, setEmail] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
@@ -38,6 +30,7 @@ function Login(props: LoginProps) {
         password: password,
       })
       .then((response) => {
+        console.log(response.data);
         if (response.data.message === 'login success') {
           console.log('login successful');
           // User Data object to be processed locally and saved as current login data (cleared after logout)

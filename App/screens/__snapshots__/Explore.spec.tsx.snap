@@ -9,24 +9,6 @@ exports[`ProfileScreen Renders Explore screen correctly 1`] = `
   }
 >
   <View>
-    <View>
-      <TextInput
-        onChangeText={[Function]}
-        placeholder="search"
-        style={
-          {
-            "backgroundColor": "#ddd",
-            "borderRadius": 6,
-            "height": 40,
-            "marginBottom": 10,
-            "marginHorizontal": "5%",
-            "paddingLeft": 10,
-            "width": "90%",
-          }
-        }
-        value=""
-      />
-    </View>
     <View
       style={
         {
@@ -48,24 +30,6 @@ exports[`ProfileScreen Renders someone else's profile correctly 1`] = `
   }
 >
   <View>
-    <View>
-      <TextInput
-        onChangeText={[Function]}
-        placeholder="search"
-        style={
-          {
-            "backgroundColor": "#ddd",
-            "borderRadius": 6,
-            "height": 40,
-            "marginBottom": 10,
-            "marginHorizontal": "5%",
-            "paddingLeft": 10,
-            "width": "90%",
-          }
-        }
-        value=""
-      />
-    </View>
     <View
       style={
         {

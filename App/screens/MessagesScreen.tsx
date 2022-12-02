@@ -14,6 +14,7 @@ import {
   ScrollView,
   Pressable,
   Dimensions,
+  Button,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import axios from 'axios';
@@ -350,6 +351,7 @@ function MessagesScreen(props: Route) {
               </TouchableOpacity>
             </View>
           </View>
+          <Button title="Create group" onPress={onPressCreateGroup} color="#FF6D6E" />
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
