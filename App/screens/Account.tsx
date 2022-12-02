@@ -15,7 +15,6 @@ function Account(props: AccountProps) {
   const [firstName, setFirstName] = React.useState<string>('');
   const [lastName, setLastName] = React.useState<string>('');
   const [email, setEmail] = React.useState<string>('');
-  const [location, setLocation] = React.useState<string>('');
 
   axios
     .get(`${SERVER_URI}/auth`)
@@ -79,12 +78,6 @@ function Account(props: AccountProps) {
         value={email}
         placeholder="Email"
         autoCapitalize="none"
-      />
-      <TextInput
-        style={loginSignupStyles.input}
-        onChangeText={setLocation}
-        value={location}
-        placeholder="Location"
       />
       <View style={loginSignupStyles.loginButtonContainer}>
         <Button title="Save" onPress={onPressSave} color="#FF6D6E" />
