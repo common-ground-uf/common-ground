@@ -7,6 +7,8 @@ This server should be already running remotely on our Microsoft Azure VM hosted 
 If you want to run the server locally follow these steps:
 
 - Clone the repo and navigate to this Server folder
+- Create a .env file with the following contents (tab 1): https://www.protectedtext.com/commongroundseniorproject
+  - Password will be in canvas submission
 - `npm install` to install all required dependencies
 - `npm run dev` to run a local development server
   - Alternatively you can build the server with `npm run build` and start it using `npm run start`
