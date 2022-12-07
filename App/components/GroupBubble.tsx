@@ -70,29 +70,29 @@ function GroupBubble(props: GroupBubbleProps) {
   return (
     <View style={[styles.container, props.style]}>
       <TouchableOpacity onPress={props.onClick} style={styles.touchable}>
-        {props.users.length === 3 && (
+        {props.users.length === 3 ? (
           <Image
             source={{ uri: props.users[2].profilePic }}
             style={[styles.image2, styles.image]}
           />
-        )}
-        {props.users.length > 3 && (
+        ) : null}
+        {props.users.length > 3 ? (
           <View style={[styles.image2, styles.plusBubble, styles.image]}>
             <Text>+{props.users.length - 2}</Text>
           </View>
-        )}
-        {props.users[1] && (
+        ) : null}
+        {props.users[1] ? (
           <Image
             source={{ uri: props.users[1].profilePic }}
             style={[styles.image1, styles.image]}
           />
-        )}
+        ) : null}
         <Image
           source={{ uri: props.users[0].profilePic }}
           style={[styles.image0, styles.image]}
         />
       </TouchableOpacity>
-      {props.name && <Text style={styles.text}>{props.name}</Text>}
+      {props.name ? <Text style={styles.text}>{props.name}</Text> : null}
     </View>
   );
 }
