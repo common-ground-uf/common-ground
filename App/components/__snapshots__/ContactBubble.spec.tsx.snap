@@ -44,9 +44,7 @@ exports[`ContactBubble Renders a ContactBubble correctly 1`] = `
       }
     }
   >
-    Saul
      
-    Goodman
   </Text>
 </View>
 `;
@@ -99,9 +97,7 @@ exports[`ContactBubble Renders a ContactBubble correctly when it is selected 1`]
       }
     }
   >
-    Saul
      
-    Goodman
   </Text>
 </View>
 `;
