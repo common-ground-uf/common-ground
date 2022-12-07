@@ -126,24 +126,24 @@ function RestaurantScreen(props: RestaurantScreenProps) {
             />
             <Text style={{ fontSize: 8 }}>Directions</Text>
           </TouchableOpacity>
-          {restaurant.address && (
+          {restaurant.address ? (
             <View>
-              {restaurant.address.line1 && (
+              {restaurant.address.line1 ? (
                 <Text style={styles.marginTop}>{restaurant.address.line1}</Text>
-              )}
-              {restaurant.address.line2 && (
+              ) : null}
+              {restaurant.address.line2 ? (
                 <Text>{restaurant.address.line2}</Text>
-              )}
+              ) : null}
             </View>
-          )}
-          {restaurant.distanceMiles && (
+          ) : null}
+          {restaurant.distanceMiles ? (
             <Text>{distanceFormatted} miles away</Text>
-          )}
+          ) : null}
         </View>
         <Text style={styles.marginTop}>{restaurant.description}</Text>
         <View style={styles.row}>
           <Text style={styles.sectionTitle}>Reviews</Text>
-          {restaurant.reviews && restaurant.reviews.length > 0 && (
+          {restaurant.reviews && restaurant.reviews.length > 0 ? (
             <Button
               title="See all"
               onPress={() => {
@@ -151,7 +151,7 @@ function RestaurantScreen(props: RestaurantScreenProps) {
               }}
               color="#ff6e6e"
             />
-          )}
+          ) : null}
         </View>
         <Text style={{ display: 'flex' }}>
           <Text style={styles.averageReviewRating}>
@@ -160,11 +160,11 @@ function RestaurantScreen(props: RestaurantScreenProps) {
           </Text>
           <Text style={styles.averageReview}> average review on Yelp</Text>
         </Text>
-        {restaurant.reviews &&
+        {restaurant.reviews ?
           restaurant.reviews.map((review, index) => (
             <Review key={index} {...review} />
-          ))}
-        {galleryPhotos && galleryPhotos.length > 0 && (
+          )) : null}
+        {galleryPhotos && galleryPhotos.length > 0 ? (
           <View>
             <View style={styles.row}>
               <Text style={styles.sectionTitle}>Gallery</Text>
@@ -179,7 +179,7 @@ function RestaurantScreen(props: RestaurantScreenProps) {
               ))}
             </ScrollView>
           </View>
-        )}
+        ) : null}
       </View>
     </ScrollView>
   );
