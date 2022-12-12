@@ -32,7 +32,7 @@ const SignupRequest = (
     .then((response) => {
       if (response.data.message === 'created') {
         console.log('signup successful');
-        navigation.navigate('Login');
+        navigation.navigate('LoginScreen');
       }
     })
     .catch((error) => {
@@ -47,6 +47,9 @@ const SignupRequest = (
           console.log(error.response.status);
           console.log(error.response.headers);
         }
+      }
+      else {
+        console.log("error but no error.response");
       }
       // Probably shouldn't go back to login if failed..
     });
@@ -101,7 +104,7 @@ function Signup(props: SignupProps) {
   };
 
   const onPressHaveAccount = () => {
-    props.navigation.navigate('Login');
+    props.navigation.navigate('LoginScreen');
   };
 
   return (
