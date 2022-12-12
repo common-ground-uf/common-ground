@@ -30,13 +30,15 @@ const SignupRequest = (
   },
   profilePic?: string,
 ) => {
+  let r = Math.floor(Math.random() * defaultProfilePics.length);
+  let randomDefaultProfilePic = defaultProfilePics[r];
   axios
     .post(`${SERVER_URI}/users`, {
       firstname: firstName,
       lastname: lastName,
       email: email,
       password: password,
-      profilePic: profilePic || defaultProfilePics[Math.floor(Math.random() * defaultProfilePics.length)],
+      profilePic: profilePic || randomDefaultProfilePic,
     })
     .then((response) => {
       if (response.data.message === 'created') {
