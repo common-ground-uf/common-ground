@@ -8,7 +8,7 @@ import {
   Button,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Contact } from '../commonTypes';
+import { Contact, Profile } from '../commonTypes';
 import { ContactListItem } from '../components/ContactListItem';
 import { generateOrderedRestaurantList } from '../api/yelpHelper';
 
@@ -46,7 +46,7 @@ type GroupDetailsProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   route: {
     params: {
-      users: any[];
+      users: Profile[];
       id: string;
       name: string;
       inviteCode: string;
@@ -74,8 +74,8 @@ function GroupDetails(props: GroupDetailsProps) {
   const groupName = props.route.params.name;
   const inviteCode = props.route.params.inviteCode;
 
-  const userIDs = members.map((member) => member._id);
-  console.log('User IDs: ' + userIDs);
+//   const userIDs = members?.map((member) => member._id);
+//   console.log('User IDs: ' + userIDs);
 
   const getGroupPreferences = async (groupId: string) => {
     // get preferences for each user in the group and consolidate into 1 string array

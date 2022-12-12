@@ -12,6 +12,13 @@ type SignupProps = {
   };
 };
 
+const defaultProfilePics = [
+    'https://i.postimg.cc/NFFmvnmd/Screen-Shot-2022-12-12-at-4-43-03-PM.png',
+    'https://i.postimg.cc/fWqYfwQp/Screen-Shot-2022-12-12-at-4-43-15-PM.png',
+    'https://i.postimg.cc/QxR5v0tq/Screen-Shot-2022-12-12-at-4-43-12-PM.png',
+    'https://i.postimg.cc/kXVKjkn4/Screen-Shot-2022-12-12-at-4-43-08-PM.png',
+];
+
 const SignupRequest = (
   firstName: string,
   lastName: string,
@@ -20,7 +27,8 @@ const SignupRequest = (
   navigation: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     navigate: any
-  }
+  },
+  profilePic?: string,
 ) => {
   axios
     .post(`${SERVER_URI}/users`, {
@@ -28,6 +36,7 @@ const SignupRequest = (
       lastname: lastName,
       email: email,
       password: password,
+      profilePic: profilePic || defaultProfilePics[Math.floor(Math.random() * defaultProfilePics.length)],
     })
     .then((response) => {
       if (response.data.message === 'created') {

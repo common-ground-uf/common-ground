@@ -11,6 +11,7 @@ import {
 import { Profile } from '../commonTypes';
 import { ContactBubble } from '../components/ContactBubble';
 import { SERVER_URI } from '../Config';
+import { Storage } from '../data/Storage';
 
 const styles = StyleSheet.create({
   startNewTable: {
@@ -45,12 +46,9 @@ type StartNewTableScreenProps = {
 };
 
 function StartNewTableScreen(props: StartNewTableScreenProps) {
-  const userIds = [
-    'a9c529deb69447b78cba5c5a0e7b33c9',
-    'a9c529deb69447b78cba5c5a0e7b33c9',
-    'a9c529deb69447b78cba5c5a0e7b33c9',
-    'a9c529deb69447b78cba5c5a0e7b33c9',
-  ];
+    // add current user to userIDs
+
+  let userIds: any = [];
   const [contactList, setContactList] = React.useState<Profile[]>([]);
 
   const getUsersByIds = async () => {
@@ -86,7 +84,7 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
     setSelected(newSelected);
   };
 
-  const onPressCreate = () => {
+  const onPressCreate = async () => {
     if (groupName === '') {
       setErrorState(true);
       return;
@@ -95,7 +93,7 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
     const selectedContacts = [];
     for (let i = 0; i < selected.length; i++) {
       if (selected[i]) {
-        selectedContacts.push(contactList[i].id);
+        selectedContacts.push(contactList[i]);
       }
     }
 
@@ -112,10 +110,20 @@ function StartNewTableScreen(props: StartNewTableScreenProps) {
         console.log(error);
         console.log(error.response.data);
       });
+    
+      const profile = await Storage.get('profile');
+      if (profile) {
+        const profileInfo = JSON.parse(profile);
+        if (selectedContacts.indexOf(profileInfo) === -1) {
+          selectedContacts.push(profileInfo);
+        }
+      }
+  
+    console.log('selectedContacts', selectedContacts);
 
     props.navigation.navigate('Group Details', {
       name: groupName,
-      members: selectedContacts,
+      users: selectedContacts,
     });
   };
 
